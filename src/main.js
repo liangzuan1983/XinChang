@@ -12,6 +12,8 @@ import '@/styles/index.scss' // global css
 import App from './App'
 import router from './router'
 import store from './store'
+import './styles/reset.css'
+import './styles/common.css'
 
 import i18n from './lang' // Internationalization
 import './icons' // icon
