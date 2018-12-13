@@ -43,7 +43,25 @@
   flex-wrap: wrap;
 }
 .shadowBack {
-  background: #0d1733;
-  -webkit-box-shadow: inset 0px 8px 8px #084e8a;
-  box-shadow: inset 0px 8px 8px #084e8a;
+  background: #081e38;
+  -webkit-box-shadow: inset 0px 0px 5px 5px #084e8a;
+  box-shadow: inset 0px 0px 5px 5px #084e8a;
+  padding: 15px;
+  margin: 5px;
+}
+.shadowBack1 {
+  background: #081e38;
+  -webkit-box-shadow: inset 0px 0px 5px 5px #084e8a;
+  box-shadow: inset 0px 0px 5px 5px #084e8a;
+  padding: 15px;
+  margin-right: 5px;
+}
+.shadowBack2 {
+  background: #081e38;
+  -webkit-box-shadow: inset 0px 0px 5px 5px #084e8a;
+  box-shadow: inset 0px 0px 5px 5px #084e8a;
+  padding: 15px;
+}
+.lmr {
+  margin: 5px;
 }
