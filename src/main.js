@@ -14,6 +14,7 @@ import router from './router'
 import store from './store'
 import './styles/reset.css'
 import './styles/common.css'
+import 'lib-flexible/flexible.js'
 
 import i18n from './lang' // Internationalization
 import './icons' // icon

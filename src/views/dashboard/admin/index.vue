@@ -55,7 +55,7 @@
           </div>
         </div>
         <!--负氧离子/风力湿度-->
-        <div class="flex-between">
+        <div class="flex-between mb50">
           <!--负氧离子-->
           <div class="flex-start fylzBox">
             <!--负氧离子-->
@@ -66,21 +66,21 @@
             <p>4000</p>
           </div>
           <!--风力湿度-->
-          <div>
+          <div class="fy-right">
             <!--湿度-->
-            <p>
-              <span/>
-              <span>湿度: 60%</span>
+            <p class="weather-four-p">
+              <span class="dian"/>
+              <span class="dian-text">湿度: 60%</span>
             </p>
             <!--风力-->
-            <p>
-              <span/>
-              <span>风力: 三级 风向: 西北风</span>
+            <p class="weather-four-p">
+              <span class="dian"/>
+              <span class="dian-text">风力: 三级 风向: 西北风</span>
             </p>
             <!--空气质量-->
             <p>
-              <span/>
-              <span>空气质量: 优</span>
+              <span class="dian"/>
+              <span class="dian-text">空气质量: 优</span>
             </p>
           </div>
         </div>
@@ -212,6 +212,23 @@ export default {
         color: #010d0c;
         text-align: center;
         line-height: 25px;
+      }
+      .fy-right {
+        .weather-four-p {
+          margin-bottom: 10px;
+        }
+        .dian {
+          width: 10px;
+          height: 10px;
+          background: #1addef;
+          border-radius: 50%;
+          margin-right: 10px;
+          display: inline-block;
+        }
+        .dian-text {
+          font-size: 18px;
+          color: #ffffff;
+        }
       }
     }
     .left-middle {
