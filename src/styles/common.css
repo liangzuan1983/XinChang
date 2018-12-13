@@ -42,3 +42,8 @@
   align-items: flex-start;
   flex-wrap: wrap;
 }
+.shadowBack {
+  background: #0d1733;
+  -webkit-box-shadow: inset 0px 8px 8px #084e8a;
+  box-shadow: inset 0px 8px 8px #084e8a;
+}
