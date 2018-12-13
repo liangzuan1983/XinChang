@@ -25,7 +25,8 @@ export default {
     mixChart: '混合图表',
     treeTable: '树形表格',
     customTreeTable: '自定义树表',
-    form: '表单'
+    form: '表单',
+    PassengerFlowAnalysis: '客流分析'
   },
   navbar: {
     logOut: '退出登录',

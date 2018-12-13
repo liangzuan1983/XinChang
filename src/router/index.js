@@ -73,6 +73,19 @@ export const constantRouterMap = [
     ]
   },
   {
+    path: '/PassengerFlowAnalysis',
+    component: Layout,
+    redirect: '/PassengerFlowAnalysis/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/PassengerFlowAnalysis'),
+        name: 'PassengerFlowAnalysis',
+        meta: { title: 'PassengerFlowAnalysis', icon: 'peoples', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/documentation',
     component: Layout,
     redirect: '/documentation/index',
