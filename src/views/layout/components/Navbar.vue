@@ -80,7 +80,7 @@ export default {
   height: 50px;
   line-height: 50px;
   border-radius: 0px !important;
-  background: #0d1733;
+  background: #242939;
   .navbar-left-box {
     img {
       width: 25px;
@@ -96,7 +96,7 @@ export default {
     }
   }
   .navBar-center-text {
-    color: #ffffff;
+    color: #1addef;
     font-size: 35px;
     font-family: 'bigName'
   }

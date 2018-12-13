@@ -8,9 +8,15 @@
         <p class="title">天气情况</p>
       </div>
       <!--左中-->
-      <div class="left-middle shadowBack">左中</div>
+      <div class="left-middle shadowBack">
+        <!--标题-->
+        <p class="title">乡村旅游热度排行top5</p>
+      </div>
       <!--左下-->
-      <div class="left-bottom shadowBack">左下</div>
+      <div class="left-bottom shadowBack">
+        <!--标题-->
+        <p class="title">旅游消费分析</p>
+      </div>
     </div>
     <!--中-->
     <div class="middle lmr">
@@ -19,21 +25,39 @@
       <!--中下-->
       <div class="middle-bottom flex-between">
         <!--中下左-->
-        <div class="middle-bottom-left shadowBack1">中下左</div>
+        <div class="middle-bottom-left shadowBack1">
+          <!--标题-->
+          <p class="title">客源地 城市 区县 TOP5</p>
+        </div>
         <!--中下右-->
-        <div class="middle-bottom-right shadowBack2">中下右</div>
+        <div class="middle-bottom-right shadowBack2">
+          <!--标题-->
+          <p class="title">近一周游客数</p>
+        </div>
       </div>
     </div>
     <!--右-->
     <div class="right lmr">
       <!--右1-->
-      <div class="right-one shadowBack">右1</div>
+      <div class="right-one shadowBack">
+        <!--标题-->
+        <p class="title">产业监测数据</p>
+      </div>
       <!--右2-->
-      <div class="right-two shadowBack">右2</div>
+      <div class="right-two shadowBack">
+        <!--标题-->
+        <p class="title">资源分布</p>
+      </div>
       <!--右3-->
-      <div class="right-three shadowBack">右3</div>
+      <div class="right-three shadowBack">
+        <!--标题-->
+        <p class="title">热词分布</p>
+      </div>
       <!--右4-->
-      <div class="right-four shadowBack">右4</div>
+      <div class="right-four shadowBack">
+        <!--标题-->
+        <p class="title">舆情分析</p>
+      </div>
     </div>
   </div>
 </template>
@@ -55,12 +79,12 @@ export default {
 <style rel="stylesheet/scss" lang="scss" scoped>
 .dashboard-editor-container {
   padding: 5px;
-  background-color: #0d1733;
-  box-shadow: inset 0px 8px 8px #084e8a;
+  background-color: #0a0f1f;
+  // box-shadow: inset 0px 8px 8px #084e8a;
   .title {
-    font-family: 'bigName';
     font-size: 16px;
-    color: #12ddf9;
+    color: #ffffff;
+    margin-bottom: 15px;
   }
   .left {
     width: 25%;

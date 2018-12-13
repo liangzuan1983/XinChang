@@ -43,24 +43,18 @@
   flex-wrap: wrap;
 }
 .shadowBack {
-  background: #081e38;
-  -webkit-box-shadow: inset 0px 0px 5px 5px #084e8a;
-  box-shadow: inset 0px 0px 5px 5px #084e8a;
-  padding: 15px;
+  border: 1px solid #ffffff;
+  padding: 5px;
   margin: 5px;
 }
 .shadowBack1 {
-  background: #081e38;
-  -webkit-box-shadow: inset 0px 0px 5px 5px #084e8a;
-  box-shadow: inset 0px 0px 5px 5px #084e8a;
-  padding: 15px;
+  border: 1px solid #ffffff;
+  padding: 5px;
   margin-right: 5px;
 }
 .shadowBack2 {
-  background: #081e38;
-  -webkit-box-shadow: inset 0px 0px 5px 5px #084e8a;
-  box-shadow: inset 0px 0px 5px 5px #084e8a;
-  padding: 15px;
+  border: 1px solid #ffffff;
+  padding: 5px;
 }
 .lmr {
   margin: 5px;
