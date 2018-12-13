@@ -1,7 +1,6 @@
 <template>
   <div class="navbar">
     <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
-
     <div class="right-menu flex-start">
       <template v-if="device!=='mobile'">
         <error-log class="errLog-container right-menu-item"/>
@@ -78,6 +77,7 @@ export default {
   height: 50px;
   line-height: 50px;
   border-radius: 0px !important;
+  background: #0d1733;
   .hamburger-container {
     line-height: 58px;
     height: 50px;

@@ -107,7 +107,7 @@ export const constantRouterMap = [
         path: 'index',
         component: () => import('@/views/forecast/index'),
         name: 'forecast',
-        meta: { title: 'forecast', icon: '', noCache: true }
+        meta: { title: 'forecast', icon: 'example', noCache: true }
       }
     ]
   },
@@ -190,7 +190,7 @@ export const constantRouterMap = [
     ]
   },
   {
-    path: 'economicalOperation', // 经济运行
+    path: '/economicalOperation', // 经济运行
     component: Layout,
     redirect: '/economicalOperation/index',
     children: [
