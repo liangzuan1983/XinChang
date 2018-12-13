@@ -9,7 +9,7 @@
       </div>
     </div>
     <!--中间标题-->
-    <div class="navBar-center-text">新昌县旅游大数据中心</div>
+    <div :style="navCenterBack" class="navBar-center-text">新昌县旅游大数据中心</div>
     <div class="right-menu flex-start">
       <template v-if="device!=='mobile'">
         <error-log class="errLog-container right-menu-item"/>
@@ -55,6 +55,13 @@ export default {
     ErrorLog,
     Screenfull
   },
+  data() {
+    return {
+      navCenterBack: {
+        backgroundImage: 'url(' + require('@/assets/icon/titleempt.png') + ')'
+      }
+    }
+  },
   computed: {
     ...mapGetters([
       'sidebar',
@@ -98,7 +105,16 @@ export default {
   .navBar-center-text {
     color: #1addef;
     font-size: 35px;
-    font-family: 'bigName'
+    font-family: 'bigName';
+    width: 38%;
+    background-repeat: no-repeat;
+    height: 74px;
+    background-size: 100% 100%;
+    position: relative;
+    top: 0px;
+    z-index: 999;
+    text-align: center;
+    line-height: 85px;
   }
   .hamburger-container {
     line-height: 58px;
