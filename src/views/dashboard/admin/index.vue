@@ -6,6 +6,54 @@
       <div class="left-top shadowBack">
         <!--标题-->
         <p class="title">天气情况</p>
+        <!--一排太阳-->
+        <div class="sunBox flex-between">
+          <!--每一组/根据天气的值/显示相应的天气icon-->
+          <div class="sunBoxOne">
+            <img src="@/assets/weather/45.png" class="weather-icon" alt="">
+            <img v-if="false" src="@/assets/weather/48.png" class="weather-icon" alt="">
+            <img v-if="false" src="@/assets/weather/49.png" class="weather-icon" alt="">
+            <img v-if="false" src="@/assets/weather/50.png" class="weather-icon" alt="">
+            <img v-if="false" src="@/assets/weather/51.png" class="weather-icon" alt="">
+            <p>18-26℃</p>
+          </div>
+          <!--每一组/根据天气的值/显示相应的天气icon-->
+          <div class="sunBoxOne">
+            <img v-if="false" src="@/assets/weather/45.png" class="weather-icon" alt="">
+            <img src="@/assets/weather/48.png" class="weather-icon" alt="">
+            <img v-if="false" src="@/assets/weather/49.png" class="weather-icon" alt="">
+            <img v-if="false" src="@/assets/weather/50.png" class="weather-icon" alt="">
+            <img v-if="false" src="@/assets/weather/51.png" class="weather-icon" alt="">
+            <p>18-26℃</p>
+          </div>
+          <!--每一组/根据天气的值/显示相应的天气icon-->
+          <div class="sunBoxOne">
+            <img v-if="false" src="@/assets/weather/45.png" class="weather-icon" alt="">
+            <img v-if="false" src="@/assets/weather/48.png" class="weather-icon" alt="">
+            <img src="@/assets/weather/49.png" class="weather-icon" alt="">
+            <img v-if="false" src="@/assets/weather/50.png" class="weather-icon" alt="">
+            <img v-if="false" src="@/assets/weather/51.png" class="weather-icon" alt="">
+            <p>18-26℃</p>
+          </div>
+          <!--每一组/根据天气的值/显示相应的天气icon-->
+          <div class="sunBoxOne">
+            <img v-if="false" src="@/assets/weather/45.png" class="weather-icon" alt="">
+            <img v-if="false" src="@/assets/weather/48.png" class="weather-icon" alt="">
+            <img v-if="false" src="@/assets/weather/49.png" class="weather-icon" alt="">
+            <img src="@/assets/weather/50.png" class="weather-icon" alt="">
+            <img v-if="false" src="@/assets/weather/51.png" class="weather-icon" alt="">
+            <p>18-26℃</p>
+          </div>
+          <!--每一组/根据天气的值/显示相应的天气icon-->
+          <div class="sunBoxOne">
+            <img v-if="false" src="@/assets/weather/45.png" class="weather-icon" alt="">
+            <img v-if="false" src="@/assets/weather/48.png" class="weather-icon" alt="">
+            <img v-if="false" src="@/assets/weather/49.png" class="weather-icon" alt="">
+            <img v-if="false" src="@/assets/weather/50.png" class="weather-icon" alt="">
+            <img src="@/assets/weather/51.png" class="weather-icon" alt="">
+            <p>18-26℃</p>
+          </div>
+        </div>
       </div>
       <!--左中-->
       <div class="left-middle shadowBack">
@@ -82,7 +130,7 @@ export default {
   background-color: #0a0f1f;
   // box-shadow: inset 0px 8px 8px #084e8a;
   .title {
-    font-size: 16px;
+    font-size: 18px;
     color: #ffffff;
     margin-bottom: 15px;
   }
@@ -91,6 +139,19 @@ export default {
     margin-left: 0px;
     .left-top {
       width: 100%;
+      .sunBox {
+        .sunBoxOne {
+          text-align: center;
+          .weather-icon {
+            width: 30px;
+            height: 30px;
+          }
+          p {
+            color: #ffffff;
+            font-size: 12px;
+          }
+        }
+      }
     }
     .left-middle {
       width: 100%;

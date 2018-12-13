@@ -2,11 +2,11 @@
   <div class="navbar flex-between">
     <div class="nav-left flex-start">
       <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
-      <div class="flex-start navbar-left-box">
+      <!-- <div class="flex-start navbar-left-box">
         <img src="@/assets/weather/48.png" alt="">
         <span class="span1">13-21℃</span>
         <span>空气指数: 优</span>
-      </div>
+      </div> -->
     </div>
     <!--中间标题-->
     <div :style="navCenterBack" class="navBar-center-text">新昌县旅游大数据中心</div>
@@ -14,13 +14,13 @@
       <template v-if="device!=='mobile'">
         <error-log class="errLog-container right-menu-item"/>
         <!--日期 星期-->
-        <p class="navBar-right-date">
+        <!-- <p class="navBar-right-date">
           <span>2018年8月20日</span>
           <span>星期三</span>
-        </p>
-        <el-tooltip :content="$t('navbar.screenfull')" effect="dark" placement="bottom">
+        </p> -->
+        <!-- <el-tooltip :content="$t('navbar.screenfull')" effect="dark" placement="bottom">
           <screenfull class="screenfull right-menu-item"/>
-        </el-tooltip>
+        </el-tooltip> -->
       </template>
 
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
