@@ -1,3 +1,10 @@
+/*
+  标题字体 庞门正道
+*/
+@font-face {
+  font-family: bigName;
+  src: url('../assets/fonts/庞门正道标题体2.0增强版.ttf')
+}
 .flex-between {
   display: flex;
   justify-content: space-between;

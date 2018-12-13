@@ -1,19 +1,26 @@
 <template>
-  <div class="navbar">
-    <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
+  <div class="navbar flex-between">
+    <div class="nav-left flex-start">
+      <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
+      <div class="flex-start navbar-left-box">
+        <img src="@/assets/weather/48.png" alt="">
+        <span class="span1">13-21℃</span>
+        <span>空气指数: 优</span>
+      </div>
+    </div>
+    <!--中间标题-->
+    <div class="navBar-center-text">新昌县旅游大数据中心</div>
     <div class="right-menu flex-start">
       <template v-if="device!=='mobile'">
         <error-log class="errLog-container right-menu-item"/>
-
+        <!--日期 星期-->
+        <p class="navBar-right-date">
+          <span>2018年8月20日</span>
+          <span>星期三</span>
+        </p>
         <el-tooltip :content="$t('navbar.screenfull')" effect="dark" placement="bottom">
           <screenfull class="screenfull right-menu-item"/>
         </el-tooltip>
-
-        <el-tooltip :content="$t('navbar.size')" effect="dark" placement="bottom">
-          <size-select class="international right-menu-item"/>
-        </el-tooltip>
-
-        <lang-select class="international right-menu-item"/>
       </template>
 
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
@@ -41,16 +48,12 @@ import { mapGetters } from 'vuex'
 import Hamburger from '@/components/Hamburger'
 import ErrorLog from '@/components/ErrorLog'
 import Screenfull from '@/components/Screenfull'
-import SizeSelect from '@/components/SizeSelect'
-import LangSelect from '@/components/LangSelect'
 
 export default {
   components: {
     Hamburger,
     ErrorLog,
-    Screenfull,
-    SizeSelect,
-    LangSelect
+    Screenfull
   },
   computed: {
     ...mapGetters([
@@ -78,6 +81,25 @@ export default {
   line-height: 50px;
   border-radius: 0px !important;
   background: #0d1733;
+  .navbar-left-box {
+    img {
+      width: 25px;
+      height: 25px;
+      margin: 10px;
+    }
+    span {
+      color: #ffffff;
+      font-size: 14px;
+    }
+    .span1 {
+      margin-right: 20px;
+    }
+  }
+  .navBar-center-text {
+    color: #ffffff;
+    font-size: 35px;
+    font-family: 'bigName'
+  }
   .hamburger-container {
     line-height: 58px;
     height: 50px;
@@ -92,8 +114,12 @@ export default {
     vertical-align: top;
   }
   .right-menu {
-    float: right;
     height: 100%;
+    .navBar-right-date {
+      color: #ffffff;
+      font-size: 14px;
+      margin-right: 20px;
+    }
     &:focus{
      outline: none;
     }
@@ -111,12 +137,12 @@ export default {
       height: 50px;
       margin-right: 30px;
       .avatar-wrapper {
-        margin-top: 5px;
+        margin-top: 2px;
         position: relative;
         .user-avatar {
           cursor: pointer;
-          width: 20px;
-          height: 20px;
+          width: 18px;
+          height: 18px;
         }
         .el-icon-caret-bottom {
           cursor: pointer;
