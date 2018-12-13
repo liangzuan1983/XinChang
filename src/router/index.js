@@ -73,7 +73,7 @@ export const constantRouterMap = [
     ]
   },
   {
-    path: '/PassengerFlowAnalysis',
+    path: '/PassengerFlowAnalysis', // 客流分析
     component: Layout,
     redirect: '/PassengerFlowAnalysis/index',
     children: [
@@ -86,7 +86,7 @@ export const constantRouterMap = [
     ]
   },
   {
-    path: '/traffic',
+    path: '/traffic', // 交通
     component: Layout,
     redirect: '/traffic/index',
     children: [
@@ -95,6 +95,32 @@ export const constantRouterMap = [
         component: () => import('@/views/traffic/index'),
         name: 'traffic',
         meta: { title: 'traffic', icon: 'guide', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/forecast', // 预测
+    component: Layout,
+    redirect: '/forecast/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/forecast/index'),
+        name: 'forecast',
+        meta: { title: 'forecast', icon: '', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/consumption', // 消费
+    component: Layout,
+    redirect: '/consumption/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/consumption/index'),
+        name: 'consumption',
+        meta: { title: 'consumption', icon: 'money', noCache: true }
       }
     ]
   },

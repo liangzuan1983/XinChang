@@ -26,8 +26,16 @@ export default {
     treeTable: '树形表格',
     customTreeTable: '自定义树表',
     form: '表单',
-    PassengerFlowAnalysis: '客流分析',
-    traffic: '交通'
+    PassengerFlowAnalysis: '客流分析', // 哎呀我草！这波英文写的我脑袋晕！想吐！
+    traffic: '交通', // 哎呀我草！这波英文写的我脑袋晕！想吐！
+    forecast: '预测', // 哎呀我草！这波英文写的我脑袋晕！想吐！
+    consumption: '消费', // 哎呀我草！这波英文写的我脑袋晕！想吐！
+    publicSentiment: '舆情', // 哎呀我草！这波英文写的我脑袋晕！想吐！
+    complaint: '投诉', // 哎呀我草！这波英文写的我脑袋晕！想吐！
+    specialHoliday: '特殊假日', // 哎呀我草！这波英文写的我脑袋晕！想吐！
+    portraitTourist: '游客画像', // 哎呀我草！这波英文写的我脑袋晕！想吐！
+    weatherEnvironment: '天气环境', // 哎呀我草！这波英文写的我脑袋晕！想吐！
+    economicalOperation: '经济运行' // 哎呀我草！这波英文写的我脑袋晕！想吐！
   },
   navbar: {
     logOut: '退出登录',
