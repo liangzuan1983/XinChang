@@ -125,6 +125,84 @@ export const constantRouterMap = [
     ]
   },
   {
+    path: '/publicSentiment', // 舆情
+    component: Layout,
+    redirect: '/publicSentiment/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/publicSentiment/index'),
+        name: 'publicSentiment',
+        meta: { title: 'publicSentiment', icon: 'message', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/complaint', // 投诉
+    component: Layout,
+    redirect: '/complaint/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/complaint/index'),
+        name: 'complaint',
+        meta: { title: 'complaint', icon: 'clipboard', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/specialHoliday', // 特殊假日
+    component: Layout,
+    redirect: '/specialHoliday/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/specialHoliday/index'),
+        name: 'specialHoliday',
+        meta: { title: 'specialHoliday', icon: 'star', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/portraitTourist', // 游客画像
+    component: Layout,
+    redirect: '/portraitTourist/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/portraitTourist/index'),
+        name: 'portraitTourist',
+        meta: { title: 'portraitTourist', icon: 'people', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/weatherEnvironment', // 天气环境
+    component: Layout,
+    redirect: '/weatherEnvironment/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/weatherEnvironment/index'),
+        name: 'weatherEnvironment',
+        meta: { title: 'weatherEnvironment', icon: 'bug', noCache: true }
+      }
+    ]
+  },
+  {
+    path: 'economicalOperation', // 经济运行
+    component: Layout,
+    redirect: '/economicalOperation/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/economicalOperation/index'),
+        name: 'economicalOperation',
+        meta: { title: 'economicalOperation', icon: 'chart', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/documentation',
     component: Layout,
     redirect: '/documentation/index',
