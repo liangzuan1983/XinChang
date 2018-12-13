@@ -26,7 +26,8 @@ export default {
     treeTable: '树形表格',
     customTreeTable: '自定义树表',
     form: '表单',
-    PassengerFlowAnalysis: '客流分析'
+    PassengerFlowAnalysis: '客流分析',
+    traffic: '交通'
   },
   navbar: {
     logOut: '退出登录',
