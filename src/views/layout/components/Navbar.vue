@@ -104,7 +104,7 @@ export default {
   }
   .navBar-center-text {
     color: #1addef;
-    font-size: 35px;
+    font-size: 36px;
     font-family: 'bigName';
     width: 38%;
     background-repeat: no-repeat;

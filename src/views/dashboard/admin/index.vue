@@ -54,6 +54,36 @@
             <p>18-26℃</p>
           </div>
         </div>
+        <!--负氧离子/风力湿度-->
+        <div class="flex-between">
+          <!--负氧离子-->
+          <div class="flex-start fylzBox">
+            <!--负氧离子-->
+            <p>
+              <span>富氧</span>
+              <span>离子</span>
+            </p>
+            <p>4000</p>
+          </div>
+          <!--风力湿度-->
+          <div>
+            <!--湿度-->
+            <p>
+              <span/>
+              <span>湿度: 60%</span>
+            </p>
+            <!--风力-->
+            <p>
+              <span/>
+              <span>风力: 三级 风向: 西北风</span>
+            </p>
+            <!--空气质量-->
+            <p>
+              <span/>
+              <span>空气质量: 优</span>
+            </p>
+          </div>
+        </div>
       </div>
       <!--左中-->
       <div class="left-middle shadowBack">
@@ -130,7 +160,7 @@ export default {
   background-color: #0a0f1f;
   // box-shadow: inset 0px 8px 8px #084e8a;
   .title {
-    font-size: 18px;
+    font-size: 27px;
     color: #ffffff;
     margin-bottom: 15px;
   }
@@ -140,17 +170,48 @@ export default {
     .left-top {
       width: 100%;
       .sunBox {
+        margin-bottom: 10px;
         .sunBoxOne {
           text-align: center;
           .weather-icon {
-            width: 30px;
-            height: 30px;
+            width: 43px;
+            height: 43px;
           }
           p {
             color: #ffffff;
-            font-size: 12px;
+            font-size: 15px;
           }
         }
+      }
+      .fylzBox > p:nth-child(1) {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        // background: #17d0bc;
+        background:  rgba(26, 239, 208, 0.8);
+        padding-top: 8px;
+        position: relative;
+        z-index: 999;
+      }
+      .fylzBox > p:nth-child(2) {
+        width: 77px;
+        height: 77px;
+        border: 5px solid #c2c2c2;
+        background: transparent;
+        font-size: 16px;
+        color: #c2c2c2;
+        text-align: center;
+        line-height: 67px;
+        border-radius: 50%;
+        position: relative;
+        right: 20px;
+      }
+      .fylzBox > p > span {
+        display: block;
+        font-size: 18px;
+        color: #010d0c;
+        text-align: center;
+        line-height: 25px;
       }
     }
     .left-middle {

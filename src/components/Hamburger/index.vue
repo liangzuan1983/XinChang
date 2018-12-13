@@ -22,7 +22,7 @@ export default {
 
 <style scoped>
 .fang {
-  font-size: 20px;
+  font-size: 33px;
   color: #ffffff;
   cursor: pointer;
 }
