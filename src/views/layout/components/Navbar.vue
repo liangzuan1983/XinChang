@@ -2,27 +2,34 @@
   <div class="navbar flex-between">
     <div class="nav-left flex-start">
       <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
-      <!-- <div class="flex-start navbar-left-box">
-        <img src="@/assets/weather/48.png" alt="">
-        <span class="span1">13-21℃</span>
-        <span>空气指数: 优</span>
-      </div> -->
+      <div class="time-box">
+        <!--年月日-->
+        <span>2018年12月13日</span>
+        <!--周几-->
+        <span>星期四</span>
+        <!--时间-->
+        <span>17:50</span>
+      </div>
     </div>
     <!--中间标题-->
     <div :style="navCenterBack" class="navBar-center-text">新昌县旅游大数据中心</div>
     <div class="right-menu flex-start">
       <template v-if="device!=='mobile'">
         <error-log class="errLog-container right-menu-item"/>
-        <!--日期 星期-->
-        <!-- <p class="navBar-right-date">
-          <span>2018年8月20日</span>
-          <span>星期三</span>
-        </p> -->
-        <!-- <el-tooltip :content="$t('navbar.screenfull')" effect="dark" placement="bottom">
-          <screenfull class="screenfull right-menu-item"/>
-        </el-tooltip> -->
       </template>
-
+      <!--右边信息-->
+      <div class="right-weather-box">
+        <!--图标和文字盒子-->
+        <div class="icon-box">
+          <!--天气-->
+          <img src="@/assets/weather/45.png" alt="">
+          <!--是否晴天-->
+          <span>晴</span>
+        </div>
+        <!--温度-->
+        <span>18-26℃</span>
+        <span>空气质量: 优</span>
+      </div>
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">
           <svg-icon icon-class="user" class="user-avatar" />
@@ -47,13 +54,11 @@
 import { mapGetters } from 'vuex'
 import Hamburger from '@/components/Hamburger'
 import ErrorLog from '@/components/ErrorLog'
-import Screenfull from '@/components/Screenfull'
 
 export default {
   components: {
     Hamburger,
-    ErrorLog,
-    Screenfull
+    ErrorLog
   },
   data() {
     return {
@@ -87,26 +92,28 @@ export default {
   height: 50px;
   line-height: 50px;
   border-radius: 0px !important;
-  background: #242939;
-  .navbar-left-box {
-    img {
-      width: 25px;
-      height: 25px;
-      margin: 10px;
-    }
-    span {
-      color: #ffffff;
-      font-size: 14px;
-    }
-    .span1 {
-      margin-right: 20px;
+  // background: #242939;
+  .nav-left {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .time-box {
+      width: 86%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        color: #ffffff;
+        font-size: 25px;
+      }
     }
   }
   .navBar-center-text {
-    color: #1addef;
+    color: #ffffff;
     font-size: 36px;
     font-family: 'bigName';
-    width: 38%;
+    width: 31%;
     background-repeat: no-repeat;
     height: 74px;
     background-size: 100% 100%;
@@ -131,11 +138,10 @@ export default {
   }
   .right-menu {
     height: 100%;
-    .navBar-right-date {
-      color: #ffffff;
-      font-size: 14px;
-      margin-right: 20px;
-    }
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     &:focus{
      outline: none;
     }
@@ -143,8 +149,29 @@ export default {
       display: inline-block;
       margin: 0 8px;
     }
-    .screenfull {
-      height: 20px;
+    .right-weather-box {
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .icon-box {
+        width: 19%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+          color: #ffffff;
+          font-size: 25px;
+        }
+        img {
+          width: 37px;
+          height: 37px;
+        }
+      }
+      span {
+        color: #ffffff;
+        font-size: 25px;
+      }
     }
     .international{
       vertical-align: top;
