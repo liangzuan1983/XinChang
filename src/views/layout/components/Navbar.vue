@@ -63,7 +63,7 @@ export default {
   data() {
     return {
       navCenterBack: {
-        backgroundImage: 'url(' + require('@/assets/icon/titleempt.png') + ')'
+        backgroundImage: 'url(' + require('@/assets/title.png') + ')'
       }
     }
   },

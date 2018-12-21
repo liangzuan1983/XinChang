@@ -60,6 +60,6 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   .scale-container {
-    background: red;
+    background: #111a29;
   }
 </style>
