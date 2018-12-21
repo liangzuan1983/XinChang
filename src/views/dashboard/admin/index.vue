@@ -69,7 +69,39 @@
         </div>
       </div>
       <!--乡村旅游热度排行top5-->
-      <div class="xcly"></div>
+      <div class="xcly">
+        <!--标题行-->
+        <div class="zdjq-title-box">
+          <p class="title">乡村旅游热度排行top5</p>
+          <p class="title-right">
+            <span>更多</span>
+            <span class="el-icon-d-arrow-right"/>
+          </p>
+        </div>
+        <!--内容-->
+        <div class="xcly-content">
+          <div class="xc-box">
+            <p class="num">1</p>
+            <p class="name">梅渚镇</p>
+          </div>
+          <div class="xc-box2">
+            <p class="num">2</p>
+            <p class="name">巧英乡</p>
+          </div>
+          <div class="xc-box3">
+            <p class="num">3</p>
+            <p class="name">东明乡</p>
+          </div>
+          <div class="xc-box4">
+            <p class="num">4</p>
+            <p class="name">回乡镇</p>
+          </div>
+          <div class="xc-box5">
+            <p class="num">5</p>
+            <p class="name">沙溪镇</p>
+          </div>
+        </div>
+      </div>
       <!--旅游消费额变化趋势/类型分析-->
       <div class="edfl"></div>
     </div>
@@ -106,23 +138,6 @@ export default {
   },
   data() {
     return {
-      top5: [
-        {
-          value: '梅渚镇'
-        },
-        {
-          value: '巧英乡'
-        },
-        {
-          value: '东茗乡'
-        },
-        {
-          value: '回乡镇'
-        },
-        {
-          value: '沙溪镇'
-        }
-      ]
     }
   },
   methods: {
@@ -265,9 +280,183 @@ export default {
       }
     }
     .xcly {
+      padding: 2% 3%;
       flex-grow: 1.3;
       background: rgba(255, 255, 255, 0.05);
       margin-bottom: 1.5%;
+      display: flex;
+      flex-direction: column;
+      .zdjq-title-box {
+        flex-grow: 1;
+        // background: red;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+          font-size: 25px;
+          color: #bbd5ff;
+        }
+        .title-right {
+          span {
+            font-size: 18px;
+            color: #bbd5ff;
+          }
+        }
+      }
+      .xcly-content {
+        flex-grow: 3.5;
+        // background: firebrick;
+        padding-left: 5%;
+        padding-right: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .xc-box {
+          display: flex;
+          justify-content: space-between;
+          .num {
+            flex: 1;
+            background: #47b2d3;
+            margin-right: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 17px;
+            color: #2d3950;
+            border-radius: 15px;
+            // padding-top: 1%;
+            // padding-bottom: 1%;
+          }
+          .name {
+            flex: 6;
+            background: #47b2d3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 17px;
+            color: #2d3950;
+            border-radius: 15px;
+            padding-top: 1%;
+            padding-bottom: 1%;
+          }
+        }
+        .xc-box2 {
+          display: flex;
+          justify-content: space-between;
+          .num {
+            flex: 1;
+            background: #38a6d6;
+            margin-right: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 17px;
+            color: #2d3950;
+            border-radius: 15px;
+            // padding-top: 1%;
+            // padding-bottom: 1%;
+          }
+          .name {
+            flex: 6;
+            background: #38a6d6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 17px;
+            color: #2d3950;
+            border-radius: 15px;
+            padding-top: 1%;
+            padding-bottom: 1%;
+          }
+        }
+        .xc-box3 {
+          display: flex;
+          justify-content: space-between;
+          .num {
+            flex: 1;
+            background: #279ad9;
+            margin-right: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 17px;
+            color: #2d3950;
+            border-radius: 15px;
+            // padding-top: 1%;
+            // padding-bottom: 1%;
+          }
+          .name {
+            flex: 6;
+            background: #279ad9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 17px;
+            color: #2d3950;
+            border-radius: 15px;
+            padding-top: 1%;
+            padding-bottom: 1%;
+          }
+        }
+        .xc-box4 {
+          display: flex;
+          justify-content: space-between;
+          .num {
+            flex: 1;
+            background: #188edb;
+            margin-right: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 17px;
+            color: #2d3950;
+            border-radius: 15px;
+            // padding-top: 1%;
+            // padding-bottom: 1%;
+          }
+          .name {
+            flex: 6;
+            background: #188edb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 17px;
+            color: #2d3950;
+            border-radius: 15px;
+            padding-top: 1%;
+            padding-bottom: 1%;
+          }
+        }
+        .xc-box5 {
+          display: flex;
+          justify-content: space-between;
+          .num {
+            flex: 1;
+            background: #0982de;
+            margin-right: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 17px;
+            color: #2d3950;
+            border-radius: 15px;
+            // padding-top: 1%;
+            // padding-bottom: 1%;
+          }
+          .name {
+            flex: 6;
+            background: #0982de;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 17px;
+            color: #2d3950;
+            border-radius: 15px;
+            padding-top: 1%;
+            padding-bottom: 1%;
+          }
+        }
+      }
     }
     .edfl {
       flex-grow: 2.3;
