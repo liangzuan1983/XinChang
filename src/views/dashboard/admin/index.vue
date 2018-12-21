@@ -175,7 +175,9 @@
           </div>
           <!--内容区-->
           <div class="content-box">
-            
+            <div class="chart-wrapper">
+              <yi-zhou height="100%" width="100%"/>
+            </div>
           </div>
         </div>
       </div>
@@ -250,10 +252,11 @@
 import lvxf from '@/components/Charts/lineMarkerOne'
 import BarChart from '@/views/dashboard/admin/components/BarChart'
 import PieChartFull from '@/views/dashboard/admin/components/PieChartFull'
+import YiZhou from '@/views/dashboard/admin/components/YiZhou'
 export default {
   name: 'DashboardAdmin',
   components: {
-    lvxf, BarChart, PieChartFull
+    lvxf, BarChart, PieChartFull, YiZhou
   },
   data() {
     return {
@@ -723,7 +726,11 @@ export default {
         }
         .content-box {
           flex: 6;
-          background: #0982de;
+          // background: #0982de;
+          .chart-wrapper {
+            width: 100%;
+            height: 100%;
+          }
         }
       }
     }
