@@ -1,6 +1,7 @@
 <template>
   <div :style="getStyle()" class="scale-container">
     <slot/>
+    <img class="ysj" src="@/assets/10.png" alt="">
   </div>
 </template>
 
@@ -61,5 +62,12 @@ export default {
 <style rel="stylesheet/scss" lang="scss" scoped>
   .scale-container {
     background: #111a29;
+    position: relative;
+    .ysj {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+    }
   }
 </style>

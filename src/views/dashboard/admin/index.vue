@@ -294,6 +294,8 @@ export default {
   // background-color: #111a29;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 999;
   .left {
     flex: 1;
     // background: yellow;

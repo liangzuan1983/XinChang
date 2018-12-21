@@ -93,8 +93,10 @@ export default {
   line-height: 50px;
   border-radius: 0px !important;
   // background: #242939;
+  position: relative;
+  z-index: 999;
   .nav-left {
-    width: 30%;
+    width: 25%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -105,7 +107,7 @@ export default {
       align-items: center;
       span {
         color: #ffffff;
-        font-size: 25px;
+        font-size: 22px;
       }
     }
   }
@@ -138,7 +140,7 @@ export default {
   }
   .right-menu {
     height: 100%;
-    width: 30%;
+    width: 25%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -161,7 +163,7 @@ export default {
         align-items: center;
         span {
           color: #ffffff;
-          font-size: 25px;
+          font-size: 22px;
         }
         img {
           width: 37px;
@@ -170,7 +172,7 @@ export default {
       }
       span {
         color: #ffffff;
-        font-size: 25px;
+        font-size: 22px;
       }
     }
     .international{
