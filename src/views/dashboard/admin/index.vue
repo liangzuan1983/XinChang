@@ -196,62 +196,119 @@
       <!--cyjc-->
       <div class="cyjc">
         <!--标题行-->
-          <div class="zdjq-title-box">
-            <p class="title">产业检测数据</p>
-            <p class="title-right">
-              <span>更多</span>
-              <span class="el-icon-d-arrow-right"/>
-            </p>
+        <div class="zdjq-title-box">
+          <p class="title">产业检测数据</p>
+          <p class="title-right">
+            <span>更多</span>
+            <span class="el-icon-d-arrow-right"/>
+          </p>
+        </div>
+        <!--内容区-->
+        <div class="content-box">
+          <!--左-->
+          <div class="left-box">
+            <!--上-->
+            <div class="top-box">
+              <img src="@/assets/icon/pplb.png" alt="">
+              <div class="text-box">
+                <p class="title">游客接待数</p>
+                <p class="content-box">
+                  <span class="num">1620</span>
+                  <span class="unit">个</span>
+                </p>
+              </div>
+            </div>
+            <!--下-->
+            <div class="bottom-box">
+              <!--境外-->
+              <p class="l-box">
+                <span class="name">境外游客</span>
+                <span class="num">520</span>
+                <span class="unit">个</span>
+              </p>
+              <!--境内-->
+              <p class="l-box">
+                <span class="name">境外游客</span>
+                <span class="num">1100</span>
+                <span class="unit">个</span>
+              </p>
+            </div>
           </div>
-          <!--内容区-->
-          <div class="content-box">
-            
+          <!--右-->
+          <div class="right-box">
+            <!--上-->
+            <div class="top-box">
+              <img src="@/assets/icon/incomor.png" alt="">
+              <div class="text-box">
+                <p class="title">旅游收入</p>
+                <p class="content-box">
+                  <span class="num">2978</span>
+                  <span class="unit">万元</span>
+                </p>
+              </div>
+            </div>
+            <!--下-->
+            <div class="bottom-box">
+              <!--境外-->
+              <p class="l-box">
+                <span class="name">境外游客</span>
+                <span class="num">920</span>
+                <span class="unit">万元</span>
+              </p>
+              <!--境内-->
+              <p class="l-box">
+                <span class="name">境外游客</span>
+                <span class="num">2058</span>
+                <span class="unit">万元</span>
+              </p>
+            </div>
           </div>
+        </div>
       </div>
       <!--zyfb-->
       <div class="zyfb">
         <!--标题行-->
-          <div class="zdjq-title-box">
-            <p class="title">资源分布</p>
-            <p class="title-right">
-              <span>更多</span>
-              <span class="el-icon-d-arrow-right"/>
-            </p>
-          </div>
-          <!--内容区-->
-          <div class="content-box">
-            
-          </div>
+        <div class="zdjq-title-box">
+          <p class="title">资源分布</p>
+          <p class="title-right">
+            <span>更多</span>
+            <span class="el-icon-d-arrow-right"/>
+          </p>
+        </div>
+        <!--内容区-->
+        <div class="content-box">
+          
+        </div>
       </div>
       <!--rcph-->
       <div class="rcfb">
         <!--标题行-->
-          <div class="zdjq-title-box">
-            <p class="title">热词排行</p>
-            <p class="title-right">
-              <span>更多</span>
-              <span class="el-icon-d-arrow-right"/>
-            </p>
-          </div>
-          <!--内容区-->
-          <div class="content-box">
-            
-          </div>
+        <div class="zdjq-title-box">
+          <p class="title">热词排行</p>
+          <p class="title-right">
+            <span>更多</span>
+            <span class="el-icon-d-arrow-right"/>
+          </p>
+        </div>
+        <!--内容区-->
+        <div class="content-box">
+          
+        </div>
       </div>
       <!--yqfx-->
       <div class="yqfx">
         <!--标题行-->
-          <div class="zdjq-title-box">
-            <p class="title">舆情分析</p>
-            <p class="title-right">
-              <span>更多</span>
-              <span class="el-icon-d-arrow-right"/>
-            </p>
-          </div>
-          <!--内容区-->
-          <div class="content-box">
-            
-          </div>
+        <div class="zdjq-title-box">
+          <p class="title">舆情分析</p>
+          <p class="title-right">
+            <span>更多</span>
+            <span class="el-icon-d-arrow-right"/>
+          </p>
+        </div>
+        <!--内容区-->
+        <div class="content-box">
+          
+        </div>
       </div>
     </div>
   </div>
@@ -837,7 +894,123 @@ export default {
       }
       .content-box {
         flex: 6;
-        background: #0982de;
+        // background: #0982de;
+        display: flex;
+        justify-content: space-between;
+        .left-box {
+          flex: 1;
+          // background: red;
+          margin-right: 5%;
+          .top-box {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8%;
+            img {
+              width: 58px;
+              height: 58px;
+            }
+            .text-box {
+              display: flex;
+              justify-content: space-between;
+              flex-direction: column;
+              .title {
+                font-size: 18px;
+                font-weight: bold;
+                color: #ffffff;
+                margin-bottom: 10%;
+              }
+              .content-box {
+                display: flex;
+                justify-content: space-between;
+                .num {
+                  font-size: 23px;
+                  color: #f69704;
+                  font-weight: bold;
+                }
+                .unit {
+                  font-size: 19px;
+                  color: #ffffff;
+                }
+              }
+            }
+          }
+          .bottom-box {
+            .l-box {
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 8%;
+              .name {
+                font-size: 20px;
+                color: #ffffff;
+              }
+              .num {
+                font-size: 20px;
+                color: #f69704;
+              }
+              .unit {
+                font-size: 18px;
+                color: #ffffff;
+              }
+            }
+          }
+        }
+        .right-box {
+          flex: 1;
+          // background: #279ad9;
+          margin-left: 5%;
+          .top-box {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8%;
+            img {
+              width: 58px;
+              height: 58px;
+            }
+            .text-box {
+              display: flex;
+              justify-content: space-between;
+              flex-direction: column;
+              .title {
+                font-size: 18px;
+                font-weight: bold;
+                color: #ffffff;
+                margin-bottom: 10%;
+              }
+              .content-box {
+                display: flex;
+                justify-content: space-between;
+                .num {
+                  font-size: 23px;
+                  color: #f69704;
+                  font-weight: bold;
+                }
+                .unit {
+                  font-size: 19px;
+                  color: #ffffff;
+                }
+              }
+            }
+          }
+          .bottom-box {
+            .l-box {
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 8%;
+              .name {
+                font-size: 20px;
+                color: #ffffff;
+              }
+              .num {
+                font-size: 20px;
+                color: #f69704;
+              }
+              .unit {
+                font-size: 18px;
+                color: #ffffff;
+              }
+            }
+          }
+        }
       }
     }
     .zyfb {
