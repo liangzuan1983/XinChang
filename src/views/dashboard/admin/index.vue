@@ -145,6 +145,13 @@
       <!--main-->
       <div class="main">
         <img src="@/assets/map.png" alt="">
+        <!--按钮-->
+        <div class="btn">
+          <div class="btn-box">
+            <p class="qy" :class="{qyb: qyb}" @click="qyEvent">全域客流</p>
+            <p class="zy" :class="{zyb: zyb}" @click="lyEvent">旅游资源</p>
+          </div>
+        </div>
       </div>
       <!--main-bottom-->
       <div class="main-bottom">
@@ -262,9 +269,19 @@ export default {
   },
   data() {
     return {
+      qyb: true,
+      zyb: false
     }
   },
   methods: {
+    qyEvent() {
+      this.qyb = true
+      this.zyb = false
+    },
+    lyEvent() {
+      this.qyb = false
+      this.zyb = true
+    }
   }
 }
 </script>
@@ -663,9 +680,50 @@ export default {
       // background: rgba(255, 255, 255, 0.05);
       margin: 1%;
       padding: 5%;
+      position: relative;
       img {
         width: 100%;
         height: 100%;
+      }
+      .btn {
+        position: absolute;
+        right: 5%;
+        bottom: 5%;
+        width: 35%;
+        display: flex;
+        height: 9%;
+        .btn-box {
+          flex: 1;
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+          width: 10%;
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 30px;
+          padding: 2%;
+          .qy {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-size: 22px;
+            // background: hotpink;
+            border-radius: 30px;
+          }
+          .qyb { background: rgba(255, 255, 255, 0.2); }
+          .zy {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-size: 22px;
+            // background: aquamarine;
+            border-radius: 30px;
+          }
+          .zyb { background: rgba(255, 255, 255, 0.2); }
+        }
       }
     }
     .main-bottom {
@@ -722,6 +780,8 @@ export default {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          position: relative;
+          top: 7%;
           .title {
             font-size: 22px;
             color: #bbd5ff;
@@ -792,7 +852,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         .title {
-          font-size: 25px;
+          font-size: 22px;
           color: #bbd5ff;
         }
         .title-right {
@@ -821,7 +881,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         .title {
-          font-size: 25px;
+          font-size: 22px;
           color: #bbd5ff;
         }
         .title-right {
@@ -849,7 +909,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         .title {
-          font-size: 25px;
+          font-size: 22px;
           color: #bbd5ff;
         }
         .title-right {

@@ -58,10 +58,10 @@ export default {
           type: 'value'
         },
         grid: {
-          top: '5%',
+          top: '20%',
           left: '0%',
-          right: '0%',
-          bottom: '1%',
+          right: '7%',
+          bottom: '30%',
           containLabel: true
         },
         series: [{
