@@ -277,7 +277,78 @@
         </div>
         <!--内容区-->
         <div class="content-box">
-          
+          <!--上-->
+          <div class="top">
+            <div class="one">
+              <img src="@/assets/icon/pk.png" alt="">
+              <div class="text-box">
+                <p class="name">景区</p>
+                <p class="num">20</p>
+              </div>
+            </div>
+            <div class="one">
+              <img src="@/assets/icon/cafe.png" alt="">
+              <div class="text-box">
+                <p class="name">餐饮</p>
+                <p class="num">132</p>
+              </div>
+            </div>
+            <div class="one">
+              <img src="@/assets/icon/hotel.png" alt="">
+              <div class="text-box">
+                <p class="name">酒店</p>
+                <p class="num">100</p>
+              </div>
+            </div>
+          </div>
+          <!--中-->
+          <div class="middles">
+            <div class="one">
+              <img src="@/assets/icon/town.png" alt="">
+              <div class="text-box text-box1">
+                <p class="name">A级村庄</p>
+                <p class="num">20</p>
+              </div>
+            </div>
+            <div class="one">
+              <img src="@/assets/icon/tvlag.png" class="qg" alt="">
+              <div class="text-box">
+                <p class="name">旅行社</p>
+                <p class="num">30</p>
+              </div>
+            </div>
+            <div class="one">
+              <img src="@/assets/icon/minsu.png" class="ms" alt="">
+              <div class="text-box">
+                <p class="name">民宿</p>
+                <p class="num">59</p>
+              </div>
+            </div>
+          </div>
+          <!--下-->
+          <div class="bottom">
+            <div class="one">
+              <img src="@/assets/icon/shop.png" alt="">
+              <div class="text-box">
+                <p class="name">购物处</p>
+                <p class="num">184</p>
+              </div>
+            </div>
+            <div class="one one1">
+              <img src="@/assets/icon/toilet.png" alt="">
+              <div class="text-box">
+                <p class="name">景区公厕</p>
+                <p class="num">96</p>
+              </div>
+            </div>
+            <div class="one">
+              <img src="@/assets/icon/daoyou.png" class="dy" alt="">
+              <div class="text-box">
+                <p class="name">导游</p>
+                <p class="num">98</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <!--rcph-->
@@ -900,7 +971,7 @@ export default {
         .left-box {
           flex: 1;
           // background: red;
-          margin-right: 5%;
+          margin-right: 3%;
           .top-box {
             display: flex;
             justify-content: space-between;
@@ -957,7 +1028,7 @@ export default {
         .right-box {
           flex: 1;
           // background: #279ad9;
-          margin-left: 5%;
+          margin-left: 3%;
           .top-box {
             display: flex;
             justify-content: space-between;
@@ -1039,7 +1110,116 @@ export default {
       }
       .content-box {
         flex: 6;
-        background: #0982de;
+        // background: #0982de;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .top {
+          flex: 1;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          // background: firebrick;
+          .one {
+            display: flex;
+            width: 25%;
+            justify-content: space-between;
+            img {
+              width: 40px;
+              height: 40px;
+            }
+            .text-box {
+              .name {
+                font-size: 18px;
+                color: #ffffff;
+                margin-bottom: 5%;
+              }
+              .num {
+                font-size: 18px;
+                color: #f69704;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+        .middles {
+          flex: 1;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          // background: khaki;
+          .one {
+            display: flex;
+            width: 31%;
+            justify-content: space-between;
+            img {
+              width: 40px;
+              height: 40px;
+            }
+            .qg {
+              position: relative;
+              left: 10%;
+            }
+            .ms {
+              position: relative;
+              left: 18%;
+            }
+            .text-box {
+              .name {
+                font-size: 18px;
+                color: #ffffff;
+                margin-bottom: 5%;
+              }
+              .num {
+                font-size: 18px;
+                color: #f69704;
+                font-weight: bold;
+              }
+            }
+            .text-box1 {
+              position: relative;
+              left: 4%;
+            }
+          }
+        }
+        .bottom {
+          flex: 1;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          // background: palegreen;
+          .one {
+            display: flex;
+            width: 31%;
+            justify-content: space-between;
+            img {
+              width: 40px;
+              height: 40px;
+            }
+            .dy {
+              position: relative;
+              left: 18%;
+            }
+            .text-box {
+              .name {
+                font-size: 18px;
+                color: #ffffff;
+                margin-bottom: 5%;
+              }
+              .num {
+                font-size: 18px;
+                color: #f69704;
+                font-weight: bold;
+              }
+            }
+          }
+          .one1 {
+            position: relative;
+            left: 4%;
+          }
+        }
       }
     }
     .rcfb {
