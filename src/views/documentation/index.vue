@@ -11,11 +11,6 @@
           <raddar-chart/>
         </div>
       </el-col>
-      <el-col :xs="24" :sm="24" :lg="8">
-        <div class="chart-wrapper">
-          <pie-chart/>
-        </div>
-      </el-col>
     </el-row>
 
   </div>
@@ -24,7 +19,6 @@
 <script>
 import LineChart from '@/views/dashboard/admin/components/LineChart'
 import RaddarChart from '@/views/dashboard/admin/components/RaddarChart'
-import PieChart from '@/views/dashboard/admin/components/PieChart'
 
 const lineChartData = {
   newVisitis: {
@@ -49,8 +43,7 @@ export default {
   name: 'DashboardAdmin',
   components: {
     LineChart,
-    RaddarChart,
-    PieChart
+    RaddarChart
   },
   data() {
     return {

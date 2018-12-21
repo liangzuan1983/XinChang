@@ -158,7 +158,9 @@
           </div>
           <!--内容区-->
           <div class="content-box">
-            
+            <div class="chart-wrapper">
+              <pie-chart-full height="100%" width="100%"/>
+            </div>
           </div>
         </div>
         <!--进一周游客数-->
@@ -247,10 +249,11 @@
 <script>
 import lvxf from '@/components/Charts/lineMarkerOne'
 import BarChart from '@/views/dashboard/admin/components/BarChart'
+import PieChartFull from '@/views/dashboard/admin/components/PieChartFull'
 export default {
   name: 'DashboardAdmin',
   components: {
-    lvxf, BarChart
+    lvxf, BarChart, PieChartFull
   },
   data() {
     return {
@@ -687,6 +690,10 @@ export default {
         .content-box {
           flex: 6;
           background: #0982de;
+          .chart-wrapper {
+            width: 100%;
+            height: 100%;
+          }
         }
       }
       .yks {

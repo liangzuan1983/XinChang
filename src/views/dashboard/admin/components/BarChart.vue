@@ -66,7 +66,7 @@ export default {
         },
         xAxis: [{
           type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          data: ['餐饮', '住宿', '交通', '游玩', '购物', '娱乐'],
           axisTick: {
             alignWithLabel: true
           }
