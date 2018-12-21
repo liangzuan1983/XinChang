@@ -143,7 +143,9 @@
     <!--中-->
     <div class="middle">
       <!--main-->
-      <div class="main"></div>
+      <div class="main">
+        <img src="@/assets/map.png" alt="">
+      </div>
       <!--main-bottom-->
       <div class="main-bottom">
         <!--客源地-->
@@ -657,16 +659,22 @@ export default {
     display: flex;
     flex-direction: column;
     .main {
-      flex-grow: 2.6;
-      background: rgba(255, 255, 255, 0.05);
+      flex: 2;
+      // background: rgba(255, 255, 255, 0.05);
       margin: 1%;
+      padding: 5%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
     .main-bottom {
       flex-grow: 1;
       // background: indianred;
       display: flex;
       .kyd {
-        flex-grow: 1;
+        // flex-grow: 1;
+        width:49%;
         background: rgba(255, 255, 255, 0.05);
         margin-left: 1%;
         margin-right: 0.5%;
@@ -700,7 +708,8 @@ export default {
         }
       }
       .yks {
-        flex-grow: 1;
+        // flex-grow: 1;
+        width:48%;
         background: rgba(255, 255, 255, 0.05);
         margin-left: 0.5%;
         margin-right: 1%;
