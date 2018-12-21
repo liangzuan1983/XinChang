@@ -30,7 +30,7 @@
             </div>
             <!--旅游收入-->
             <div class="dfs-content">
-              <img class="dfs-icon" src="@/assets/icon/incom.png" alt="">
+              <img class="dfs-icon dfs-icons" src="@/assets/icon/incom.png" alt="">
               <div class="dfs-content-right">
                 <p class="dfs-text">旅游收入</p>
                 <p class="dfs-num-box">
@@ -45,7 +45,7 @@
             <p class="dfs-title">十九峰</p>
             <!--游客接待数-->
             <div class="dfs-content">
-              <img class="dfs-icon" src="@/assets/icon/ppl.png" alt="">
+              <img class="dfs-icon dfs-icons" src="@/assets/icon/ppl.png" alt="">
               <div class="dfs-content-right">
                 <p class="dfs-text">游客接待数</p>
                 <p class="dfs-num-box">
@@ -483,6 +483,10 @@ export default {
               height: 36px;
               margin-right: 3%;
             }
+            .dfs-icons {
+              position: relative;
+              right: 5%;
+            }
             .dfs-content-right {
               .dfs-text {
                 font-size: 18px;
@@ -527,6 +531,10 @@ export default {
               width: 36px;
               height: 36px;
               margin-right: 3%;
+            }
+            .dfs-icons {
+              position: relative;
+              left: 5%;
             }
             .dfs-content-right {
               .dfs-text {
