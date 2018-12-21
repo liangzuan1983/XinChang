@@ -16,11 +16,6 @@
           <pie-chart/>
         </div>
       </el-col>
-      <el-col :xs="24" :sm="24" :lg="8">
-        <div class="chart-wrapper">
-          <bar-chart/>
-        </div>
-      </el-col>
     </el-row>
 
   </div>
@@ -30,7 +25,6 @@
 import LineChart from '@/views/dashboard/admin/components/LineChart'
 import RaddarChart from '@/views/dashboard/admin/components/RaddarChart'
 import PieChart from '@/views/dashboard/admin/components/PieChart'
-import BarChart from '@/views/dashboard/admin/components/BarChart'
 
 const lineChartData = {
   newVisitis: {
@@ -56,8 +50,7 @@ export default {
   components: {
     LineChart,
     RaddarChart,
-    PieChart,
-    BarChart
+    PieChart
   },
   data() {
     return {

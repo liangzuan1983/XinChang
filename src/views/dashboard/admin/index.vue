@@ -116,7 +116,9 @@
           </div>
           <!--内容区-->
           <div class="content-box">
-
+            <div class="chart-container">
+              <lvxf height="100%" width="100%"/>
+            </div>
           </div>
         </div>
         <!--旅游消费类型分析-->
@@ -131,7 +133,9 @@
           </div>
           <!--内容区-->
           <div class="content-box">
-            
+            <div class="chart-wrapper">
+              <bar-chart height="100%" width="100%"/>
+            </div>
           </div>
         </div>
       </div>
@@ -241,9 +245,12 @@
 </template>
 
 <script>
+import lvxf from '@/components/Charts/lineMarkerOne'
+import BarChart from '@/views/dashboard/admin/components/BarChart'
 export default {
   name: 'DashboardAdmin',
   components: {
+    lvxf, BarChart
   },
   data() {
     return {
@@ -275,7 +282,7 @@ export default {
       flex-direction: column;
       padding: 2% 3%;
       .zdjq-title-box {
-        flex-grow: 1;
+        flex: 1;
         // background: red;
         display: flex;
         justify-content: space-between;
@@ -596,7 +603,12 @@ export default {
         }
         .content-box {
           flex-grow: 6;
-          background: #0982de;
+          // background: #0982de;
+          .chart-container{
+            margin-bottom: -10%;
+            width: 100%;
+            height: 100%;
+          }
         }
       }
       .lx {
@@ -623,7 +635,12 @@ export default {
         }
         .content-box {
           flex: 6;
-          background: #0982de;
+          // background: #0982de;
+          .chart-wrapper {
+            width: 100%;
+            height: 100%;
+            margin-bottom: -10%
+          }
         }
       }
     }
