@@ -105,7 +105,7 @@
       <!--旅游消费额变化趋势/类型分析-->
       <div class="edfl">
         <!--旅游消费额变化-->
-        <div>
+        <div class="bh">
           <!--标题行-->
           <div class="zdjq-title-box">
             <p class="title">旅游消费额度变化趋势(万元)</p>
@@ -115,12 +115,12 @@
             </p>
           </div>
           <!--内容区-->
-          <div>
+          <div class="content-box">
 
           </div>
         </div>
         <!--旅游消费类型分析-->
-        <div>
+        <div class="lx">
           <!--标题行-->
           <div class="zdjq-title-box">
             <p class="title">旅游消费类型分析(万元)</p>
@@ -130,7 +130,7 @@
             </p>
           </div>
           <!--内容区-->
-          <div>
+          <div class="content-box">
             
           </div>
         </div>
@@ -153,7 +153,7 @@
             </p>
           </div>
           <!--内容区-->
-          <div>
+          <div class="content-box">
             
           </div>
         </div>
@@ -168,7 +168,7 @@
             </p>
           </div>
           <!--内容区-->
-          <div>
+          <div class="content-box">
             
           </div>
         </div>
@@ -187,7 +187,7 @@
             </p>
           </div>
           <!--内容区-->
-          <div>
+          <div class="content-box">
             
           </div>
       </div>
@@ -202,7 +202,7 @@
             </p>
           </div>
           <!--内容区-->
-          <div>
+          <div class="content-box">
             
           </div>
       </div>
@@ -217,7 +217,7 @@
             </p>
           </div>
           <!--内容区-->
-          <div>
+          <div class="content-box">
             
           </div>
       </div>
@@ -232,7 +232,7 @@
             </p>
           </div>
           <!--内容区-->
-          <div>
+          <div class="content-box">
             
           </div>
       </div>
@@ -281,7 +281,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         .title {
-          font-size: 25px;
+          font-size: 22px;
           color: #bbd5ff;
         }
         .title-right {
@@ -402,7 +402,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         .title {
-          font-size: 25px;
+          font-size: 22px;
           color: #bbd5ff;
         }
         .title-right {
@@ -570,6 +570,62 @@ export default {
     .edfl {
       flex-grow: 2.3;
       background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      flex-direction: column;
+      .bh {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 2% 3%;
+        .zdjq-title-box {
+          flex-grow: 1;
+          // background: red;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .title {
+            font-size: 22px;
+            color: #bbd5ff;
+          }
+          .title-right {
+            span {
+              font-size: 18px;
+              color: #bbd5ff;
+            }
+          }
+        }
+        .content-box {
+          flex-grow: 6;
+          background: #0982de;
+        }
+      }
+      .lx {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 2% 3%;
+        .zdjq-title-box {
+          flex-grow: 1;
+          // background: red;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .title {
+            font-size: 22px;
+            color: #bbd5ff;
+          }
+          .title-right {
+            span {
+              font-size: 18px;
+              color: #bbd5ff;
+            }
+          }
+        }
+        .content-box {
+          flex: 6;
+          background: #0982de;
+        }
+      }
     }
   }
   .middle {
@@ -601,7 +657,7 @@ export default {
           justify-content: space-between;
           align-items: center;
           .title {
-            font-size: 25px;
+            font-size: 22px;
             color: #bbd5ff;
           }
           .title-right {
@@ -610,6 +666,10 @@ export default {
               color: #bbd5ff;
             }
           }
+        }
+        .content-box {
+          flex: 6;
+          background: #0982de;
         }
       }
       .yks {
@@ -627,7 +687,7 @@ export default {
           justify-content: space-between;
           align-items: center;
           .title {
-            font-size: 25px;
+            font-size: 22px;
             color: #bbd5ff;
           }
           .title-right {
@@ -636,6 +696,10 @@ export default {
               color: #bbd5ff;
             }
           }
+        }
+        .content-box {
+          flex: 6;
+          background: #0982de;
         }
       }
     }
@@ -659,7 +723,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         .title {
-          font-size: 25px;
+          font-size: 22px;
           color: #bbd5ff;
         }
         .title-right {
@@ -668,6 +732,10 @@ export default {
             color: #bbd5ff;
           }
         }
+      }
+      .content-box {
+        flex: 6;
+        background: #0982de;
       }
     }
     .zyfb {
@@ -694,6 +762,10 @@ export default {
           }
         }
       }
+      .content-box {
+        flex: 6;
+        background: #0982de;
+      }
     }
     .rcfb {
       flex-grow: 1;
@@ -719,6 +791,10 @@ export default {
           }
         }
       }
+      .content-box {
+        flex: 6;
+        background: #0982de;
+      }
     }
     .yqfx {
       flex-grow: 1;
@@ -742,6 +818,10 @@ export default {
             color: #bbd5ff;
           }
         }
+      }
+      .content-box {
+        flex: 6;
+        background: #0982de;
       }
     }
   }
