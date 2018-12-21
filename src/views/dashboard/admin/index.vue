@@ -689,7 +689,7 @@ export default {
         }
         .content-box {
           flex: 6;
-          background: #0982de;
+          // background: #0982de;
           .chart-wrapper {
             width: 100%;
             height: 100%;

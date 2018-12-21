@@ -52,53 +52,53 @@ export default {
         visualMap: {
           show: false,
           min: 80,
-          max: 600,
+          max: 450,
           inRange: {
             colorLightness: [0, 1]
           }
         },
         series: [
           {
-            name:'访问来源',
-            type:'pie',
-            radius: '70%',
+            name: '访问来源',
+            type: 'pie',
+            radius: '80%',
             center: ['50%', '50%'],
-            data:[
+            data: [
               { value: 335, name: '北京' },
               { value: 310, name: '上海' },
               { value: 274, name: '广州' },
               { value: 235, name: '苏州' },
               { value: 400, name: '杭州' }
-            ].sort(function (a, b) { return a.value - b.value; }),
+            ].sort(function(a, b) { return a.value - b.value }),
             roseType: 'radius',
             label: {
               normal: {
                 textStyle: {
-                  color: 'rgba(255, 255, 255, 0.3)'
+                  // color: 'rgba(255, 255, 255, 0.3)'
                 }
               }
             },
             labelLine: {
               normal: {
                 lineStyle: {
-                  color: 'rgba(255, 255, 255, 0.3)'
+                  // color: 'rgba(255, 255, 255, 0.3)'
                 },
                 smooth: 0.2,
-                length: 10,
-                length2: 20
+                length: 5,
+                length2: 10
               }
             },
             itemStyle: {
               normal: {
-                color: '#c23531',
+                color: '#fd8ba5',
                 shadowBlur: 200,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                // shadowColor: 'rgba(0, 0, 0, 0.5)'
               }
             },
             animationType: 'scale',
             animationEasing: 'elasticOut',
-            animationDelay: function (idx) {
-              return Math.random() * 200;
+            animationDelay: function(idx) {
+              return Math.random() * 200
             }
           }
         ]
