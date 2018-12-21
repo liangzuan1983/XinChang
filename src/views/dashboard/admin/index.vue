@@ -103,7 +103,38 @@
         </div>
       </div>
       <!--旅游消费额变化趋势/类型分析-->
-      <div class="edfl"></div>
+      <div class="edfl">
+        <!--旅游消费额变化-->
+        <div>
+          <!--标题行-->
+          <div class="zdjq-title-box">
+            <p class="title">旅游消费额度变化趋势(万元)</p>
+            <p class="title-right">
+              <span>更多</span>
+              <span class="el-icon-d-arrow-right"/>
+            </p>
+          </div>
+          <!--内容区-->
+          <div>
+
+          </div>
+        </div>
+        <!--旅游消费类型分析-->
+        <div>
+          <!--标题行-->
+          <div class="zdjq-title-box">
+            <p class="title">旅游消费类型分析(万元)</p>
+            <p class="title-right">
+              <span>更多</span>
+              <span class="el-icon-d-arrow-right"/>
+            </p>
+          </div>
+          <!--内容区-->
+          <div>
+            
+          </div>
+        </div>
+      </div>
     </div>
     <!--中-->
     <div class="middle">
@@ -112,21 +143,99 @@
       <!--main-bottom-->
       <div class="main-bottom">
         <!--客源地-->
-        <div class="kyd"></div>
+        <div class="kyd">
+          <!--标题行-->
+          <div class="zdjq-title-box">
+            <p class="title">客源地 城市 区县 TOP5</p>
+            <p class="title-right">
+              <span>更多</span>
+              <span class="el-icon-d-arrow-right"/>
+            </p>
+          </div>
+          <!--内容区-->
+          <div>
+            
+          </div>
+        </div>
         <!--进一周游客数-->
-        <div class="yks"></div>
+        <div class="yks">
+          <!--标题行-->
+          <div class="zdjq-title-box">
+            <p class="title">近一周游客数</p>
+            <p class="title-right">
+              <span>更多</span>
+              <span class="el-icon-d-arrow-right"/>
+            </p>
+          </div>
+          <!--内容区-->
+          <div>
+            
+          </div>
+        </div>
       </div>
     </div>
     <!--右-->
     <div class="right">
       <!--cyjc-->
-      <div class="cyjc"></div>
+      <div class="cyjc">
+        <!--标题行-->
+          <div class="zdjq-title-box">
+            <p class="title">产业检测数据</p>
+            <p class="title-right">
+              <span>更多</span>
+              <span class="el-icon-d-arrow-right"/>
+            </p>
+          </div>
+          <!--内容区-->
+          <div>
+            
+          </div>
+      </div>
       <!--zyfb-->
-      <div class="zyfb"></div>
+      <div class="zyfb">
+        <!--标题行-->
+          <div class="zdjq-title-box">
+            <p class="title">资源分布</p>
+            <p class="title-right">
+              <span>更多</span>
+              <span class="el-icon-d-arrow-right"/>
+            </p>
+          </div>
+          <!--内容区-->
+          <div>
+            
+          </div>
+      </div>
       <!--rcph-->
-      <div class="rcfb"></div>
+      <div class="rcfb">
+        <!--标题行-->
+          <div class="zdjq-title-box">
+            <p class="title">热词排行</p>
+            <p class="title-right">
+              <span>更多</span>
+              <span class="el-icon-d-arrow-right"/>
+            </p>
+          </div>
+          <!--内容区-->
+          <div>
+            
+          </div>
+      </div>
       <!--yqfx-->
-      <div class="yqfx"></div>
+      <div class="yqfx">
+        <!--标题行-->
+          <div class="zdjq-title-box">
+            <p class="title">舆情分析</p>
+            <p class="title-right">
+              <span>更多</span>
+              <span class="el-icon-d-arrow-right"/>
+            </p>
+          </div>
+          <!--内容区-->
+          <div>
+            
+          </div>
+      </div>
     </div>
   </div>
 </template>
@@ -482,12 +591,52 @@ export default {
         background: rgba(255, 255, 255, 0.05);
         margin-left: 1%;
         margin-right: 0.5%;
+        display: flex;
+        flex-direction: column;
+        padding: 2% 3%;
+        .zdjq-title-box {
+          flex-grow: 1;
+          // background: red;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .title {
+            font-size: 25px;
+            color: #bbd5ff;
+          }
+          .title-right {
+            span {
+              font-size: 18px;
+              color: #bbd5ff;
+            }
+          }
+        }
       }
       .yks {
         flex-grow: 1;
         background: rgba(255, 255, 255, 0.05);
         margin-left: 0.5%;
         margin-right: 1%;
+        display: flex;
+        flex-direction: column;
+        padding: 2% 3%;
+        .zdjq-title-box {
+          flex-grow: 1;
+          // background: red;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .title {
+            font-size: 25px;
+            color: #bbd5ff;
+          }
+          .title-right {
+            span {
+              font-size: 18px;
+              color: #bbd5ff;
+            }
+          }
+        }
       }
     }
   }
@@ -500,20 +649,100 @@ export default {
       flex-grow: 1;
       background: rgba(255, 255, 255, 0.05);
       margin-bottom: 1.5%;
+      display: flex;
+      flex-direction: column;
+      padding: 2% 3%;
+      .zdjq-title-box {
+        flex-grow: 1;
+        // background: red;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+          font-size: 25px;
+          color: #bbd5ff;
+        }
+        .title-right {
+          span {
+            font-size: 18px;
+            color: #bbd5ff;
+          }
+        }
+      }
     }
     .zyfb {
       flex-grow: 1;
       background: rgba(255, 255, 255, 0.05);
       margin-bottom: 1.5%;
+      display: flex;
+      flex-direction: column;
+      padding: 2% 3%;
+      .zdjq-title-box {
+        flex-grow: 1;
+        // background: red;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+          font-size: 25px;
+          color: #bbd5ff;
+        }
+        .title-right {
+          span {
+            font-size: 18px;
+            color: #bbd5ff;
+          }
+        }
+      }
     }
     .rcfb {
       flex-grow: 1;
       background: rgba(255, 255, 255, 0.05);
       margin-bottom: 1.5%;
+      display: flex;
+      flex-direction: column;
+      padding: 2% 3%;
+      .zdjq-title-box {
+        flex-grow: 1;
+        // background: red;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+          font-size: 25px;
+          color: #bbd5ff;
+        }
+        .title-right {
+          span {
+            font-size: 18px;
+            color: #bbd5ff;
+          }
+        }
+      }
     }
     .yqfx {
       flex-grow: 1;
       background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      flex-direction: column;
+      padding: 2% 3%;
+      .zdjq-title-box {
+        flex-grow: 1;
+        // background: red;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+          font-size: 25px;
+          color: #bbd5ff;
+        }
+        .title-right {
+          span {
+            font-size: 18px;
+            color: #bbd5ff;
+          }
+        }
+      }
     }
   }
 }
