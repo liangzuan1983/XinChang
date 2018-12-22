@@ -363,7 +363,9 @@
         </div>
         <!--内容区-->
         <div class="content-box">
-          
+          <div class="chart-wrapper">
+            <zi-fu-yun height="100%" width="100%"/>
+          </div>
         </div>
       </div>
       <!--yqfx-->
@@ -378,7 +380,37 @@
         </div>
         <!--内容区-->
         <div class="content-box">
-          
+          <!--舆情 热门-->
+          <div class="yr-box">
+            <!--舆情信息-->
+            <div class="yq-box">
+              <img src="@/assets/icon/yuqing.png" alt="">
+              <div class="text-box">
+                <p class="title">舆情信息</p>
+                <p class="num-box">
+                  <span class="num">265</span>
+                  <span class="unit">条</span>
+                </p>
+              </div>
+            </div>
+            <!--热门话题-->
+            <div class="rm-box">
+              <img src="@/assets/icon/remen.png" alt="">
+              <div class="text-box">
+                <p class="title">热门话题</p>
+                <p class="num-box">
+                  <span class="num">18</span>
+                  <span class="unit">个</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!--进度条-->
+          <div class="jdt">
+            <div class="chart-wrapper">
+              <jdt height="100%" width="100%"/>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -390,10 +422,12 @@ import lvxf from '@/components/Charts/lineMarkerOne'
 import BarChart from '@/views/dashboard/admin/components/BarChart'
 import PieChartFull from '@/views/dashboard/admin/components/PieChartFull'
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
+import ZiFuYun from '@/views/dashboard/admin/components/ZiFuYun'
+import jdt from '@/views/dashboard/admin/components/jdt'
 export default {
   name: 'DashboardAdmin',
   components: {
-    lvxf, BarChart, PieChartFull, YiZhou
+    lvxf, BarChart, PieChartFull, YiZhou, ZiFuYun, jdt
   },
   data() {
     return {
@@ -437,6 +471,7 @@ export default {
       flex-direction: column;
       padding: 2% 3%;
       .zdjq-title-box {
+        margin-bottom: 3%;
         flex: 1;
         // background: red;
         display: flex;
@@ -566,6 +601,7 @@ export default {
       display: flex;
       flex-direction: column;
       .zdjq-title-box {
+        margin-bottom: 3%;
         flex-grow: 1;
         // background: red;
         display: flex;
@@ -748,6 +784,7 @@ export default {
         flex-direction: column;
         padding: 2% 3%;
         .zdjq-title-box {
+          margin-bottom: 3%;
           flex-grow: 1;
           // background: red;
           display: flex;
@@ -780,6 +817,7 @@ export default {
         flex-direction: column;
         padding: 2% 3%;
         .zdjq-title-box {
+          margin-bottom: 3%;
           flex-grow: 1;
           // background: red;
           display: flex;
@@ -878,6 +916,7 @@ export default {
         flex-direction: column;
         padding: 2% 3%;
         .zdjq-title-box {
+          margin-bottom: 3%;
           flex-grow: 1;
           // background: red;
           display: flex;
@@ -913,6 +952,7 @@ export default {
         flex-direction: column;
         padding: 2% 3%;
         .zdjq-title-box {
+          margin-bottom: 3%;
           flex-grow: 1;
           // background: red;
           display: flex;
@@ -955,6 +995,7 @@ export default {
       flex-direction: column;
       padding: 2% 3%;
       .zdjq-title-box {
+        margin-bottom: 3%;
         flex-grow: 1;
         // background: red;
         display: flex;
@@ -1100,6 +1141,7 @@ export default {
       flex-direction: column;
       padding: 2% 3%;
       .zdjq-title-box {
+        margin-bottom: 3%;
         flex-grow: 1;
         // background: red;
         display: flex;
@@ -1238,6 +1280,7 @@ export default {
       flex-direction: column;
       padding: 2% 3%;
       .zdjq-title-box {
+        margin-bottom: 3%;
         flex-grow: 1;
         // background: red;
         display: flex;
@@ -1256,7 +1299,7 @@ export default {
       }
       .content-box {
         flex: 6;
-        background: #0982de;
+        background: lightcyan;
       }
     }
     .yqfx {
@@ -1266,6 +1309,7 @@ export default {
       flex-direction: column;
       padding: 2% 3%;
       .zdjq-title-box {
+        margin-bottom: 3%;
         flex-grow: 1;
         // background: red;
         display: flex;
@@ -1284,7 +1328,88 @@ export default {
       }
       .content-box {
         flex: 6;
-        background: #0982de;
+        // background: #0982de;
+        display: flex;
+        flex-direction: column;
+        .yr-box {
+          display: flex;
+          justify-content: space-between;
+          flex: 1;
+          .yq-box {
+            flex: 1;
+            // background: forestgreen;
+            display: flex;
+            justify-content: flex-start;
+            img {
+              width: 57px;
+              height: 57px;
+              margin-right: 5%;
+            }
+            .text-box {
+              .title {
+                font-size: 20px;
+                color: #ffffff;
+                font-weight: bold;
+                margin-bottom: 5%;
+              }
+              .num-box {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                .num {
+                  font-size: 28px;
+                  color: #f69704;
+                  font-weight: bold;
+                  margin-right: 10%;
+                }
+                .unit {
+                  font-size: 20px;
+                  color: #ffffff;
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+          .rm-box {
+            flex: 1;
+            // background: #f69704;
+            display: flex;
+            justify-content: flex-start;
+            img {
+              width: 57px;
+              height: 57px;
+              margin-right: 5%;
+            }
+            .text-box {
+              .title {
+                font-size: 20px;
+                color: #ffffff;
+                font-weight: bold;
+                margin-bottom: 5%;
+              }
+              .num-box {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                .num {
+                  font-size: 28px;
+                  color: #f69704;
+                  font-weight: bold;
+                  margin-right: 10%;
+                }
+                .unit {
+                  font-size: 20px;
+                  color: #ffffff;
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+        }
+        .jdt {
+          // background: fuchsia;
+          flex: 1;
+        }
       }
     }
   }

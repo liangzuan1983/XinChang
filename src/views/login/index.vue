@@ -180,6 +180,7 @@ $light_gray:#eee;
 
 .login-container {
   position: fixed;
+  z-index: 999;
   height: 100%;
   width: 100%;
   background-color: $bg;
