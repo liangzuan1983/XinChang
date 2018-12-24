@@ -169,12 +169,78 @@
           <el-button size="mini" type="primary">查询</el-button>
         </div>
       </div>
+      <!--客流数据-->
+      <div class="kl">
+        <!--客流-->
+        <div class="klsj-box">
+          <!--title-->
+          <p class="title">客流数据</p>
+          <!--内容-->
+          <div class="content">
+            <div class="chart-wrapper">
+              <holiday-kl-zhu height="100%" width="100%"/>
+            </div>
+          </div>
+        </div>
+        <!--性别占比-->
+        <div class="ykxb-box">
+          <!--title-->
+          <p class="title">游客性别占比</p>
+          <!--内容-->
+          <div class="content">
+            <div class="chart-wrapper">
+              <ykxb height="100%" width="100%"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--年龄-->
+      <div class="nlfb">
+        <!--年龄分布-->
+        <div class="nlfb-box">
+          <!--title-->
+          <p class="title">游客年龄分布</p>
+          <!--内容-->
+          <div class="content">
+            <div class="chart-wrapper">
+              <!-- <holiday-kl-zhu height="100%" width="100%"/> -->
+            </div>
+          </div>
+        </div>
+        <!--游客消费能力占比-->
+        <div class="xfnl-box">
+          <!--title-->
+          <p class="title">游客消费能力占比</p>
+          <!--内容-->
+          <div class="content">
+            <div class="chart-wrapper">
+              <!-- <holiday-kl-zhu height="100%" width="100%"/> -->
+            </div>
+          </div>
+        </div>
+        <!--游客线上偏好-->
+        <div class="xsph-box">
+          <!--title-->
+          <p class="title">游客线上偏好</p>
+          <!--内容-->
+          <div class="content">
+            <div class="chart-wrapper">
+              <!-- <holiday-kl-zhu height="100%" width="100%"/> -->
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
+import ykxb from '@/components/Charts/holiday-ykxb'
 export default {
+  components: {
+    HolidayKlZhu, ykxb
+  },
   data() {
     return {
       years: [
@@ -227,13 +293,13 @@ export default {
   width: 100%;
   height: 100%;
   padding: 1%;
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   .ss {
     background: rgba(255, 255, 255, 0.05);
     margin-bottom: 1%;
     padding: 1%;
-    flex: 1;
+    // flex: 1;
     .title {
       font-size: 22px;
       color: #bbd5ff;
@@ -474,11 +540,12 @@ export default {
   .cx {
     background: rgba(255, 255, 255, 0.05);
     padding: 1%;
-    flex: 5;
+    // flex: 5;
     .top {
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      margin-bottom: 2%;
       .title {
         font-size: 22px;
         color: #bbd5ff;
@@ -501,6 +568,108 @@ export default {
         .select2 {
           margin-left: 2%;
           margin-right: 2%;
+        }
+      }
+    }
+    .kl {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1%;
+      .klsj-box {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        margin-right: .5%;
+        .title {
+          font-size: 22px;
+          color: #bbd5ff;
+          background: #45404d;
+          padding: 1%;
+        }
+        .content {
+          background: rgba(255, 255, 255, 0.05);
+          .chart-wrapper {
+            height: 320px;
+            width: 100%;
+          }
+        }
+      }
+      .ykxb-box {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-left: .5%;
+        .title {
+          font-size: 22px;
+          color: #bbd5ff;
+          background: #45404d;
+          padding: 1.5%;
+        }
+        .content {
+          background: rgba(255, 255, 255, 0.05);
+          .chart-wrapper {
+            height: 320px;
+            width: 100%;
+          }
+        }
+      }
+    }
+    .nlfb {
+      display: flex;
+      justify-content: space-between;
+      .nlfb-box {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        flex-direction: column;
+        .title {
+          font-size: 22px;
+          color: #bbd5ff;
+          background: #45404d;
+          padding: 1.5%;
+        }
+        .content {
+          background: rgba(255, 255, 255, 0.05);
+          .chart-wrapper {
+            height: 320px;
+            width: 100%;
+          }
+        }
+      }
+      .xfnl-box {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        margin: 0 1%;
+        flex-direction: column;
+        .title {
+          font-size: 22px;
+          color: #bbd5ff;
+          background: #45404d;
+          padding: 1.5%;
+        }
+        .content {
+          background: rgba(255, 255, 255, 0.05);
+          .chart-wrapper {
+            height: 320px;
+            width: 100%;
+          }
+        }
+      }
+      .xsph-box {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        flex-direction: column;
+        .title {
+          font-size: 22px;
+          color: #bbd5ff;
+          background: #45404d;
+          padding: 1.5%;
+        }
+        .content {
+          background: rgba(255, 255, 255, 0.05);
+          .chart-wrapper {
+            height: 320px;
+            width: 100%;
+          }
         }
       }
     }

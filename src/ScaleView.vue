@@ -63,12 +63,12 @@ export default {
   .scale-container {
     background: #111a29;
     position: relative;
-    overflow: hidden;
     .ysj {
       position: absolute;
       right: 0;
       top: 0;
-      width: 100%;
+      width: 70%;
+      height: 100%;
     }
   }
 </style>

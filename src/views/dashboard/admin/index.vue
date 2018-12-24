@@ -458,6 +458,7 @@ export default {
   justify-content: space-between;
   position: relative;
   z-index: 999;
+  overflow: hidden;
   .left {
     flex: 1;
     // background: yellow;
