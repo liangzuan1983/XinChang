@@ -235,7 +235,7 @@
         <!--年龄分布-->
         <div class="nlfb-box">
           <!--title-->
-          <p class="title">游客旅游线路TOP10</p>
+          <p class="title">热门游览线路TOP10</p>
           <!--内容-->
           <div class="content">
             <!--每1项-->
@@ -385,18 +385,18 @@
         <!--年龄分布-->
         <div class="nlfb-box">
           <!--title-->
-          <p class="title">游客旅游线路TOP10</p>
+          <p class="title">游客消费</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <!-- <nlfb v-if="bingIf1" :id="ids[0]" height="100%" width="100%"/> -->
+              <xfzhe v-if="xfzhe" height="100%" width="100%"/>
             </div>
           </div>
         </div>
         <!--游客消费能力占比-->
         <div class="xfnl-box">
           <!--title-->
-          <p class="title">游客过夜占比</p>
+          <p class="title">行业消费占比分析</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
@@ -407,7 +407,7 @@
         <!--游客线上偏好-->
         <div class="xsph-box">
           <!--title-->
-          <p class="title">客源地TOP10</p>
+          <p class="title">游客消费占比</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
@@ -424,9 +424,10 @@
 import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
 import ykxb from '@/components/Charts/holiday-ykxb'
 import nlfb from '@/components/Charts/holiday-nlfb'
+import xfzhe from '@/components/Charts/holiday-xf-zhe'
 export default {
   components: {
-    HolidayKlZhu, ykxb, nlfb
+    HolidayKlZhu, ykxb, nlfb, xfzhe
   },
   data() {
     return {
@@ -474,7 +475,8 @@ export default {
       bingIf3: true,
       bingIf4: true,
       bingIf5: true,
-      bingIf6: true
+      bingIf6: true,
+      xfzhe: true
     }
   }
 }

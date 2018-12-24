@@ -11,7 +11,7 @@ export default {
   props: {
     className: {
       type: String,
-      default: 'holidayzhu'
+      default: 'xfzhe'
     },
     width: {
       type: String,
@@ -80,17 +80,32 @@ export default {
     },
     setOptions({ expectedData, actualData } = {}) {
       this.chart.setOption({
-        legend: {
-          data:['客流量','同比客流量'],
-          textStyle: {
-            color: '#59697d'
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'cross',
+            label: {
+              backgroundColor: '#6a7985'
+            }
           }
         },
-        calculable : true,
+        legend: {
+          data:['吃','住','行','购','娱'],
+          textStyle: {
+            color: '#889db5'
+          }
+        },
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
+        },
         xAxis: [
           {
             type: 'category',
-            data: ['2018-10-02','2018-10-02','2018-10-03','2018-10-04','2018-10-05','2018-10-06','2018-10-07'],
+            boundaryGap: false,
+            data: ['10-1','10-2','10-3','10-4','10-5','10-6','10-7'],
             axisLabel: {
               textStyle: {
                 color: '#889db5'
@@ -110,36 +125,45 @@ export default {
         ],
         series: [
           {
-            name: '客流量',
-            type: 'bar',
-            data:[2.0, 4.9, 7.0, 23.2, 32.6, 20.0, 6.4],
-            markPoint: {
-              data: [
-                {type: 'max', name: '最大值'},
-                {type: 'min', name: '最小值'}
-              ]
-            },
-            markLine: {
-              data: [
-                {type: 'average', name: '平均值'}
-              ]
-            }
+            name: '吃',
+            type: 'line',
+            stack: '总量',
+            areaStyle: {},
+            data: [120, 132, 101, 134, 90, 230, 210]
           },
           {
-            name: '同比客流量',
-            type: 'bar',
-            data: [2.6, 5.9, 9.0, 26.4, 48.7, 18.8, 6.0],
-            markPoint: {
-              data: [
-                { name: '年最高', value: 182.2, xAxis: 7, yAxis: 183 },
-                { name: '年最低', value: 2.3, xAxis: 11, yAxis: 3 }
-              ]
+            name: '住',
+            type: 'line',
+            stack: '总量',
+            areaStyle: {},
+            data: [220, 182, 191, 234, 290, 330, 310]
+          },
+          {
+            name: '行',
+            type: 'line',
+            stack: '总量',
+            areaStyle: {},
+            data: [150, 232, 201, 154, 190, 330, 410]
+          },
+          {
+            name: '购',
+            type: 'line',
+            stack: '总量',
+            areaStyle: {normal: {}},
+            data: [320, 332, 301, 334, 390, 330, 320]
+          },
+          {
+            name: '娱',
+            type: 'line',
+            stack: '总量',
+            label: {
+              normal: {
+                show: true,
+                position: 'top'
+              }
             },
-            markLine: {
-              data: [
-                { type: 'average', name: '平均值' }
-              ]
-            }
+            areaStyle: {normal: {}},
+            data: [820, 932, 901, 934, 1290, 1330, 1320]
           }
         ]
       })
