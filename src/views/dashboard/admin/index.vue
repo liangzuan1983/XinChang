@@ -148,8 +148,8 @@
         <!--按钮-->
         <div class="btn">
           <div class="btn-box">
-            <p class="qy" :class="{qyb: qyb}" @click="qyEvent">全域客流</p>
-            <p class="zy" :class="{zyb: zyb}" @click="lyEvent">旅游资源</p>
+            <p :class="{qyb: qyb}" class="qy" @click="qyEvent">全域客流</p>
+            <p :class="{zyb: zyb}" class="zy" @click="lyEvent">旅游资源</p>
           </div>
         </div>
       </div>

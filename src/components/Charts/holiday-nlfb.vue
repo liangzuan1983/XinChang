@@ -82,7 +82,7 @@ export default {
       this.chart.setOption({
         tooltip: {
           trigger: 'item',
-          formatter: "{a} <br/>{b}: {c} ({d}%)"
+          formatter: '{a} <br/>{b}: {c} ({d}%)'
         },
         color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客年龄分布
         // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客消费能力占比
@@ -122,12 +122,12 @@ export default {
                 show: false
               }
             },
-            data:[
-              { value:335, name:'18岁以下' },
-              { value:310, name:'18-25岁' },
-              { value:234, name:'25-35岁' },
-              { value:135, name:'35-60岁' },
-              { value:1548, name:'60岁以上' }
+            data: [
+              { value: 335, name: '18岁以下' },
+              { value: 310, name: '18-25岁' },
+              { value: 234, name: '25-35岁' },
+              { value: 135, name: '35-60岁' },
+              { value: 1548, name: '60岁以上' }
             ]
           }
         ]

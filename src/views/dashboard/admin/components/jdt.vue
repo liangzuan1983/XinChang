@@ -68,7 +68,6 @@ export default {
     }
 
     this.sidebarElm && this.sidebarElm.removeEventListener('transitionend', this.sidebarResizeHandler)
-
     this.chart.dispose()
     this.chart = null
   },
@@ -95,17 +94,17 @@ export default {
             {
               name: '正面',
               icon: 'path://m',
-              textStyle: { color: '#ffffff'}
+              textStyle: { color: '#ffffff' }
             },
             {
               name: '中立',
               icon: 'path://m',
-              textStyle: { color: '#ffffff'}
+              textStyle: { color: '#ffffff' }
             },
             {
               name: '负面',
               icon: 'path://m',
-              textStyle: { color: '#ffffff'}
+              textStyle: { color: '#ffffff' }
             }
           ]
         },
@@ -116,7 +115,7 @@ export default {
           bottom: '20%',
           containLabel: true
         },
-        xAxis:  {
+        xAxis: {
           type: 'value',
           show: false
         },
@@ -141,8 +140,8 @@ export default {
                 color: new echarts.graphic.LinearGradient(
                   0, 0, 1, 0,
                   [
-                    {offset: 0, color: '#1183df'},   
-                    {offset: 1, color: '#bf94ed'}
+                    { offset: 0, color: '#1183df' },
+                    { offset: 1, color: '#bf94ed' }
                   ]
                 )
               },
@@ -150,8 +149,8 @@ export default {
                 color: new echarts.graphic.LinearGradient(
                   0, 0, 1, 0,
                   [
-                    {offset: 0, color: '#1183df'},
-                    {offset: 1, color: '#bf94ed'}
+                    { offset: 0, color: '#1183df' },
+                    { offset: 1, color: '#bf94ed' }
                   ]
                 )
               }
@@ -173,8 +172,8 @@ export default {
                 color: new echarts.graphic.LinearGradient(
                   0, 0, 1, 0,
                   [
-                    {offset: 0, color: '#1183df'},   
-                    {offset: 1, color: '#bf94ed'}
+                    { offset: 0, color: '#1183df' },
+                    { offset: 1, color: '#bf94ed' }
                   ]
                 )
               },
@@ -182,8 +181,8 @@ export default {
                 color: new echarts.graphic.LinearGradient(
                   0, 0, 1, 0,
                   [
-                    {offset: 0, color: '#1183df'},
-                    {offset: 1, color: '#bf94ed'}
+                    { offset: 0, color: '#1183df' },
+                    { offset: 1, color: '#bf94ed' }
                   ]
                 )
               }
@@ -205,8 +204,8 @@ export default {
                 color: new echarts.graphic.LinearGradient(
                   0, 0, 1, 0,
                   [
-                    {offset: 0, color: '#1183df'},   
-                    {offset: 1, color: '#bf94ed'}
+                    { offset: 0, color: '#1183df' },
+                    { offset: 1, color: '#bf94ed' }
                   ]
                 )
               },
@@ -214,8 +213,8 @@ export default {
                 color: new echarts.graphic.LinearGradient(
                   0, 0, 1, 0,
                   [
-                    {offset: 0, color: '#1183df'},
-                    {offset: 1, color: '#bf94ed'}
+                    { offset: 0, color: '#1183df' },
+                    { offset: 1, color: '#bf94ed' }
                   ]
                 )
               }

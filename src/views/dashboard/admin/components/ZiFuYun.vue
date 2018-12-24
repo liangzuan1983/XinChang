@@ -52,7 +52,7 @@ export default {
         series: [{
           type: 'wordCloud',
           shape: 'circle',
-          maskImage: maskImage,
+          // maskImage: maskImage,
           left: 'center',
           top: 'center',
           width: '70%',
@@ -68,7 +68,7 @@ export default {
             normal: {
               fontFamily: 'sans-serif',
               fontWeight: 'bold',
-              color: function () {
+              color: function() {
                 // Random color
                 return 'rgb(' + [
                   Math.round(Math.random() * 160),

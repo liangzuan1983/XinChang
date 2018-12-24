@@ -152,8 +152,7 @@
               v-for="item in years"
               :key="item.value"
               :label="item.label"
-              :value="item.value">
-            </el-option>
+              :value="item.value"/>
           </el-select>
           <p class="line">- - - -</p>
           <!--假日-->
@@ -162,8 +161,7 @@
               v-for="item in holiday"
               :key="item.value"
               :label="item.label"
-              :value="item.value">
-            </el-option>
+              :value="item.value"/>
           </el-select>
           <!--查询-->
           <el-button size="mini" type="primary">查询</el-button>

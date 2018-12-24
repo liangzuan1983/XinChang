@@ -81,16 +81,16 @@ export default {
     setOptions({ expectedData, actualData } = {}) {
       this.chart.setOption({
         legend: {
-          data:['客流量','同比客流量'],
+          data: ['客流量', '同比客流量'],
           textStyle: {
             color: '#59697d'
           }
         },
-        calculable : true,
+        calculable: true,
         xAxis: [
           {
             type: 'category',
-            data: ['2018-10-02','2018-10-02','2018-10-03','2018-10-04','2018-10-05','2018-10-06','2018-10-07'],
+            data: ['2018-10-02', '2018-10-02', '2018-10-03', '2018-10-04', '2018-10-05', '2018-10-06', '2018-10-07'],
             axisLabel: {
               textStyle: {
                 color: '#889db5'
@@ -112,16 +112,16 @@ export default {
           {
             name: '客流量',
             type: 'bar',
-            data:[2.0, 4.9, 7.0, 23.2, 32.6, 20.0, 6.4],
+            data: [2.0, 4.9, 7.0, 23.2, 32.6, 20.0, 6.4],
             markPoint: {
               data: [
-                {type: 'max', name: '最大值'},
-                {type: 'min', name: '最小值'}
+                { type: 'max', name: '最大值' },
+                { type: 'min', name: '最小值' }
               ]
             },
             markLine: {
               data: [
-                {type: 'average', name: '平均值'}
+                { type: 'average', name: '平均值' }
               ]
             }
           },
