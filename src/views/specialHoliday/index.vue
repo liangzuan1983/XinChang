@@ -265,38 +265,38 @@
             <!--每5项-->
             <div class="one-box">
               <span class="name">天烛仙境-丝绸世界</span>
-              <p class="line4"/>
-              <span class="num">5322</span>
+              <p class="line5"/>
+              <span class="num">4222</span>
             </div>
             <!--每6项-->
             <div class="one-box">
               <span class="name">大佛寺-中国茶市</span>
-              <p class="line4"/>
-              <span class="num">5322</span>
+              <p class="line6"/>
+              <span class="num">3212</span>
             </div>
             <!--每7项-->
             <div class="one-box">
-              <span class="name">大佛寺-丝绸世界</span>
-              <p class="line4"/>
-              <span class="num">5322</span>
+              <span class="name">大佛寺-天烛仙境</span>
+              <p class="line7"/>
+              <span class="num">2342</span>
             </div>
             <!--每8项-->
             <div class="one-box">
-              <span class="name">大佛寺-丝绸世界</span>
-              <p class="line4"/>
-              <span class="num">5322</span>
+              <span class="name">十九峰-天烛仙境</span>
+              <p class="line8"/>
+              <span class="num">1232</span>
             </div>
             <!--每9项-->
             <div class="one-box">
-              <span class="name">大佛寺-丝绸世界</span>
-              <p class="line4"/>
-              <span class="num">5322</span>
+              <span class="name">丝绸世界-大佛寺</span>
+              <p class="line9"/>
+              <span class="num">672</span>
             </div>
             <!--每10项-->
             <div class="one-box">
-              <span class="name">大佛寺-丝绸世界</span>
-              <p class="line4"/>
-              <span class="num">5322</span>
+              <span class="name">中国茶室-十九峰</span>
+              <p class="line10"/>
+              <span class="num">342</span>
             </div>
           </div>
         </div>
@@ -317,8 +317,65 @@
           <p class="title">客源地TOP10</p>
           <!--内容-->
           <div class="content">
-            <div class="chart-wrapper">
-              <!-- <hline v-if="heng2" :id="hengs[1]" height="100%" width="100%"/> -->
+            <!--每1项-->
+            <div class="one-box">
+              <span class="name">大佛寺-十九峰</span>
+              <p class="line1"/>
+              <span class="num">7262</span>
+            </div>
+            <!--每2项-->
+            <div class="one-box">
+              <span class="name">十九峰-大佛寺</span>
+              <p class="line2"/>
+              <span class="num">6862</span>
+            </div>
+            <!--每3项-->
+            <div class="one-box">
+              <span class="name">十九峰-丝绸世界</span>
+              <p class="line3"/>
+              <span class="num">6242</span>
+            </div>
+            <!--每4项-->
+            <div class="one-box">
+              <span class="name">大佛寺-丝绸世界</span>
+              <p class="line4"/>
+              <span class="num">5322</span>
+            </div>
+            <!--每5项-->
+            <div class="one-box">
+              <span class="name">天烛仙境-丝绸世界</span>
+              <p class="line5"/>
+              <span class="num">4222</span>
+            </div>
+            <!--每6项-->
+            <div class="one-box">
+              <span class="name">大佛寺-中国茶市</span>
+              <p class="line6"/>
+              <span class="num">3212</span>
+            </div>
+            <!--每7项-->
+            <div class="one-box">
+              <span class="name">大佛寺-天烛仙境</span>
+              <p class="line7"/>
+              <span class="num">2342</span>
+            </div>
+            <!--每8项-->
+            <div class="one-box">
+              <span class="name">十九峰-天烛仙境</span>
+              <p class="line8"/>
+              <span class="num">1232</span>
+            </div>
+            <!--每9项-->
+            <div class="one-box">
+              <span class="name">丝绸世界-大佛寺</span>
+              <p class="line9"/>
+              <span class="num">672</span>
+            </div>
+            <!--每10项-->
+            <div class="one-box">
+              <span class="name">中国茶室-十九峰</span>
+              <p class="line10"/>
+              <span class="num">342</span>
             </div>
           </div>
         </div>
@@ -776,11 +833,11 @@ export default {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2%;
+            padding: 1% 2%;
             .name {
               font-size: 20px;
               color: #889db5;
-              width: 32%;
+              width: 38%;
             }
             .line1 {
               height: 14px;
@@ -791,64 +848,64 @@ export default {
             }
             .line2 {
               height: 14px;
-              width: 47%;
-              background: #f69704;
+              width: 46%;
+              background: #f79007;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line3 {
               height: 14px;
-              width: 44%;
-              background: #f69704;
+              width: 42%;
+              background: #f88909;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line4 {
               height: 14px;
-              width: 41%;
-              background: #f69704;
+              width: 38%;
+              background: #f8820c;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line5 {
               height: 14px;
-              width: 38%;
-              background: #f69704;
+              width: 34%;
+              background: #f97b0e;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line6 {
               height: 14px;
-              width: 35%;
-              background: #f69704;
+              width: 30%;
+              background: #fa7311;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line7 {
               height: 14px;
-              width: 32%;
-              background: #f69704;
+              width: 26%;
+              background: #fb6c13;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line8 {
               height: 14px;
-              width: 29%;
-              background: #f69704;
+              width: 22%;
+              background: #fb6516;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line9 {
               height: 14px;
-              width: 27%;
-              background: #f69704;
+              width: 18%;
+              background: #fc5e18;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line10 {
               height: 14px;
-              width: 24%;
-              background: #f69704;
+              width: 14%;
+              background: #fd571b;
               border-radius: 10px;
               margin-right: 2%;
             }
@@ -894,6 +951,92 @@ export default {
           .chart-wrapper {
             height: 320px;
             width: 100%;
+          }
+          .one-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1% 2%;
+            .name {
+              font-size: 20px;
+              color: #889db5;
+              width: 38%;
+            }
+            .line1 {
+              height: 14px;
+              width: 50%;
+              background: #47b2d3;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line2 {
+              height: 14px;
+              width: 46%;
+              background: #40add4;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line3 {
+              height: 14px;
+              width: 42%;
+              background: #39a7d5;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line4 {
+              height: 14px;
+              width: 38%;
+              background: #32a2d7;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line5 {
+              height: 14px;
+              width: 34%;
+              background: #2b9dd8;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line6 {
+              height: 14px;
+              width: 30%;
+              background: #2597d9;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line7 {
+              height: 14px;
+              width: 26%;
+              background: #1e92da;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line8 {
+              height: 14px;
+              width: 22%;
+              background: #178ddc;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line9 {
+              height: 14px;
+              width: 18%;
+              background: #1087dd;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line10 {
+              height: 14px;
+              width: 14%;
+              background: #0982de;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .num {
+              font-size: 16px;
+              color: #bbd5ff;
+              flex: 1;
+            }
           }
         }
       }
