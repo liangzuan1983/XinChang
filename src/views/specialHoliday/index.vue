@@ -194,7 +194,7 @@
           </div>
         </div>
       </div>
-      <!--年龄-->
+      <!--热门旅游线路TOP10-->
       <div class="nlfb">
         <!--年龄分布-->
         <div class="nlfb-box">
@@ -203,7 +203,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <!-- <holiday-kl-zhu height="100%" width="100%"/> -->
+              <nlfb v-if="bingIf1" :id="ids[0]" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -214,18 +214,147 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <!-- <holiday-kl-zhu height="100%" width="100%"/> -->
+              <nlfb v-if="bingIf2" :id="ids[1]" height="100%" width="100%"/>
             </div>
           </div>
         </div>
-        <!--游客线上偏好-->
+        <!--年龄-->
         <div class="xsph-box">
           <!--title-->
           <p class="title">游客线上偏好</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <!-- <holiday-kl-zhu height="100%" width="100%"/> -->
+              <nlfb v-if="bingIf3" :id="ids[3]" height="100%" width="100%"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--游客线上偏好-->
+      <div class="nlfb">
+        <!--年龄分布-->
+        <div class="nlfb-box">
+          <!--title-->
+          <p class="title">游客旅游线路TOP10</p>
+          <!--内容-->
+          <div class="content">
+            <!--每1项-->
+            <div class="one-box">
+              <span class="name">大佛寺-十九峰</span>
+              <p class="line1"/>
+              <span class="num">7262</span>
+            </div>
+            <!--每2项-->
+            <div class="one-box">
+              <span class="name">十九峰-大佛寺</span>
+              <p class="line2"/>
+              <span class="num">6862</span>
+            </div>
+            <!--每3项-->
+            <div class="one-box">
+              <span class="name">十九峰-丝绸世界</span>
+              <p class="line3"/>
+              <span class="num">6242</span>
+            </div>
+            <!--每4项-->
+            <div class="one-box">
+              <span class="name">大佛寺-丝绸世界</span>
+              <p class="line4"/>
+              <span class="num">5322</span>
+            </div>
+            <!--每5项-->
+            <div class="one-box">
+              <span class="name">天烛仙境-丝绸世界</span>
+              <p class="line4"/>
+              <span class="num">5322</span>
+            </div>
+            <!--每6项-->
+            <div class="one-box">
+              <span class="name">大佛寺-中国茶市</span>
+              <p class="line4"/>
+              <span class="num">5322</span>
+            </div>
+            <!--每7项-->
+            <div class="one-box">
+              <span class="name">大佛寺-丝绸世界</span>
+              <p class="line4"/>
+              <span class="num">5322</span>
+            </div>
+            <!--每8项-->
+            <div class="one-box">
+              <span class="name">大佛寺-丝绸世界</span>
+              <p class="line4"/>
+              <span class="num">5322</span>
+            </div>
+            <!--每9项-->
+            <div class="one-box">
+              <span class="name">大佛寺-丝绸世界</span>
+              <p class="line4"/>
+              <span class="num">5322</span>
+            </div>
+            <!--每10项-->
+            <div class="one-box">
+              <span class="name">大佛寺-丝绸世界</span>
+              <p class="line4"/>
+              <span class="num">5322</span>
+            </div>
+          </div>
+        </div>
+        <!--游客消费能力占比-->
+        <div class="xfnl-box">
+          <!--title-->
+          <p class="title">游客过夜占比</p>
+          <!--内容-->
+          <div class="content">
+            <div class="chart-wrapper">
+              <nlfb v-if="bingIf2" :id="ids[1]" height="100%" width="100%"/>
+            </div>
+          </div>
+        </div>
+        <!--游客线上偏好-->
+        <div class="xsph-box">
+          <!--title-->
+          <p class="title">客源地TOP10</p>
+          <!--内容-->
+          <div class="content">
+            <div class="chart-wrapper">
+              <!-- <hline v-if="heng2" :id="hengs[1]" height="100%" width="100%"/> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--游客消费-->
+      <div class="nlfb">
+        <!--年龄分布-->
+        <div class="nlfb-box">
+          <!--title-->
+          <p class="title">游客旅游线路TOP10</p>
+          <!--内容-->
+          <div class="content">
+            <div class="chart-wrapper">
+              <!-- <nlfb v-if="bingIf1" :id="ids[0]" height="100%" width="100%"/> -->
+            </div>
+          </div>
+        </div>
+        <!--游客消费能力占比-->
+        <div class="xfnl-box">
+          <!--title-->
+          <p class="title">游客过夜占比</p>
+          <!--内容-->
+          <div class="content">
+            <div class="chart-wrapper">
+              <nlfb v-if="bingIf4" :id="ids[4]" height="100%" width="100%"/>
+            </div>
+          </div>
+        </div>
+        <!--游客线上偏好-->
+        <div class="xsph-box">
+          <!--title-->
+          <p class="title">客源地TOP10</p>
+          <!--内容-->
+          <div class="content">
+            <div class="chart-wrapper">
+              <nlfb v-if="bingIf5" :id="ids[5]" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -237,9 +366,10 @@
 <script>
 import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
 import ykxb from '@/components/Charts/holiday-ykxb'
+import nlfb from '@/components/Charts/holiday-nlfb'
 export default {
   components: {
-    HolidayKlZhu, ykxb
+    HolidayKlZhu, ykxb, nlfb
   },
   data() {
     return {
@@ -280,7 +410,14 @@ export default {
           label: '国庆节'
         }
       ],
-      holidayDefault: '国庆节'
+      holidayDefault: '国庆节',
+      ids: ['bing1', 'bing2', 'bing3', 'bing4', 'bing5', 'bing6'],
+      bingIf1: true,
+      bingIf2: true,
+      bingIf3: true,
+      bingIf4: true,
+      bingIf5: true,
+      bingIf6: true
     }
   }
 }
@@ -295,6 +432,7 @@ export default {
   padding: 1%;
   // display: flex;
   // flex-direction: column;
+  overflow-y: overlay;
   .ss {
     background: rgba(255, 255, 255, 0.05);
     margin-bottom: 1%;
@@ -617,6 +755,7 @@ export default {
     .nlfb {
       display: flex;
       justify-content: space-between;
+      margin-bottom: 1%;
       .nlfb-box {
         flex: 1;
         background: rgba(255, 255, 255, 0.05);
@@ -632,6 +771,92 @@ export default {
           .chart-wrapper {
             height: 320px;
             width: 100%;
+          }
+          .one-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2%;
+            .name {
+              font-size: 20px;
+              color: #889db5;
+              width: 32%;
+            }
+            .line1 {
+              height: 14px;
+              width: 50%;
+              background: #f69704;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line2 {
+              height: 14px;
+              width: 47%;
+              background: #f69704;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line3 {
+              height: 14px;
+              width: 44%;
+              background: #f69704;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line4 {
+              height: 14px;
+              width: 41%;
+              background: #f69704;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line5 {
+              height: 14px;
+              width: 38%;
+              background: #f69704;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line6 {
+              height: 14px;
+              width: 35%;
+              background: #f69704;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line7 {
+              height: 14px;
+              width: 32%;
+              background: #f69704;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line8 {
+              height: 14px;
+              width: 29%;
+              background: #f69704;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line9 {
+              height: 14px;
+              width: 27%;
+              background: #f69704;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line10 {
+              height: 14px;
+              width: 24%;
+              background: #f69704;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .num {
+              font-size: 16px;
+              color: #bbd5ff;
+              flex: 1;
+            }
           }
         }
       }
