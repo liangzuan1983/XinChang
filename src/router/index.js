@@ -88,13 +88,28 @@ export const constantRouterMap = [
   {
     path: '/traffic', // 交通
     component: Layout,
-    redirect: '/traffic/index',
+    redirect: '/traffic/index/ss',
+    meta: { title: 'traffic', icon: 'guide', noCache: true },
     children: [
       {
         path: 'index',
         component: () => import('@/views/traffic/index'),
         name: 'traffic',
-        meta: { title: 'traffic', icon: 'guide', noCache: true }
+        hidden: true,
+        children: [
+          {
+            path: 'ss',
+            component: () => import('@/views/traffic/components/ss'),
+            name: 'ss',
+            hidden: true
+          },
+          {
+            path: 'sj',
+            component: () => import('@/views/traffic/components/sj'),
+            name: 'sj',
+            hidden: true
+          }
+        ]
       }
     ]
   },
