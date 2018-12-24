@@ -139,15 +139,84 @@
     </div>
     <!--假日数据查询-->
     <div class="cx">
-      <!--标题-->
-      <p class="title">假日数据查询</p>
+      <!--top-->
+      <div class="top">
+        <!--标题-->
+        <p class="title">假日数据查询</p>
+        <!--日期-->
+        <div class="time-box">
+          <p class="title">时间选择： </p>
+          <!--年份-->
+          <el-select v-model="yearsDefault" size="mini" class="select1" placeholder="请选择">
+            <el-option
+              v-for="item in years"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+          <p class="line">- - - -</p>
+          <!--假日-->
+          <el-select v-model="holidayDefault" size="mini" class="select2" placeholder="请选择">
+            <el-option
+              v-for="item in holiday"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+          <!--查询-->
+          <el-button size="mini" type="primary">查询</el-button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-
+  data() {
+    return {
+      years: [
+        {
+          value: '选项1',
+          label: '2014'
+        }, {
+          value: '选项2',
+          label: '2015'
+        }, {
+          value: '选项3',
+          label: '2016'
+        }, {
+          value: '选项4',
+          label: '2017'
+        }, {
+          value: '选项5',
+          label: '2018'
+        }
+      ],
+      yearsDefault: '2018',
+      holiday: [
+        {
+          value: '选项1',
+          label: '新年'
+        }, {
+          value: '选项2',
+          label: '圣诞节'
+        }, {
+          value: '选项3',
+          label: '元旦'
+        }, {
+          value: '选项4',
+          label: '端午节'
+        }, {
+          value: '选项5',
+          label: '国庆节'
+        }
+      ],
+      holidayDefault: '国庆节'
+    }
+  }
 }
 </script>
 
@@ -406,9 +475,34 @@ export default {
     background: rgba(255, 255, 255, 0.05);
     padding: 1%;
     flex: 5;
-    .title {
-      font-size: 22px;
-      color: #bbd5ff;
+    .top {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .title {
+        font-size: 22px;
+        color: #bbd5ff;
+        margin-right: 15%;
+      }
+      .time-box {
+        display: flex;
+        flex: 1;
+        justify-content: flex-start;
+        align-items: center;
+        .title {
+          margin-right: 2%;
+        }
+        .select1 {
+          margin-right: 2%;
+        }
+        .line {
+          color: #ffffff;
+        }
+        .select2 {
+          margin-left: 2%;
+          margin-right: 2%;
+        }
+      }
     }
   }
 }
