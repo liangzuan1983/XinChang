@@ -494,7 +494,6 @@ export default {
     background: rgba(255, 255, 255, 0.05);
     margin-bottom: 1%;
     padding: 1%;
-    // flex: 1;
     .title {
       font-size: 22px;
       color: #bbd5ff;
