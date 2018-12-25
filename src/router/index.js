@@ -113,19 +113,19 @@ export const constantRouterMap = [
       }
     ]
   },
-  {
-    path: '/forecast', // 预测
-    component: Layout,
-    redirect: '/forecast/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/forecast/index'),
-        name: 'forecast',
-        meta: { title: 'forecast', icon: 'example', noCache: true }
-      }
-    ]
-  },
+  // {
+  //   path: '/forecast', // 预测
+  //   component: Layout,
+  //   redirect: '/forecast/index',
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/forecast/index'),
+  //       name: 'forecast',
+  //       meta: { title: 'forecast', icon: 'example', noCache: true }
+  //     }
+  //   ]
+  // },
   {
     path: '/consumption', // 消费
     component: Layout,
@@ -191,19 +191,19 @@ export const constantRouterMap = [
       }
     ]
   },
-  {
-    path: '/weatherEnvironment', // 天气环境
-    component: Layout,
-    redirect: '/weatherEnvironment/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/weatherEnvironment/index'),
-        name: 'weatherEnvironment',
-        meta: { title: 'weatherEnvironment', icon: 'bug', noCache: true }
-      }
-    ]
-  },
+  // {
+  //   path: '/weatherEnvironment', // 天气环境
+  //   component: Layout,
+  //   redirect: '/weatherEnvironment/index',
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/weatherEnvironment/index'),
+  //       name: 'weatherEnvironment',
+  //       meta: { title: 'weatherEnvironment', icon: 'bug', noCache: true }
+  //     }
+  //   ]
+  // },
   {
     path: '/economicalOperation', // 经济运行
     component: Layout,

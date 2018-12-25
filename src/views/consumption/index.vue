@@ -1,13 +1,181 @@
 <template>
-  <h1>消费</h1>
+  <div class="consumption">
+    <div class="box">
+      <!--时间选择-->
+      <div class="time-box">
+        <span>时间选择： </span>
+        <el-date-picker
+          v-model="value4"
+          type="datetimerange"
+          range-separator="至"
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"/>
+        <!--查询-->
+        <el-button size="mini" type="primary">查询</el-button>
+      </div>
+      <!--内容-->
+      <div class="content">
+        <!--第一行-->
+        <div class="row">
+          <!--左-->
+          <div class="left">
+            <!--标题-->
+            <p class="title">游客消费</p>
+            <!--内容-->
+            <div class="content">
+              <div class="chart-wrapper">
+                <holiday-kl-zhu height="100%" width="100%"/>
+              </div>
+            </div>
+          </div>
+          <!--右-->
+          <div class="right">
+            <!--标题-->
+            <p class="title">游客消费占比</p>
+            <!--内容-->
+            <div class="content">
+              <div class="chart-wrapper">
+                <nlfb v-if="nlfb" id="nlfb" height="100%" width="100%"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--第二行-->
+        <div class="row">
+          <!--左-->
+          <div class="left">
+            <!--标题-->
+            <p class="title">行业消费</p>
+            <!--内容-->
+            <div class="content">
+              <div class="chart-wrapper">
+                <xfzhe v-if="xfzhe" height="100%" width="100%"/>
+              </div>
+            </div>
+          </div>
+          <!--右-->
+          <div class="right">
+            <!--标题-->
+            <p class="title">行业消费占比</p>
+            <!--内容-->
+            <div class="content">
+              <div class="chart-wrapper">
+                <ykxb height="100%" width="100%"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import nlfb from '@/components/Charts/holiday-nlfb'
+import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
+import xfzhe from '@/components/Charts/holiday-xf-zhe'
+import ykxb from '@/components/Charts/holiday-ykxb'
 export default {
-
+  components: {
+    nlfb, HolidayKlZhu, xfzhe, ykxb
+  },
+  data() {
+    return {
+      value4: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
+      xfzheif: true,
+      jjright: true,
+      nlfb: true,
+      xfzhe: true
+    }
+  }
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.consumption {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 999;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  .box {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    .time-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2%;
+      span {
+        color: #ffffff;
+        margin-right: 2%;
+        font-size: 20px;
+      }
+      .el-button--mini {
+        margin-left: 2%;
+      }
+    }
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      .row {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        .left {
+          flex: 1;
+          background: rgba(255, 255, 255, 0.05);
+          margin-bottom: 1%;
+          padding: 1%;
+          margin-right: 1%;
+          display: flex;
+          flex-direction: column;
+          .title {
+            font-size: 22px;
+            color: #bbd5ff;
+            background: #45404d;
+            padding: 1%;
+          }
+          .content {
+            flex: 1;
+            .chart-wrapper {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+        .right {
+          flex: 1;
+          background: rgba(255, 255, 255, 0.05);
+          margin-bottom: 1%;
+          padding: 1%;
+          display: flex;
+          flex-direction: column;
+          // flex: 1;
+          .title {
+            font-size: 22px;
+            color: #bbd5ff;
+            background: #45404d;
+            padding: 1%;
+          }
+          .content {
+            flex: 1;
+            .chart-wrapper {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 </style>
+
+

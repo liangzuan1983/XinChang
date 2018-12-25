@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'ScaleView',
+  name: "ScaleView",
   props: {
     width: {
       type: Number,
@@ -20,55 +20,56 @@ export default {
   },
   data() {
     return {
-      ScaleWidth: '',
-      ScaleHeight: ''
-    }
+      ScaleWidth: "",
+      ScaleHeight: ""
+    };
   },
   computed: {
     scale() {
-      return this.width / this.height
+      return this.width / this.height;
     }
   },
   mounted() {
-    this.cale()
-    window.addEventListener('resize', this.cale.bind(this))
+    this.cale();
+    window.addEventListener("resize", this.cale.bind(this));
   },
   methods: {
     getStyle() {
       return {
-        width: this.ScaleWidth + 'px',
-        height: this.ScaleHeight + 'px'
-      }
+        width: this.ScaleWidth + "px",
+        height: this.ScaleHeight + "px"
+      };
     },
     cale() {
-      let h, w
-      const width = document.body.offsetWidth
-      const height = document.body.offsetHeight
-      const s = width / height
+      let h, w;
+      const width = document.body.offsetWidth;
+      const height = document.body.offsetHeight;  
+      const s = width / height;
       if (s > this.scale) {
-        h = height
-        w = this.scale * height
+        h = height;
+        w = this.scale * height;
       } else if (s < this.scale) {
-        w = width
-        h = width / this.scale
+        w = width;
+        h = width / this.scale;
       }
-      this.ScaleWidth = w
-      this.ScaleHeight = h
+      this.ScaleWidth = w;
+      this.ScaleHeight = h;
     }
   }
-}
+};
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  .scale-container {
-    background: #111a29;
-    position: relative;
-    .ysj {
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-    }
+.scale-container {
+  background: #111a29;
+  position: relative;
+  // background: red;
+  .ysj {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
   }
+}
 </style>
