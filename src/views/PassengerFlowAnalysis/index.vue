@@ -124,7 +124,7 @@
           </div>
           <div class="two">
             <!--title-->
-            <p class="title">游客年龄分布</p>
+            <p class="title">游客过夜比例</p>
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
@@ -135,9 +135,140 @@
         </div>
         <!--2块内容-->
         <div class="content">
-          <div class="one">
+           <div class="one">
+            <!--title-->
+            <p class="title">游客来源地TOP10（城市）</p>
+            <!--内容-->
+            <div class="content">
+              <!--每1项-->
+              <div class="one-box">
+                <span class="name">杭州</span>
+                <p class="line1"/>
+                <span class="num">7262</span>
+              </div>
+              <!--每2项-->
+              <div class="one-box">
+                <span class="name">宁波</span>
+                <p class="line2"/>
+                <span class="num">6862</span>
+              </div>
+              <!--每3项-->
+              <div class="one-box">
+                <span class="name">温州</span>
+                <p class="line3"/>
+                <span class="num">6242</span>
+              </div>
+              <!--每4项-->
+              <div class="one-box">
+                <span class="name">上海</span>
+                <p class="line4"/>
+                <span class="num">5322</span>
+              </div>
+              <!--每5项-->
+              <div class="one-box">
+                <span class="name">南京</span>
+                <p class="line5"/>
+                <span class="num">4222</span>
+              </div>
+              <!--每6项-->
+              <div class="one-box">
+                <span class="name">常州</span>
+                <p class="line6"/>
+                <span class="num">3212</span>
+              </div>
+              <!--每7项-->
+              <div class="one-box">
+                <span class="name">苏州</span>
+                <p class="line7"/>
+                <span class="num">2342</span>
+              </div>
+              <!--每8项-->
+              <div class="one-box">
+                <span class="name">无锡</span>
+                <p class="line8"/>
+                <span class="num">1232</span>
+              </div>
+              <!--每9项-->
+              <div class="one-box">
+                <span class="name">台州</span>
+                <p class="line9"/>
+                <span class="num">672</span>
+              </div>
+              <!--每10项-->
+              <div class="one-box">
+                <span class="name">丽水</span>
+                <p class="line10"/>
+                <span class="num">342</span>
+              </div>
+            </div>
           </div>
-          <div class="two"></div>
+          <div class="two">
+            <!--title-->
+            <p class="title">游客来源地TOP10（区县）</p>
+             <!--内容-->
+            <div class="content">
+              <!--每1项-->
+              <div class="one-box">
+                <span class="name">鞍山</span>
+                <p class="line1"/>
+                <span class="num">7262</span>
+              </div>
+              <!--每2项-->
+              <div class="one-box">
+                <span class="name">临安</span>
+                <p class="line2"/>
+                <span class="num">6862</span>
+              </div>
+              <!--每3项-->
+              <div class="one-box">
+                <span class="name">奉化</span>
+                <p class="line3"/>
+                <span class="num">6242</span>
+              </div>
+              <!--每4项-->
+              <div class="one-box">
+                <span class="name">镇海</span>
+                <p class="line4"/>
+                <span class="num">5322</span>
+              </div>
+              <!--每5项-->
+              <div class="one-box">
+                <span class="name">椒江</span>
+                <p class="line5"/>
+                <span class="num">4222</span>
+              </div>
+              <!--每6项-->
+              <div class="one-box">
+                <span class="name">慈溪</span>
+                <p class="line6"/>
+                <span class="num">3212</span>
+              </div>
+              <!--每7项-->
+              <div class="one-box">
+                <span class="name">余姚</span>
+                <p class="line7"/>
+                <span class="num">2342</span>
+              </div>
+              <!--每8项-->
+              <div class="one-box">
+                <span class="name">宁海</span>
+                <p class="line8"/>
+                <span class="num">1232</span>
+              </div>
+              <!--每9项-->
+              <div class="one-box">
+                <span class="name">乐清</span>
+                <p class="line9"/>
+                <span class="num">672</span>
+              </div>
+              <!--每10项-->
+              <div class="one-box">
+                <span class="name">瑞安</span>
+                <p class="line10"/>
+                <span class="num">342</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <!--right-->
@@ -247,6 +378,7 @@ export default {
   position: relative;
   z-index: 999;
   margin: 1.5%;
+  padding-bottom: 1%;
   background: rgba(255, 255, 255, 0.05);
   overflow-y: overlay;
   .top {
@@ -352,9 +484,13 @@ export default {
       }
       .content {
         display: flex;
-        justify-content: space-between;   
+        justify-content: space-between;
+        margin-bottom: 1%; 
         .one {
           flex: 1;
+          margin-right: 1%;
+          display: flex;
+          flex-direction: column;
           .title {
             font-size: 22px;
             color: #bbd5ff;
@@ -364,6 +500,7 @@ export default {
           .content {
             background: rgba(255, 255, 255, 0.05);
             display: flex;
+            flex: 1;
             flex-direction: column;
             .one-box {
               display: flex;
@@ -455,7 +592,9 @@ export default {
         }
         .two {
           flex: 1;
+          margin-left: 1%;
           background: rgba(255, 255, 255, 0.05);
+          display: flex;
           flex-direction: column;
           .title {
             font-size: 22px;
@@ -464,9 +603,99 @@ export default {
             padding: 1.5%;
           }
           .content {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            // background: rgba(255, 255, 255, 0.05);
             .chart-wrapper {
               height: 100%;
               width: 100%;
+            }
+            .one-box {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 1% 2%;
+              .name {
+                font-size: 20px;
+                color: #889db5;
+                width: 20%;
+              }
+              .line1 {
+                height: 14px;
+                width: 50%;
+                background: #f69704;
+                border-radius: 10px;
+                margin-right: 2%;
+              }
+              .line2 {
+                height: 14px;
+                width: 46%;
+                background: #f79007;
+                border-radius: 10px;
+                margin-right: 2%;
+              }
+              .line3 {
+                height: 14px;
+                width: 42%;
+                background: #f88909;
+                border-radius: 10px;
+                margin-right: 2%;
+              }
+              .line4 {
+                height: 14px;
+                width: 38%;
+                background: #f8820c;
+                border-radius: 10px;
+                margin-right: 2%;
+              }
+              .line5 {
+                height: 14px;
+                width: 34%;
+                background: #f97b0e;
+                border-radius: 10px;
+                margin-right: 2%;
+              }
+              .line6 {
+                height: 14px;
+                width: 30%;
+                background: #fa7311;
+                border-radius: 10px;
+                margin-right: 2%;
+              }
+              .line7 {
+                height: 14px;
+                width: 26%;
+                background: #fb6c13;
+                border-radius: 10px;
+                margin-right: 2%;
+              }
+              .line8 {
+                height: 14px;
+                width: 22%;
+                background: #fb6516;
+                border-radius: 10px;
+                margin-right: 2%;
+              }
+              .line9 {
+                height: 14px;
+                width: 18%;
+                background: #fc5e18;
+                border-radius: 10px;
+                margin-right: 2%;
+              }
+              .line10 {
+                height: 14px;
+                width: 14%;
+                background: #fd571b;
+                border-radius: 10px;
+                margin-right: 2%;
+              }
+              .num {
+                font-size: 16px;
+                color: #bbd5ff;
+                flex: 1;
+              }
             }
           }
         }
@@ -511,32 +740,32 @@ export default {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1% 2%;
+            padding: 2% 2%;
             .name {
               font-size: 20px;
               color: #889db5;
-              width: 38%;
+              width: 30%;
             }
             .line1 {
               height: 14px;
               width: 50%;
               background: #f69704;
               border-radius: 10px;
-              margin-right: 2%;
+              margin-right: 3%;
             }
             .line2 {
               height: 14px;
               width: 46%;
               background: #f79007;
               border-radius: 10px;
-              margin-right: 2%;
+              margin-right: 3%;
             }
             .line3 {
               height: 14px;
               width: 42%;
               background: #f88909;
               border-radius: 10px;
-              margin-right: 2%;
+              margin-right: 3%;
             }
             .line4 {
               height: 14px;
@@ -550,42 +779,42 @@ export default {
               width: 34%;
               background: #f97b0e;
               border-radius: 10px;
-              margin-right: 2%;
+              margin-right: 3%;
             }
             .line6 {
               height: 14px;
               width: 30%;
               background: #fa7311;
               border-radius: 10px;
-              margin-right: 2%;
+              margin-right: 3%;
             }
             .line7 {
               height: 14px;
               width: 26%;
               background: #fb6c13;
               border-radius: 10px;
-              margin-right: 2%;
+              margin-right: 3%;
             }
             .line8 {
               height: 14px;
               width: 22%;
               background: #fb6516;
               border-radius: 10px;
-              margin-right: 2%;
+              margin-right: 3%;
             }
             .line9 {
               height: 14px;
               width: 18%;
               background: #fc5e18;
               border-radius: 10px;
-              margin-right: 2%;
+              margin-right: 3%;
             }
             .line10 {
               height: 14px;
               width: 14%;
               background: #fd571b;
               border-radius: 10px;
-              margin-right: 2%;
+              margin-right: 3%;
             }
             .num {
               font-size: 16px;
