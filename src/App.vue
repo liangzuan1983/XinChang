@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <scale-view :width="16" :height="9" class="scale">
+    <scale-view :width="5" :height="4" class="scale">
       <router-view/>
     </scale-view>
   </div>
