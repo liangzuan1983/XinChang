@@ -498,6 +498,7 @@ export default {
             padding: 1.5%;
           }
           .content {
+            padding: 2%;
             background: rgba(255, 255, 255, 0.05);
             display: flex;
             flex: 1;
