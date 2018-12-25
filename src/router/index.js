@@ -191,19 +191,6 @@ export const constantRouterMap = [
       }
     ]
   },
-  // {
-  //   path: '/weatherEnvironment', // 天气环境
-  //   component: Layout,
-  //   redirect: '/weatherEnvironment/index',
-  //   children: [
-  //     {
-  //       path: 'index',
-  //       component: () => import('@/views/weatherEnvironment/index'),
-  //       name: 'weatherEnvironment',
-  //       meta: { title: 'weatherEnvironment', icon: 'bug', noCache: true }
-  //     }
-  //   ]
-  // },
   {
     path: '/economicalOperation', // 经济运行
     component: Layout,
@@ -217,6 +204,19 @@ export const constantRouterMap = [
       }
     ]
   },
+  {
+    path: '/weatherEnvironment', // 资源分布
+    component: Layout,
+    redirect: '/weatherEnvironment/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/weatherEnvironment/index'),
+        name: 'weatherEnvironment',
+        meta: { title: 'weatherEnvironment', icon: 'bug', noCache: true }
+      }
+    ]
+  }
   // {
   //   path: '/documentation',
   //   component: Layout,
