@@ -20,7 +20,15 @@
           <!--左-->
           <div class="left">
             <!--标题-->
-            <p class="title">游客消费</p>
+            <p class="title-box">
+              <span class="title">游客消费</span>
+              <el-radio-group v-model="tabPosition" size="mini">
+                <el-radio-button label="top">消费金额</el-radio-button>
+                <el-radio-button label="right">交易笔数</el-radio-button>
+                <el-radio-button label="bottom">单笔消费金额</el-radio-button>
+                <el-radio-button label="left">人均消费金额</el-radio-button>
+              </el-radio-group>
+            </p>
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
@@ -45,7 +53,7 @@
           <!--左-->
           <div class="left">
             <!--标题-->
-            <p class="title">行业消费</p>
+            <p class="title1">行业消费</p>
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
@@ -85,7 +93,8 @@ export default {
       xfzheif: true,
       jjright: true,
       nlfb: true,
-      xfzhe: true
+      xfzhe: true,
+      tabPosition: 'top'
     }
   }
 }
@@ -136,11 +145,22 @@ export default {
           margin-right: 1%;
           display: flex;
           flex-direction: column;
-          .title {
+          .title-box {
+            display: flex;
+            justify-content: space-between;
+            background: #45404d;
+            align-items: center;
+            padding: 1%;
+            .title {
+              font-size: 22px;
+              color: #bbd5ff;
+            }
+          }
+          .title1 {
             font-size: 22px;
             color: #bbd5ff;
-            background: #45404d;
             padding: 1%;
+            background: #45404d;
           }
           .content {
             flex: 1;
