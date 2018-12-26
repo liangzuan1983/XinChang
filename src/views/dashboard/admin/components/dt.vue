@@ -60,6 +60,14 @@ export default {
         {
           name: '小将镇',
           value: [121.135366, 29.388539, 500]
+        },
+        {
+          name: '回山镇',
+          value: [120.827211, 29.275687, 300]
+        },
+        {
+          name: '去去去',
+          value: [121.04108, 28.92626, 400]
         }
       ]
     }
@@ -117,7 +125,13 @@ export default {
     setOptions({ expectedData, actualData } = {}) {
       let option = {
         geo: {
-          map: 'xinchange'
+          map: 'xinchange',
+          itemStyle: {
+            normal: {
+              areaColor: 'rgba(0, 0, 0, 0)',
+              borderColor: 'rgba(120, 204, 204, 0.8)'
+            }
+          }
         },
         legend: {
           orient: 'vertical',
