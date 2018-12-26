@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <scale-view :width="16" :height="9" class="scale">
+    <!-- <scale-view :width="16" :height="9" class="scale">
       <router-view/>
-    </scale-view>
+    </scale-view> -->
+    <router-view/>
+    <img class="ysj" src="@/assets/10.png" alt="">
   </div>
 </template>
 
@@ -18,6 +20,15 @@ export default{
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #111a29;
+    position: relative;
+    .ysj {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 </style>
 
