@@ -154,9 +154,18 @@ export default {
             },
             itemStyle: {
               normal: {
-                color: 'purple',
-                shadowBlur: 10,
-                shadowColor: '#333'
+                normal: {
+                  shadowBlur: 10,
+                  shadowColor: 'rgba(25, 100, 150, 0.5)',
+                  shadowOffsetY: 5,
+                  color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+                    offset: 0,
+                    color: 'rgb(129, 227, 238)'
+                  }, {
+                    offset: 1,
+                    color: 'rgb(25, 183, 207)'
+                  }])
+                }
               }
             },
             zlevel: 1
