@@ -144,7 +144,8 @@
     <div class="middle">
       <!--main-->
       <div class="main">
-        <img src="@/assets/map.png" alt="">
+        <!-- <img src="@/assets/map.png" alt=""> -->
+        <dt-view />
         <!--按钮-->
         <div class="btn">
           <div class="btn-box">
@@ -424,10 +425,11 @@ import PieChartFull from '@/views/dashboard/admin/components/PieChartFull'
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
 import ZiFuYun from '@/views/dashboard/admin/components/ZiFuYun'
 import jdt from '@/views/dashboard/admin/components/jdt'
+import dtView from './components/dt.vue'
 export default {
   name: 'DashboardAdmin',
   components: {
-    lvxf, BarChart, PieChartFull, YiZhou, ZiFuYun, jdt
+    lvxf, BarChart, PieChartFull, YiZhou, ZiFuYun, jdt, dtView
   },
   data() {
     return {
