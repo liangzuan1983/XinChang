@@ -101,7 +101,7 @@ export default {
       bingIf1: true,
       bingIf2: true,
       bingIf3: true,
-      bingIf4: true,
+      bingIf4: true
     }
   }
 }

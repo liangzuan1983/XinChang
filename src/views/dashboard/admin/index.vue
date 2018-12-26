@@ -145,7 +145,7 @@
       <!--main-->
       <div class="main">
         <!-- <img src="@/assets/map.png" alt=""> -->
-        <dt-view />
+        <dt-view width="100%" height="100%"/>
         <!--按钮-->
         <div class="btn">
           <div class="btn-box">

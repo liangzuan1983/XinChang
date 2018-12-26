@@ -23,11 +23,11 @@ export default {
     },
     autoResize: {
       type: Boolean,
-      default: true
+      default: false
     },
     chartData: {
       type: Object,
-      required: true
+      required: false
     }
   },
   data() {

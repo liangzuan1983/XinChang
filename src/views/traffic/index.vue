@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="content">
-      <router-view></router-view>
+      <router-view/>
     </div>
   </div>
 </template>

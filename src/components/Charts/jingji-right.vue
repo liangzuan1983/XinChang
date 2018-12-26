@@ -23,11 +23,11 @@ export default {
     },
     autoResize: {
       type: Boolean,
-      default: true
+      default: false
     },
     chartData: {
       type: Object,
-      required: true
+      required: false
     }
   },
   data() {
@@ -85,7 +85,7 @@ export default {
           {
             name: '访问来源',
             type: 'pie',
-            radius : '55%',
+            radius: '55%',
             center: ['50%', '60%'],
             data: [
               { value: 335, name: '娱乐' },
