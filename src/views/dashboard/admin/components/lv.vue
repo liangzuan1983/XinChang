@@ -6,13 +6,13 @@
 import echarts from 'echarts'
 import jsonObj from './xc.js'
 // require('echarts/theme/macarons') // echarts theme
-import { debounce } from '@/utils'
+// import { debounce } from '@/utils'
 console.log(jsonObj);
 export default {
   props: {
     className: {
       type: String,
-      default: 'lv'
+      default: 'dt'
     },
     width: {
       type: String,
@@ -39,35 +39,31 @@ export default {
       datas: [
         {
           name: '大佛寺',
-          value: [120.897351, 29.507049, 400]
+          value: [120.897351, 29.507049, 140]
         },
         {
           name: '梅渚镇',
-          value: [120.817708, 29.474498, 300]
+          value: [120.817708, 29.474498, 213]
         },
         {
           name: '平湖山',
-          value: [120.935295, 29.456995, 400]
+          value: [120.935295, 29.456995, 124]
         },
         {
           name: '笔架山',
-          value: [120.840147, 29.438879, 400]
-        },
-        {
-          name: '东明乡',
-          value: [120.847908, 29.428813, 500]
+          value: [120.840147, 29.438879, 214]
         },
         {
           name: '小将镇',
-          value: [121.135366, 29.388539, 500]
+          value: [121.135366, 29.388539, 315]
         },
         {
           name: '回山镇',
-          value: [120.827211, 29.275687, 300]
+          value: [120.827211, 29.275687, 213]
         },
         {
           name: '去去去',
-          value: [121.04108, 28.92626, 400]
+          value: [121.04108, 28.92626, 114]
         }
       ]
     }
@@ -126,40 +122,44 @@ export default {
       let option = {
         geo: {
           map: 'xinchange',
-          // itemStyle: {
-          //   normal: {
-          //     areaColor: 'rgba(0, 0, 0, 0)',
-          //     borderColor: 'rgba(120, 204, 204, 0.8)'
-          //   }
-          // }
-        },
-        legend: {
-          orient: 'vertical',
-          y: 'bottom',
-          x: 'right',
-          data: ['Top5'],
-          textStyle: {
-            color: '#fff',
-            fontSize: 18
-          }
-        },
-        visualMap: {
-          min: 0,
-          max: 500,
-          splitNumber: 5,
-          inRange: {
-            color: ['#d94e5d', '#eac736', '#50a3ba'].reverse()
-          },
-          textStyle: {
-            color: '#fff'
+          itemStyle: {
+            normal: {
+              areaColor: 'rgba(0, 0, 0, 0)',
+              borderColor: 'rgba(120, 204, 204, 0.8)'
+            }
           }
         },
         series: [
           {
-            name: 'AQI',
-            type: 'heatmap',
+            name: 'Top 5',
+            type: 'effectScatter',
             coordinateSystem: 'geo',
-            data: this.datas
+            data: this.datas.sort(function (a, b) {
+              return b.value - a.value;
+            }).slice(0, 6),
+            symbolSize: function (val) {
+              return val[2] / 10;
+            },
+            showEffectOn: 'render',
+            rippleEffect: {
+              brushType: 'stroke'
+            },
+            hoverAnimation: true,
+            label: {
+              normal: {
+                formatter: '{b}',
+                position: 'right',
+                show: true
+              }
+            },
+            itemStyle: {
+              normal: {
+                color: 'purple',
+                shadowBlur: 10,
+                shadowColor: '#333'
+              }
+            },
+            zlevel: 1
           }
         ]
       }
