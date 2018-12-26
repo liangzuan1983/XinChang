@@ -365,6 +365,11 @@ import nlfb from '@/components/Charts/holiday-nlfb'
 export default {
   components: {
     HolidayKlZhu, PieChartFull, nlfb
+  },
+  data() {
+    return {
+      value4: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)]
+    }
   }
 }
 </script>

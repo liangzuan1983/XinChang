@@ -144,8 +144,10 @@
     <div class="middle">
       <!--main-->
       <div class="main">
-        <!-- <img src="@/assets/map.png" alt=""> -->
-        <dt-view width="100%" height="100%"/>
+        <!--全域客流-->
+        <dt-view v-if="qykl" width="100%" height="100%"/>
+        <!--旅游资源-->
+        <lv-view v-if="lvzy" width="100%" height="100%"/>
         <!--按钮-->
         <div class="btn">
           <div class="btn-box">
@@ -426,23 +428,30 @@ import YiZhou from '@/views/dashboard/admin/components/YiZhou'
 import ZiFuYun from '@/views/dashboard/admin/components/ZiFuYun'
 import jdt from '@/views/dashboard/admin/components/jdt'
 import dtView from './components/dt.vue'
+import lvView from './components/lv.vue'
 export default {
   name: 'DashboardAdmin',
   components: {
-    lvxf, BarChart, PieChartFull, YiZhou, ZiFuYun, jdt, dtView
+    lvxf, BarChart, PieChartFull, YiZhou, ZiFuYun, jdt, dtView, lvView
   },
   data() {
     return {
       qyb: true,
-      zyb: false
+      zyb: false,
+      qykl: true,
+      lvzy: false
     }
   },
   methods: {
     qyEvent() {
+      this.qykl = true
+      this.lvzy = false
       this.qyb = true
       this.zyb = false
     },
     lyEvent() {
+      this.qykl = false
+      this.lvzy = true
       this.qyb = false
       this.zyb = true
     }
@@ -855,7 +864,7 @@ export default {
     display: flex;
     flex-direction: column;
     .main {
-      flex: 2;
+      flex: 3;
       // background: rgba(255, 255, 255, 0.05);
       margin: 1%;
       padding: 5%;
@@ -906,7 +915,7 @@ export default {
       }
     }
     .main-bottom {
-      flex-grow: 1;
+      flex: 1;
       // background: indianred;
       display: flex;
       .kyd {
