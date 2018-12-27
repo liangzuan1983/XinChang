@@ -25,46 +25,50 @@
         <!--右-->
         <div class="center">
           <!--标题-->
-          <p class="title">近7日评论数</p>
-          <!--内容-->
-          <div class="content">
-            <!--左-->
-            <div class="left">
-              <!--上-->
-              <div class="top">
-                <p class="titles">评论总数</p>
-                <p class="num">6条</p>
-              </div>
-              <!--下-->
-              <div class="bottom">
-                <div class="leftz">
-                  <p class="titles">好评数</p>
-                  <p class="num">5条</p>
+          <div class="center-top">
+            <p class="title">近7日评论数</p>
+            <!--内容-->
+            <div class="content">
+              <!--左-->
+              <div class="left">
+                <!--上-->
+                <div class="top">
+                  <p class="titles">评论总数</p>
+                  <p class="num">6条</p>
                 </div>
-                <div class="rightz">
-                  <p class="titles">差评数</p>
-                  <p class="num">1条</p>
+                <!--下-->
+                <div class="bottom">
+                  <div class="leftz">
+                    <p class="titles">好评数</p>
+                    <p class="num">5条</p>
+                  </div>
+                  <div class="rightz">
+                    <p class="titles">差评数</p>
+                    <p class="num">1条</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <!--右-->
-            <div class="right-seven">
-              <div class="lefts">
-                <p class="titles">整体好评率</p>
-                <el-progress type="circle" :width="cWidth" :stroke-width="hou" :percentage="82"/>
-              </div>
-              <div class="rights">
-                <p class="titles">近一周好评</p>
-                <el-progress type="circle" color="#8e71c7" :stroke-width="hou" :width="cWidth" :percentage="34"/>
+              <!--右-->
+              <div class="right-seven">
+                <div class="lefts">
+                  <p class="titles">整体好评率</p>
+                  <el-progress type="circle" :width="cWidth" :stroke-width="hou" :percentage="82"/>
+                </div>
+                <div class="rights">
+                  <p class="titles">近一周好评</p>
+                  <el-progress type="circle" color="#8e71c7" :stroke-width="hou" :width="cWidth" :percentage="34"/>
+                </div>
               </div>
             </div>
           </div>
-          <!--标题-->
-          <p class="title">近30日评论数</p>
-          <!--内容-->
-          <div class="content">
-            <div class="chart-wrapper">
-              
+          <div class="center-bottom">
+            <!--标题-->
+            <p class="title">近30日评论数</p>
+            <!--内容-->
+            <div class="content">
+              <div class="chart-wrapper">
+                <haoping width="100%" height="100%"/>
+              </div>
             </div>
           </div>
         </div>
@@ -138,11 +142,11 @@
 </template>
 
 <script>
-import nlfb from '@/components/Charts/holiday-nlfb'
+import haoping from '@/components/Charts/yq-haoping'
 import ykxb from '@/components/Charts/holiday-ykxb'
 export default {
   components: {
-    ykxb
+    ykxb, haoping
   },
   data() {
     return {
@@ -221,108 +225,134 @@ export default {
         display: flex;
         flex-direction: column;
         // flex: 1;
-        .title {
-          font-size: 22px;
-          color: #bbd5ff;
-          background: #45404d;
-          padding: 1%;
-        }
-        .content {
+        .center-top {
           flex: 1;
-          padding-top: 2%;
           display: flex;
-          justify-content: space-between;
-          .left {
+          flex-direction: column;
+          .title {
+            font-size: 22px;
+            color: #bbd5ff;
+            background: #45404d;
+            padding: 1%;
+          }
+          .content {
             flex: 1;
-            // background:hotpink;
-            padding: 2%;
+            padding-top: 2%;
             display: flex;
-            flex-direction: column;
-            .top {
+            justify-content: space-between;
+            .left {
               flex: 1;
+              // background:hotpink;
+              padding: 2%;
               display: flex;
               flex-direction: column;
-              justify-content: space-around;
-              .titles {
-                font-size: 18px;
-                color: #ffffff;
-                background: transparent;
-              }
-              .num {
-                font-size: 26px;
-                color: #34a3d6;
-                font-weight: bold;
-              }
-            }
-            .bottom {
-              flex: 1;
-              display: flex;
-              justify-content: center;
-              .leftz {
+              .top {
                 flex: 1;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
                 .titles {
-                  color: #ffffff;
                   font-size: 18px;
+                  color: #ffffff;
+                  background: transparent;
                 }
                 .num {
-                  font-size: 24px;
+                  font-size: 26px;
                   color: #34a3d6;
                   font-weight: bold;
                 }
               }
-              .rightz {
+              .bottom {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                .leftz {
+                  flex: 1;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-around;
+                  .titles {
+                    color: #ffffff;
+                    font-size: 18px;
+                  }
+                  .num {
+                    font-size: 24px;
+                    color: #34a3d6;
+                    font-weight: bold;
+                  }
+                }
+                .rightz {
+                  flex: 1;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-around;  
+                  .titles {
+                    color: #ffffff;
+                    font-size: 18px;
+                  }
+                  .num {
+                    font-size: 24px;
+                    color: #34a3d6;
+                    font-weight: bold;
+                  }
+                }
+              }
+            }
+            .right-seven {
+              flex: 1;
+              display: flex;
+              justify-content: space-between;
+              // background:palegreen;
+              padding: 1%;
+              .lefts {
                 flex: 1;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-around;  
+                justify-content: space-around;
+                align-items: center;
                 .titles {
                   color: #ffffff;
                   font-size: 18px;
                 }
-                .num {
-                  font-size: 24px;
-                  color: #34a3d6;
-                  font-weight: bold;
+                .el-progress--circle .el-progress__text {
+                  color: #ffffff;
+                }
+              }
+              .rights {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                .titles {
+                  color: #ffffff;
+                  font-size: 18px;
+                }
+                .el-progress--circle .el-progress__text {
+                  color: #ffffff;
                 }
               }
             }
           }
-          .right-seven {
+        }
+        .center-bottom {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          .title {
+            font-size: 22px;
+            color: #bbd5ff;
+            background: #45404d;
+            padding: 1%;
+          }
+          .content {
             flex: 1;
+            padding-top: 2%;
             display: flex;
             justify-content: space-between;
-            // background:palegreen;
-            padding: 1%;
-            .lefts {
-              flex: 1;
-              display: flex;
-              flex-direction: column;
-              justify-content: space-around;
-              align-items: center;
-              .titles {
-                color: #ffffff;
-                font-size: 18px;
-              }
-              .el-progress--circle .el-progress__text {
-                color: #ffffff;
-              }
-            }
-            .rights {
-              flex: 1;
-              display: flex;
-              flex-direction: column;
-              justify-content: space-around;
-              align-items: center;
-              .titles {
-                color: #ffffff;
-                font-size: 18px;
-              }
-              .el-progress--circle .el-progress__text {
-                color: #ffffff;
-              }
+            .chart-wrapper {
+              width: 100%;
+              height: 100%;
             }
           }
         }
