@@ -148,7 +148,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <ykxb height="100%" width="100%"/>
+              <weidu height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -174,9 +174,10 @@ import hcdd from '@/components/Charts/hao-cha-duidie'
 import ykxb from '@/components/Charts/holiday-ykxb'
 import zhengfu from '@/components/Charts/zheng-fu.vue'
 import meigui from '@/components/Charts/meigui'
+import weidu from '@/components/Charts/weidu'
 export default {
   components: {
-    ykxb, haoping, hcdd, zhengfu, meigui
+    ykxb, haoping, hcdd, zhengfu, meigui, weidu
   },
   data() {
     return {
