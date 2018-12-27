@@ -484,7 +484,7 @@ export default {
       padding: 2% 3%;
       .zdjq-title-box {
         margin-bottom: 3%;
-        flex: 1;
+        // flex: 1;
         // background: red;
         display: flex;
         justify-content: space-between;
@@ -1154,7 +1154,7 @@ export default {
       padding: 2% 3%;
       .zdjq-title-box {
         margin-bottom: 3%;
-        flex: 1;
+        // flex: 1;
         // background: red;
         display: flex;
         justify-content: space-between;
@@ -1171,7 +1171,7 @@ export default {
         }
       }
       .content-box {
-        flex: 6;
+        flex: 1;
         // background: #0982de;
         background: rgba(255, 255, 255, 0.05);
         padding: 3%;
@@ -1322,7 +1322,7 @@ export default {
       padding: 2% 3%;
       .zdjq-title-box {
         margin-bottom: 3%;
-        flex: 1;
+        // flex: 1;
         // background: red;
         display: flex;
         justify-content: space-between;
@@ -1339,14 +1339,14 @@ export default {
         }
       }
       .content-box {
-        flex: 6;
+        flex: 1;
         // background: #0982de;
         display: flex;
         flex-direction: column;
         .yr-box {
           display: flex;
           justify-content: space-between;
-          flex: 1;
+          // flex: 1;
           .yq-box {
             flex: 1;
             // background: forestgreen;
