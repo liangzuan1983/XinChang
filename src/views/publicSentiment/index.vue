@@ -143,17 +143,18 @@
 
 <script>
 import haoping from '@/components/Charts/yq-haoping'
+import hcdd from '@/components/Charts/hao-cha-duidie'
 import ykxb from '@/components/Charts/holiday-ykxb'
 export default {
   components: {
-    ykxb, haoping
+    ykxb, haoping, hcdd
   },
   data() {
     return {
       value4: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
       xfzheif: true,
       jjright: true,
-      cWidth: 60,
+      cWidth: 70,
       hou: 8
     }
   }
