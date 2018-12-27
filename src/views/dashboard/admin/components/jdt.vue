@@ -11,7 +11,7 @@ export default {
   props: {
     className: {
       type: String,
-      default: 'jdt'
+      default: 'jdts'
     },
     width: {
       type: String,
@@ -19,7 +19,7 @@ export default {
     },
     height: {
       type: String,
-      default: '350px'
+      default: '100%'
     },
     autoResize: {
       type: Boolean,

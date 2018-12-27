@@ -1421,6 +1421,7 @@ export default {
         .jdt {
           // background: fuchsia;
           flex: 1;
+          margin-top: 7%;
         }
       }
     }
