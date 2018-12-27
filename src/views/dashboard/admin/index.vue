@@ -476,7 +476,7 @@ export default {
     display: flex;
     flex-direction: column;
     .zdjq {
-      flex-grow: 1;
+      flex: 1;
       background: rgba(255, 255, 255, 0.05);
       margin-bottom: 1.5%;
       display: flex;
@@ -501,12 +501,12 @@ export default {
         }
       }
       .zdjq-content {
-        flex-grow: 6;
+        flex: 6;
         // background: forestgreen;
         display: flex;
         justify-content: space-between;
         .dfs {
-          flex-grow: 1;
+          flex: 1;
           background: #27303f;
           margin-right: 2%;
           display: flex;
@@ -515,13 +515,13 @@ export default {
             font-size: 18px;
             font-weight: bold;
             color: #ffffff;
-            flex-grow: 1;
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
           }
           .dfs-content {
-            flex-grow: 1;
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -555,7 +555,7 @@ export default {
           }
         }
         .sjf {
-          flex-grow: 1;
+          flex: 1;
           background: #27303f;
           margin-left: 2%;
           display: flex;
@@ -564,13 +564,13 @@ export default {
             font-size: 18px;
             font-weight: bold;
             color: #ffffff;
-            flex-grow: 1;
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
           }
           .dfs-content {
-            flex-grow: 1;
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -607,14 +607,14 @@ export default {
     }
     .xcly {
       padding: 2% 3%;
-      flex-grow: 1.3;
+      flex: 1.3;
       background: rgba(255, 255, 255, 0.05);
       margin-bottom: 1.5%;
       display: flex;
       flex-direction: column;
       .zdjq-title-box {
         margin-bottom: 3%;
-        flex-grow: 1;
+        flex: 1;
         // background: red;
         display: flex;
         justify-content: space-between;
@@ -631,7 +631,7 @@ export default {
         }
       }
       .xcly-content {
-        flex-grow: 3.5;
+        flex: 3.5;
         // background: firebrick;
         padding-left: 5%;
         padding-right: 5%;
@@ -786,18 +786,18 @@ export default {
       }
     }
     .edfl {
-      flex-grow: 2.3;
+      flex: 2.3;
       background: rgba(255, 255, 255, 0.05);
       display: flex;
       flex-direction: column;
       .bh {
-        flex-grow: 1;
+        flex: 1;
         display: flex;
         flex-direction: column;
         padding: 2% 3%;
         .zdjq-title-box {
           margin-bottom: 3%;
-          flex-grow: 1;
+          flex: 1;
           // background: red;
           display: flex;
           justify-content: space-between;
@@ -814,7 +814,7 @@ export default {
           }
         }
         .content-box {
-          flex-grow: 6;
+          flex: 6;
           // background: #0982de;
           .chart-container{
             margin-bottom: -10%;
@@ -824,13 +824,13 @@ export default {
         }
       }
       .lx {
-        flex-grow: 1;
+        flex: 1;
         display: flex;
         flex-direction: column;
         padding: 2% 3%;
         .zdjq-title-box {
           margin-bottom: 3%;
-          flex-grow: 1;
+          flex: 1;
           // background: red;
           display: flex;
           justify-content: space-between;
@@ -919,7 +919,7 @@ export default {
       // background: indianred;
       display: flex;
       .kyd {
-        // flex-grow: 1;
+        // flex: 1;
         width:49%;
         background: rgba(255, 255, 255, 0.05);
         margin-left: 1%;
@@ -929,7 +929,7 @@ export default {
         padding: 2% 3%;
         .zdjq-title-box {
           margin-bottom: 3%;
-          flex-grow: 1;
+          flex: 1;
           // background: red;
           display: flex;
           justify-content: space-between;
@@ -955,7 +955,7 @@ export default {
         }
       }
       .yks {
-        // flex-grow: 1;
+        // flex: 1;
         width:48%;
         background: rgba(255, 255, 255, 0.05);
         margin-left: 0.5%;
@@ -965,7 +965,7 @@ export default {
         padding: 2% 3%;
         .zdjq-title-box {
           margin-bottom: 3%;
-          flex-grow: 1;
+          flex: 1;
           // background: red;
           display: flex;
           justify-content: space-between;
@@ -1000,7 +1000,7 @@ export default {
     display: flex;
     flex-direction: column;
     .cyjc {
-      flex-grow: 1;
+      flex: 1;
       background: rgba(255, 255, 255, 0.05);
       margin-bottom: 1.5%;
       display: flex;
@@ -1008,7 +1008,7 @@ export default {
       padding: 2% 3%;
       .zdjq-title-box {
         margin-bottom: 3%;
-        flex-grow: 1;
+        flex: 1;
         // background: red;
         display: flex;
         justify-content: space-between;
@@ -1146,7 +1146,7 @@ export default {
       }
     }
     .zyfb {
-      flex-grow: 1;
+      flex: 1;
       background: rgba(255, 255, 255, 0.05);
       margin-bottom: 1.5%;
       display: flex;
@@ -1154,7 +1154,7 @@ export default {
       padding: 2% 3%;
       .zdjq-title-box {
         margin-bottom: 3%;
-        flex-grow: 1;
+        flex: 1;
         // background: red;
         display: flex;
         justify-content: space-between;
@@ -1285,7 +1285,7 @@ export default {
       }
     }
     .rcfb {
-      flex-grow: 1;
+      flex: 1;
       background: rgba(255, 255, 255, 0.05);
       margin-bottom: 1.5%;
       display: flex;
@@ -1293,7 +1293,7 @@ export default {
       padding: 2% 3%;
       .zdjq-title-box {
         margin-bottom: 3%;
-        flex-grow: 1;
+        flex: 1;
         // background: red;
         display: flex;
         justify-content: space-between;
@@ -1315,14 +1315,14 @@ export default {
       }
     }
     .yqfx {
-      flex-grow: 1;
+      flex: 1;
       background: rgba(255, 255, 255, 0.05);
       display: flex;
       flex-direction: column;
       padding: 2% 3%;
       .zdjq-title-box {
         margin-bottom: 3%;
-        flex-grow: 1;
+        flex: 1;
         // background: red;
         display: flex;
         justify-content: space-between;
