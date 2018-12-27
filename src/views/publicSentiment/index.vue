@@ -109,8 +109,35 @@
           <p class="title">好评率排行</p>
           <!--内容-->
           <div class="content">
-            <div class="chart-wrapper">
-              
+            <!--每1项-->
+            <div class="one-box">
+              <span class="name">大佛寺</span>
+              <p class="line1"/>
+              <span class="num">7262</span>
+            </div>
+            <!--每2项-->
+            <div class="one-box">
+              <span class="name">十九峰</span>
+              <p class="line2"/>
+              <span class="num">6862</span>
+            </div>
+            <!--每3项-->
+            <div class="one-box">
+              <span class="name">丝绸世界</span>
+              <p class="line3"/>
+              <span class="num">6242</span>
+            </div>
+            <!--每4项-->
+            <div class="one-box">
+              <span class="name">灵隐村</span>
+              <p class="line4"/>
+              <span class="num">5322</span>
+            </div>
+            <!--每5项-->
+            <div class="one-box">
+              <span class="name">天烛仙境</span>
+              <p class="line5"/>
+              <span class="num">4222</span>
             </div>
           </div>
         </div>
@@ -428,6 +455,94 @@ export default {
         .content {
           flex: 1;
           padding-top: 2%;
+          display: flex;
+          flex-direction: column;
+          .one-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2% 2%;
+            .name {
+              font-size: 20px;
+              color: #889db5;
+              width: 30%;
+            }
+            .line1 {
+              height: 14px;
+              width: 50%;
+              background: #f69704;
+              border-radius: 10px;
+              margin-right: 3%;
+            }
+            .line2 {
+              height: 14px;
+              width: 46%;
+              background: #f79007;
+              border-radius: 10px;
+              margin-right: 3%;
+            }
+            .line3 {
+              height: 14px;
+              width: 42%;
+              background: #f88909;
+              border-radius: 10px;
+              margin-right: 3%;
+            }
+            .line4 {
+              height: 14px;
+              width: 38%;
+              background: #f8820c;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line5 {
+              height: 14px;
+              width: 34%;
+              background: #f97b0e;
+              border-radius: 10px;
+              margin-right: 3%;
+            }
+            .line6 {
+              height: 14px;
+              width: 30%;
+              background: #fa7311;
+              border-radius: 10px;
+              margin-right: 3%;
+            }
+            .line7 {
+              height: 14px;
+              width: 26%;
+              background: #fb6c13;
+              border-radius: 10px;
+              margin-right: 3%;
+            }
+            .line8 {
+              height: 14px;
+              width: 22%;
+              background: #fb6516;
+              border-radius: 10px;
+              margin-right: 3%;
+            }
+            .line9 {
+              height: 14px;
+              width: 18%;
+              background: #fc5e18;
+              border-radius: 10px;
+              margin-right: 3%;
+            }
+            .line10 {
+              height: 14px;
+              width: 14%;
+              background: #fd571b;
+              border-radius: 10px;
+              margin-right: 3%;
+            }
+            .num {
+              font-size: 16px;
+              color: #bbd5ff;
+              flex: 1;
+            }
+          }
           .chart-wrapper {
             width: 100%;
             height: 100%;
