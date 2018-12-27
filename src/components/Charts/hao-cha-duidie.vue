@@ -87,23 +87,37 @@ export default {
           }
         },
         legend: {
-          data: ['好评', '差评']
+          data: ['好评', '差评'],
+          textStyle: {
+            color: '#889db5'
+          }
         },
         grid: {
           left: '3%',
           right: '4%',
           bottom: '3%',
+          top: '20%',
           containLabel: true
         },
         xAxis: [
           {
             type: 'category',
-            data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
+            data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+            axisLabel: {
+              textStyle: {
+                color: '#889db5'
+              }
+            }
           }
         ],
         yAxis: [
           {
-            type: 'value'
+            type: 'value',
+            axisLabel: {
+              textStyle: {
+                color: '#889db5'
+              }
+            }
           }
         ],
         series: [

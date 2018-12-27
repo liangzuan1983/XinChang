@@ -87,7 +87,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              
+              <hcdd width="100%" height="100%"/>
             </div>
           </div>
         </div>
