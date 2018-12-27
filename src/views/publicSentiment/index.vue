@@ -75,11 +75,11 @@
         <!--右-->
         <div class="right">
           <!--标题-->
-          <p class="title">评论分布</p>
+          <p class="title">评论分析</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              
+              <zhengfu width="100%" height="100%"/>
             </div>
           </div>
           <!--标题-->
@@ -145,9 +145,10 @@
 import haoping from '@/components/Charts/yq-haoping'
 import hcdd from '@/components/Charts/hao-cha-duidie'
 import ykxb from '@/components/Charts/holiday-ykxb'
+import zhengfu from '@/components/Charts/zheng-fu.vue'
 export default {
   components: {
-    ykxb, haoping, hcdd
+    ykxb, haoping, hcdd, zhengfu
   },
   data() {
     return {
