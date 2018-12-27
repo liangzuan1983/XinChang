@@ -98,6 +98,13 @@ export default {
             }
           }
         ],
+        grid: {
+          top: '18%',
+          left: '3%',
+          right: '5%',
+          bottom: '5%',
+          containLabel: true
+        },
         yAxis: [
           {
             type: 'value',
