@@ -99,7 +99,21 @@
           <!--标题-->
           <p class="title">实时新增评论</p>
           <!--内容-->
-          <div class="content">        
+          <div class="content">
+            <vue-seamless-scroll :data="listData" class="seamless-warp">
+              <ul class="item">
+                <li v-for="(item, index) in listData" :key="index" class="woshili">
+                  <p class="pppp">{{ index + 1 }}</p>
+                  <div class="content-boxsss">
+                    <p class="top-boxsss">
+                      <span class="title" v-text="item.date"/>
+                      <span class="date" v-text="item.title"/>
+                    </p>
+                    <p class="neirong">{{ item.content }}</p>
+                  </div>
+                </li>
+              </ul>
+            </vue-seamless-scroll>
           </div>
         </div>
         <!--右-->
@@ -184,7 +198,53 @@ export default {
       xfzheif: true,
       jjright: true,
       cWidth: 70,
-      hou: 8
+      hou: 8,
+      listData: [
+        {
+          'content': '这里的景色真的美',
+          'date': '2017-12-16',
+          'title': '[丽水隐居画乡院落酒店]'
+        },
+        {
+          'content': '我喜欢这里的美食,真让人流连忘返',
+          'date': '2017-12-16',
+          'title': '[丽水画居匠心民宿]'
+        }, {
+            'content': '这座山爬的我气喘吁吁',
+            'date': '2017-12-16',
+            'title': '[丽水隐居画乡院落酒店]'
+        },
+        {
+            'content': '这里的河水好清澈啊',
+            'date': '2017-12-16',
+            'title': '[丽水隐居画乡院落酒店]'
+        },
+        {
+            'content': '我觉得我下次还会和朋友一起来玩的',
+            'date': '2017-12-16',
+            'title': '[丽水隐居画乡院落酒店]'
+        },
+        {
+            'content': '我喜欢那个蹦极运动,让我心潮澎湃',
+            'date': '2017-12-16',
+            'title': '[丽水隐居画乡院落酒店]'
+        },
+        {
+            'content': '这个地方有很多漂亮小姐姐',
+            'date': '2017-12-16',
+            'title': '[丽水隐居画乡院落酒店]'
+        },
+        {
+            'content': '人文情怀很浓郁,不枉此行啊',
+            'date': '2017-12-16',
+            'title': '[丽水隐居画乡院落酒店]'
+        },
+        {
+            'content': '上有天堂下有苏杭',
+            'date': '2017-12-16',
+            'title': '[丽水隐居画乡院落酒店]'
+        }
+      ]
     }
   }
 }
@@ -432,9 +492,50 @@ export default {
         .content {
           flex: 1;
           padding-top: 2%;
-          .chart-wrapper {
+          .seamless-warp {
             width: 100%;
             height: 100%;
+            overflow: hidden;
+            .item {
+              width: 100%;
+              height: 100%;
+              .woshili {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                .pppp {
+                  color: #ffffff;
+                  font-size: 18px;
+                  width: 40px;
+                  height: 40px;
+                  background: #34a3d6;
+                  text-align: center;
+                  line-height: 40px;
+                  margin-right: 5%;
+                  border-radius: 5px;
+                }
+                .content-boxsss {
+                  margin-bottom: 2%;
+                  flex: 1;
+                  .top-boxsss {
+                    margin-bottom: 2%;
+                    .title {
+                      color: #889db5;
+                      font-size: 14px;
+                      background: transparent;
+                    }
+                    .date {
+                      color: #889db5;
+                      font-size: 14px;
+                    }
+                  }
+                  .neirong {
+                    font-size: 16px;
+                    color: #ffffff;
+                  }
+                }
+              }
+            }
           }
         }
       }

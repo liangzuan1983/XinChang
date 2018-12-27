@@ -159,7 +159,7 @@ export default {
               left: "center",
               top: "center",
               width: "96%",
-              height: "50%",
+              height: "100%",
               data: this.presents
             }
           ]
