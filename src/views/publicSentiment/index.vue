@@ -159,7 +159,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <ykxb height="100%" width="100%"/>
+              <meigui height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -173,9 +173,10 @@ import haoping from '@/components/Charts/yq-haoping'
 import hcdd from '@/components/Charts/hao-cha-duidie'
 import ykxb from '@/components/Charts/holiday-ykxb'
 import zhengfu from '@/components/Charts/zheng-fu.vue'
+import meigui from '@/components/Charts/meigui'
 export default {
   components: {
-    ykxb, haoping, hcdd, zhengfu
+    ykxb, haoping, hcdd, zhengfu, meigui
   },
   data() {
     return {
@@ -271,7 +272,7 @@ export default {
             justify-content: space-between;
             .left {
               flex: 1;
-              // background:hotpink;
+              background:transparent;
               padding: 2%;
               display: flex;
               flex-direction: column;
