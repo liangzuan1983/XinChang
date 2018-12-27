@@ -864,10 +864,10 @@ export default {
     display: flex;
     flex-direction: column;
     .main {
-      flex: 3;
+      flex: 2.5;
       // background: rgba(255, 255, 255, 0.05);
       margin: 1%;
-      padding: 5%;
+      padding: 2%;
       position: relative;
       img {
         width: 100%;
@@ -1311,7 +1311,7 @@ export default {
       }
       .content-box {
         flex: 6;
-        background: lightcyan;
+        // background: lightcyan;
       }
     }
     .yqfx {

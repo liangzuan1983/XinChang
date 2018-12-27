@@ -97,7 +97,7 @@ export default {
           containLabel: true
         },
         legend: {
-          data:['好评数', '差评数', '好评率'],
+          data: ['好评数', '差评数', '好评率'],
           textStyle: {
             color: '#889db5'
           }
@@ -124,9 +124,7 @@ export default {
             max: 50,
             interval: 10,
             axisLabel: {
-              formatter: '{value}'
-            },
-            axisLabel: {
+              formatter: '{value}',
               textStyle: {
                 color: '#889db5'
               }
@@ -139,9 +137,7 @@ export default {
             max: 100,
             interval: 20,
             axisLabel: {
-              formatter: '{value}'
-            },
-            axisLabel: {
+              formatter: '{value}',
               textStyle: {
                 color: '#889db5'
               }

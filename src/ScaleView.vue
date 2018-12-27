@@ -22,7 +22,7 @@ export default {
     return {
       ScaleWidth: '',
       ScaleHeight: ''
-    };
+    }
   },
   computed: {
     scale() {
@@ -49,14 +49,14 @@ export default {
         h = height
         w = this.scale * height
       } else if (s < this.scale) {
-        w = width;
+        w = width
         h = width / this.scale
       }
       this.ScaleWidth = w
       this.ScaleHeight = h
     }
   }
-};
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>

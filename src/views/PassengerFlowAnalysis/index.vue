@@ -135,7 +135,7 @@
         </div>
         <!--2块内容-->
         <div class="content">
-           <div class="one">
+          <div class="one">
             <!--title-->
             <p class="title">游客来源地TOP10（城市）</p>
             <!--内容-->
@@ -205,7 +205,7 @@
           <div class="two">
             <!--title-->
             <p class="title">游客来源地TOP10（区县）</p>
-             <!--内容-->
+            <!--内容-->
             <div class="content">
               <!--每1项-->
               <div class="one-box">
@@ -490,7 +490,7 @@ export default {
       .content {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 1%; 
+        margin-bottom: 1%;
         .one {
           flex: 1;
           margin-right: 1%;

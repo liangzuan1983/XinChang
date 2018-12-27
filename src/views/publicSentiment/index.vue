@@ -52,11 +52,11 @@
               <div class="right-seven">
                 <div class="lefts">
                   <p class="titles">整体好评率</p>
-                  <el-progress type="circle" :width="cWidth" :stroke-width="hou" :percentage="82"/>
+                  <el-progress :stroke-width="hou" :width="cWidth" :percentage="82" type="circle"/>
                 </div>
                 <div class="rights">
                   <p class="titles">近一周好评</p>
-                  <el-progress type="circle" color="#8e71c7" :stroke-width="hou" :width="cWidth" :percentage="34"/>
+                  <el-progress :stroke-width="hou" :width="cWidth" :percentage="34" type="circle" color="#8e71c7"/>
                 </div>
               </div>
             </div>
@@ -99,8 +99,7 @@
           <!--标题-->
           <p class="title">实时新增评论</p>
           <!--内容-->
-          <div class="content">
-            
+          <div class="content">        
           </div>
         </div>
         <!--右-->
@@ -210,7 +209,7 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 2%;
+      margin-bottom: 1%;
       span {
         color: #ffffff;
         margin-right: 2%;
@@ -316,7 +315,7 @@ export default {
                   flex: 1;
                   display: flex;
                   flex-direction: column;
-                  justify-content: space-around;  
+                  justify-content: space-around;
                   .titles {
                     color: #ffffff;
                     font-size: 18px;

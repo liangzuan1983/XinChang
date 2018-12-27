@@ -7,7 +7,6 @@ import echarts from 'echarts'
 import jsonObj from './xc.js'
 // require('echarts/theme/macarons') // echarts theme
 // import { debounce } from '@/utils'
-console.log(jsonObj);
 export default {
   props: {
     className: {
@@ -97,7 +96,7 @@ export default {
   },
   beforeDestroy() {
     if (!this.chart) {
-      return;
+      return
     }
     if (this.autoResize) {
       window.removeEventListener('resize', this.__resizeHandler)
@@ -135,10 +134,10 @@ export default {
             type: 'effectScatter',
             coordinateSystem: 'geo',
             data: this.datas.sort(function (a, b) {
-              return b.value - a.value;
+              return b.value - a.value
             }).slice(0, 6),
             symbolSize: function (val) {
-              return val[2] / 10;
+              return val[2] / 10
             },
             showEffectOn: 'render',
             rippleEffect: {
@@ -181,5 +180,5 @@ export default {
       this.setOptions(this.chartData)
     }
   }
-};
+}
 </script>
