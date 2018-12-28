@@ -88,7 +88,7 @@ export const constantRouterMap = [
   {
     path: '/traffic', // 交通
     component: Layout,
-    redirect: '/traffic/index/sj',
+    redirect: '/traffic/index/ss',
     meta: { title: 'traffic', icon: 'guide', noCache: true },
     children: [
       {
