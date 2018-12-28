@@ -90,19 +90,35 @@
           </div>
           <div class="xc-box2">
             <p class="num">2</p>
-            <p class="name">巧英乡</p>
+            <p class="name">
+              <span>巧</span>
+              <span>英</span>
+              <span>村</span>
+            </p>
           </div>
           <div class="xc-box3">
             <p class="num">3</p>
-            <p class="name">东明乡</p>
+            <p class="name">
+              <span>东</span>
+              <span>明</span>
+              <span>乡</span>
+            </p>
           </div>
           <div class="xc-box4">
             <p class="num">4</p>
-            <p class="name">回乡镇</p>
+            <p class="name">
+              <span>回</span>
+              <span>乡</span>
+              <span>镇</span>
+            </p>
           </div>
           <div class="xc-box5">
             <p class="num">5</p>
-            <p class="name">沙溪镇</p>
+            <p class="name">
+              <span>沙</span>
+              <span>溪</span>
+              <span>镇</span>
+            </p>
           </div>
         </div>
       </div>
@@ -703,6 +719,9 @@ export default {
             border-radius: 15px;
             padding-top: 1%;
             padding-bottom: 1%;
+            span {
+              margin: 0 6%;
+            }
           }
         }
         .xc-box3 {
@@ -732,6 +751,9 @@ export default {
             border-radius: 15px;
             padding-top: 1%;
             padding-bottom: 1%;
+            span {
+              margin: 0 6%;
+            }
           }
         }
         .xc-box4 {
@@ -761,6 +783,9 @@ export default {
             border-radius: 15px;
             padding-top: 1%;
             padding-bottom: 1%;
+            span {
+              margin: 0 6%;
+            }
           }
         }
         .xc-box5 {
@@ -790,6 +815,9 @@ export default {
             border-radius: 15px;
             padding-top: 1%;
             padding-bottom: 1%;
+            span {
+              margin: 0 6%;
+            }
           }
         }
       }
