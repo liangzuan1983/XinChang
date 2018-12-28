@@ -52,10 +52,41 @@ export default {
         xAxis: {
           type: 'category',
           boundaryGap: false,
-          data: ['12-07', '12-08', '12-09', '12-10', '12-11', '12-12', '12-13']
+          data: ['12-07', '12-08', '12-09', '12-10', '12-11', '12-12', '12-13'],
+          axisTick: {
+            show: false
+          },
+          axisLine: {
+            show: false
+          },
+          axisLabel: {
+            textStyle: {
+              color: '#889db5'
+            }
+          }
         },
         yAxis: {
-          type: 'value'
+          type: 'value',
+          splitLine: {
+            show: false
+          },
+          axisLine: {
+            show: false
+          },
+          axisTick: {
+            show: false
+          },
+          axisLabel: {
+            textStyle: {
+              color: '#889db5'
+            }
+          },
+          splitArea: {
+            show: true,
+            areaStyle: {
+              color: ['rgba(250,250,250,0.0)', 'rgba(250,250,250,0.1)']
+            }
+          }
         },
         grid: {
           top: '10%',
@@ -67,7 +98,26 @@ export default {
         series: [{
           data: [820, 932, 901, 934, 1290, 1330, 1320],
           type: 'line',
-          areaStyle: {}
+          areaStyle: {
+            normal: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                offset: 0,
+                color: 'rgba(61, 178, 222, 1)'
+              }, {
+                offset: 1,
+                color: 'rgba(61, 178, 222, 1)'
+              }], false),
+              shadowColor: 'rgba(0, 0, 0, 0.1)',
+              shadowBlur: 10
+            }
+          },
+          itemStyle: {
+            normal: {
+              color: '#47b2d3',
+              borderColor: 'rgba(219,50,51,0.2)',
+              borderWidth: 12
+            }
+          }
         }]
       })
     }
