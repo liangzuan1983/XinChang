@@ -51,6 +51,7 @@ export default {
       this.chart = echarts.init(this.$el, 'macarons')
 
       this.chart.setOption({
+        color: ['#29b32e'],
         tooltip: {
           trigger: 'axis',
           axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -69,11 +70,42 @@ export default {
           data: ['餐饮', '住宿', '交通', '游玩', '购物', '娱乐'],
           axisTick: {
             alignWithLabel: true
+          },
+          axisLabel: {
+            textStyle: {
+              color: '#889db5'
+            }
+          },
+          splitLine: {
+            show: false
+          },
+          axisLine: {
+            show: false
+          },
+          axisTick: {
+            show: false
           }
         }],
         yAxis: [{
           type: 'value',
           axisTick: {
+            show: false
+          },
+          axisLine: {
+            show: false
+          },
+          axisLabel: {
+            textStyle: {
+              color: '#889db5'
+            }
+          },
+          splitArea: {
+            show: true,
+            areaStyle: {
+              color: ['rgba(250,250,250,0.0)', 'rgba(250,250,250,0.1)']
+            }
+          },
+          splitLine: {
             show: false
           }
         }],

@@ -68,7 +68,14 @@ export default {
           axisLine: {
             lineStyle: {
               color: '#57617B'
-            }
+            },
+            show: false
+          },
+          splitLine: {
+            show: false
+          },
+          axisTick: {
+            show: false
           },
           data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
         }],
@@ -80,7 +87,8 @@ export default {
           axisLine: {
             lineStyle: {
               color: '#57617B'
-            }
+            },
+            show: false
           },
           axisLabel: {
             margin: 10,
@@ -90,7 +98,14 @@ export default {
           },
           splitLine: {
             lineStyle: {
-              color: '#57617B'
+              color: '#57617B',
+            },
+            show: false
+          },
+          splitArea: {
+            show: true,
+            areaStyle: {
+              color: ['rgba(250,250,250,0.0)', 'rgba(250,250,250,0.1)']
             }
           }
         }],
