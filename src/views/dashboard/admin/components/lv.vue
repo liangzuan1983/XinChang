@@ -38,31 +38,39 @@ export default {
       datas: [
         {
           name: '大佛寺',
-          value: [120.897351, 29.507049, 140]
+          value: [120.897351, 29.507049, 100]
         },
         {
-          name: '梅渚镇',
-          value: [120.817708, 29.474498, 213]
+          name: '十九峰',
+          value: [120.813746, 29.384481, 300]
         },
         {
-          name: '平湖山',
-          value: [120.935295, 29.456995, 124]
+          name: '达利丝绸',
+          value: [120.845081, 29.527248, 300]
         },
         {
-          name: '笔架山',
-          value: [120.840147, 29.438879, 214]
+          name: '斑竹',
+          value: [120.540147, 29.738879, 200]
         },
         {
-          name: '小将镇',
-          value: [121.135366, 29.388539, 315]
+          name: '外婆坑',
+          value: [120.725539, 29.332494, 300]
         },
         {
-          name: '回山镇',
-          value: [120.827211, 29.275687, 213]
+          name: '董村',
+          value: [121.147896, 29.459689, 400]
         },
         {
-          name: '去去去',
-          value: [121.04108, 28.92626, 114]
+          name: '下岩贝',
+          value: [120.828545, 29.386764, 200]
+        },
+        {
+          name: '安山',
+          value: [120.932125, 29.381945, 200]
+        },
+        {
+          name: '天烛仙境',
+          value: [120.872938, 29.462088, 400]
         }
       ]
     }
@@ -145,12 +153,11 @@ export default {
         },
         series: [
           {
-            name: 'Top 5',
             type: 'effectScatter',
             coordinateSystem: 'geo',
             data: this.datas.sort(function (a, b) {
               return b.value - a.value
-            }).slice(0, 6),
+            }).slice(0, 11),
             symbolSize: function (val) {
               return val[2] / 10
             },
@@ -168,7 +175,7 @@ export default {
             },
             itemStyle: {
               normal: {
-                color: '#FF6700',
+                color: '#F4E925', // 圆点颜色
                 normal: {
                   shadowBlur: 10,
                   shadowColor: 'rgba(25, 100, 150, 0.5)',

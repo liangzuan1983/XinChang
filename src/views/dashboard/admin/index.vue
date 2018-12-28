@@ -1011,7 +1011,7 @@ export default {
           justify-content: space-between;
           align-items: center;
           position: relative;
-          top: 7%;
+          // top: 7%;
           .title {
             font-size: 22px;
             color: #bbd5ff;
