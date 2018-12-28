@@ -51,7 +51,7 @@ export default {
       this.chart.setOption({
         visualMap: {
           show: false,
-          min: 80,
+          min: 100,
           max: 450,
           inRange: {
             colorLightness: [0, 1]
@@ -61,8 +61,8 @@ export default {
           {
             name: '访问来源',
             type: 'pie',
-            radius: '80%',
-            center: ['50%', '50%'],
+            radius: '90%',
+            center: ['50%', '60%'],
             data: [
               { value: 335, name: '北京' },
               { value: 310, name: '上海' },
@@ -84,14 +84,15 @@ export default {
                   // color: 'rgba(255, 255, 255, 0.3)'
                 },
                 smooth: 0.2,
-                length: 5,
-                length2: 10
+                length: 1,
+                length2: 3,
+                show: false
               }
             },
             itemStyle: {
               normal: {
-                color: '#fd8ba5',
-                shadowBlur: 200
+                color: '#e090ca',
+                shadowBlur: 15
               }
             },
             animationType: 'scale',
