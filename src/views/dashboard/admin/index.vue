@@ -494,6 +494,7 @@ export default {
           color: #bbd5ff;
         }
         .title-right {
+          margin-top: 1%;
           span {
             font-size: 18px;
             color: #bbd5ff;
@@ -624,6 +625,7 @@ export default {
           color: #bbd5ff;
         }
         .title-right {
+          margin-top: 1%;
           span {
             font-size: 18px;
             color: #bbd5ff;
@@ -807,6 +809,7 @@ export default {
             color: #bbd5ff;
           }
           .title-right {
+            margin-top: 1%;
             span {
               font-size: 18px;
               color: #bbd5ff;
@@ -840,6 +843,7 @@ export default {
             color: #bbd5ff;
           }
           .title-right {
+            margin-top: 1%;
             span {
               font-size: 18px;
               color: #bbd5ff;
@@ -939,6 +943,7 @@ export default {
             color: #bbd5ff;
           }
           .title-right {
+            margin-top: 1%;
             span {
               font-size: 18px;
               color: #bbd5ff;
@@ -977,6 +982,7 @@ export default {
             color: #bbd5ff;
           }
           .title-right {
+            margin-top: 1%;
             span {
               font-size: 18px;
               color: #bbd5ff;
@@ -1018,6 +1024,7 @@ export default {
           color: #bbd5ff;
         }
         .title-right {
+          margin-top: 1%;
           span {
             font-size: 18px;
             color: #bbd5ff;
@@ -1164,6 +1171,7 @@ export default {
           color: #bbd5ff;
         }
         .title-right {
+          margin-top: 1%;
           span {
             font-size: 18px;
             color: #bbd5ff;
@@ -1303,6 +1311,7 @@ export default {
           color: #bbd5ff;
         }
         .title-right {
+          margin-top: 1%;
           span {
             font-size: 18px;
             color: #bbd5ff;
@@ -1332,6 +1341,7 @@ export default {
           color: #bbd5ff;
         }
         .title-right {
+          margin-top: 1%;
           span {
             font-size: 18px;
             color: #bbd5ff;
