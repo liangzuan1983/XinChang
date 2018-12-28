@@ -82,7 +82,11 @@
         <div class="xcly-content">
           <div class="xc-box">
             <p class="num">1</p>
-            <p class="name">梅渚镇</p>
+            <p class="name">
+              <span>梅</span>
+              <span>渚</span>
+              <span>镇</span>
+            </p>
           </div>
           <div class="xc-box2">
             <p class="num">2</p>
@@ -667,6 +671,9 @@ export default {
             border-radius: 15px;
             padding-top: 1%;
             padding-bottom: 1%;
+            span {
+              margin: 0 6%;
+            }
           }
         }
         .xc-box2 {
