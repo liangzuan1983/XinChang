@@ -33,7 +33,8 @@ export default {
   data() {
     return {
       chart: null,
-      sidebarElm: null
+      sidebarElm: null,
+      data: [12, 22, 32]
     }
   },
   watch: {
@@ -87,26 +88,30 @@ export default {
         },
         legend: {
           bottom: '15%',
-          left: '30%',
+          left: '2%',
+          itemGap: 25,
           orient: 'horizontal',
           align: 'center',
           data: [
             {
-              name: '正面',
+              name: '正面 ' + this.data[0] + '%',
               icon: 'path://m',
               textStyle: { color: '#ffffff' }
             },
             {
-              name: '中立',
+              name: '中立 ' + this.data[1] + '%',
               icon: 'path://m',
               textStyle: { color: '#ffffff' }
             },
             {
-              name: '负面',
+              name: '负面 ' + this.data[2] + '%',
               icon: 'path://m',
               textStyle: { color: '#ffffff' }
             }
-          ]
+          ],
+          textStyle: {
+            color: '#57617B'
+          }
         },
         grid: {
           top: '30%',
@@ -121,20 +126,26 @@ export default {
         },
         yAxis: {
           type: 'category',
-          data: ['']
+          data: [''],
+          axisTick: {
+            show: false
+          },
+          axisLine: {
+            show: false
+          }
         },
         series: [
           {
-            name: '正面',
+            name: '正面 ' + this.data[0]  + '%',
             type: 'bar',
             stack: '总量',
             label: {
               normal: {
-                show: true,
+                show: false,
                 position: 'insideRight'
               }
             },
-            data: [320],
+            data: [this.data[0]],
             itemStyle: {
               normal: {
                 color: new echarts.graphic.LinearGradient(
@@ -157,16 +168,16 @@ export default {
             }
           },
           {
-            name: '中立',
+            name: '中立 ' + this.data[1]  + '%',
             type: 'bar',
             stack: '总量',
             label: {
               normal: {
-                show: true,
+                show: false,
                 position: 'insideRight'
               }
             },
-            data: [120],
+            data: [this.data[1]],
             itemStyle: {
               normal: {
                 color: new echarts.graphic.LinearGradient(
@@ -189,16 +200,16 @@ export default {
             }
           },
           {
-            name: '负面',
+            name: '负面 ' + this.data[2] + '%',
             type: 'bar',
             stack: '总量',
             label: {
               normal: {
-                show: true,
+                show: false,
                 position: 'insideRight'
               }
             },
-            data: [220],
+            data: [this.data[2]],
             itemStyle: {
               normal: {
                 color: new echarts.graphic.LinearGradient(

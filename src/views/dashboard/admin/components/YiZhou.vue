@@ -114,7 +114,7 @@ export default {
           itemStyle: {
             normal: {
               color: '#47b2d3',
-              borderColor: 'rgba(219,50,51,0.2)',
+              borderColor: 'rgba(0, 0, 0, 0)',
               borderWidth: 12
             }
           }
