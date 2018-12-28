@@ -120,11 +120,26 @@ export default {
     setOptions({ expectedData, actualData } = {}) {
       let option = {
         geo: {
+          label: {
+            emphasis: {
+              show: true,
+              color: '#fff'
+            }
+          },
           map: 'xinchange',
           itemStyle: {
             normal: {
               areaColor: 'rgba(0, 0, 0, 0)',
               borderColor: 'rgba(120, 204, 204, 0.8)'
+            },
+            emphasis: { // 选中或者悬浮状态
+              label: {
+                show: true,
+                textStyle: {
+                  color: '#fff'// 选中或者悬浮字体颜色
+                }
+              },
+              areaColor: '#2396d9'// 选中或者悬浮区域颜色
             }
           }
         },
@@ -153,6 +168,7 @@ export default {
             },
             itemStyle: {
               normal: {
+                color: '#FF6700',
                 normal: {
                   shadowBlur: 10,
                   shadowColor: 'rgba(25, 100, 150, 0.5)',

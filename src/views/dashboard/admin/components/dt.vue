@@ -101,7 +101,7 @@ export default {
   },
   beforeDestroy() {
     if (!this.chart) {
-      return;
+      return
     }
     if (this.autoResize) {
       window.removeEventListener('resize', this.__resizeHandler)
@@ -125,11 +125,26 @@ export default {
     setOptions({ expectedData, actualData } = {}) {
       let option = {
         geo: {
+          label: {
+            emphasis: {
+              show: true,
+              color: '#fff'
+            }
+          },
           map: 'xinchange',
           itemStyle: {
             normal: {
               areaColor: 'rgba(0, 0, 0, 0)',
               borderColor: 'rgba(120, 204, 204, 0.8)'
+            },
+            emphasis: { // 选中或者悬浮状态
+              label: {
+                show: true,
+                textStyle: {
+                  color: '#fff'// 选中或者悬浮字体颜色
+                }
+              },
+              areaColor: '#2396d9'// 选中或者悬浮区域颜色
             }
           }
         },
