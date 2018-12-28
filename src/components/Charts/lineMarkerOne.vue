@@ -110,10 +110,10 @@ export default {
             normal: {
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                 offset: 0,
-                color: 'rgba(219, 50, 51, 0.3)'
+                color: 'rgba(246, 151, 4, 1)'
               }, {
-                offset: 0.8,
-                color: 'rgba(219, 50, 51, 0)'
+                offset: 1,
+                color: 'rgba(154, 76, 49, 1)'
               }], false),
               shadowColor: 'rgba(0, 0, 0, 0.1)',
               shadowBlur: 10
@@ -121,7 +121,7 @@ export default {
           },
           itemStyle: {
             normal: {
-              color: 'rgb(219,50,51)',
+              color: '#f69704',
               borderColor: 'rgba(219,50,51,0.2)',
               borderWidth: 12
             }
