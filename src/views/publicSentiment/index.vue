@@ -19,7 +19,9 @@
         <div class="left">
           <!--内容-->
           <div class="content">
-            <h1>这里放地图</h1>
+            <div class="amap-wrapper">
+              <el-amap class="amap-box" :vid="'amap-vue'"></el-amap>
+            </div>
           </div>
         </div>
         <!--右-->
@@ -259,6 +261,14 @@ export default {
   padding: 1%;
   display: flex;
   flex-direction: column;
+  .amap-wrapper {
+    width: 100%;
+    height: 100%;
+    .amap-box {
+      width: 100%;
+      height: 100%;
+    }
+  }
   .box {
     flex: 1;
     background: rgba(255, 255, 255, 0.05);
