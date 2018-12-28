@@ -20,7 +20,16 @@
           <!--内容-->
           <div class="content">
             <div class="amap-wrapper">
-              <el-amap class="amap-box" :vid="'amap-vue'"></el-amap>
+              <el-amap vid="amapDemo" :zoom="zoom" :center="center" class="amap-box">
+                <el-amap-marker
+                  v-for="(marker, index) in markers"
+                  :key="index"
+                  :position="marker.position"
+                  :events="marker.events"
+                  :visible="marker.visible"
+                  :draggable="marker.draggable"
+                  :vid="index"/>
+              </el-amap>
             </div>
           </div>
         </div>
@@ -245,6 +254,25 @@ export default {
             'content': '上有天堂下有苏杭',
             'date': '2017-12-16',
             'title': '[丽水隐居画乡院落酒店]'
+        }
+      ],
+      zoom: 14,
+      center: [120.901737, 29.497975],
+      markers: [
+        {
+          position: [120.901737, 29.497975],
+          events: {
+            click: () => {
+              alert('click marker');
+            },
+            dragend: (e) => {
+              console.log('---event---: dragend')
+              this.markers[0].position = [e.lnglat.lng, e.lnglat.lat];
+            }
+          },
+          visible: true,
+          draggable: false,
+          template: '<span>1</span>',
         }
       ]
     }
