@@ -4,11 +4,11 @@
       <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
       <div class="time-box">
         <!--年月日-->
-        <span>2018年12月13日</span>
+        <span>2018年12月29日</span>
         <!--周几-->
-        <span>星期四</span>
+        <span>星期六</span>
         <!--时间-->
-        <span>17:50</span>
+        <span>14:30</span>
       </div>
     </div>
     <!--中间标题-->
@@ -27,7 +27,7 @@
           <span>晴</span>
         </div>
         <!--温度-->
-        <span>18-26℃</span>
+        <span>3-6℃</span>
         <span>空气质量: 优</span>
       </div>
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
