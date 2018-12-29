@@ -24,7 +24,7 @@
           <!--左-->
           <div class="left">
             <!--标题-->
-            <p class="title">各类旅行业收入</p>
+            <p class="title">高速卡口车辆占比</p>
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
@@ -35,7 +35,7 @@
           <!--右-->
           <div class="right">
             <!--标题-->
-            <p class="title">各类旅行业收入占比</p>
+            <p class="title">游客出行方式</p>
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
