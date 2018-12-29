@@ -43,7 +43,7 @@
         <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
       </div>
     </el-form>
-
+    <img class="ysj" src="@/assets/10.png" alt="">
   </div>
 </template>
 
@@ -192,6 +192,7 @@ $light_gray:#eee;
     max-width: 100%;
     padding: 35px 35px 15px 35px;
     margin: 120px auto;
+    z-index: 999999;
   }
   .tips {
     font-size: 14px;
@@ -234,6 +235,13 @@ $light_gray:#eee;
     color: $dark_gray;
     cursor: pointer;
     user-select: none;
+  }
+  .ysj {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 </style>
