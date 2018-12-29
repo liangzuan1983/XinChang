@@ -183,7 +183,7 @@ $light_gray:#eee;
   z-index: 999;
   height: 100%;
   width: 100%;
-  background-color: $bg;
+  background-color: #111a29;
   .login-form {
     position: absolute;
     left: 0;
