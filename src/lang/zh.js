@@ -28,7 +28,7 @@ export default {
     form: '表单',
     PassengerFlowAnalysis: '客流分析', // 哎呀我草！这波英文写的我脑袋晕！想吐！
     traffic: '交通', // 哎呀我草！这波英文写的我脑袋晕！想吐！
-    forecast: '预测', // 哎呀我草！这波英文写的我脑袋晕！想吐！
+    forecast: '重点景区', // 哎呀我草！这波英文写的我脑袋晕！想吐！
     consumption: '消费', // 哎呀我草！这波英文写的我脑袋晕！想吐！
     publicSentiment: '舆情', // 哎呀我草！这波英文写的我脑袋晕！想吐！
     complaint: '投诉', // 哎呀我草！这波英文写的我脑袋晕！想吐！

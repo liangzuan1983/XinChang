@@ -179,6 +179,34 @@ export const constantRouterMap = [
     ]
   },
   {
+    path: '/forecast', // 重点景区
+    component: Layout,
+    redirect: '/forecast/index/dfs',
+    meta: { title: 'forecast', icon: 'example', noCache: true },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/forecast/index'),
+        name: 'forecast',
+        hidden: true,
+        children: [
+          {
+            path: 'dfs',
+            component: () => import('@/views/forecast/components/dfs'),
+            name: 'dfs',
+            hidden: true
+          },
+          {
+            path: 'sjf',
+            component: () => import('@/views/forecast/components/sjf'),
+            name: 'sjf',
+            hidden: true
+          }
+        ]
+      }
+    ]
+  },
+  {
     path: '/portraitTourist', // 游客画像
     component: Layout,
     redirect: '/portraitTourist/index',
