@@ -54,7 +54,9 @@ export default {
     flex-direction: column;
     position: relative;
     z-index: 999;
-    padding: 1%;
+    // padding: 1%;
+    margin: 1.5%;
+    overflow-y: overlay;
     .qh-box {
       .tab-box {
         background: #3f4755;
