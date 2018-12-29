@@ -20,6 +20,12 @@ export default {
     height: {
       type: String,
       default: '100%'
+    },
+    fatherData: {
+      type: Array,
+      default: () => {
+        return []
+      }
     }
   },
   data() {

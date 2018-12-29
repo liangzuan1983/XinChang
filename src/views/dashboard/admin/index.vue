@@ -208,7 +208,7 @@
           <!--内容区-->
           <div class="content-box">
             <div class="chart-wrapper">
-              <yi-zhou height="100%" width="100%"/>
+              <yi-zhou :fatherData="kydxq" id="kydxq" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -459,7 +459,14 @@ export default {
       qyb: true,
       zyb: false,
       qykl: true,
-      lvzy: false
+      lvzy: false,
+      kydxq: [
+        { value: 335, name: '北京' },
+        { value: 310, name: '上海' },
+        { value: 274, name: '广州' },
+        { value: 235, name: '苏州' },
+        { value: 400, name: '杭州' }
+      ]
     }
   },
   methods: {

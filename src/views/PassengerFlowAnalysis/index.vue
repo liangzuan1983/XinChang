@@ -35,7 +35,7 @@
           <div class="title">游客类型分析</div>
           <div class="content">
             <div class="chart-wrapper">
-              <pie-chart-full height="100%" width="100%"/>
+              <pie-chart-full :fatherData="yktype" id="yktype" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -380,7 +380,12 @@ export default {
   },
   data() {
     return {
-      value4: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)]
+      value4: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
+      yktype: [
+        { value: 335, name: '散客' },
+        { value: 310, name: '一卡通游客' },
+        { value: 274, name: '跟团游' }
+      ]
     }
   }
 }
