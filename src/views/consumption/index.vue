@@ -12,6 +12,10 @@
           end-placeholder="结束日期"/>
         <!--查询-->
         <el-button size="mini" type="primary">查询</el-button>
+        <!--查询-->
+        <img class="search" src="@/assets/icon/search.png" alt="">
+        <!--下载-->
+        <img class="down" src="@/assets/icon/down.png" alt="">
       </div>
       <!--内容-->
       <div class="content">

@@ -13,6 +13,10 @@
           end-placeholder="结束日期"/>
         <!--查询-->
         <el-button size="mini" type="primary">查询</el-button>
+        <!--查询-->
+        <img class="search" src="@/assets/icon/search.png" alt="">
+        <!--下载-->
+        <img class="down" src="@/assets/icon/down.png" alt="">
       </div>
       <div class="top-box">
         <!--全域客流量同比分析-->
@@ -52,6 +56,10 @@
             end-placeholder="结束日期"/>
           <!--查询-->
           <el-button size="mini" type="primary">查询</el-button>
+          <!--查询-->
+          <img class="search" src="@/assets/icon/search.png" alt="">
+          <!--下载-->
+          <img class="down" src="@/assets/icon/down.png" alt="">
         </div>
         <!--2块内容-->
         <div class="content">
@@ -284,6 +292,10 @@
             end-placeholder="结束日期"/>
           <!--查询-->
           <el-button size="mini" type="primary">查询</el-button>
+          <!--查询-->
+          <img class="search" src="@/assets/icon/search.png" alt="">
+          <!--下载-->
+          <img class="down" src="@/assets/icon/down.png" alt="">
         </div>
         <!--热门旅游线路-->
         <div class="nlfb-box">
