@@ -110,7 +110,6 @@ export default {
           }
         }],
         series: [{
-          name: 'pageA',
           type: 'bar',
           stack: 'vistors',
           barWidth: '60%',

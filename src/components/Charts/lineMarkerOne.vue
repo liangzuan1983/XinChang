@@ -110,7 +110,6 @@ export default {
           }
         }],
         series: [{
-          name: 'CUCC',
           type: 'line',
           smooth: true,
           symbol: 'circle',
