@@ -3,8 +3,8 @@
     <!--切换-->
     <div class="qh-box">
       <div class="tab-box">
-        <p :class="{ss: ssback}" class="left" @click="ssEvent">大佛寺</p>
-        <p :class="{sj: sjback}" class="right" @click="sjEvent">十九峰</p>
+        <p :class="{ss: ssback}" class="left" @click="ssEvent">大佛寺景区</p>
+        <p :class="{sj: sjback}" class="right" @click="sjEvent">十九峰景区</p>
       </div>
     </div>
     <div class="content">
