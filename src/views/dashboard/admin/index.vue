@@ -73,7 +73,7 @@
         <!--标题行-->
         <div class="zdjq-title-box">
           <p class="title">乡村旅游热度排行top5</p>
-          <p class="title-right">
+          <p class="title-right" @click="TwoLevelPages('/PassengerFlowAnalysis/index')">
             <span>更多</span>
             <span class="el-icon-d-arrow-right"/>
           </p>
@@ -129,7 +129,7 @@
           <!--标题行-->
           <div class="zdjq-title-box">
             <p class="title">旅游消费额度变化趋势(万元)</p>
-            <p class="title-right">
+            <p class="title-right" @click="TwoLevelPages('/consumption/index')">
               <span>更多</span>
               <span class="el-icon-d-arrow-right"/>
             </p>
@@ -146,7 +146,7 @@
           <!--标题行-->
           <div class="zdjq-title-box">
             <p class="title">旅游消费类型分析(万元)</p>
-            <p class="title-right">
+            <p class="title-right" @click="TwoLevelPages('/consumption/index')">
               <span>更多</span>
               <span class="el-icon-d-arrow-right"/>
             </p>
@@ -183,7 +183,7 @@
           <!--标题行-->
           <div class="zdjq-title-box">
             <p class="title">客源地 城市 区县 TOP5</p>
-            <p class="title-right">
+            <p class="title-right" @click="TwoLevelPages('/PassengerFlowAnalysis/index')">
               <span>更多</span>
               <span class="el-icon-d-arrow-right"/>
             </p>
@@ -200,7 +200,7 @@
           <!--标题行-->
           <div class="zdjq-title-box">
             <p class="title">近一周游客数</p>
-            <p class="title-right">
+            <p class="title-right" @click="TwoLevelPages('/PassengerFlowAnalysis/index')">
               <span>更多</span>
               <span class="el-icon-d-arrow-right"/>
             </p>
@@ -221,7 +221,7 @@
         <!--标题行-->
         <div class="zdjq-title-box">
           <p class="title">产业检测数据</p>
-          <p class="title-right">
+          <p class="title-right" @click="TwoLevelPages('/economicalOperation/index')">
             <span>更多</span>
             <span class="el-icon-d-arrow-right"/>
           </p>
@@ -293,7 +293,7 @@
         <!--标题行-->
         <div class="zdjq-title-box">
           <p class="title">资源分布</p>
-          <p class="title-right">
+          <p class="title-right" @click="TwoLevelPages('/weatherEnvironment/index')">
             <span>更多</span>
             <span class="el-icon-d-arrow-right"/>
           </p>
@@ -379,7 +379,7 @@
         <!--标题行-->
         <div class="zdjq-title-box">
           <p class="title">热词排行</p>
-          <p class="title-right">
+          <p class="title-right" @click="TwoLevelPages('/publicSentiment/index')">
             <span>更多</span>
             <span class="el-icon-d-arrow-right"/>
           </p>
@@ -396,7 +396,7 @@
         <!--标题行-->
         <div class="zdjq-title-box">
           <p class="title">舆情分析</p>
-          <p class="title-right">
+          <p class="title-right" @click="TwoLevelPages('/publicSentiment/index')">
             <span>更多</span>
             <span class="el-icon-d-arrow-right"/>
           </p>
@@ -474,6 +474,11 @@ export default {
       this.lvzy = true
       this.qyb = false
       this.zyb = true
+    },
+    TwoLevelPages(place) {
+      this.$router.push({
+        path: place
+      })
     }
   }
 }
@@ -515,6 +520,7 @@ export default {
         }
         .title-right {
           margin-top: 1%;
+          cursor: pointer;
           span {
             font-size: 18px;
             color: #bbd5ff;
@@ -646,6 +652,7 @@ export default {
         }
         .title-right {
           margin-top: 1%;
+          cursor: pointer;
           span {
             font-size: 18px;
             color: #bbd5ff;
@@ -845,6 +852,7 @@ export default {
           }
           .title-right {
             margin-top: 1%;
+            cursor: pointer;
             span {
               font-size: 18px;
               color: #bbd5ff;
@@ -879,6 +887,7 @@ export default {
           }
           .title-right {
             margin-top: 1%;
+            cursor: pointer;
             span {
               font-size: 18px;
               color: #bbd5ff;
@@ -937,6 +946,7 @@ export default {
             font-size: 22px;
             // background: hotpink;
             border-radius: 30px;
+            cursor: pointer;
           }
           .qyb { background: rgba(255, 255, 255, 0.2); }
           .zy {
@@ -948,6 +958,7 @@ export default {
             font-size: 22px;
             // background: aquamarine;
             border-radius: 30px;
+            cursor: pointer;
           }
           .zyb { background: rgba(255, 255, 255, 0.2); }
         }
@@ -979,6 +990,7 @@ export default {
           }
           .title-right {
             margin-top: 1%;
+            cursor: pointer;
             span {
               font-size: 18px;
               color: #bbd5ff;
@@ -1018,6 +1030,7 @@ export default {
           }
           .title-right {
             margin-top: 1%;
+            cursor: pointer;
             span {
               font-size: 18px;
               color: #bbd5ff;
@@ -1060,6 +1073,7 @@ export default {
         }
         .title-right {
           margin-top: 1%;
+          cursor: pointer;
           span {
             font-size: 18px;
             color: #bbd5ff;
@@ -1207,6 +1221,7 @@ export default {
         }
         .title-right {
           margin-top: 1%;
+          cursor: pointer;
           span {
             font-size: 18px;
             color: #bbd5ff;
@@ -1347,6 +1362,7 @@ export default {
         }
         .title-right {
           margin-top: 1%;
+          cursor: pointer;
           span {
             font-size: 18px;
             color: #bbd5ff;
@@ -1377,6 +1393,7 @@ export default {
         }
         .title-right {
           margin-top: 1%;
+          cursor: pointer;
           span {
             font-size: 18px;
             color: #bbd5ff;

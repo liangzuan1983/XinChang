@@ -147,7 +147,7 @@ export default {
                   color: '#fff'// 选中或者悬浮字体颜色
                 }
               },
-              areaColor: '#2396d9'// 选中或者悬浮区域颜色
+              areaColor: '#18364b'// 选中或者悬浮区域颜色
             }
           }
         },
@@ -175,7 +175,7 @@ export default {
             },
             itemStyle: {
               normal: {
-                color: '#F4E925', // 圆点颜色
+                color: '#FF7757', // 圆点颜色
                 normal: {
                   shadowBlur: 10,
                   shadowColor: 'rgba(25, 100, 150, 0.5)',

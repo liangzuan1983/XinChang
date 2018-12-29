@@ -148,7 +148,7 @@ export default {
                   color: '#fff'// 选中或者悬浮字体颜色
                 }
               },
-              areaColor: '#2396d9'// 选中或者悬浮区域颜色
+              areaColor: '#18364b'// 选中或者悬浮区域颜色
             }
           }
         },
