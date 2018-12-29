@@ -7,7 +7,7 @@
         <!--标题行-->
         <div class="zdjq-title-box">
           <p class="title">重点景区数据</p>
-          <p class="title-right">
+          <p class="title-right" @click="TwoLevelPages('/forecast/index/dfs')">
             <span>更多</span>
             <span class="el-icon-d-arrow-right"/>
           </p>

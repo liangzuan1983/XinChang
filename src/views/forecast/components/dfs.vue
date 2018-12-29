@@ -490,7 +490,7 @@ export default {
           padding: 1.5%;
         }
         .content {
-          background: rgba(255, 255, 255, 0.05);
+          // background: rgba(255, 255, 255, 0.05);
           .chart-wrapper {
             height: 320px;
             width: 100%;
@@ -509,7 +509,7 @@ export default {
           padding: 1.5%;
         }
         .content {
-          background: rgba(255, 255, 255, 0.05);
+          // background: rgba(255, 255, 255, 0.05);s
           .chart-wrapper {
             height: 320px;
             width: 100%;
