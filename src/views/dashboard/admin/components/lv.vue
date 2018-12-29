@@ -175,7 +175,7 @@ export default {
             },
             itemStyle: {
               normal: {
-                color: '#FF7757', // 圆点颜色
+                color: '#F8AE68', // 圆点颜色
                 normal: {
                   shadowBlur: 10,
                   shadowColor: 'rgba(25, 100, 150, 0.5)',
