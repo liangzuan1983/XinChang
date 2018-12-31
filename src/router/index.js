@@ -266,6 +266,13 @@ export const constantRouterMap = [
         component: () => import('@/views/documentation/Statistics'),
         name: 'statistics',
         meta: { title: 'statistics'}
+      },
+      {
+        path: 'addPoint',
+        component: () => import('@/views/documentation/components/addPoint'),
+        name: 'addPoint',
+        meta: { title: 'addPoint'},
+        hidden: true
       }
     ]
   }

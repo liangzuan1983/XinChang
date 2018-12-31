@@ -1,7 +1,7 @@
 <template>
   <div class="setup">
     <!--添加点位-->
-    <el-button type="primary">添加点位</el-button>
+    <el-button type="primary" @click="addPoint">添加点位</el-button>
     <!--关键字搜索-->
     <div class="main">
       <span>关键词： </span>
@@ -129,6 +129,11 @@ export default {
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+    },
+    addPoint() {
+      this.$router.push({
+        path: '/documentation/addPoint'
+      })
     }
   }
 }
