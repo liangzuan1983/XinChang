@@ -4,10 +4,10 @@
     <el-button type="primary">添加点位</el-button>
     <!--关键字搜索-->
     <div class="main">
-      <span>时间选择： </span>
-      <el-input v-model="input" placeholder="请输入内容"></el-input>
+      <span>关键词： </span>
+      <el-input v-model="input" placeholder="请输入点位名称"></el-input>
       <!--查询-->
-      <el-button size="mini" type="primary">查询</el-button>
+      <el-button size="mini" type="primary">搜索</el-button>
     </div>
     <!--图表-->
     <el-table
