@@ -273,6 +273,13 @@ export const constantRouterMap = [
         name: 'addPoint',
         meta: { title: 'addPoint'},
         hidden: true
+      },
+      {
+        path: 'addWarn',
+        component: () => import('@/views/documentation/components/addWarn'),
+        name: 'addWarn',
+        meta: { title: 'addWarn'},
+        hidden: true
       }
     ]
   }

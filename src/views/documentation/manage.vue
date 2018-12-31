@@ -109,7 +109,7 @@ export default {
     },
     addPoint() {
       this.$router.push({
-        path: '/documentation/addPoint'
+        path: '/documentation/addWarn'
       })
     }
   }
