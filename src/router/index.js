@@ -118,19 +118,6 @@ export const constantRouterMap = [
       }
     ]
   },
-  // {
-  //   path: '/forecast', // 预测
-  //   component: Layout,
-  //   redirect: '/forecast/index',
-  //   children: [
-  //     {
-  //       path: 'index',
-  //       component: () => import('@/views/forecast/index'),
-  //       name: 'forecast',
-  //       meta: { title: 'forecast', icon: 'example', noCache: true }
-  //     }
-  //   ]
-  // },
   {
     path: '/consumption', // 消费
     component: Layout,
@@ -249,20 +236,39 @@ export const constantRouterMap = [
         meta: { title: 'weatherEnvironment', icon: 'bug', noCache: true }
       }
     ]
+  },
+  {
+    path: '/documentation', // 应急预警
+    component: Layout,
+    redirect: '/documentation/index',
+    meta: { title: 'documentation', icon: 'documentation', noCache: true },
+    children: [
+      {
+        path: 'doc',
+        component: () => import('@/views/documentation/index'),
+        name: 'doc',
+        meta: { title: 'doc'}
+      },
+      {
+        path: 'setup',
+        component: () => import('@/views/documentation/SetUp'),
+        name: 'setup',
+        meta: { title: 'setup'}
+      },
+      {
+        path: 'manage',
+        component: () => import('@/views/documentation/manage'),
+        name: 'manage',
+        meta: { title: 'manage'}
+      },
+      {
+        path: 'statistics',
+        component: () => import('@/views/documentation/Statistics'),
+        name: 'statistics',
+        meta: { title: 'statistics'}
+      }
+    ]
   }
-  // {
-  //   path: '/documentation',
-  //   component: Layout,
-  //   redirect: '/documentation/index',
-  //   children: [
-  //     {
-  //       path: 'index',
-  //       component: () => import('@/views/documentation/index'),
-  //       name: 'Documentation',
-  //       meta: { title: 'documentation', icon: 'documentation', noCache: true }
-  //     }
-  //   ]
-  // }
 ]
 
 export default new Router({

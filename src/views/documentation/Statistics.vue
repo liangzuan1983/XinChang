@@ -1,6 +1,6 @@
 <template>
   <div style="color:#fff">
-    应急预案首页
+    事件统计
   </div>
 </template>
 

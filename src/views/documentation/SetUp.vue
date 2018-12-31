@@ -1,6 +1,6 @@
 <template>
   <div style="color:#fff">
-    应急预案首页
+    预警设置
   </div>
 </template>
 

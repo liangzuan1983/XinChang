@@ -2,7 +2,7 @@ export default {
   route: {
     dashboard: '首页',
     introduction: '简述',
-    documentation: '备用图表',
+    documentation: '应急预警',
     ScenicSpotMonitoring: '景区监控',
     icons: '图标',
     componentIndex: '介绍',
@@ -35,7 +35,11 @@ export default {
     specialHoliday: '特殊假日', // 哎呀我草！这波英文写的我脑袋晕！想吐！
     portraitTourist: '游客画像', // 哎呀我草！这波英文写的我脑袋晕！想吐！
     weatherEnvironment: '资源分布', // 哎呀我草！这波英文写的我脑袋晕！想吐！
-    economicalOperation: '经济运行' // 哎呀我草！这波英文写的我脑袋晕！想吐！
+    economicalOperation: '经济运行', // 哎呀我草！这波英文写的我脑袋晕！想吐！
+    setup: '预警设置',
+    manage: '预警管理',
+    statistics: '事件统计',
+    doc: '首页'
   },
   navbar: {
     logOut: '退出登录',
