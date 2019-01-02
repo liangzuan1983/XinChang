@@ -30,7 +30,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <holiday-kl-zhu id="skkl" height="100%" width="100%"/>
+              <skkl id="skkl" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -125,7 +125,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <holiday-kl-zhu id="tdkl" height="100%" width="100%"/>
+              <tdkl id="tdkl" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -245,7 +245,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <holiday-kl-zhu id="dsdd" height="100%" width="100%"/>
+              <dsdd id="dsdd" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -370,7 +370,9 @@
 </template>
 
 <script>
-import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
+import skkl from '@/components/Charts/holiday-kl-skkl'
+import tdkl from '@/components/Charts/holiday-kl-tdkl'
+import dsdd from '@/components/Charts/holiday-kl-dsdd'
 import ykxbXsqd from '@/components/Charts/holiday-xsqd'
 import nlfb from '@/components/Charts/holiday-nlfb'
 import nlfbQdgg from '@/components/Charts/holiday-qdgg'
@@ -380,7 +382,7 @@ import YiZhou from '@/views/dashboard/admin/components/YiZhou'
 import PieChartFull from '@/views/dashboard/admin/components/dfs'
 export default {
   components: {
-    HolidayKlZhu, nlfb, xfzhe, YiZhou, PieChartFull, nlfbDdly, nlfbQdgg, ykxbXsqd
+    skkl, nlfb, xfzhe, YiZhou, PieChartFull, nlfbDdly, nlfbQdgg, ykxbXsqd, tdkl, dsdd
   },
   data() {
     return {

@@ -60,7 +60,7 @@
           <el-button
             size="mini"
             type="danger"
-            @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+            @click="handleDelete(scope.$index, tableData)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -119,8 +119,8 @@ export default {
         path: '/documentation/addPoint'
       })
     },
-    handleDelete(index, row) {
-      console.log(index, row)
+    handleDelete(index, rows) {
+      rows.splice(index, 1)
     },
     // tabale颜色
     getRowClass({ row, column, rowIndex, columnIndex }) {
