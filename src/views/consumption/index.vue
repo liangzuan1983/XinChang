@@ -47,7 +47,7 @@
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
-                <nlfb v-if="nlfb" id="nlfb" height="100%" width="100%"/>
+                <nlfb v-if="nlfb" height="100%" width="100%"/>
               </div>
             </div>
           </div>
@@ -83,10 +83,10 @@
 </template>
 
 <script>
-import nlfb from '@/components/Charts/holiday-nlfb'
+import nlfb from '@/components/Charts/consumption-nlfb'
 import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
 import xfzhe from '@/components/Charts/holiday-xf-zhe'
-import ykxb from '@/components/Charts/holiday-ykxb'
+import ykxb from '@/components/Charts/consumption-xiaofei'
 export default {
   components: {
     nlfb, HolidayKlZhu, xfzhe, ykxb

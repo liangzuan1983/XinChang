@@ -35,7 +35,7 @@
           <div class="title">游客类型分析</div>
           <div class="content">
             <div class="chart-wrapper">
-              <pie-chart-full :fatherData="yktype" id="yktype" height="100%" width="100%"/>
+              <passenger-yklx :fatherData="yktype" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -372,11 +372,11 @@
 
 <script>
 import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
-import PieChartFull from '@/views/dashboard/admin/components/PieChartFull'
-import nlfb from '@/components/Charts/holiday-nlfb'
+import passengerYklx from '@/views/dashboard/admin/components/passengerYklx'
+import nlfb from '@/components/Charts/passenger-ykgy'
 export default {
   components: {
-    HolidayKlZhu, PieChartFull, nlfb
+    HolidayKlZhu, passengerYklx, nlfb
   },
   data() {
     return {

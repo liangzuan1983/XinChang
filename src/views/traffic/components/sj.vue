@@ -28,7 +28,7 @@
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
-                <nlfb v-if="nlfb" id="nlfb" height="100%" width="100%"/>
+                <nlfb v-if="nlfb" height="100%" width="100%"/>
               </div>
             </div>
           </div>
@@ -129,8 +129,8 @@
 </template>
 
 <script>
-import nlfb from '@/components/Charts/holiday-nlfb'
-import PieChartFull from '@/views/dashboard/admin/components/PieChartFull'
+import nlfb from '@/components/Charts/traffic-nlfb'
+import PieChartFull from '@/components/Charts/traffic-cxfs'
 export default {
   components: {
     nlfb, PieChartFull

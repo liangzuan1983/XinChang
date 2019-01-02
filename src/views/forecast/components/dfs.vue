@@ -1,5 +1,5 @@
 <template>
-  <div class="sjf">
+  <div class="dfs">
     <!--假日数据查询-->
     <div class="cx">
       <!--top-->
@@ -256,7 +256,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb v-if="bingIf4" :id="ids[4]" height="100%" width="100%"/>
+              <nlfb-ddly v-if="bingIf4" :id="ids[4]" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -373,12 +373,13 @@
 import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
 import ykxb from '@/components/Charts/holiday-ykxb'
 import nlfb from '@/components/Charts/holiday-nlfb'
+import nlfbDdly from '@/components/Charts/dfs-ddly'
 import xfzhe from '@/components/Charts/holiday-xf-zhe'
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
-import PieChartFull from '@/views/dashboard/admin/components/PieChartFull'
+import PieChartFull from '@/views/dashboard/admin/components/dfs'
 export default {
   components: {
-    HolidayKlZhu, ykxb, nlfb, xfzhe, YiZhou, PieChartFull
+    HolidayKlZhu, ykxb, nlfb, xfzhe, YiZhou, PieChartFull, nlfbDdly
   },
   data() {
     return {
@@ -434,7 +435,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sjf {
+.dfs {
   position: relative;
   z-index: 999;
   width: 100%;

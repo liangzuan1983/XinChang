@@ -46,7 +46,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb v-if="bingIf2" :id="ids[1]" height="100%" width="100%"/>
+              <nlfb-xfnl v-if="bingIf2" :id="ids[1]" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -59,7 +59,7 @@
           <p class="title">游客线上偏好</p>
           <!--内容-->
           <div class="content">
-            <nlfb v-if="bingIf3" :id="ids[2]" height="100%" width="100%"/>
+            <nlfb-xsph v-if="bingIf3" :id="ids[2]" height="100%" width="100%"/>
           </div>
         </div>
         <!--右-->
@@ -69,7 +69,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb v-if="bingIf4" :id="ids[3]" height="100%" width="100%"/>
+              <nlfb-sjzd v-if="bingIf4" :id="ids[3]" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <ykxb height="100%" width="100%"/>
+              <ykxb-xlyk height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -92,9 +92,13 @@
 <script>
 import nlfb from '@/components/Charts/holiday-nlfb'
 import ykxb from '@/components/Charts/holiday-ykxb'
+import ykxbXlyk from '@/components/Charts/holiday-xlyk'
+import nlfbXfnl from '@/components/Charts/special-xfnl'
+import nlfbXsph from '@/components/Charts/special-xsph'
+import nlfbSjzd from '@/components/Charts/special-sjzd'
 export default {
   components: {
-    nlfb, ykxb
+    nlfb, ykxb, nlfbXfnl, nlfbXsph, nlfbSjzd, ykxbXlyk
   },
   data() {
     return {

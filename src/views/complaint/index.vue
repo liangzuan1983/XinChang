@@ -46,7 +46,7 @@
 
 <script>
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
-import jjright from '@/components/Charts/jingji-right'
+import jjright from '@/components/Charts/complaint-ts'
 export default {
   components: {
     YiZhou, jjright

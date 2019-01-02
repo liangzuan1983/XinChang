@@ -216,7 +216,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb v-if="bingIf2" :id="ids[1]" height="100%" width="100%"/>
+              <nlfb-xfnl v-if="bingIf2" :id="ids[1]" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -227,7 +227,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb v-if="bingIf3" :id="ids[3]" height="100%" width="100%"/>
+              <nlfb-xsph v-if="bingIf3" :id="ids[3]" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -309,7 +309,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb v-if="bingIf2" :id="ids[1]" height="100%" width="100%"/>
+              <nlfb-gy v-if="bingIf2" :id="ids[1]" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -402,7 +402,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb v-if="bingIf4" :id="ids[4]" height="100%" width="100%"/>
+              <nlfb-hyxf v-if="bingIf4" :id="ids[4]" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -413,7 +413,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb v-if="bingIf5" :id="ids[5]" height="100%" width="100%"/>
+              <nlfb-ykxf v-if="bingIf5" :id="ids[5]" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -426,10 +426,15 @@
 import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
 import ykxb from '@/components/Charts/holiday-ykxb'
 import nlfb from '@/components/Charts/holiday-nlfb'
+import nlfbHyxf from '@/components/Charts/special-hyxf'
+import nlfbYkxf from '@/components/Charts/special-ykxf'
+import nlfbXfnl from '@/components/Charts/special-xfnl'
+import nlfbXsph from '@/components/Charts/special-xsph'
 import xfzhe from '@/components/Charts/holiday-xf-zhe'
+import nlfbGy from '@/components/Charts/passenger-ykgy'
 export default {
   components: {
-    HolidayKlZhu, ykxb, nlfb, xfzhe
+    HolidayKlZhu, ykxb, nlfb, xfzhe, nlfbXfnl, nlfbXsph, nlfbGy, nlfbHyxf, nlfbYkxf
   },
   data() {
     return {
