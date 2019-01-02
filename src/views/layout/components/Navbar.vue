@@ -4,11 +4,12 @@
       <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
       <div class="time-box">
         <!--年月日-->
-        <span>2018年12月29日</span>
+        <!-- <span>2018年12月29日</span> -->
+        <span>{{ dateNow }}</span>
         <!--周几-->
-        <span>星期六</span>
+        <span>{{ week }}</span>
         <!--时间-->
-        <span>14:30</span>
+        <span>{{ time }}</span>
       </div>
     </div>
     <!--中间标题-->
@@ -72,7 +73,55 @@ export default {
       'sidebar',
       'name',
       'device'
-    ])
+    ]),
+    dateNow() {
+      const date = new Date()
+      const seperator1 = '-'
+      let year = date.getFullYear()
+      let month = date.getMonth() + 1
+      let strDate = date.getDate()
+      if (month >= 1 && month <= 9) {
+        month = '0' + month
+      }
+      if (strDate >= 0 && strDate <= 9) {
+        strDate = '0' + strDate
+      }
+      const currentdate = year + seperator1 + month + seperator1 + strDate
+      return currentdate
+    },
+    week() {
+      let weeks = new Date()
+      if (weeks.getDay() === 1) {
+        return '星期一'
+      } else if (weeks.getDay() === 2) {
+        return '星期二'
+      } else if (weeks.getDay() === 3) {
+        return '星期三'
+      } else if (weeks.getDay() === 4) {
+        return '星期四'
+      } else if (weeks.getDay() === 5) {
+        return '星期五'
+      } else if (weeks.getDay() === 6) {
+        return '星期六'
+      } else {
+        return '星期日'
+      }
+      return weeks
+    },
+    time() {
+      const time = new Date()
+      const mimi = '：'
+      let hours = time.getHours()
+      let minutes = time.getMinutes()
+      if (hours >= 1 && hours <= 9) {
+        hours = '0' + hours
+      }
+      if (minutes >= 0 && minutes <= 9) {
+        minutes = '0' + minutes
+      }
+      const currenttime = hours + mimi + minutes
+      return currenttime
+    }
   },
   methods: {
     toggleSideBar() {
