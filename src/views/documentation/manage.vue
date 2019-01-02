@@ -91,21 +91,24 @@ export default {
   },
   methods: {
     handleEdit(index, row) {
-      console.log(index, row);
+      console.log(index, row)
+      this.$router.push({
+        path: '/documentation/addWarn'
+      })
     },
     handleDelete(index, row) {
-      console.log(index, row);
+      console.log(index, row)
     },
     // tabale颜色
     getRowClass({ row, column, rowIndex, columnIndex }) {
-      return "background:#3f5c6d2c;color:#000;";
+      return "background:#3f5c6d2c;color:#000;"
     },
     // 分页
     handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
+      console.log(`每页 ${val} 条`)
     },
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
+      console.log(`当前页: ${val}`)
     },
     addPoint() {
       this.$router.push({
