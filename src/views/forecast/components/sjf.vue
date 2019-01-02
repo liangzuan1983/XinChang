@@ -334,7 +334,7 @@
         <!--年龄分布-->
         <div class="nlfb-box">
           <!--title-->
-          <p class="title">电商订单退单</p>
+          <p class="title">微信公众号点击率</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
@@ -345,22 +345,22 @@
         <!--游客消费能力占比-->
         <div class="xfnl-box">
           <!--title-->
-          <p class="title">电商客户性别比例</p>
+          <p class="title">销售渠道</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <ykxb height="100%" width="100%"/>
+              <ykxb-xsqd height="100%" width="100%"/>
             </div>
           </div>
         </div>
         <!--游客线上偏好-->
         <div class="xsph-box">
           <!--title-->
-          <p class="title">电商客户年龄分析</p>
+          <p class="title">渠道广告投入</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb id="ids3" height="100%" width="100%"/>
+              <nlfb-qdgg id="ids3" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -371,15 +371,16 @@
 
 <script>
 import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
-import ykxb from '@/components/Charts/holiday-ykxb'
+import ykxbXsqd from '@/components/Charts/holiday-xsqd'
 import nlfb from '@/components/Charts/holiday-nlfb'
+import nlfbQdgg from '@/components/Charts/holiday-qdgg'
 import nlfbDdly from '@/components/Charts/dfs-ddly'
 import xfzhe from '@/components/Charts/holiday-xf-zhe'
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
 import PieChartFull from '@/views/dashboard/admin/components/dfs'
 export default {
   components: {
-    HolidayKlZhu, ykxb, nlfb, xfzhe, YiZhou, PieChartFull, nlfbDdly
+    HolidayKlZhu, nlfb, xfzhe, YiZhou, PieChartFull, nlfbDdly, nlfbQdgg, ykxbXsqd
   },
   data() {
     return {

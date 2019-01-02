@@ -134,13 +134,28 @@ export const constantRouterMap = [
   {
     path: '/publicSentiment', // 舆情
     component: Layout,
-    redirect: '/publicSentiment/index',
+    redirect: '/publicSentiment/index/jiudian',
+    meta: { title: 'publicSentiment', icon: 'message', noCache: true },
     children: [
       {
         path: 'index',
         component: () => import('@/views/publicSentiment/index'),
         name: 'publicSentiment',
-        meta: { title: 'publicSentiment', icon: 'message', noCache: true }
+        hidden: true,
+        children: [
+          {
+            path: 'jiudian',
+            component: () => import('@/views/publicSentiment/components/jiudian'),
+            name: 'jiudian',
+            hidden: true
+          },
+          {
+            path: 'jingqu',
+            component: () => import('@/views/publicSentiment/components/jingqu'),
+            name: 'jingqu',
+            hidden: true
+          }
+        ]
       }
     ]
   },
