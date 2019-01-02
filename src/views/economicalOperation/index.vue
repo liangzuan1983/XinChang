@@ -42,6 +42,30 @@
           </div>
         </div>
       </div>
+      <div class="content">
+        <!--左-->
+        <div class="left">
+          <!--标题-->
+          <p class="title">旅游汽车客运公司客运量</p>
+          <!--内容-->
+          <div class="content">
+            <div class="chart-wrapper">
+              <yi-zhou v-if="xfzheif" id="jj" height="100%" width="100%"/>
+            </div>
+          </div>
+        </div>
+        <!--右-->
+        <div class="right">
+          <!--标题-->
+          <p class="title">涉旅行业接待能力</p>
+          <!--内容-->
+          <div class="content">
+            <div class="chart-wrapper">
+              <xfzhe v-if="xfzheif" id="jj" height="100%" width="100%"/>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -49,9 +73,10 @@
 <script>
 import xfzhe from '@/components/Charts/holiday-xf-zhe'
 import jjright from '@/components/Charts/jingji-right'
+import YiZhou from '@/views/dashboard/admin/components/YiZhou'
 export default {
   components: {
-    xfzhe, jjright
+    xfzhe, jjright, YiZhou
   },
   data() {
     return {
