@@ -9,7 +9,7 @@
           <span>时间选择： </span>
           <el-date-picker
             v-model="value4"
-            type="datetimerange"
+            type="daterange"
             range-separator="至"
             start-placeholder="开始日期"
             end-placeholder="结束日期"/>
@@ -428,13 +428,14 @@ export default {
       bingIf4: true,
       bingIf5: true,
       bingIf6: true,
-      xfzhe: true
+      xfzhe: true,
+      value4: [new Date(), new Date()]
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .sjf {
   position: relative;
   z-index: 999;
@@ -445,6 +446,10 @@ export default {
   // display: flex;
   // flex-direction: column;
   overflow-y: overlay;
+  .el-date-editor .el-range-separator {
+    padding: 0!important;
+    color: #000!important;
+  }
   .cx {
     // background: rgba(255, 255, 255, 0.05);
     // padding: 1%;

@@ -7,7 +7,7 @@
         <span>时间选择： </span>
         <el-date-picker
           v-model="value4"
-          type="datetimerange"
+          type="daterange"
           range-separator="至"
           start-placeholder="开始日期"
           end-placeholder="结束日期"/>
@@ -50,7 +50,7 @@
           <span>时间选择： </span>
           <el-date-picker
             v-model="value4"
-            type="datetimerange"
+            type="daterange"
             range-separator="至"
             start-placeholder="开始日期"
             end-placeholder="结束日期"/>
@@ -286,7 +286,7 @@
           <span>时间选择： </span>
           <el-date-picker
             v-model="value4"
-            type="datetimerange"
+            type="daterange"
             range-separator="至"
             start-placeholder="开始日期"
             end-placeholder="结束日期"/>
@@ -380,7 +380,7 @@ export default {
   },
   data() {
     return {
-      value4: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
+      value4: [new Date(), new Date()],
       yktype: [
         { value: 335, name: '散客' },
         { value: 310, name: '一卡通游客' },
@@ -391,7 +391,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .flow {
   width: 100%;
   height: 100%;
@@ -403,10 +403,12 @@ export default {
   padding-bottom: 1%;
   background: rgba(255, 255, 255, 0.05);
   overflow-y: overlay;
+  .el-date-editor .el-range-separator {
+    padding: 0!important;
+    color: #000!important;
+  }
   .top {
     flex: 2;
-    // background: fuchsia;
-    // background: rgba(255, 255, 255, 0.05);
     display: flex;
     flex-direction: column;
     // margin-bottom: 1%;

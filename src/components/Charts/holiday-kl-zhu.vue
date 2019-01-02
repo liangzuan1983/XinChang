@@ -86,6 +86,9 @@ export default {
             color: '#59697d'
           }
         },
+        tooltip : {
+          trigger: 'axis'
+        },
         calculable: true,
         xAxis: [
           {
