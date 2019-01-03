@@ -29,7 +29,7 @@ export default {
       var point = new BMap.Point(120.917737, 29.498975); // 创建点坐标
       map.centerAndZoom(point, 15);
       map.enableScrollWheelZoom();
-
+      /* 实时路况*/
       const ctrl = new BMapLib.TrafficControl({
         showPanel: false
       })
@@ -39,7 +39,7 @@ export default {
       map.addControl(ctrl)
       ctrl.setAnchor(BMAP_ANCHOR_BOTTOM_RIGHT)
       ctrl.showTraffic()
-
+      /* 实时路况*/
       var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
         {
           "input": "suggestId"
@@ -72,6 +72,12 @@ export default {
           console.log(th.userlocation.lat);
         })
       }
+      //设置标注的图标
+      var icon = new BMap.Icon("./static/img/downarrow.png", new BMap.Size(100,100));
+      //设置标注的经纬度
+      var marker = new BMap.Marker(new BMap.Point(120.917737, 29.498975),{icon:icon});
+      //把标注添加到地图上
+      map.addOverlay(marker);
     })
   }
   // mounted() {
