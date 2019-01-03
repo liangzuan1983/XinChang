@@ -26,7 +26,7 @@ export default {
       // 创建Map实例
       var map = new BMap.Map("mapContainer");
       // 初始化地图,设置中心点坐标，
-      var point = new BMap.Point(120.917737, 29.498975); // 创建点坐标
+      var point = new BMap.Point(120.897454,29.506942); // 创建点坐标
       map.centerAndZoom(point, 15);
       map.enableScrollWheelZoom();
       /* 实时路况*/
@@ -75,29 +75,25 @@ export default {
       //设置标注的图标
       var icon = new BMap.Icon("./static/img/downarrow.png", new BMap.Size(100,100));
       //设置标注的经纬度
-      var marker = new BMap.Marker(new BMap.Point(120.917737, 29.498975),{icon:icon});
+      var marker = new BMap.Marker(new BMap.Point(120.897454,29.506942),{icon:icon});
       //把标注添加到地图上
       map.addOverlay(marker);
+      // // 点击默认点显示弹框
+      // var content = "<table>";
+      // content = content + "<tr><td><h2>大佛寺风景区</h2></td></tr>";
+      // content = content + "<tr><td> 地点：绍兴市新昌县关城镇人民西路117号</td></tr>";
+      // content = content + "<tr><td> 标签：景区 景点 旅游</td></tr>";
+      // content += "</table>";
+      // var infowindow = new BMap.InfoWindow(content);
+      // marker.addEventListener("click",function(){
+      //   this.openInfoWindow(infowindow);
+      // })
+      // //点击地图，获取经纬度坐标
+      // map.addEventListener("click",function(e){
+      //   document.getElementById("aa").innerHTML = "经度坐标："+e.point.lng+" &nbsp;纬度坐标："+e.point.lat;
+      // });
     })
   }
-  // mounted() {
-  //   this.init()
-  // },
-  // methods: {
-  //   init() {
-  //     const map = new BMap.Map("mapContainer")
-  //     map.centerAndZoom(new BMap.Point(120.917737, 29.498975), 17)
-  //     const ctrl = new BMapLib.TrafficControl({
-  //       showPanel: false
-  //     })
-  //     map.addControl(new BMap.NavigationControl())
-  //     map.enableContinuousZoom(false)
-  //     map.enableScrollWheelZoom(false)
-  //     map.addControl(ctrl)
-  //     ctrl.setAnchor(BMAP_ANCHOR_BOTTOM_RIGHT)
-  //     ctrl.showTraffic()
-  //   }
-  // }
 }
 </script>
 
