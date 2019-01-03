@@ -58,7 +58,7 @@
 import { mapGetters } from 'vuex'
 import Hamburger from '@/components/Hamburger'
 import ErrorLog from '@/components/ErrorLog'
-import { weather }  from '@/api/home'
+import { weather, gender } from '@/api/home'
 
 export default {
   components: {
@@ -75,6 +75,7 @@ export default {
   },
   mounted() {
     this.request()
+    this.storeData()
   },
   computed: {
     ...mapGetters([
@@ -140,14 +141,18 @@ export default {
         location.reload()// In order to re-instantiate the vue-router object to avoid bugs
       })
     },
+    // 单个数据
     request() {
+      // 天气
       weather().then(res => {
         const data = res.data.data
         // console.log(data, '天气')
         this.weatherData = data
-      }).catch(err => {
-        console.log(err)
-      })
+      }).catch(err => {console.log(err)})
+    },
+    // 公用数据 store
+    storeData() {
+      this.$store.dispatch('getSex')
     }
   }
 }

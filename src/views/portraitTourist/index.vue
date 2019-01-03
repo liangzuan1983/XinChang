@@ -25,7 +25,7 @@
           <p class="title">游客性别比例</p>
           <!--内容-->
           <div class="content">
-            <ykxb height="100%" width="100%"/>
+            <ykxb :chartData='getsex' id="por" height="100%" width="100%"/>
           </div>
         </div>
         <!--右-->
@@ -96,6 +96,8 @@ import ykxbXlyk from '@/components/Charts/holiday-xlyk'
 import nlfbXfnl from '@/components/Charts/special-xfnl'
 import nlfbXsph from '@/components/Charts/special-xsph'
 import nlfbSjzd from '@/components/Charts/special-sjzd'
+// import { gender } from '@/api/home'
+import { mapGetters } from 'vuex'
 export default {
   components: {
     nlfb, ykxb, nlfbXfnl, nlfbXsph, nlfbSjzd, ykxbXlyk
@@ -111,6 +113,11 @@ export default {
       bingIf3: true,
       bingIf4: true
     }
+  },
+  computed: {
+    ...mapGetters([
+      'getsex'
+    ])
   }
 }
 </script>

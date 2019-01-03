@@ -191,7 +191,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <ykxb :chartData="sex"  height="100%" width="100%"/>
+              <ykxb :chartData="getsex" id="spe"  height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -432,7 +432,8 @@ import nlfbXfnl from '@/components/Charts/special-xfnl'
 import nlfbXsph from '@/components/Charts/special-xsph'
 import xfzhe from '@/components/Charts/holiday-xf-zhe'
 import nlfbGy from '@/components/Charts/passenger-ykgy'
-import { gender } from '@/api/home' 
+import { mapGetters } from 'vuex'
+// import { gender } from '@/api/home' 
 export default {
   components: {
     HolidayKlZhu, ykxb, nlfb, xfzhe, nlfbXfnl, nlfbXsph, nlfbGy, nlfbHyxf, nlfbYkxf
@@ -484,23 +485,20 @@ export default {
       bingIf4: true,
       bingIf5: true,
       bingIf6: true,
-      xfzhe: true,
-      sex: []
+      xfzhe: true
     }
   },
+  computed: {
+    ...mapGetters([
+      'getsex'
+    ])
+  },
   mounted() {
-    this.request()
+    // this.request()
   },
   methods: {
     request() {
-      // 游客性别占比
-      gender().then(res => {
-        const data = res.data.data
-        this.sex = data
-        console.log(data, '男女比例')
-      }).catch(err => {
-
-      })
+      
     }
   }
 }

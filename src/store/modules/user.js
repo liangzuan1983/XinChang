@@ -1,5 +1,6 @@
 import { loginByUsername, logout, getUserInfo } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
+import { gender } from '@/api/home'
 
 const user = {
   state: {
@@ -12,7 +13,8 @@ const user = {
     roles: [],
     setting: {
       articlePlatform: []
-    }
+    },
+    sex: []
   },
 
   mutations: {
@@ -36,6 +38,9 @@ const user = {
     },
     SET_ROLES: (state, roles) => {
       state.roles = roles
+    },
+    SET_SEX: (state, sex) => {
+      state.sex = sex
     }
   },
 
@@ -54,7 +59,20 @@ const user = {
         })
       })
     },
-
+    // 获取男女性别比例
+    getSex({ commit }) {
+      return new Promise((resolve, reject) => {
+        gender().then(response => {
+          console.log(response, 'store')
+          const data = response.data.data
+          if (response.status === 200) {
+            commit('SET_SEX', data)
+          }
+        }).catch(error => {
+          reject(error)
+        })
+      })
+    },
     // 获取用户信息
     GetUserInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
