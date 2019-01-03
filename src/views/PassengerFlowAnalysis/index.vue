@@ -540,7 +540,7 @@ export default {
               .name {
                 font-size: 20px;
                 color: #889db5;
-                width: 38%;
+                width: 30%;
               }
               .line1 {
                 height: 14px;
