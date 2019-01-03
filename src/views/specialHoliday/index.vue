@@ -593,12 +593,15 @@ export default {
             .one {
               font-size: 18px;
               color: #889db5;
+              width: 20%;
             }
             .two {
               font-size: 18px;
               color: #a0b6db;
+              width: 20%;
             }
             .three {
+              width: 20%;
               span {
                 font-size: 18px;
               color: #889db5;
@@ -609,10 +612,12 @@ export default {
               }
             }
             .four {
+              width: 20%;
               font-size: 18px;
               color: #a0b6db;
             }
             .five {
+              width: 20%;
               span {
                 font-size: 18px;
                 color: #889db5;
@@ -707,12 +712,15 @@ export default {
             .one {
               font-size: 18px;
               color: #889db5;
+              width: 20%;
             }
             .two {
               font-size: 18px;
               color: #a0b6db;
+              width: 20%;
             }
             .three {
+              width: 20%;
               span {
                 font-size: 18px;
               color: #889db5;
@@ -723,10 +731,12 @@ export default {
               }
             }
             .four {
+              width: 20%;
               font-size: 18px;
               color: #a0b6db;
             }
             .five {
+              width: 20%;
               span {
                 font-size: 18px;
                 color: #889db5;
