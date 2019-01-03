@@ -19,3 +19,11 @@ export function gender() {
     method: 'get'
   })
 }
+
+// 游客年龄
+export function age() {
+  return request({
+    url: 'age',
+    method: 'get'
+  })
+}

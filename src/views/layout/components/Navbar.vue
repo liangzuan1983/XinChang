@@ -153,6 +153,7 @@ export default {
     // 公用数据 store
     storeData() {
       this.$store.dispatch('getSex')
+      this.$store.dispatch('getAge')
     }
   }
 }

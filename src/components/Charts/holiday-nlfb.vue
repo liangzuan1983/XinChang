@@ -23,11 +23,11 @@ export default {
     },
     autoResize: {
       type: Boolean,
-      default: false
+      default: true
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   data() {
@@ -84,12 +84,7 @@ export default {
           trigger: 'item',
           formatter: '{a} <br/>{b}: {c} ({d}%)'
         },
-        color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客年龄分布
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客消费能力占比
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客线上偏好
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客过夜占比
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 行业消费占比
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客消费占比
+        color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'],
         legend: {
           orient: 'vertical',
           x: 'left',
@@ -123,11 +118,11 @@ export default {
               }
             },
             data: [
-              { value: 335, name: '18岁以下' },
-              { value: 310, name: '18-25岁' },
-              { value: 234, name: '25-35岁' },
-              { value: 135, name: '35-60岁' },
-              { value: 1548, name: '60岁以上' }
+              { value: this.chartData[0].value, name: '18岁以下' },
+              { value: this.chartData[1].value, name: '18-25岁' },
+              { value: this.chartData[2].value, name: '25-35岁' },
+              { value: this.chartData[3].value, name: '35-60岁' },
+              { value: this.chartData[4].value, name: '60岁以上' }
             ]
           }
         ]

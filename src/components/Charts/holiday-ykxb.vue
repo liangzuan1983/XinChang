@@ -23,7 +23,7 @@ export default {
     },
     autoResize: {
       type: Boolean,
-      default: false
+      default: true
     },
     chartData: {
       type: Array,

@@ -205,7 +205,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb v-if="bingIf1" :id="ids[0]" height="100%" width="100%"/>
+              <nlfb :chartData='getage' id="yknl" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -490,11 +490,12 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getsex'
+      'getsex',
+      'getage'
     ])
   },
   mounted() {
-    // this.request()
+    
   },
   methods: {
     request() {
