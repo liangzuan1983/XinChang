@@ -126,7 +126,7 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
-      let option = {
+      const option = {
         geo: {
           label: {
             emphasis: {
@@ -155,10 +155,10 @@ export default {
           {
             type: 'effectScatter',
             coordinateSystem: 'geo',
-            data: this.datas.sort(function (a, b) {
+            data: this.datas.sort(function(a, b) {
               return b.value - a.value
             }).slice(0, 11),
-            symbolSize: function (val) {
+            symbolSize: function(val) {
               return val[2] / 10
             },
             showEffectOn: 'render',

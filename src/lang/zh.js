@@ -34,7 +34,7 @@ export default {
     complaint: '投诉', // 哎呀我草！这波英文写的我脑袋晕！想吐！
     specialHoliday: '特殊假日', // 哎呀我草！这波英文写的我脑袋晕！想吐！
     portraitTourist: '游客画像', // 哎呀我草！这波英文写的我脑袋晕！想吐！
-    weatherEnvironment: '资源分布', // 哎呀我草！这波英文写的我脑袋晕！想吐！
+    weatherEnvironment: '产业监测', // 哎呀我草！这波英文写的我脑袋晕！想吐！
     economicalOperation: '经济运行', // 哎呀我草！这波英文写的我脑袋晕！想吐！
     setup: '预警设置',
     manage: '预警管理',

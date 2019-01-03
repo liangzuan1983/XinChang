@@ -18,7 +18,7 @@
           <!--查询-->
           <img class="search" src="@/assets/icon/search.png" alt="">
           <!--下载-->
-          <img class="down" src="@/assets/icon/down.png" alt="">
+          <!-- <img class="down" src="@/assets/icon/down.png" alt=""> -->
         </div>
       </div>
       <!--热门旅游线路TOP10-->

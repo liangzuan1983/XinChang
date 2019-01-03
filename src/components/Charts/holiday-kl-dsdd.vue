@@ -86,7 +86,7 @@ export default {
             color: '#59697d'
           }
         },
-        tooltip : {
+        tooltip: {
           trigger: 'axis'
         },
         calculable: true,
@@ -128,11 +128,6 @@ export default {
                 { type: 'max', name: '最大值' },
                 { type: 'min', name: '最小值' }
               ]
-            },
-            markLine: {
-              data: [
-                { type: 'average', name: '平均值' }
-              ]
             }
           },
           {
@@ -143,11 +138,6 @@ export default {
               data: [
                 { name: '年最高', value: 182.2, xAxis: 7, yAxis: 183 },
                 { name: '年最低', value: 2.3, xAxis: 11, yAxis: 3 }
-              ]
-            },
-            markLine: {
-              data: [
-                { type: 'average', name: '平均值' }
               ]
             }
           }

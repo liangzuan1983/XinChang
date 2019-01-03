@@ -14,9 +14,9 @@
         <!--查询-->
         <el-button size="mini" type="primary">查询</el-button>
         <!--查询-->
-        <img class="search" src="@/assets/icon/search.png" alt="">
+        <img class="search" src="@/assets/icon/search.png" alt="" @click="search">
         <!--下载-->
-        <img class="down" src="@/assets/icon/down.png" alt="">
+        <!-- <img class="down" src="@/assets/icon/down.png" alt=""> -->
       </div>
       <div class="top-box">
         <!--全域客流量同比分析-->
@@ -59,7 +59,7 @@
           <!--查询-->
           <img class="search" src="@/assets/icon/search.png" alt="">
           <!--下载-->
-          <img class="down" src="@/assets/icon/down.png" alt="">
+          <!-- <img class="down" src="@/assets/icon/down.png" alt=""> -->
         </div>
         <!--2块内容-->
         <div class="content">
@@ -295,7 +295,7 @@
           <!--查询-->
           <img class="search" src="@/assets/icon/search.png" alt="">
           <!--下载-->
-          <img class="down" src="@/assets/icon/down.png" alt="">
+          <!-- <img class="down" src="@/assets/icon/down.png" alt=""> -->
         </div>
         <!--热门旅游线路-->
         <div class="nlfb-box">
@@ -386,6 +386,11 @@ export default {
         { value: 310, name: '一卡通游客' },
         { value: 274, name: '跟团游' }
       ]
+    }
+  },
+  methods: {
+    search() {
+      window.open('http://61.174.54.66:8020/download.pdf')
     }
   }
 }

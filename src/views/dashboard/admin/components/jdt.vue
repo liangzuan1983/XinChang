@@ -136,7 +136,7 @@ export default {
         },
         series: [
           {
-            name: '正面 ' + this.data[0]  + '%',
+            name: '正面 ' + this.data[0] + '%',
             type: 'bar',
             stack: '总量',
             label: {
@@ -168,7 +168,7 @@ export default {
             }
           },
           {
-            name: '中立 ' + this.data[1]  + '%',
+            name: '中立 ' + this.data[1] + '%',
             type: 'bar',
             stack: '总量',
             label: {

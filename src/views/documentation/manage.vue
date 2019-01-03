@@ -19,22 +19,18 @@
       style="width: 100%">
       <el-table-column
         type="selection"
-        width="55">
-      </el-table-column>
+        width="55"/>
       <el-table-column
         fixed
         prop="date"
         label="序号"
-        width="80">
-      </el-table-column>
+        width="80"/>
       <el-table-column
         prop="name"
-        label="预案名称">
-      </el-table-column>
+        label="预案名称"/>
       <el-table-column
         prop="province"
-        label="添加时间">
-      </el-table-column>
+        label="添加时间"/>
       <el-table-column
         fixed="right"
         label="操作"
@@ -53,13 +49,13 @@
     <!--分页-->
     <div class="fen">
       <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
         :current-page="currentPage4"
         :page-sizes="[100, 200, 300, 400]"
         :page-size="100"
+        :total="400"
         layout="total, sizes, prev, pager, next, jumper"
-        :total="400"/>
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"/>
     </div>
   </div>
 </template>
@@ -101,7 +97,7 @@ export default {
     },
     // tabale颜色
     getRowClass({ row, column, rowIndex, columnIndex }) {
-      return "background:#3f5c6d2c;color:#000;"
+      return 'background:#3f5c6d2c;color:#000;'
     },
     // 分页
     handleSizeChange(val) {
