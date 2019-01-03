@@ -26,8 +26,8 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   data() {
@@ -99,8 +99,8 @@ export default {
             radius: '55%',
             center: ['50%', '60%'],
             data: [
-              { value: 335, name: '男性' },
-              { value: 310, name: '女性' }
+              { value: this.chartData[1].value, name: '男性' },
+              { value: this.chartData[0].value, name: '女性' }
             ],
             itemStyle: {
               emphasis: {

@@ -143,7 +143,7 @@ export default {
     request() {
       weather().then(res => {
         const data = res.data.data
-        console.log(data, '天气')
+        // console.log(data, '天气')
         this.weatherData = data
       }).catch(err => {
         console.log(err)
