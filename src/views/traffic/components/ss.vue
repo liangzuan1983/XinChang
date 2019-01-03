@@ -1,7 +1,9 @@
 <template>
   <div class="traffic-ss">
     <div class="box">
-      <span class="title">新昌实时路况</span>
+      <!-- <span class="title">新昌实时路况</span> -->
+      <!-- <input type="text" id="suggestId" name="address_detail" placeholder="地址" v-model="address_detail" class="input_style"> -->
+      <el-input v-model="address_detail" id="suggestId" name="address_detail"  placeholder="智能搜索地址"/>
       <span class="icon" :style="{ backgroundImage: 'url(' + three + ')'}"/>
     </div>
     <div id="mapContainer"/>
@@ -13,17 +15,22 @@ import Three from '@/assets/traffic_status.png'
 export default {
   data() {
     return {
-      three: Three
+      three: Three,
+      address_detail: null, //详细地址
+      userlocation: {lng: "", lat: ""},
     }
   },
-  mounted() {
-    this.init()
-  },
-  methods: {
-    init() {
-      var map = new BMap.Map("mapContainer")
-      map.centerAndZoom(new BMap.Point(120.917737, 29.498975), 17)
-      var ctrl = new BMapLib.TrafficControl({
+  mounted(){
+    this.$nextTick(function() {
+      var th = this
+      // 创建Map实例
+      var map = new BMap.Map("mapContainer");
+      // 初始化地图,设置中心点坐标，
+      var point = new BMap.Point(120.917737, 29.498975); // 创建点坐标
+      map.centerAndZoom(point, 15);
+      map.enableScrollWheelZoom();
+
+      const ctrl = new BMapLib.TrafficControl({
         showPanel: false
       })
       map.addControl(new BMap.NavigationControl())
@@ -32,19 +39,70 @@ export default {
       map.addControl(ctrl)
       ctrl.setAnchor(BMAP_ANCHOR_BOTTOM_RIGHT)
       ctrl.showTraffic()
-    }
+
+      var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+        {
+          "input": "suggestId"
+          , "location": map
+        })
+      var myValue
+      ac.addEventListener("onconfirm", function (e) {    //鼠标点击下拉列表后的事件
+        var _value = e.item.value;
+        myValue = _value.province + _value.city + _value.district + _value.street + _value.business;
+        this.address_detail = myValue
+        setPlace()
+      })
+      function setPlace() {
+        map.clearOverlays();    //清除地图上所有覆盖物
+        function myFun() {
+          th.userlocation = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+          map.centerAndZoom(th.userlocation, 18);
+          map.addOverlay(new BMap.Marker(th.userlocation));    //添加标注
+        }
+
+        var local = new BMap.LocalSearch(map, { //智能搜索
+          onSearchComplete: myFun
+        });
+        local.search(myValue);
+        //测试输出坐标（指的是输入框最后确定地点的经纬度）
+        map.addEventListener("click",function(e){
+          //经度
+          console.log(th.userlocation.lng);
+          //维度
+          console.log(th.userlocation.lat);
+        })
+      }
+    })
   }
+  // mounted() {
+  //   this.init()
+  // },
+  // methods: {
+  //   init() {
+  //     const map = new BMap.Map("mapContainer")
+  //     map.centerAndZoom(new BMap.Point(120.917737, 29.498975), 17)
+  //     const ctrl = new BMapLib.TrafficControl({
+  //       showPanel: false
+  //     })
+  //     map.addControl(new BMap.NavigationControl())
+  //     map.enableContinuousZoom(false)
+  //     map.enableScrollWheelZoom(false)
+  //     map.addControl(ctrl)
+  //     ctrl.setAnchor(BMAP_ANCHOR_BOTTOM_RIGHT)
+  //     ctrl.showTraffic()
+  //   }
+  // }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .traffic-ss {
     width: 100%;
     height: 100%;
-    position: relative;
-    z-index: 999;
     display: flex;
     flex-direction: column;
+    // position: relative;
+    // z-index: 99;
     .box {
       display: flex;
       justify-content: space-between;
@@ -52,6 +110,11 @@ export default {
       align-items: center;
       padding-left: 1%;
       padding-right: 1%;
+      position: relative;
+      z-index: 999;
+      .el-input--medium .el-input__inner {
+        width: 20%;
+      }
       .title {
         color: #bbd5ff;
         font-size: 20px;

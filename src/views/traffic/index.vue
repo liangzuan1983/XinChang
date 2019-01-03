@@ -52,8 +52,8 @@ export default {
     height: 100%;
     display: flex;
     flex-direction: column;
-    position: relative;
-    z-index: 999;
+    // position: relative;
+    // z-index: 999;
     padding: 1%;
     .qh-box {
       .tab-box {
