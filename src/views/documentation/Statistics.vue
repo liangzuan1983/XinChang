@@ -35,9 +35,11 @@
       </el-table-column>
       <el-table-column
         fixed
-        prop="date"
         label="序号"
         width="80">
+        <template slot-scope="scope">
+          {{ scope.$index + 1 }}
+        </template>
       </el-table-column>
       <el-table-column
         prop="name"

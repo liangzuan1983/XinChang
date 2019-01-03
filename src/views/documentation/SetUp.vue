@@ -19,36 +19,32 @@
       style="width: 100%">
       <el-table-column
         type="selection"
-        width="55">
-      </el-table-column>
+        width="55"/>
       <el-table-column
         fixed
-        prop="date"
         label="序号"
         width="80">
+        <template slot-scope="scope">
+          {{ scope.$index + 1 }}
+        </template>
       </el-table-column>
       <el-table-column
         prop="name"
         label="点位名称"
-        width="120">
-      </el-table-column>
+        width="120"/>
       <el-table-column
         prop="province"
-        label="点位坐标">
-      </el-table-column>
+        label="点位坐标"/>
       <el-table-column
         prop="city"
         label="预警阈值"
-        width="120">
-      </el-table-column>
+        width="120"/>
       <el-table-column
         prop="address"
-        label="预测客流预警时限">
-      </el-table-column>
+        label="预测客流预警时限"/>
       <el-table-column
         prop="zip"
-        label="最近修改时间">
-      </el-table-column>
+        label="最近修改时间"/>
       <el-table-column
         fixed="right"
         label="操作"
