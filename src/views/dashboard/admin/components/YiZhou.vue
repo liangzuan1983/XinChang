@@ -65,6 +65,15 @@ export default {
             }
           }
         },
+        tooltip : {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'cross',
+            label: {
+              backgroundColor: '#6a7985'
+            }
+          }
+        },
         yAxis: {
           type: 'value',
           splitLine: {

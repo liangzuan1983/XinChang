@@ -63,6 +63,10 @@ export default {
             colorLightness: [0, 1]
           }
         },
+        tooltip : {
+          trigger: 'item',
+          formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
         series: [
           {
             name: '访问来源',

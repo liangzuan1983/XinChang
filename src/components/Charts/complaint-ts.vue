@@ -81,6 +81,10 @@ export default {
     setOptions({ expectedData, actualData } = {}) {
       this.chart.setOption({
         color: ['#0bdfb8', '#0ac5e4', '#868fce', '#6072f1', '#be60c6', '#cf6d72'],
+        tooltip : {
+          trigger: 'item',
+          formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
         series: [
           {
             name: '访问来源',
