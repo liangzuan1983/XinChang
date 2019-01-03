@@ -1,6 +1,6 @@
 <template>
   <div class="weatherEnvironment">
-    <div @click="fuck">资源分布</div>
+    <div @click="fuck">产业监测</div>
   </div>
 </template>
 
