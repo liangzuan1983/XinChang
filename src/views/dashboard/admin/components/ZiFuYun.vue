@@ -151,7 +151,6 @@ export default {
                       "#FD6565"
                     ];
                     let num = Math.floor(Math.random() * (5 + 1));
-                    console.log(num);
                     return color[num];
                   }
                 }

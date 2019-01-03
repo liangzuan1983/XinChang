@@ -7,7 +7,6 @@ import echarts from 'echarts'
 import jsonObj from './xc.js'
 // require('echarts/theme/macarons') // echarts theme
 import { debounce } from '@/utils'
-console.log(jsonObj);
 export default {
   props: {
     className: {
@@ -186,7 +185,6 @@ export default {
     },
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
-      console.log(jsonObj)
       echarts.registerMap('xinchange', jsonObj)
       this.setOptions(this.chartData)
     }

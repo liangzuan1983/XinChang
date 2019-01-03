@@ -25,11 +25,14 @@
           <!--天气-->
           <img src="@/assets/weather/45.png" alt="">
           <!--是否晴天-->
-          <span>晴</span>
+          <span v-if="weatherData.type">{{ weatherData.type }}</span>
+          <span v-else>晴</span>
         </div>
         <!--温度-->
-        <span>3-6℃</span>
-        <span>空气质量: 优</span>
+        <span v-if="weatherData.low&&weatherData.high">{{ weatherData.low }} - {{ weatherData.high }}</span>
+        <span v-else>3℃-6℃</span>
+        <span v-if="weatherData.fengli">风力： {{ weatherData.fengli }}</span>
+        <span v-else>风力：3级</span>
       </div>
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">
@@ -55,6 +58,7 @@
 import { mapGetters } from 'vuex'
 import Hamburger from '@/components/Hamburger'
 import ErrorLog from '@/components/ErrorLog'
+import { weather }  from '@/api/home'
 
 export default {
   components: {
@@ -65,8 +69,12 @@ export default {
     return {
       navCenterBack: {
         backgroundImage: 'url(' + require('@/assets/title.png') + ')'
-      }
+      },
+      weatherData: {}
     }
+  },
+  mounted() {
+    this.request()
   },
   computed: {
     ...mapGetters([
@@ -130,6 +138,15 @@ export default {
     logout() {
       this.$store.dispatch('LogOut').then(() => {
         location.reload()// In order to re-instantiate the vue-router object to avoid bugs
+      })
+    },
+    request() {
+      weather().then(res => {
+        const data = res.data.data
+        console.log(data, '天气')
+        this.weatherData = data
+      }).catch(err => {
+        console.log(err)
       })
     }
   }
@@ -206,7 +223,7 @@ export default {
       justify-content: space-between;
       align-items: center;
       .icon-box {
-        width: 19%;
+        width: 22%;
         display: flex;
         justify-content: space-between;
         align-items: center;
