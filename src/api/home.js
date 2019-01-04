@@ -51,3 +51,11 @@ export function city() {
     method: 'get'
   })
 }
+
+// 乡村旅游热度排行top5
+export function hotTown() {
+  return request({
+    url: 'hotTown',
+    method: 'get'
+  })
+}

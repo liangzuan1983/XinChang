@@ -145,7 +145,7 @@ const user = {
           data10.sort(function(a, b){
             return b.value -a.value
           })
-          console.log(data10, 'hou')
+          // console.log(data10, 'hou')
           if(response.status === 200) {
             commit('SET_CITY', data)
             commit('SET_CITYTOP10', data10)

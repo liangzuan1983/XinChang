@@ -82,7 +82,12 @@
         <div class="xcly-content">
           <div class="xc-box">
             <p class="num">1</p>
-            <p class="name">
+            <p v-if="this.hotTown" class="name">
+              <span>{{ this.hotTown[0].substring(0,1) }}</span>
+              <span>{{ this.hotTown[0].substring(1,2) }}</span>
+              <span>{{ this.hotTown[0].substring(2,3) }}</span>
+            </p>
+            <p v-else class="name">
               <span>梅</span>
               <span>渚</span>
               <span>镇</span>
@@ -90,15 +95,25 @@
           </div>
           <div class="xc-box2">
             <p class="num">2</p>
-            <p class="name">
+            <p v-if="this.hotTown" class="name">
+              <span>{{ this.hotTown[1].substring(0,1) }}</span>
+              <span>{{ this.hotTown[1].substring(1,2) }}</span>
+              <span>{{ this.hotTown[1].substring(2,3) }}</span>
+            </p>
+            <p v-else class="name">
               <span>巧</span>
               <span>英</span>
-              <span>村</span>
+              <span>乡</span>
             </p>
           </div>
           <div class="xc-box3">
             <p class="num">3</p>
-            <p class="name">
+            <p v-if="this.hotTown" class="name">
+              <span>{{ this.hotTown[2].substring(0,1) }}</span>
+              <span>{{ this.hotTown[2].substring(1,2) }}</span>
+              <span>{{ this.hotTown[2].substring(2,3) }}</span>
+            </p>
+            <p v-else class="name">
               <span>东</span>
               <span>明</span>
               <span>乡</span>
@@ -106,7 +121,12 @@
           </div>
           <div class="xc-box4">
             <p class="num">4</p>
-            <p class="name">
+            <p v-if="this.hotTown" class="name">
+              <span>{{ this.hotTown[3].substring(0,1) }}</span>
+              <span>{{ this.hotTown[3].substring(1,2) }}</span>
+              <span>{{ this.hotTown[3].substring(2,3) }}</span>
+            </p>
+            <p v-else class="name">
               <span>回</span>
               <span>乡</span>
               <span>镇</span>
@@ -114,7 +134,12 @@
           </div>
           <div class="xc-box5">
             <p class="num">5</p>
-            <p class="name">
+            <p v-if="this.hotTown" class="name">
+              <span>{{ this.hotTown[4].substring(0,1) }}</span>
+              <span>{{ this.hotTown[4].substring(1,2) }}</span>
+              <span>{{ this.hotTown[4].substring(2,3) }}</span>
+            </p>
+            <p v-else class="name">
               <span>沙</span>
               <span>溪</span>
               <span>镇</span>
@@ -450,6 +475,7 @@ import jdt from '@/views/dashboard/admin/components/jdt'
 import dtView from './components/dt.vue'
 import lvView from './components/lv.vue'
 import { mapGetters } from 'vuex'
+import { hotTown } from '@/api/home'
 export default {
   name: 'DashboardAdmin',
   components: {
@@ -467,7 +493,8 @@ export default {
         { value: 274, name: '广州' },
         { value: 235, name: '苏州' },
         { value: 400, name: '杭州' }
-      ]
+      ],
+      hotTown: []
     }
   },
   computed: {
@@ -477,6 +504,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch('getCity')
+    this.requestAll()
   },
   methods: {
     qyEvent() {
@@ -494,6 +522,16 @@ export default {
     TwoLevelPages(place) {
       this.$router.push({
         path: place
+      })
+    },
+    requestAll() {
+      hotTown().then(res => {
+        const data = res.data.data
+        if(res.status === 200) {
+          this.hotTown = data
+        }
+      }).catch(err => {
+        console.log(err)
       })
     }
   }
