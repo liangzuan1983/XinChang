@@ -21,7 +21,7 @@ export default {
       type: String,
       default: '100%'
     },
-    fatherData: {
+    chartData: {
       type: Array,
       default: () => {
         return []
@@ -30,7 +30,8 @@ export default {
   },
   data() {
     return {
-      chart: null
+      chart: null,
+      dataArray: []
     }
   },
   mounted() {
@@ -53,12 +54,26 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
-
+      console.log(this.chartData, '11')
+      const data = this.chartData
+      function sortValue(a, b) {
+        return b.value - a.value
+      }
+      data.sort(sortValue)
+      data.forEach(element => {
+        const obj = {}
+        obj.name = element.subject
+        obj.value = element.value
+        this.dataArray.push(obj)
+      })
+      // console.log(data, 'qian')
+      const newData = this.dataArray.slice(0, 5)
+      console.log(newData, 'hou')
       this.chart.setOption({
         visualMap: {
           show: false,
-          min: 100,
-          max: 450,
+          min: 0,
+          max: 0.5,
           inRange: {
             colorLightness: [0, 1]
           }
@@ -72,14 +87,8 @@ export default {
             name: '访问来源',
             type: 'pie',
             radius: '90%',
-            center: ['50%', '60%'],
-            data: [
-              { value: 335, name: '北京' },
-              { value: 310, name: '上海' },
-              { value: 274, name: '广州' },
-              { value: 235, name: '苏州' },
-              { value: 400, name: '杭州' }
-            ].sort(function(a, b) { return a.value - b.value }),
+            center: ['50%', '53%'],
+            data: newData.sort(function(a, b) { return a.value - b.value }),
             roseType: 'radius',
             label: {
               normal: {

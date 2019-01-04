@@ -43,3 +43,11 @@ export function hobby() {
     method: 'get'
   })
 }
+
+// 游客来源城市
+export function city() {
+  return request({
+    url: 'city',
+    method: 'get'
+  })
+}

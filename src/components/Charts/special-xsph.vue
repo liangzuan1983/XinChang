@@ -26,7 +26,7 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
+      type: Array,
       required: false
     }
   },
@@ -81,16 +81,15 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
-      console.log(this.chartData, '222')
       const data = this.chartData
       data.forEach(element => {
-        let obj = {}
+        const obj = {}
         this.name.push(element.subject)
         obj.value = element.value
         obj.name = element.subject
         this.nameAndValue.push(obj)
-        console.log(this.name, 'name')
-        console.log(this.nameAndValue, 'and')
+        // console.log(this.name, 'name')
+        // console.log(this.nameAndValue, 'and')
       })
       this.chart.setOption({
         tooltip: {

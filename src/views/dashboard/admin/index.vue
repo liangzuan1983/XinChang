@@ -191,7 +191,7 @@
           <!--内容区-->
           <div class="content-box">
             <div class="chart-wrapper">
-              <pie-chart-full height="100%" width="100%"/>
+              <pie-chart-full v-if="getcity.length && getcity.length > 0" :chartData='getcity' id="home-top5" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -449,6 +449,7 @@ import ZiFuYun from '@/views/dashboard/admin/components/ZiFuYun'
 import jdt from '@/views/dashboard/admin/components/jdt'
 import dtView from './components/dt.vue'
 import lvView from './components/lv.vue'
+import { mapGetters } from 'vuex'
 export default {
   name: 'DashboardAdmin',
   components: {
@@ -468,6 +469,11 @@ export default {
         { value: 400, name: '杭州' }
       ]
     }
+  },
+  computed: {
+    ...mapGetters([
+      'getcity'
+    ])
   },
   methods: {
     qyEvent() {
