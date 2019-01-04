@@ -15,9 +15,9 @@
     <!--中间标题-->
     <div :style="navCenterBack" class="navBar-center-text">新昌县旅游大数据中心</div>
     <div class="right-menu flex-start">
-      <template v-if="device!=='mobile'">
+      <!-- <template v-if="device!=='mobile'">
         <error-log class="errLog-container right-menu-item"/>
-      </template>
+      </template> -->
       <!--右边信息-->
       <div class="right-weather-box">
         <!--图标和文字盒子-->
