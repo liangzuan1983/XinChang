@@ -82,7 +82,7 @@
         <div class="xcly-content">
           <div class="xc-box">
             <p class="num">1</p>
-            <p v-if="this.hotTown" class="name">
+            <p v-if="this.hotTown.length>0" class="name">
               <span>{{ this.hotTown[0].substring(0,1) }}</span>
               <span>{{ this.hotTown[0].substring(1,2) }}</span>
               <span>{{ this.hotTown[0].substring(2,3) }}</span>
@@ -95,7 +95,7 @@
           </div>
           <div class="xc-box2">
             <p class="num">2</p>
-            <p v-if="this.hotTown" class="name">
+            <p v-if="this.hotTown.length>0" class="name">
               <span>{{ this.hotTown[1].substring(0,1) }}</span>
               <span>{{ this.hotTown[1].substring(1,2) }}</span>
               <span>{{ this.hotTown[1].substring(2,3) }}</span>
@@ -108,7 +108,7 @@
           </div>
           <div class="xc-box3">
             <p class="num">3</p>
-            <p v-if="this.hotTown" class="name">
+            <p v-if="this.hotTown.length>0" class="name">
               <span>{{ this.hotTown[2].substring(0,1) }}</span>
               <span>{{ this.hotTown[2].substring(1,2) }}</span>
               <span>{{ this.hotTown[2].substring(2,3) }}</span>
@@ -121,7 +121,7 @@
           </div>
           <div class="xc-box4">
             <p class="num">4</p>
-            <p v-if="this.hotTown" class="name">
+            <p v-if="this.hotTown.length>0" class="name">
               <span>{{ this.hotTown[3].substring(0,1) }}</span>
               <span>{{ this.hotTown[3].substring(1,2) }}</span>
               <span>{{ this.hotTown[3].substring(2,3) }}</span>
@@ -134,7 +134,7 @@
           </div>
           <div class="xc-box5">
             <p class="num">5</p>
-            <p v-if="this.hotTown" class="name">
+            <p v-if="this.hotTown.length>0" class="name">
               <span>{{ this.hotTown[4].substring(0,1) }}</span>
               <span>{{ this.hotTown[4].substring(1,2) }}</span>
               <span>{{ this.hotTown[4].substring(2,3) }}</span>
