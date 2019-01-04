@@ -150,63 +150,63 @@
             <div class="content">
               <!--每1项-->
               <div class="one-box">
-                <span class="name">{{ getcity[0].subject }}</span>
+                <span class="name">{{ getcity10[0].subject }}</span>
                 <p class="line1"/>
-                <span class="num">{{ getcity[0].value }}</span>
+                <span class="num">{{ getcity10[0].value }}</span>
               </div>
               <!--每2项-->
               <div class="one-box">
-                <span class="name">{{ getcity[1].subject }}</span>
+                <span class="name">{{ getcity10[1].subject }}</span>
                 <p class="line2"/>
-                <span class="num">{{ getcity[1].value }}</span>
+                <span class="num">{{ getcity10[1].value }}</span>
               </div>
               <!--每3项-->
               <div class="one-box">
-                <span class="name">{{ getcity[2].subject }}</span>
+                <span class="name">{{ getcity10[2].subject }}</span>
                 <p class="line3"/>
-                <span class="num">{{ getcity[2].value }}</span>
+                <span class="num">{{ getcity10[2].value }}</span>
               </div>
               <!--每4项-->
               <div class="one-box">
-                <span class="name">{{ getcity[3].subject }}</span>
+                <span class="name">{{ getcity10[3].subject }}</span>
                 <p class="line4"/>
-                <span class="num">{{ getcity[3].value }}</span>
+                <span class="num">{{ getcity10[3].value }}</span>
               </div>
               <!--每5项-->
               <div class="one-box">
-                <span class="name">{{ getcity[4].subject }}</span>
+                <span class="name">{{ getcity10[4].subject }}</span>
                 <p class="line5"/>
-                <span class="num">{{ getcity[4].value }}</span>
+                <span class="num">{{ getcity10[4].value }}</span>
               </div>
               <!--每6项-->
               <div class="one-box">
-                <span class="name">{{ getcity[5].subject }}</span>
+                <span class="name">{{ getcity10[5].subject }}</span>
                 <p class="line6"/>
-                <span class="num">{{ getcity[5].value }}</span>
+                <span class="num">{{ getcity10[5].value }}</span>
               </div>
               <!--每7项-->
               <div class="one-box">
-                <span class="name">{{ getcity[6].subject }}</span>
+                <span class="name">{{ getcity10[6].subject }}</span>
                 <p class="line7"/>
-                <span class="num">{{ getcity[6].value }}</span>
+                <span class="num">{{ getcity10[6].value }}</span>
               </div>
               <!--每8项-->
               <div class="one-box">
-                <span class="name">{{ getcity[7].subject }}</span>
+                <span class="name">{{ getcity10[7].subject }}</span>
                 <p class="line8"/>
-                <span class="num">{{ getcity[7].value }}</span>
+                <span class="num">{{ getcity10[7].value }}</span>
               </div>
               <!--每9项-->
               <div class="one-box">
-                <span class="name">{{ getcity[8].subject }}</span>
+                <span class="name">{{ getcity10[8].subject }}</span>
                 <p class="line9"/>
-                <span class="num">{{ getcity[8].value }}</span>
+                <span class="num">{{ getcity10[8].value }}</span>
               </div>
               <!--每10项-->
               <div class="one-box">
-                <span class="name">{{ getcity[9].subject }}</span>
+                <span class="name">{{ getcity10[9].subject }}</span>
                 <p class="line10"/>
-                <span class="num">{{ getcity[9].value }}</span>
+                <span class="num">{{ getcity10[9].value }}</span>
               </div>
             </div>
           </div>
@@ -381,7 +381,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getcity'
+      'getcity',
+      'getcity10'
     ])
   },
   data() {

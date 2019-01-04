@@ -18,6 +18,7 @@ const getters = {
   getage: state => state.user.age,
   getconsume: state => state.user.consume,
   gethobby: state => state.user.hobby,
-  getcity: state => state.user.city
+  getcity: state => state.user.city,
+  getcity10: state => state.user.city10
 }
 export default getters
