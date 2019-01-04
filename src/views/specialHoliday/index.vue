@@ -241,64 +241,64 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box">
-              <span class="name">大佛寺-十九峰</span>
+            <div class="one-box" v-if="this.getline.length > 0">
+              <span class="name">{{ getline[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">7262</span>
+              <span class="num">{{ getline[0].value }}</span>
             </div>
             <!--每2项-->
-            <div class="one-box">
-              <span class="name">十九峰-大佛寺</span>
+            <div class="one-box" v-if="this.getline.length > 0">
+              <span class="name">{{ getline[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">6862</span>
+              <span class="num">{{ getline[1].value }}</span>
             </div>
             <!--每3项-->
-            <div class="one-box">
-              <span class="name">十九峰-丝绸世界</span>
+            <div class="one-box" v-if="this.getline.length > 0">
+              <span class="name">{{ getline[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">6242</span>
+              <span class="num">{{ getline[2].value }}</span>
             </div>
             <!--每4项-->
-            <div class="one-box">
-              <span class="name">大佛寺-丝绸世界</span>
+            <div class="one-box" v-if="this.getline.length > 0">
+              <span class="name">{{ getline[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">5322</span>
+              <span class="num">{{ getline[3].value }}</span>
             </div>
             <!--每5项-->
-            <div class="one-box">
-              <span class="name">天烛仙境-丝绸世界</span>
+            <div class="one-box" v-if="this.getline.length > 0">
+              <span class="name">{{ getline[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">4222</span>
+              <span class="num">{{ getline[4].value }}</span>
             </div>
             <!--每6项-->
-            <div class="one-box">
-              <span class="name">大佛寺-中国茶市</span>
+            <div class="one-box" v-if="this.getline.length > 0">
+              <span class="name">{{ getline[5].subject }}</span>
               <p class="line6"/>
-              <span class="num">3212</span>
+              <span class="num">{{ getline[5].value }}</span>
             </div>
             <!--每7项-->
-            <div class="one-box">
-              <span class="name">大佛寺-天烛仙境</span>
+            <div class="one-box" v-if="this.getline.length > 0">
+              <span class="name">{{ getline[6].subject }}</span>
               <p class="line7"/>
-              <span class="num">2342</span>
+              <span class="num">{{ getline[6].value }}</span>
             </div>
             <!--每8项-->
-            <div class="one-box">
-              <span class="name">十九峰-天烛仙境</span>
+            <div class="one-box" v-if="this.getline.length > 0">
+              <span class="name">{{ getline[7].subject }}</span>
               <p class="line8"/>
-              <span class="num">1232</span>
+              <span class="num">{{ getline[7].value }}</span>
             </div>
             <!--每9项-->
-            <div class="one-box">
-              <span class="name">丝绸世界-大佛寺</span>
+            <div class="one-box" v-if="this.getline.length > 0">
+              <span class="name">{{ getline[8].subject }}</span>
               <p class="line9"/>
-              <span class="num">672</span>
+              <span class="num">{{ getline[8].value }}</span>
             </div>
             <!--每10项-->
-            <div class="one-box">
-              <span class="name">中国茶室-十九峰</span>
+            <div class="one-box" v-if="this.getline.length > 0">
+              <span class="name">{{ getline[9].subject }}</span>
               <p class="line10"/>
-              <span class="num">342</span>
+              <span class="num">{{ getline[9].value }}</span>
             </div>
           </div>
         </div>
@@ -320,61 +320,61 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box">
+            <div class="one-box" v-if="this.getcity10.length > 0">
               <span class="name">{{ getcity10[0].subject }}</span>
               <p class="line1"/>
               <span class="num">{{ getcity10[0].value }}</span>
             </div>
             <!--每2项-->
-            <div class="one-box">
+            <div class="one-box" v-if="this.getcity10.length > 0">
               <span class="name">{{ getcity10[1].subject }}</span>
               <p class="line2"/>
               <span class="num">{{ getcity10[1].value }}</span>
             </div>
             <!--每3项-->
-            <div class="one-box">
+            <div class="one-box" v-if="this.getcity10.length > 0">
               <span class="name">{{ getcity10[2].subject }}</span>
               <p class="line3"/>
               <span class="num">{{ getcity10[2].value }}</span>
             </div>
             <!--每4项-->
-            <div class="one-box">
+            <div class="one-box" v-if="this.getcity10.length > 0">
               <span class="name">{{ getcity10[3].subject }}</span>
               <p class="line4"/>
               <span class="num">{{ getcity10[3].value }}</span>
             </div>
             <!--每5项-->
-            <div class="one-box">
+            <div class="one-box" v-if="this.getcity10.length > 0">
               <span class="name">{{ getcity10[4].subject }}</span>
               <p class="line5"/>
               <span class="num">{{ getcity10[4].value }}</span>
             </div>
             <!--每6项-->
-            <div class="one-box">
+            <div class="one-box" v-if="this.getcity10.length > 0">
               <span class="name">{{ getcity10[5].subject }}</span>
               <p class="line6"/>
               <span class="num">{{ getcity10[5].value }}</span>
             </div>
             <!--每7项-->
-            <div class="one-box">
+            <div class="one-box" v-if="this.getcity10.length > 0">
               <span class="name">{{ getcity10[6].subject }}</span>
               <p class="line7"/>
               <span class="num">{{ getcity10[6].value }}</span>
             </div>
             <!--每8项-->
-            <div class="one-box">
+            <div class="one-box" v-if="this.getcity10.length > 0">
               <span class="name">{{ getcity10[7].subject }}</span>
               <p class="line8"/>
               <span class="num">{{ getcity10[7].value }}</span>
             </div>
             <!--每9项-->
-            <div class="one-box">
+            <div class="one-box" v-if="this.getcity10.length > 0">
               <span class="name">{{ getcity10[8].subject }}</span>
               <p class="line9"/>
               <span class="num">{{ getcity10[8].value }}</span>
             </div>
             <!--每10项-->
-            <div class="one-box">
+            <div class="one-box" v-if="this.getcity10.length > 0">
               <span class="name">{{ getcity10[9].subject }}</span>
               <p class="line10"/>
               <span class="num">{{ getcity10[9].value }}</span>
@@ -494,11 +494,12 @@ export default {
       'getage',
       'getconsume',
       'gethobby',
-      'getcity10'
+      'getcity10',
+      'getline'
     ])
   },
   mounted() {
-    
+    this.$store.dispatch('getLine')
   },
   methods: {
     request() {
