@@ -1,6 +1,6 @@
 import { loginByUsername, logout, getUserInfo } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
-import { gender, age, consume, hobby, city } from '@/api/home'
+import { gender, age, consume, hobby, city, line } from '@/api/home'
 
 const user = {
   state: {
@@ -19,7 +19,8 @@ const user = {
     consume: [],
     hobby: [],
     city: [],
-    city10: []
+    city10: [],
+    line: []
   },
 
   mutations: {
@@ -61,6 +62,9 @@ const user = {
     },
     SET_CITYTOP10: (state, city10) => {
       state.city10 = city10
+    },
+    SET_LINE: (state, line) => {
+      state.line = line
     }
   },
 
@@ -151,6 +155,25 @@ const user = {
             commit('SET_CITYTOP10', data10)
             resolve()
           }
+        }).catch(error => {
+          reject(error)
+        })
+      })
+    },
+    // 游客热门路线
+    getLine({ commit }) {
+      return new Promise((resolve, reject) => {
+        line().then(response => {
+          const data = response.data.data
+          // console.log(data, '11')
+          data.sort(function(a, b) {
+            return b.value -a.value
+          })
+          // console.log(data, '22')
+          if(response.status === 200) {
+            commit('SET_LINE', data)
+          }
+          resolve()
         }).catch(error => {
           reject(error)
         })

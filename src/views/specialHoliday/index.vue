@@ -335,13 +335,13 @@
             <div class="one-box">
               <span class="name">{{ getcity10[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">{{ getcity10[2].subject }}</span>
+              <span class="num">{{ getcity10[2].value }}</span>
             </div>
             <!--每4项-->
             <div class="one-box">
               <span class="name">{{ getcity10[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">{{ getcity10[3].subject }}</span>
+              <span class="num">{{ getcity10[3].value }}</span>
             </div>
             <!--每5项-->
             <div class="one-box">

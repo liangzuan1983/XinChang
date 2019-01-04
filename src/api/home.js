@@ -59,3 +59,11 @@ export function hotTown() {
     method: 'get'
   })
 }
+
+// 游客热门路线
+export function line() {
+  return request({
+    url: 'line',
+    method: 'get'
+  })
+} 
