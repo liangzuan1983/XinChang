@@ -33,7 +33,9 @@ export default {
   data() {
     return {
       chart: null,
-      sidebarElm: null
+      sidebarElm: null,
+      name: [],
+      nameAndValue: []
     }
   },
   watch: {
@@ -79,21 +81,28 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      console.log(this.chartData, '222')
+      const data = this.chartData
+      data.forEach(element => {
+        let obj = {}
+        this.name.push(element.subject)
+        obj.value = element.value
+        obj.name = element.subject
+        this.nameAndValue.push(obj)
+        console.log(this.name, 'name')
+        console.log(this.nameAndValue, 'and')
+      })
       this.chart.setOption({
         tooltip: {
           trigger: 'item',
           formatter: '{a} <br/>{b}: {c} ({d}%)'
         },
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客年龄分布
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客消费能力占比
         color: ['#f69704', '#00ffff', '#47b2d3', '#0982de', '#ffe000'], // 游客线上偏好
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客过夜占比
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 行业消费占比
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客消费占比
         legend: {
           orient: 'vertical',
           x: 'left',
-          data: ['购物', '理财', '旅游', '金融', '视频'],
+          // data: ['购物', '理财', '旅游', '金融', '视频'],
+          data: this.name,
           textStyle: {
             color: '#889db5'
           }
@@ -122,13 +131,14 @@ export default {
                 show: false
               }
             },
-            data: [
-              { value: 335, name: '购物' },
-              { value: 310, name: '理财' },
-              { value: 234, name: '旅游' },
-              { value: 135, name: '金融财经' },
-              { value: 1548, name: '视频' }
-            ]
+            data: this.nameAndValue
+            // data: [
+            //   { value: 335, name: '购物' },
+            //   { value: 310, name: '理财' },
+            //   { value: 234, name: '旅游' },
+            //   { value: 135, name: '金融财经' },
+            //   { value: 1548, name: '视频' }
+            // ]
           }
         ]
       })

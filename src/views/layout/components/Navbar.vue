@@ -155,6 +155,7 @@ export default {
       this.$store.dispatch('getSex')
       this.$store.dispatch('getAge')
       this.$store.dispatch('getConsume')
+      this.$store.dispatch('getHobby')
     }
   }
 }

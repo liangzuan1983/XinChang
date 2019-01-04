@@ -59,7 +59,7 @@
           <p class="title">游客线上偏好</p>
           <!--内容-->
           <div class="content">
-            <nlfb-xsph v-if="bingIf3" :id="ids[2]" height="100%" width="100%"/>
+            <nlfb-xsph :chartData='gethobby' id="por-xsph" height="100%" width="100%"/>
           </div>
         </div>
         <!--右-->
@@ -118,7 +118,8 @@ export default {
     ...mapGetters([
       'getsex',
       'getage',
-      'getconsume'
+      'getconsume',
+      'gethobby'
     ])
   }
 }

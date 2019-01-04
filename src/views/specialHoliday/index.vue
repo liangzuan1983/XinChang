@@ -216,7 +216,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb-xfnl :chartData="getconsume" :id="spe-xfnl" height="100%" width="100%"/>
+              <nlfb-xfnl :chartData="getconsume" id="spe-xfnl" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -227,7 +227,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb-xsph v-if="bingIf3" :id="ids[3]" height="100%" width="100%"/>
+              <nlfb-xsph :chartData='gethobby' id="spe-xsph" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -492,7 +492,8 @@ export default {
     ...mapGetters([
       'getsex',
       'getage',
-      'getconsume'
+      'getconsume',
+      'gethobby'
     ])
   },
   mounted() {

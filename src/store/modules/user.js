@@ -1,6 +1,6 @@
 import { loginByUsername, logout, getUserInfo } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
-import { gender, age, consume } from '@/api/home'
+import { gender, age, consume, hobby } from '@/api/home'
 
 const user = {
   state: {
@@ -16,7 +16,8 @@ const user = {
     },
     sex: [],
     age: [],
-    consume: []
+    consume: [],
+    hobby: []
   },
 
   mutations: {
@@ -49,6 +50,9 @@ const user = {
     },
     SET_CONSUME: (state, consume) => {
       state.consume = consume
+    },
+    SET_HOBBY: (state, hobby) => {
+      state.hobby = hobby
     }
   },
 
@@ -100,9 +104,22 @@ const user = {
       return new Promise((resolve, reject) => {
         consume().then(response => {
           const data = response.data.data
-          console.log(response, 'store')
           if(response.status === 200) {
             commit('SET_CONSUME', data)
+          }
+          resolve()
+        }).catch(error => {
+          reject(error)
+        })
+      })
+    },
+    // 游客线上偏好
+    getHobby({ commit }) {
+      return new Promise((resolve, reject) => {
+        hobby().then(response => {
+          const data = response.data.data
+          if(response.status === 200) {
+            commit('SET_HOBBY', data)
           }
           resolve()
         }).catch(error => {

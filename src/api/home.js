@@ -35,3 +35,11 @@ export function consume() {
     method: 'get'
   })
 }
+
+// 游客线上偏好
+export function hobby() {
+  return request({
+    url: 'hobby',
+    method: 'get'
+  })
+}
