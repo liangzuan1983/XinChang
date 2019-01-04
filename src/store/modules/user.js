@@ -18,7 +18,8 @@ const user = {
     age: [],
     consume: [],
     hobby: [],
-    city: []
+    city: [],
+    city10: []
   },
 
   mutations: {
@@ -57,6 +58,9 @@ const user = {
     },
     SET_CITY: (state, city) => {
       state.city = city
+    },
+    SET_CITYTOP10: (state, city10) => {
+      state.city10 = city10
     }
   },
 
@@ -136,11 +140,19 @@ const user = {
       return new Promise((resolve, reject) => {
         city().then(response => {
           const data = response.data.data
+          let data10 = response.data.data
+          // console.log(data10, 'qi')
+          data10.sort(function(a, b){
+            return b.value -a.value
+          })
+          console.log(data10, 'hou')
           if(response.status === 200) {
             commit('SET_CITY', data)
+            commit('SET_CITYTOP10', data10)
+            resolve()
           }
         }).catch(error => {
-          reject(erro)
+          reject(error)
         })
       })
     },

@@ -475,6 +475,9 @@ export default {
       'getcity'
     ])
   },
+  mounted() {
+    this.$store.dispatch('getCity')
+  },
   methods: {
     qyEvent() {
       this.qykl = true

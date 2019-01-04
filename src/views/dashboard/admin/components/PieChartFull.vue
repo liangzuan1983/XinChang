@@ -54,7 +54,7 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
-      console.log(this.chartData, '11')
+      // console.log(this.chartData, '11')
       const data = this.chartData
       function sortValue(a, b) {
         return b.value - a.value
@@ -68,7 +68,7 @@ export default {
       })
       // console.log(data, 'qian')
       const newData = this.dataArray.slice(0, 5)
-      console.log(newData, 'hou')
+      // console.log(newData, 'hou')
       this.chart.setOption({
         visualMap: {
           show: false,
