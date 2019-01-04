@@ -27,3 +27,11 @@ export function age() {
     method: 'get'
   })
 }
+
+// 游客消费水平
+export function consume() {
+  return request({
+    url: 'consume',
+    method: 'get'
+  })
+}

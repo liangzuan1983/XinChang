@@ -1,6 +1,6 @@
 import { loginByUsername, logout, getUserInfo } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
-import { gender, age } from '@/api/home'
+import { gender, age, consume } from '@/api/home'
 
 const user = {
   state: {
@@ -15,7 +15,8 @@ const user = {
       articlePlatform: []
     },
     sex: [],
-    age: []
+    age: [],
+    consume: []
   },
 
   mutations: {
@@ -45,6 +46,9 @@ const user = {
     },
     SET_AGE: (state, age) => {
       state.age = age
+    },
+    SET_CONSUME: (state, consume) => {
+      state.consume = consume
     }
   },
 
@@ -84,6 +88,21 @@ const user = {
           const data = response.data.data
           if(response.status === 200) {
             commit('SET_AGE', data)
+          }
+          resolve()
+        }).catch(error => {
+          reject(error)
+        })
+      })
+    },
+    // 游客消费水平
+    getConsume({ commit }) {
+      return new Promise((resolve, reject) => {
+        consume().then(response => {
+          const data = response.data.data
+          console.log(response, 'store')
+          if(response.status === 200) {
+            commit('SET_CONSUME', data)
           }
           resolve()
         }).catch(error => {

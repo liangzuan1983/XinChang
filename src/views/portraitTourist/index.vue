@@ -46,7 +46,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb-xfnl v-if="bingIf2" :id="ids[1]" height="100%" width="100%"/>
+              <nlfb-xfnl :chartData="getconsume" id="nlfb-xfnl" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -117,7 +117,8 @@ export default {
   computed: {
     ...mapGetters([
       'getsex',
-      'getage'
+      'getage',
+      'getconsume'
     ])
   }
 }

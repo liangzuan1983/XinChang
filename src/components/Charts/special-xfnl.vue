@@ -23,11 +23,11 @@ export default {
     },
     autoResize: {
       type: Boolean,
-      default: false
+      default: true
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   data() {
@@ -84,12 +84,7 @@ export default {
           trigger: 'item',
           formatter: '{a} <br/>{b}: {c} ({d}%)'
         },
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客年龄分布
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客消费能力占比
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客线上偏好
         color: ['#f69704', '#fbcb82', '#fde5c0'], // 游客过夜占比
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 行业消费占比
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客消费占比
         legend: {
           orient: 'vertical',
           x: 'left',
@@ -123,9 +118,9 @@ export default {
               }
             },
             data: [
-              { value: 335, name: '（0-200）（低）' },
-              { value: 310, name: '（200-500）（中）' },
-              { value: 234, name: '（500 以上）（高）' }
+              { value: this.chartData[1].value, name: '（0-200）（低）' },
+              { value: this.chartData[0].value, name: '（200-500）（中）' },
+              { value: this.chartData[2].value, name: '（500 以上）（高）' }
             ]
           }
         ]

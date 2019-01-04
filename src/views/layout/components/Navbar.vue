@@ -154,6 +154,7 @@ export default {
     storeData() {
       this.$store.dispatch('getSex')
       this.$store.dispatch('getAge')
+      this.$store.dispatch('getConsume')
     }
   }
 }
@@ -212,7 +213,7 @@ export default {
   }
   .right-menu {
     height: 100%;
-    width: 25%;
+    width: 34%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -229,7 +230,7 @@ export default {
       justify-content: space-between;
       align-items: center;
       .icon-box {
-        width: 22%;
+        width: 30%;
         display: flex;
         justify-content: space-between;
         align-items: center;
