@@ -218,63 +218,63 @@
             <div class="content">
               <!--每1项-->
               <div class="one-box">
-                <span class="name">鞍山</span>
+                <span class="name">{{ town[0].subject }}</span>
                 <p class="line1"/>
-                <span class="num">7262</span>
+                <span class="num">{{ town[0].value }}</span>
               </div>
               <!--每2项-->
               <div class="one-box">
-                <span class="name">临安</span>
+                <span class="name">{{ town[1].subject }}</span>
                 <p class="line2"/>
-                <span class="num">6862</span>
+                <span class="num">{{ town[1].value }}</span>
               </div>
               <!--每3项-->
               <div class="one-box">
-                <span class="name">奉化</span>
+                <span class="name">{{ town[2].subject }}</span>
                 <p class="line3"/>
-                <span class="num">6242</span>
+                <span class="num">{{ town[2].value }}</span>
               </div>
               <!--每4项-->
               <div class="one-box">
-                <span class="name">镇海</span>
+                <span class="name">{{ town[3].subject }}</span>
                 <p class="line4"/>
-                <span class="num">5322</span>
+                <span class="num">{{ town[3].value }}</span>
               </div>
               <!--每5项-->
               <div class="one-box">
-                <span class="name">椒江</span>
+                <span class="name">{{ town[4].subject }}</span>
                 <p class="line5"/>
-                <span class="num">4222</span>
+                <span class="num">{{ town[4].value }}</span>
               </div>
               <!--每6项-->
               <div class="one-box">
-                <span class="name">慈溪</span>
+                <span class="name">{{ town[5].subject }}</span>
                 <p class="line6"/>
-                <span class="num">3212</span>
+                <span class="num">{{ town[5].value }}</span>
               </div>
               <!--每7项-->
               <div class="one-box">
-                <span class="name">余姚</span>
+                <span class="name">{{ town[6].subject }}</span>
                 <p class="line7"/>
-                <span class="num">2342</span>
+                <span class="num">{{ town[6].value }}</span>
               </div>
               <!--每8项-->
               <div class="one-box">
-                <span class="name">宁海</span>
+                <span class="name">{{ town[7].subject }}</span>
                 <p class="line8"/>
-                <span class="num">1232</span>
+                <span class="num">{{ town[7].value }}</span>
               </div>
               <!--每9项-->
               <div class="one-box">
-                <span class="name">乐清</span>
+                <span class="name">{{ town[8].subject }}</span>
                 <p class="line9"/>
-                <span class="num">672</span>
+                <span class="num">{{ town[8].value }}</span>
               </div>
               <!--每10项-->
               <div class="one-box">
-                <span class="name">瑞安</span>
+                <span class="name">{{ town[9].subject }}</span>
                 <p class="line10"/>
-                <span class="num">342</span>
+                <span class="num">{{ town[9].value }}</span>
               </div>
             </div>
           </div>
@@ -377,6 +377,7 @@ import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
 import passengerYklx from '@/views/dashboard/admin/components/passengerYklx'
 import nlfb from '@/components/Charts/passenger-ykgy'
 import { mapGetters } from 'vuex'
+import { town } from '@/api/home'
 export default {
   components: {
     HolidayKlZhu, passengerYklx, nlfb
@@ -399,12 +400,14 @@ export default {
       dataObj: {
         start: '',
         end: ''
-      }
+      },
+      town: []
     }
   },
   mounted() {
     this.$store.dispatch('getCity')
     this.$store.dispatch('getLine')
+    this.initRequest()
   },
   methods: {
     search() {
@@ -448,6 +451,17 @@ export default {
       s_end = end.getFullYear() + '-' +  e_y + '-' + e_r;
       console.log(s_start, '开始时间2')
       console.log(s_end, '结束时间2')
+    },
+    initRequest() {
+      town().then(res => {
+        const data = res.data.data
+        console.log(data, '111')
+        if (res.status === 200) {
+          this.town = data
+        }
+      }).catch(err => {
+        console.log(err)
+      })
     }
   }
 }

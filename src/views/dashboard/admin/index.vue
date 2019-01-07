@@ -594,7 +594,7 @@ export default {
         const data = res.data.data
         if (res.status === 200) {
           this.importDfs = data
-          console.log(data, '111')
+          // console.log(data, '111')
         }
       }).catch(err => {
         console.log(err)
@@ -604,7 +604,7 @@ export default {
         const data = res.data.data
         if (res.status === 200) {
           this.importSjf = data
-          console.log(data, '222')
+          // console.log(data, '222')
         }
       }).catch(err => {
         console.log(err)

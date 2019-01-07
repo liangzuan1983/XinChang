@@ -139,3 +139,10 @@ export function importSjf() {
     method: 'get'
   })
 }
+//游客来源地TOP10（区县）
+export function town() {
+  return request({
+    url: 'town',
+    method: 'get'
+  })
+}
