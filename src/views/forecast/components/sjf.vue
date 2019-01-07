@@ -30,7 +30,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <holiday-kl-zhu id="skkl" height="100%" width="100%"/>
+              <skkl id="skkl" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -55,63 +55,63 @@
           <div class="content">
             <!--每1项-->
             <div class="one-box">
-              <span class="name">杭州</span>
+              <span class="name">{{ getcity10[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">7262</span>
+              <span class="num">{{ getcity10[0].value }}</span>
             </div>
             <!--每2项-->
             <div class="one-box">
-              <span class="name">上海</span>
+              <span class="name">{{ getcity10[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">6862</span>
+              <span class="num">{{ getcity10[1].value }}</span>
             </div>
             <!--每3项-->
             <div class="one-box">
-              <span class="name">宁波</span>
+              <span class="name">{{ getcity10[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">6242</span>
+              <span class="num">{{ getcity10[2].value }}</span>
             </div>
             <!--每4项-->
             <div class="one-box">
-              <span class="name">丽水</span>
+              <span class="name">{{ getcity10[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">5322</span>
+              <span class="num">{{ getcity10[3].value }}</span>
             </div>
             <!--每5项-->
             <div class="one-box">
-              <span class="name">台州</span>
+              <span class="name">{{ getcity10[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">4222</span>
+              <span class="num">{{ getcity10[4].value }}</span>
             </div>
             <!--每6项-->
             <div class="one-box">
-              <span class="name">苏州</span>
+              <span class="name">{{ getcity10[5].subject }}</span>
               <p class="line6"/>
-              <span class="num">3212</span>
+              <span class="num">{{ getcity10[5].value }}</span>
             </div>
             <!--每7项-->
             <div class="one-box">
-              <span class="name">合肥</span>
+              <span class="name">{{ getcity10[6].subject }}</span>
               <p class="line7"/>
-              <span class="num">2342</span>
+              <span class="num">{{ getcity10[6].value }}</span>
             </div>
             <!--每8项-->
             <div class="one-box">
-              <span class="name">南京</span>
+              <span class="name">{{ getcity10[7].subject }}</span>
               <p class="line8"/>
-              <span class="num">1232</span>
+              <span class="num">{{ getcity10[7].value }}</span>
             </div>
             <!--每9项-->
             <div class="one-box">
-              <span class="name">温州</span>
+              <span class="name">{{ getcity10[8].subject }}</span>
               <p class="line9"/>
-              <span class="num">672</span>
+              <span class="num">{{ getcity10[8].value }}</span>
             </div>
             <!--每10项-->
             <div class="one-box">
-              <span class="name">黄山</span>
+              <span class="name">{{ getcity10[9].subject }}</span>
               <p class="line10"/>
-              <span class="num">342</span>
+              <span class="num">{{ getcity10[9].value }}</span>
             </div>
           </div>
         </div>
@@ -125,7 +125,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <holiday-kl-zhu id="tdkl" height="100%" width="100%"/>
+              <tdkl id="tdkl" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -137,63 +137,63 @@
           <div class="content">
             <!--每1项-->
             <div class="one-box">
-              <span class="name">杭州</span>
+              <span class="name">{{ getcity10[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">7262</span>
+              <span class="num">{{ getcity10[0].value }}</span>
             </div>
             <!--每2项-->
             <div class="one-box">
-              <span class="name">上海</span>
+              <span class="name">{{ getcity10[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">6862</span>
+              <span class="num">{{ getcity10[1].value }}</span>
             </div>
             <!--每3项-->
             <div class="one-box">
-              <span class="name">宁波</span>
+              <span class="name">{{ getcity10[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">6242</span>
+              <span class="num">{{ getcity10[2].value }}</span>
             </div>
             <!--每4项-->
             <div class="one-box">
-              <span class="name">丽水</span>
+              <span class="name">{{ getcity10[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">5322</span>
+              <span class="num">{{ getcity10[3].value }}</span>
             </div>
             <!--每5项-->
             <div class="one-box">
-              <span class="name">台州</span>
+              <span class="name">{{ getcity10[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">4222</span>
+              <span class="num">{{ getcity10[4].value }}</span>
             </div>
             <!--每6项-->
             <div class="one-box">
-              <span class="name">苏州</span>
+              <span class="name">{{ getcity10[5].subject }}</span>
               <p class="line6"/>
-              <span class="num">3212</span>
+              <span class="num">{{ getcity10[5].value }}</span>
             </div>
             <!--每7项-->
             <div class="one-box">
-              <span class="name">合肥</span>
+              <span class="name">{{ getcity10[6].subject }}</span>
               <p class="line7"/>
-              <span class="num">2342</span>
+              <span class="num">{{ getcity10[6].value }}</span>
             </div>
             <!--每8项-->
             <div class="one-box">
-              <span class="name">南京</span>
+              <span class="name">{{ getcity10[7].subject }}</span>
               <p class="line8"/>
-              <span class="num">1232</span>
+              <span class="num">{{ getcity10[7].value }}</span>
             </div>
             <!--每9项-->
             <div class="one-box">
-              <span class="name">温州</span>
+              <span class="name">{{ getcity10[8].subject }}</span>
               <p class="line9"/>
-              <span class="num">672</span>
+              <span class="num">{{ getcity10[8].value }}</span>
             </div>
             <!--每10项-->
             <div class="one-box">
-              <span class="name">黄山</span>
+              <span class="name">{{ getcity10[9].subject }}</span>
               <p class="line10"/>
-              <span class="num">342</span>
+              <span class="num">{{ getcity10[9].value }}</span>
             </div>
           </div>
         </div>
@@ -245,7 +245,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <holiday-kl-zhu id="dsdd" height="100%" width="100%"/>
+              <dsdd id="dsdd" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -268,63 +268,63 @@
           <div class="content">
             <!--每1项-->
             <div class="one-box">
-              <span class="name">杭州</span>
+              <span class="name">{{ getcity10[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">7262</span>
+              <span class="num">{{ getcity10[0].value }}</span>
             </div>
             <!--每2项-->
             <div class="one-box">
-              <span class="name">上海</span>
+              <span class="name">{{ getcity10[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">6862</span>
+              <span class="num">{{ getcity10[1].value }}</span>
             </div>
             <!--每3项-->
             <div class="one-box">
-              <span class="name">宁波</span>
+              <span class="name">{{ getcity10[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">6242</span>
+              <span class="num">{{ getcity10[2].value }}</span>
             </div>
             <!--每4项-->
             <div class="one-box">
-              <span class="name">丽水</span>
+              <span class="name">{{ getcity10[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">5322</span>
+              <span class="num">{{ getcity10[3].value }}</span>
             </div>
             <!--每5项-->
             <div class="one-box">
-              <span class="name">台州</span>
+              <span class="name">{{ getcity10[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">4222</span>
+              <span class="num">{{ getcity10[4].value }}</span>
             </div>
             <!--每6项-->
             <div class="one-box">
-              <span class="name">苏州</span>
+              <span class="name">{{ getcity10[5].subject }}</span>
               <p class="line6"/>
-              <span class="num">3212</span>
+              <span class="num">{{ getcity10[5].value }}</span>
             </div>
             <!--每7项-->
             <div class="one-box">
-              <span class="name">合肥</span>
+              <span class="name">{{ getcity10[6].subject }}</span>
               <p class="line7"/>
-              <span class="num">2342</span>
+              <span class="num">{{ getcity10[6].value }}</span>
             </div>
             <!--每8项-->
             <div class="one-box">
-              <span class="name">南京</span>
+              <span class="name">{{ getcity10[7].subject }}</span>
               <p class="line8"/>
-              <span class="num">1232</span>
+              <span class="num">{{ getcity10[7].value }}</span>
             </div>
             <!--每9项-->
             <div class="one-box">
-              <span class="name">温州</span>
+              <span class="name">{{ getcity10[8].subject }}</span>
               <p class="line9"/>
-              <span class="num">672</span>
+              <span class="num">{{ getcity10[8].value }}</span>
             </div>
             <!--每10项-->
             <div class="one-box">
-              <span class="name">黄山</span>
+              <span class="name">{{ getcity10[9].subject }}</span>
               <p class="line10"/>
-              <span class="num">342</span>
+              <span class="num">{{ getcity10[9].value }}</span>
             </div>
           </div>
         </div>
@@ -338,7 +338,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <yi-zhou :fatherData="kydxq" id="kydxq" height="100%" width="100%"/>
+              <yi-zhou v-if="kydxqs" :chartData="kydxq" id="kydxq" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -370,7 +370,9 @@
 </template>
 
 <script>
-import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
+import skkl from '@/components/Charts/holiday-kl-skkl'
+import tdkl from '@/components/Charts/holiday-kl-tdkl'
+import dsdd from '@/components/Charts/holiday-kl-dsdd'
 import ykxbXsqd from '@/components/Charts/holiday-xsqd'
 import nlfb from '@/components/Charts/holiday-nlfb'
 import nlfbQdgg from '@/components/Charts/holiday-qdgg'
@@ -378,9 +380,11 @@ import nlfbDdly from '@/components/Charts/dfs-ddly'
 import xfzhe from '@/components/Charts/holiday-xf-zhe'
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
 import PieChartFull from '@/views/dashboard/admin/components/dfs'
+import { mapGetters } from 'vuex'
+import { wechatSj } from '@/api/home'
 export default {
   components: {
-    HolidayKlZhu, nlfb, xfzhe, YiZhou, PieChartFull, nlfbDdly, nlfbQdgg, ykxbXsqd
+    skkl, nlfb, xfzhe, YiZhou, PieChartFull, nlfbDdly, nlfbQdgg, ykxbXsqd, tdkl, dsdd
   },
   data() {
     return {
@@ -430,7 +434,78 @@ export default {
       bingIf5: true,
       bingIf6: true,
       xfzhe: true,
-      value4: [new Date(), new Date()]
+      value4: [new Date() - 3600 * 1000 * 24 * 7, new Date()],
+      kydxqs: false,
+      dataObj: {
+        start: '',
+        end: ''
+      }
+    }
+  },
+  mounted() {
+    this.$store.dispatch('getCity')
+    this.defaultDate()
+    this.initRequest()
+  },
+  computed: {
+    ...mapGetters([
+      'getcity10'
+    ])
+  },
+  methods: {
+    defaultDate() {
+      let start
+      let end
+      let _start = new Date(this.value4[0])
+      let _end = this.value4[1]
+      // console.log(_start, '111')
+      // console.log(_end, '222')
+      let s_y = _start.getMonth() + 1
+      let s_r = _start.getDate()
+      let e_y = _end.getMonth() + 1
+      let e_r = _end.getDate()
+      // 开始月
+      if (s_y > 0 && s_y < 10) {
+        s_y = '0' + s_y
+      } else {
+        s_y = s_y
+      }
+      // 开始日
+      if (s_r > 0 && s_r < 10) {
+        s_r = '0' + s_r
+      } else {
+        s_r = s_r
+      }
+      // 结束月
+      if (e_y > 0 && e_y < 10) {
+        e_y = '0' + e_y
+      } else {
+        e_y = e_y
+      }
+      // 结束日
+      if (e_r > 0 && e_r < 10) {
+        e_r = '0' + e_r
+      } else {
+        e_r = e_r
+      }
+      start = _start.getFullYear() + '-' + s_y + '-' + s_r
+      end = _end.getFullYear() + '-' + e_y + '-' + e_r
+      this.dataObj.start = start
+      this.dataObj.end = end
+      console.log(this.dataObj, '333')
+    },
+    initRequest() {
+      // 投诉
+      wechatSj(this.dataObj).then(res => {
+        console.log(res)
+        const data = res.data.data
+        if (res.status === 200) {
+          this.kydxq = data
+          this.kydxqs = true
+        }
+      }).catch(err => {
+        console.log(err)
+      })
     }
   }
 }

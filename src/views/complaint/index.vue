@@ -53,45 +53,7 @@ export default {
     YiZhou, jjright
   },
   mounted() {
-    let start
-    let end
-    let _start = new Date(this.value4[0])
-    let _end = this.value4[1]
-    console.log(_start, '111')
-    console.log(_end, '222')
-    let s_y = _start.getMonth() + 1
-    let s_r = _start.getDate()
-    let e_y = _end.getMonth() + 1
-    let e_r = _end.getDate()
-    // 开始月
-    if (s_y > 0 && s_y < 10) {
-      s_y = '0' + s_y
-    } else {
-      s_y = s_y
-    }
-    // 开始日
-    if (s_r > 0 && s_r < 10) {
-      s_r = '0' + s_r
-    } else {
-      s_r = s_r
-    }
-    // 结束月
-    if (e_y > 0 && e_y < 10) {
-      e_y = '0' + e_y
-    } else {
-      e_y = e_y
-    }
-    // 结束日
-    if (e_r > 0 && e_r < 10) {
-      e_r = '0' + e_r
-    } else {
-      e_r = e_r
-    }
-    start = _start.getFullYear() + '-' + s_y + '-' + s_r
-    end = _end.getFullYear() + '-' + e_y + '-' + e_r
-    this.dataObj.start = start
-    this.dataObj.end = end
-    console.log(this.dataObj, '333')
+    this.defaultDate()
     this.initRequest()
   },
   data() {
@@ -149,10 +111,51 @@ export default {
       console.log(this.dataObj.start, '开始时间2')
       console.log(this.dataObj.end, '结束时间2')
     },
+    defaultDate() {
+      let start
+      let end
+      let _start = new Date(this.value4[0])
+      let _end = this.value4[1]
+      // console.log(_start, '111')
+      // console.log(_end, '222')
+      let s_y = _start.getMonth() + 1
+      let s_r = _start.getDate()
+      let e_y = _end.getMonth() + 1
+      let e_r = _end.getDate()
+      // 开始月
+      if (s_y > 0 && s_y < 10) {
+        s_y = '0' + s_y
+      } else {
+        s_y = s_y
+      }
+      // 开始日
+      if (s_r > 0 && s_r < 10) {
+        s_r = '0' + s_r
+      } else {
+        s_r = s_r
+      }
+      // 结束月
+      if (e_y > 0 && e_y < 10) {
+        e_y = '0' + e_y
+      } else {
+        e_y = e_y
+      }
+      // 结束日
+      if (e_r > 0 && e_r < 10) {
+        e_r = '0' + e_r
+      } else {
+        e_r = e_r
+      }
+      start = _start.getFullYear() + '-' + s_y + '-' + s_r
+      end = _end.getFullYear() + '-' + e_y + '-' + e_r
+      this.dataObj.start = start
+      this.dataObj.end = end
+      console.log(this.dataObj, '333')
+    },
     initRequest() {
       // 投诉
       tousu(this.dataObj).then(res => {
-        console.log(res)
+        // console.log(res)
         const data = res.data.data
         if (res.status === 200) {
           this.tsChart = data
