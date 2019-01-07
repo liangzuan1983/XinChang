@@ -50,7 +50,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <yi-zhou v-if="xfzheif" id="jj" height="100%" width="100%"/>
+              <yi-zhou v-if="qiches" :chartData='qiche' id="jj" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -74,15 +74,82 @@
 import xfzhe from '@/components/Charts/holiday-xf-zhe'
 import jjright from '@/components/Charts/jingji-right'
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
+import { capacity } from '@/api/home'
 export default {
   components: {
     xfzhe, jjright, YiZhou
   },
   data() {
     return {
-      value4: [new Date(), new Date()],
+      value4: [new Date() - 3600 * 1000 * 24 * 7, new Date()],
       xfzheif: true,
-      jjright: true
+      jjright: true,
+      dataObj: {
+        start: '',
+        end: ''
+      },
+      qiches: false,
+      qiche: []
+    }
+  },
+  mounted() {
+    this.defaultDate()
+    this.initRequest()
+  },
+  methods: {
+    defaultDate() {
+      let start
+      let end
+      let _start = new Date(this.value4[0])
+      let _end = this.value4[1]
+      // console.log(_start, '111')
+      // console.log(_end, '222')
+      let s_y = _start.getMonth() + 1
+      let s_r = _start.getDate()
+      let e_y = _end.getMonth() + 1
+      let e_r = _end.getDate()
+      // 开始月
+      if (s_y > 0 && s_y < 10) {
+        s_y = '0' + s_y
+      } else {
+        s_y = s_y
+      }
+      // 开始日
+      if (s_r > 0 && s_r < 10) {
+        s_r = '0' + s_r
+      } else {
+        s_r = s_r
+      }
+      // 结束月
+      if (e_y > 0 && e_y < 10) {
+        e_y = '0' + e_y
+      } else {
+        e_y = e_y
+      }
+      // 结束日
+      if (e_r > 0 && e_r < 10) {
+        e_r = '0' + e_r
+      } else {
+        e_r = e_r
+      }
+      start = _start.getFullYear() + '-' + s_y + '-' + s_r
+      end = _end.getFullYear() + '-' + e_y + '-' + e_r
+      this.dataObj.start = start
+      this.dataObj.end = end
+      // console.log(this.dataObj, '333')
+    },
+    initRequest() {
+      // 旅游汽车客运量
+      capacity(this.dataObj).then(res => {
+        // console.log(res)
+        const data = res.data.data
+        if (res.status === 200) {
+          this.qiche = data
+          this.qiches = true
+        }
+      }).catch(err => {
+        console.log(err)
+      })
     }
   }
 }

@@ -329,23 +329,23 @@
           <div class="top">
             <div class="one">
               <img src="@/assets/icon/pk.png" alt="">
-              <div class="text-box">
+              <div class="text-box" v-if="resource && resource.length > 0">
                 <p class="name">景区</p>
-                <p class="num">20</p>
+                <p class="num">{{ resource[0].value }}</p>
               </div>
             </div>
             <div class="one">
               <img src="@/assets/icon/cafe.png" alt="">
-              <div class="text-box">
+              <div class="text-box" v-if="resource && resource.length > 0">
                 <p class="name">餐饮</p>
-                <p class="num">132</p>
+                <p class="num">{{ resource[1].value }}</p>
               </div>
             </div>
             <div class="one">
               <img src="@/assets/icon/hotel.png" alt="">
-              <div class="text-box">
+              <div class="text-box" v-if="resource && resource.length > 0">
                 <p class="name">酒店</p>
-                <p class="num">100</p>
+                <p class="num">{{ resource[2].value }}</p>
               </div>
             </div>
           </div>
@@ -353,23 +353,23 @@
           <div class="middles">
             <div class="one">
               <img src="@/assets/icon/town.png" alt="">
-              <div class="text-box text-box1">
+              <div class="text-box text-box1" v-if="resource && resource.length > 0">
                 <p class="name">A级村庄</p>
-                <p class="num">20</p>
+                <p class="num">{{ resource[3].value }}</p>
               </div>
             </div>
             <div class="one">
               <img src="@/assets/icon/tvlag.png" class="qg" alt="">
-              <div class="text-box">
+              <div class="text-box" v-if="resource && resource.length > 0">
                 <p class="name">旅行社</p>
-                <p class="num">30</p>
+                <p class="num">{{ resource[4].value }}</p>
               </div>
             </div>
             <div class="one">
               <img src="@/assets/icon/minsu.png" class="ms" alt="">
-              <div class="text-box">
+              <div class="text-box" v-if="resource && resource.length > 0">
                 <p class="name">民宿</p>
-                <p class="num">59</p>
+                <p class="num">{{ resource[5].value }}</p>
               </div>
             </div>
           </div>
@@ -377,23 +377,23 @@
           <div class="bottom">
             <div class="one">
               <img src="@/assets/icon/shop.png" alt="">
-              <div class="text-box">
+              <div class="text-box" v-if="resource && resource.length > 0">
                 <p class="name">购物处</p>
-                <p class="num">184</p>
+                <p class="num">{{ resource[6].value }}</p>
               </div>
             </div>
             <div class="one one1">
               <img src="@/assets/icon/toilet.png" alt="">
-              <div class="text-box">
+              <div class="text-box" v-if="resource && resource.length > 0">
                 <p class="name">景区公厕</p>
-                <p class="num">96</p>
+                <p class="num">{{ resource[7].value }}</p>
               </div>
             </div>
             <div class="one">
               <img src="@/assets/icon/daoyou.png" class="dy" alt="">
-              <div class="text-box">
+              <div class="text-box" v-if="resource && resource.length > 0">
                 <p class="name">导游</p>
-                <p class="num">98</p>
+                <p class="num">{{ resource[8].value }}</p>
               </div>
             </div>
           </div>
@@ -475,7 +475,7 @@ import jdt from '@/views/dashboard/admin/components/jdt'
 import dtView from './components/dt.vue'
 import lvView from './components/lv.vue'
 import { mapGetters } from 'vuex'
-import { hotTown, weekly, base, limit, type } from '@/api/home'
+import { hotTown, weekly, base, limit, type, resource } from '@/api/home'
 export default {
   name: 'DashboardAdmin',
   components: {
@@ -493,6 +493,7 @@ export default {
       base: [],
       limit: [],
       type: [],
+      resource: [],
       limits: false,
       types: false
     }
@@ -572,6 +573,16 @@ export default {
           // console.log(data, '222')
           this.type = data
           this.types = true
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 资源分布
+      resource().then(res => {
+        const data = res.data.data
+        if(res.status === 200) {
+          this.resource = data
+          // console.log(data, '111')
         }
       }).catch(err => {
         console.log(err)

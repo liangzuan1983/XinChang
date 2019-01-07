@@ -111,3 +111,17 @@ export function type() {
     method: 'get'
   })
 }
+// 资源分布
+export function resource() {
+  return request({
+    url: 'resource'
+  })
+}
+// 客运公司客运量
+export function capacity(params) {
+  return request({
+    url: 'passageCapacity',
+    method: 'get',
+    params
+  })
+}
