@@ -6,13 +6,14 @@
       <div class="time-box">
         <span>时间选择： </span>
         <el-date-picker
-          v-model="value4"
+          v-model="value6"
           type="daterange"
           range-separator="至"
           start-placeholder="开始日期"
-          end-placeholder="结束日期"/>
+          end-placeholder="结束日期">
+        </el-date-picker>
         <!--查询-->
-        <el-button size="mini" type="primary">查询</el-button>
+        <el-button size="mini" type="primary" @click="searchTime">查询</el-button>
         <!--查询-->
         <img class="search" src="@/assets/icon/search.png" alt="" @click="search">
         <!--下载-->
@@ -49,7 +50,7 @@
         <div class="time-box">
           <span>时间选择： </span>
           <el-date-picker
-            v-model="value4"
+            v-model="value6"
             type="daterange"
             range-separator="至"
             start-placeholder="开始日期"
@@ -285,11 +286,12 @@
         <div class="time-box">
           <span>时间选择： </span>
           <el-date-picker
-            v-model="value4"
+            v-model="value6"
             type="daterange"
             range-separator="至"
             start-placeholder="开始日期"
-            end-placeholder="结束日期"/>
+            end-placeholder="结束日期">
+          </el-date-picker>
           <!--查询-->
           <el-button size="mini" type="primary">查询</el-button>
           <!--查询-->
@@ -388,12 +390,16 @@ export default {
   },
   data() {
     return {
-      value4: [new Date(), new Date()],
+      value6: [new Date() - 3600 * 1000 * 24 * 7, new Date()],
       yktype: [
         { value: 335, name: '散客' },
         { value: 310, name: '一卡通游客' },
         { value: 274, name: '跟团游' }
-      ]
+      ],
+      dataObj: {
+        start: '',
+        end: ''
+      }
     }
   },
   mounted() {
@@ -403,6 +409,38 @@ export default {
   methods: {
     search() {
       window.open('http://61.174.54.66:8020/download.pdf')
+    },
+    searchTime() {
+      let start = this.dataObj.start
+      let end = this.dataObj.end
+      let s_start
+      let s_end
+      start = this.value6[0]
+      end = this.value6[1]
+      if (typeof(start) === 'number') {
+        start = new Date(start)
+      }
+      console.log(start.getMonth(), '月')
+      if (start.getMonth() >= 0 && start.getMonth() < 10) {
+        let zero = '0'
+        s_start = start.getFullYear() + '-' + (zero + (start.getMonth() + 1)) + '-' +  start.getDate();
+        // s_end = end.getFullYear() + '-' + (zero + (end.getMonth() + 1))  + '-' + end.getDate();
+      } 
+      if (end.getMonth() >= 0 && end.getMonth() < 10) {
+        let zero = '0'
+        s_start = start.getFullYear() + '-' + (start.getMonth() + 1) + '-' +  start.getDate();
+        s_end = end.getFullYear() + '-' + (zero + (end.getMonth() + 1))  + '-' + end.getDate();
+      }
+      if(start.getDate() >= 0 && start.getDate() < 10) {
+        let zero = '0'
+        s_start = start.getFullYear() + '-' + (start.getMonth() + 1) + '-' +  start.getDate();
+        s_end = end.getFullYear() + '-' + (end.getMonth() + 1)  + '-' + end.getDate();
+      } else {
+        s_start = start.getFullYear() + '-' + (start.getMonth() + 1) + '-' + start.getDate();
+        s_end = end.getFullYear() + '-' + (end.getMonth() + 1)  + '-' + end.getDate();
+      }
+      console.log(s_start, '开始时间2')
+      console.log(s_end, '结束时间2')
     }
   }
 }

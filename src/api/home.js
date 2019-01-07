@@ -66,4 +66,12 @@ export function line() {
     url: 'line',
     method: 'get'
   })
-} 
+}
+
+// 近一周游客数
+export function weekly() {
+  return request({
+    url: 'tourNumber/weekly',
+    method: 'get'
+  })
+}

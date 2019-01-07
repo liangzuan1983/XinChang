@@ -139,7 +139,7 @@
             <div class="one-box">
               <span class="name">{{ getcity10[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">{{ getcity10[0].value4 }}</span>
+              <span class="num">{{ getcity10[0].value }}</span>
             </div>
             <!--每2项-->
             <div class="one-box">

@@ -20,11 +20,19 @@ export default {
     height: {
       type: String,
       default: '100%'
+    },
+    chartData: {
+      default: () => {
+        return []
+      },
+      type: Array
     }
   },
   data() {
     return {
-      chart: null
+      chart: null,
+      time: [],
+      value: []
     }
   },
   mounted() {
@@ -47,12 +55,18 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
-
+      const data = this.chartData
+      data.forEach(element => {
+        this.time.push(element.subject)
+        this.value.push(element.value)
+      })
+      // console.log(this.time, '时间')
+      // console.log(this.value, '值')
       this.chart.setOption({
         xAxis: {
           type: 'category',
           boundaryGap: false,
-          data: ['12-07', '12-08', '12-09', '12-10', '12-11', '12-12', '12-13'],
+          data: this.time,
           axisTick: {
             show: false
           },
@@ -105,7 +119,7 @@ export default {
           containLabel: true
         },
         series: [{
-          data: [820, 932, 901, 934, 1290, 1330, 1320],
+          data: this.value,
           type: 'line',
           areaStyle: {
             normal: {

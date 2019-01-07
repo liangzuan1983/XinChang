@@ -233,7 +233,7 @@
           <!--内容区-->
           <div class="content-box">
             <div class="chart-wrapper">
-              <yi-zhou :fatherData="kydxq" id="kydxq" height="100%" width="100%"/>
+              <yi-zhou v-if="weekly" :chartData="kydxq" id="kydxq" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -475,7 +475,7 @@ import jdt from '@/views/dashboard/admin/components/jdt'
 import dtView from './components/dt.vue'
 import lvView from './components/lv.vue'
 import { mapGetters } from 'vuex'
-import { hotTown } from '@/api/home'
+import { hotTown, weekly } from '@/api/home'
 export default {
   name: 'DashboardAdmin',
   components: {
@@ -487,14 +487,9 @@ export default {
       zyb: false,
       qykl: true,
       lvzy: false,
-      kydxq: [
-        { value: 335, name: '北京' },
-        { value: 310, name: '上海' },
-        { value: 274, name: '广州' },
-        { value: 235, name: '苏州' },
-        { value: 400, name: '杭州' }
-      ],
-      hotTown: []
+      kydxq: [],
+      hotTown: [],
+      weekly: false
     }
   },
   computed: {
@@ -525,10 +520,21 @@ export default {
       })
     },
     requestAll() {
+      // 热门城市
       hotTown().then(res => {
         const data = res.data.data
         if(res.status === 200) {
           this.hotTown = data
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 近一周游客数
+      weekly().then(res => {
+        const data = res.data.data
+        if(res.status === 200) {
+          this.kydxq = data
+          this.weekly = true
         }
       }).catch(err => {
         console.log(err)
