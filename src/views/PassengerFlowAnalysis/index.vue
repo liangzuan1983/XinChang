@@ -413,32 +413,39 @@ export default {
     searchTime() {
       let start = this.dataObj.start
       let end = this.dataObj.end
-      let s_start
-      let s_end
+      let s_start;
+      let s_end;
+      let s_y;
+      let s_r;
+      let e_y;
+      let e_r;
       start = this.value6[0]
       end = this.value6[1]
       if (typeof(start) === 'number') {
         start = new Date(start)
       }
-      console.log(start.getMonth(), '月')
       if (start.getMonth() >= 0 && start.getMonth() < 10) {
-        let zero = '0'
-        s_start = start.getFullYear() + '-' + (zero + (start.getMonth() + 1)) + '-' +  start.getDate();
-        // s_end = end.getFullYear() + '-' + (zero + (end.getMonth() + 1))  + '-' + end.getDate();
+        s_y = '0' + (start.getMonth() + 1);
+      } else {
+        s_y = start.getMonth() + 1
       } 
       if (end.getMonth() >= 0 && end.getMonth() < 10) {
-        let zero = '0'
-        s_start = start.getFullYear() + '-' + (start.getMonth() + 1) + '-' +  start.getDate();
-        s_end = end.getFullYear() + '-' + (zero + (end.getMonth() + 1))  + '-' + end.getDate();
+        e_y = '0' + (end.getMonth() + 1);
+      } else {
+        e_y = end.getMonth() + 1;
       }
       if(start.getDate() >= 0 && start.getDate() < 10) {
-        let zero = '0'
-        s_start = start.getFullYear() + '-' + (start.getMonth() + 1) + '-' +  start.getDate();
-        s_end = end.getFullYear() + '-' + (end.getMonth() + 1)  + '-' + end.getDate();
+        s_r = '0' + start.getDate();
       } else {
-        s_start = start.getFullYear() + '-' + (start.getMonth() + 1) + '-' + start.getDate();
-        s_end = end.getFullYear() + '-' + (end.getMonth() + 1)  + '-' + end.getDate();
+        s_r = start.getDate();
       }
+      if(end.getDate() >= 0 && end.getDate() < 10) {
+        e_r = '0' + end.getDate();
+      } else {
+        e_r = end.getDate();
+      }
+      s_start = start.getFullYear() + '-' + s_y + '-' + s_r;
+      s_end = end.getFullYear() + '-' +  e_y + '-' + e_r;
       console.log(s_start, '开始时间2')
       console.log(s_end, '结束时间2')
     }
