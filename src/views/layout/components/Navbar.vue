@@ -233,7 +233,7 @@ export default {
       .icon-box {
         width: 30%;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
         span {
           color: #ffffff;

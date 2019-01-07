@@ -125,3 +125,17 @@ export function capacity(params) {
     params
   })
 }
+//重点景区大佛寺
+export function importDfs() {
+  return request({
+    url: 'dafosi/base',
+    method: 'get'
+  })
+}
+//重点景区十九峰
+export function importSjf() {
+  return request({
+    url: 'shijiufeng/base',
+    method: 'get'
+  })
+}

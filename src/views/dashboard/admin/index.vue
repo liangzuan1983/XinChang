@@ -22,8 +22,8 @@
               <img class="dfs-icon" src="@/assets/icon/ppl.png" alt="">
               <div class="dfs-content-right">
                 <p class="dfs-text">游客接待数</p>
-                <p class="dfs-num-box">
-                  <span class="dfs-num">546</span>
+                <p class="dfs-num-box" v-if="importDfs && importDfs.length > 0">
+                  <span class="dfs-num">{{ importDfs[0].value}}</span>
                   <span class="dfs-unit">个</span>
                 </p>
               </div>
@@ -33,8 +33,8 @@
               <img class="dfs-icon dfs-icons" src="@/assets/icon/incom.png" alt="">
               <div class="dfs-content-right">
                 <p class="dfs-text">旅游收入</p>
-                <p class="dfs-num-box">
-                  <span class="dfs-num">8465</span>
+                <p class="dfs-num-box" v-if="importDfs && importDfs.length > 0">
+                  <span class="dfs-num">{{ importDfs[1].value}}</span>
                   <span class="dfs-unit">元</span>
                 </p>
               </div>
@@ -48,8 +48,8 @@
               <img class="dfs-icon dfs-icons" src="@/assets/icon/ppl.png" alt="">
               <div class="dfs-content-right">
                 <p class="dfs-text">游客接待数</p>
-                <p class="dfs-num-box">
-                  <span class="dfs-num">365</span>
+                <p class="dfs-num-box" v-if="importSjf && importDfs.length > 0">
+                  <span class="dfs-num">{{ importSjf[0].value}}</span>
                   <span class="dfs-unit">个</span>
                 </p>
               </div>
@@ -59,8 +59,8 @@
               <img class="dfs-icon" src="@/assets/icon/incom.png" alt="">
               <div class="dfs-content-right">
                 <p class="dfs-text">旅游收入</p>
-                <p class="dfs-num-box">
-                  <span class="dfs-num">7645</span>
+                <p class="dfs-num-box" v-if="importSjf && importDfs.length > 0">
+                  <span class="dfs-num">{{ importSjf[1].value}}</span>
                   <span class="dfs-unit">元</span>
                 </p>
               </div>
@@ -475,7 +475,7 @@ import jdt from '@/views/dashboard/admin/components/jdt'
 import dtView from './components/dt.vue'
 import lvView from './components/lv.vue'
 import { mapGetters } from 'vuex'
-import { hotTown, weekly, base, limit, type, resource } from '@/api/home'
+import { hotTown, weekly, base, limit, type, resource, importDfs, importSjf  } from '@/api/home'
 export default {
   name: 'DashboardAdmin',
   components: {
@@ -495,7 +495,9 @@ export default {
       type: [],
       resource: [],
       limits: false,
-      types: false
+      types: false,
+      importDfs: [],
+      importSjf: []
     }
   },
   computed: {
@@ -583,6 +585,26 @@ export default {
         if(res.status === 200) {
           this.resource = data
           // console.log(data, '111')
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 重点景区大佛寺
+      importDfs().then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          this.importDfs = data
+          console.log(data, '111')
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 重点景区十九峰
+      importSjf().then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          this.importSjf = data
+          console.log(data, '222')
         }
       }).catch(err => {
         console.log(err)
