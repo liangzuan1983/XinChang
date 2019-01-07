@@ -24,11 +24,19 @@ export default {
     height: {
       type: String,
       default: '100%'
+    },
+    chartData: {
+      default: () => {
+        return []
+      },
+      type: Array
     }
   },
   data() {
     return {
-      chart: null
+      chart: null,
+      subject: [],
+      value: []
     }
   },
   mounted() {
@@ -44,9 +52,12 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(document.getElementById(this.id))
-
+      const data = this.chartData
+      data.forEach(element => {
+        this.subject.push(element.subject)
+        this.value.push(element.value)
+      })
       this.chart.setOption({
-        // backgroundColor: '#394056',
         tooltip: {
           trigger: 'axis',
           axisPointer: {
@@ -77,7 +88,7 @@ export default {
           axisTick: {
             show: false
           },
-          data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+          data: this.subject
         }],
         yAxis: [{
           type: 'value',
@@ -140,7 +151,7 @@ export default {
               borderWidth: 12
             }
           },
-          data: [220, 182, 125, 145, 122, 191, 134, 150, 120, 110, 165, 122]
+          data: this.value
         }]
       })
     }

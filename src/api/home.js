@@ -3,7 +3,6 @@ import request from '@/utils/request'
 /*
   接口全写在home页得了，感觉实在没法区分
 */
-
 // 天气
 export function weather() {
   return request({
@@ -11,7 +10,6 @@ export function weather() {
     method: 'get'
   })
 }
-
 // 游客性别占比
 export function gender() {
   return request({
@@ -19,7 +17,6 @@ export function gender() {
     method: 'get'
   })
 }
-
 // 游客年龄
 export function age() {
   return request({
@@ -27,7 +24,6 @@ export function age() {
     method: 'get'
   })
 }
-
 // 游客消费水平
 export function consume() {
   return request({
@@ -35,7 +31,6 @@ export function consume() {
     method: 'get'
   })
 }
-
 // 游客线上偏好
 export function hobby() {
   return request({
@@ -43,7 +38,6 @@ export function hobby() {
     method: 'get'
   })
 }
-
 // 游客来源城市
 export function city() {
   return request({
@@ -51,7 +45,6 @@ export function city() {
     method: 'get'
   })
 }
-
 // 乡村旅游热度排行top5
 export function hotTown() {
   return request({
@@ -59,7 +52,6 @@ export function hotTown() {
     method: 'get'
   })
 }
-
 // 游客热门路线
 export function line() {
   return request({
@@ -67,7 +59,6 @@ export function line() {
     method: 'get'
   })
 }
-
 // 近一周游客数
 export function weekly() {
   return request({
@@ -75,7 +66,6 @@ export function weekly() {
     method: 'get'
   })
 }
-
 // 产业检测数据
 export function base() {
   return request({
@@ -83,7 +73,6 @@ export function base() {
     method: 'get'
   })
 }
-
 // 投诉率
 export function tousu(params) {
   return request({
@@ -92,7 +81,6 @@ export function tousu(params) {
     params
   })
 }
-
 // 大佛寺微信点击率
 export function wechatDf(params) {
   return request({
@@ -101,12 +89,25 @@ export function wechatDf(params) {
     params
   })
 }
-
 // 十九峰微信点击率
 export function wechatSj(params) {
   return request({
     url: 'shijiufeng/wechatClick',
     method: 'get',
     params
+  })
+}
+// 旅游消费额度变化趋势
+export function limit() {
+  return request({
+    url: 'consume/limit',
+    method: 'get'
+  })
+}
+// 旅游消费类型分析
+export function type() {
+  return request({
+    url: 'consume/type',
+    method: 'get'
   })
 }

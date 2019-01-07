@@ -22,11 +22,19 @@ export default {
     height: {
       type: String,
       default: '300px'
+    },
+    chartData: {
+      default: () => {
+        return []
+      },
+      type: Array
     }
   },
   data() {
     return {
-      chart: null
+      chart: null,
+      subject: [],
+      value: []
     }
   },
   mounted() {
@@ -49,7 +57,11 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
-
+      const data = this.chartData
+      data.forEach(element => {
+        this.subject.push(element.subject)
+        this.value.push(element.value)
+      });
       this.chart.setOption({
         color: ['#29b32e'],
         tooltip: {
@@ -67,7 +79,7 @@ export default {
         },
         xAxis: [{
           type: 'category',
-          data: ['餐饮', '住宿', '交通', '游玩', '购物', '娱乐'],
+          data: this.subject,
           axisTick: {
             alignWithLabel: true
           },
@@ -113,7 +125,7 @@ export default {
           type: 'bar',
           stack: 'vistors',
           barWidth: '60%',
-          data: [79, 52, 200, 334, 390, 330, 220],
+          data: this.value,
           animationDuration
         }]
       })

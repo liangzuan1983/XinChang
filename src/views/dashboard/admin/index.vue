@@ -162,7 +162,7 @@
           <!--内容区-->
           <div class="content-box">
             <div class="chart-container">
-              <lvxf height="100%" width="100%"/>
+              <lvxf v-if="limits" :chartData='limit' height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -179,7 +179,7 @@
           <!--内容区-->
           <div class="content-box">
             <div class="chart-wrapper">
-              <bar-chart height="100%" width="100%"/>
+              <bar-chart v-if="types" :chartData='type' height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -475,7 +475,7 @@ import jdt from '@/views/dashboard/admin/components/jdt'
 import dtView from './components/dt.vue'
 import lvView from './components/lv.vue'
 import { mapGetters } from 'vuex'
-import { hotTown, weekly, base } from '@/api/home'
+import { hotTown, weekly, base, limit, type } from '@/api/home'
 export default {
   name: 'DashboardAdmin',
   components: {
@@ -490,7 +490,11 @@ export default {
       kydxq: [],
       hotTown: [],
       weekly: false,
-      base: []
+      base: [],
+      limit: [],
+      type: [],
+      limits: false,
+      types: false
     }
   },
   computed: {
@@ -545,7 +549,29 @@ export default {
         const data = res.data.data
         if (res.status === 200) {
           this.base = data
-          console.log(this.base)
+          // console.log(this.base)
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 旅游消费额度变化趋势
+      limit().then(res => {
+        const data = res.data.data
+        if(res.status === 200) {
+          // console.log(data, '111')
+          this.limit = data
+          this.limits = true
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 旅游消费类型
+      type().then(res => {
+        const data = res.data.data
+        if(res.status === 200) {
+          // console.log(data, '222')
+          this.type = data
+          this.types = true
         }
       }).catch(err => {
         console.log(err)
