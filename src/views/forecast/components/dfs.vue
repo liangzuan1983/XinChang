@@ -54,61 +54,61 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[0].subject }}</span>
               <p class="line1"/>
               <span class="num">{{ getcity10[0].value }}</span>
             </div>
             <!--每2项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[1].subject }}</span>
               <p class="line2"/>
               <span class="num">{{ getcity10[1].value }}</span>
             </div>
             <!--每3项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0" >
               <span class="name">{{ getcity10[2].subject }}</span>
               <p class="line3"/>
               <span class="num">{{ getcity10[2].value }}</span>
             </div>
             <!--每4项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[3].subject }}</span>
               <p class="line4"/>
               <span class="num">{{ getcity10[3].value }}</span>
             </div>
             <!--每5项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[4].subject }}</span>
               <p class="line5"/>
               <span class="num">{{ getcity10[4].value }}</span>
             </div>
             <!--每6项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[5].subject }}</span>
               <p class="line6"/>
               <span class="num">{{ getcity10[5].value }}</span>
             </div>
             <!--每7项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[6].subject }}</span>
               <p class="line7"/>
               <span class="num">{{ getcity10[6].value }}</span>
             </div>
             <!--每8项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[7].subject }}</span>
               <p class="line8"/>
               <span class="num">{{ getcity10[7].value }}</span>
             </div>
             <!--每9项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[8].subject }}</span>
               <p class="line9"/>
               <span class="num">{{ getcity10[8].value }}</span>
             </div>
             <!--每10项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[9].subject }}</span>
               <p class="line10"/>
               <span class="num">{{ getcity10[9].value }}</span>
@@ -136,61 +136,61 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[0].subject }}</span>
               <p class="line1"/>
               <span class="num">{{ getcity10[0].value }}</span>
             </div>
             <!--每2项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[1].subject }}</span>
               <p class="line2"/>
               <span class="num">{{ getcity10[1].value }}</span>
             </div>
             <!--每3项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[2].subject }}</span>
               <p class="line3"/>
               <span class="num">{{ getcity10[2].value }}</span>
             </div>
             <!--每4项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[3].subject }}</span>
               <p class="line4"/>
               <span class="num">{{ getcity10[3].value }}</span>
             </div>
             <!--每5项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[4].subject }}</span>
               <p class="line5"/>
               <span class="num">{{ getcity10[4].value }}</span>
             </div>
             <!--每6项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[5].subject }}</span>
               <p class="line6"/>
               <span class="num">{{ getcity10[5].value }}</span>
             </div>
             <!--每7项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[6].subject }}</span>
               <p class="line7"/>
               <span class="num">{{ getcity10[6].value }}</span>
             </div>
             <!--每8项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[7].subject }}</span>
               <p class="line8"/>
               <span class="num">{{ getcity10[7].value }}</span>
             </div>
             <!--每9项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[8].subject }}</span>
               <p class="line9"/>
               <span class="num">{{ getcity10[8].value }}</span>
             </div>
             <!--每10项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[9].subject }}</span>
               <p class="line10"/>
               <span class="num">{{ getcity10[9].value }}</span>
@@ -267,61 +267,61 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[0].subject }}</span>
               <p class="line1"/>
               <span class="num">{{ getcity10[0].value }}</span>
             </div>
             <!--每2项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[1].subject }}</span>
               <p class="line2"/>
               <span class="num">{{ getcity10[1].value }}</span>
             </div>
             <!--每3项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[2].subject }}</span>
               <p class="line3"/>
               <span class="num">{{ getcity10[2].value }}</span>
             </div>
             <!--每4项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[3].subject }}</span>
               <p class="line4"/>
               <span class="num">{{ getcity10[3].value }}</span>
             </div>
             <!--每5项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[4].subject }}</span>
               <p class="line5"/>
               <span class="num">{{ getcity10[4].value }}</span>
             </div>
             <!--每6项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[5].subject }}</span>
               <p class="line6"/>
               <span class="num">{{ getcity10[5].value }}</span>
             </div>
             <!--每7项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[6].subject }}</span>
               <p class="line7"/>
               <span class="num">{{ getcity10[6].value }}</span>
             </div>
             <!--每8项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[7].subject }}</span>
               <p class="line8"/>
               <span class="num">{{ getcity10[7].value }}</span>
             </div>
             <!--每9项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[8].subject }}</span>
               <p class="line9"/>
               <span class="num">{{ getcity10[8].value }}</span>
             </div>
             <!--每10项-->
-            <div class="one-box">
+            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
               <span class="name">{{ getcity10[9].subject }}</span>
               <p class="line10"/>
               <span class="num">{{ getcity10[9].value }}</span>
@@ -492,12 +492,12 @@ export default {
       end = _end.getFullYear() + '-' + e_y + '-' + e_r
       this.dataObj.start = start
       this.dataObj.end = end
-      console.log(this.dataObj, '333')
+      // console.log(this.dataObj, '333')
     },
     initRequest() {
       // 投诉
       wechatDf(this.dataObj).then(res => {
-        console.log(res)
+        // console.log(res)
         const data = res.data.data
         if (res.status === 200) {
           this.kydxq = data
