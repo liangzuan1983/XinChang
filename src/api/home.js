@@ -83,3 +83,30 @@ export function base() {
     method: 'get'
   })
 }
+
+// 投诉率
+export function tousu(params) {
+  return request({
+    url: 'tousu',
+    method: 'get',
+    params
+  })
+}
+
+// 大佛寺微信点击率
+export function wechatDf(params) {
+  return request({
+    url: 'dafosi/wechatClick',
+    method: 'get',
+    params
+  })
+}
+
+// 十九峰微信点击率
+export function wechatSj(params) {
+  return request({
+    url: 'shijiufeng/wechatClick',
+    method: 'get',
+    params
+  })
+}
