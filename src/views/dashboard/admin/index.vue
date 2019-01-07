@@ -260,8 +260,8 @@
               <img src="@/assets/icon/pplb.png" alt="">
               <div class="text-box">
                 <p class="title">游客接待数</p>
-                <p class="content-box">
-                  <span class="num">1620</span>
+                <p class="content-box" v-if="base && base.length > 0">
+                  <span class="num">{{ base[1].income.in + base[1].income.out }}</span>
                   <span class="unit">个</span>
                 </p>
               </div>
@@ -269,15 +269,15 @@
             <!--下-->
             <div class="bottom-box">
               <!--境外-->
-              <p class="l-box">
+              <p class="l-box" v-if="base && base.length > 0">
                 <span class="name">境外游客</span>
-                <span class="num">520</span>
+                <span class="num">{{ base[0].tourNumber.out }}</span>
                 <span class="unit">个</span>
               </p>
               <!--境内-->
-              <p class="l-box">
-                <span class="name">境外游客</span>
-                <span class="num">1100</span>
+              <p class="l-box" v-if="base && base.length > 0">
+                <span class="name">境内游客</span>
+                <span class="num">{{ base[0].tourNumber.in }}</span>
                 <span class="unit">个</span>
               </p>
             </div>
@@ -289,8 +289,8 @@
               <img src="@/assets/icon/incomor.png" alt="">
               <div class="text-box">
                 <p class="title">旅游收入</p>
-                <p class="content-box">
-                  <span class="num">2978</span>
+                <p class="content-box" v-if="base && base.length > 0">
+                  <span class="num">{{ base[0].tourNumber.in + base[0].tourNumber.out }}</span>
                   <span class="unit">万元</span>
                 </p>
               </div>
@@ -298,15 +298,15 @@
             <!--下-->
             <div class="bottom-box">
               <!--境外-->
-              <p class="l-box">
-                <span class="name">境外游客</span>
-                <span class="num">920</span>
+              <p class="l-box" v-if="base && base.length > 0">
+                <span class="name">境外收入</span>
+                <span class="num">{{ base[1].income.out }}</span>
                 <span class="unit">万元</span>
               </p>
               <!--境内-->
-              <p class="l-box">
-                <span class="name">境外游客</span>
-                <span class="num">2058</span>
+              <p class="l-box" v-if="base && base.length > 0">
+                <span class="name">境内收入</span>
+                <span class="num">{{ base[1].income.in }}</span>
                 <span class="unit">万元</span>
               </p>
             </div>
@@ -475,7 +475,7 @@ import jdt from '@/views/dashboard/admin/components/jdt'
 import dtView from './components/dt.vue'
 import lvView from './components/lv.vue'
 import { mapGetters } from 'vuex'
-import { hotTown, weekly } from '@/api/home'
+import { hotTown, weekly, base } from '@/api/home'
 export default {
   name: 'DashboardAdmin',
   components: {
@@ -489,7 +489,8 @@ export default {
       lvzy: false,
       kydxq: [],
       hotTown: [],
-      weekly: false
+      weekly: false,
+      base: []
     }
   },
   computed: {
@@ -535,6 +536,16 @@ export default {
         if(res.status === 200) {
           this.kydxq = data
           this.weekly = true
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 产业检测
+      base().then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          this.base = data
+          console.log(this.base)
         }
       }).catch(err => {
         console.log(err)

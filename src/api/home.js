@@ -75,3 +75,11 @@ export function weekly() {
     method: 'get'
   })
 }
+
+// 产业检测数据
+export function base() {
+  return request({
+    url: 'base',
+    method: 'get'
+  })
+}
