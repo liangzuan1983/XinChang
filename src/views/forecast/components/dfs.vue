@@ -54,64 +54,64 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[0].subject }}</span>
+            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
+              <span class="name">{{ dfsSanke[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">{{ getcity10[0].value }}</span>
+              <span class="num">{{ dfsSanke[0].value }}</span>
             </div>
             <!--每2项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[1].subject }}</span>
+            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
+              <span class="name">{{ dfsSanke[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">{{ getcity10[1].value }}</span>
+              <span class="num">{{ dfsSanke[1].value }}</span>
             </div>
             <!--每3项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0" >
-              <span class="name">{{ getcity10[2].subject }}</span>
+            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0" >
+              <span class="name">{{ dfsSanke[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">{{ getcity10[2].value }}</span>
+              <span class="num">{{ dfsSanke[2].value }}</span>
             </div>
             <!--每4项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[3].subject }}</span>
+            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
+              <span class="name">{{ dfsSanke[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">{{ getcity10[3].value }}</span>
+              <span class="num">{{ dfsSanke[3].value }}</span>
             </div>
             <!--每5项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[4].subject }}</span>
+            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
+              <span class="name">{{ dfsSanke[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">{{ getcity10[4].value }}</span>
+              <span class="num">{{ dfsSanke[4].value }}</span>
             </div>
             <!--每6项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[5].subject }}</span>
+            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
+              <span class="name">{{ dfsSanke[5].subject }}</span>
               <p class="line6"/>
-              <span class="num">{{ getcity10[5].value }}</span>
+              <span class="num">{{ dfsSanke[5].value }}</span>
             </div>
             <!--每7项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[6].subject }}</span>
+            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
+              <span class="name">{{ dfsSanke[6].subject }}</span>
               <p class="line7"/>
-              <span class="num">{{ getcity10[6].value }}</span>
+              <span class="num">{{ dfsSanke[6].value }}</span>
             </div>
             <!--每8项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[7].subject }}</span>
+            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
+              <span class="name">{{ dfsSanke[7].subject }}</span>
               <p class="line8"/>
-              <span class="num">{{ getcity10[7].value }}</span>
+              <span class="num">{{ dfsSanke[7].value }}</span>
             </div>
             <!--每9项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[8].subject }}</span>
+            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
+              <span class="name">{{ dfsSanke[8].subject }}</span>
               <p class="line9"/>
-              <span class="num">{{ getcity10[8].value }}</span>
+              <span class="num">{{ dfsSanke[8].value }}</span>
             </div>
             <!--每10项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[9].subject }}</span>
+            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
+              <span class="name">{{ dfsSanke[9].subject }}</span>
               <p class="line10"/>
-              <span class="num">{{ getcity10[9].value }}</span>
+              <span class="num">{{ dfsSanke[9].value }}</span>
             </div>
           </div>
         </div>
@@ -136,64 +136,64 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[0].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">{{ getcity10[0].value }}</span>
+              <span class="num">{{ dfsTeam[0].value }}</span>
             </div>
             <!--每2项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[1].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">{{ getcity10[1].value }}</span>
+              <span class="num">{{ dfsTeam[1].value }}</span>
             </div>
             <!--每3项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[2].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">{{ getcity10[2].value }}</span>
+              <span class="num">{{ dfsTeam[2].value }}</span>
             </div>
             <!--每4项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[3].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">{{ getcity10[3].value }}</span>
+              <span class="num">{{ dfsTeam[3].value }}</span>
             </div>
             <!--每5项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[4].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">{{ getcity10[4].value }}</span>
+              <span class="num">{{ dfsTeam[4].value }}</span>
             </div>
             <!--每6项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[5].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[5].subject }}</span>
               <p class="line6"/>
-              <span class="num">{{ getcity10[5].value }}</span>
+              <span class="num">{{ dfsTeam[5].value }}</span>
             </div>
             <!--每7项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[6].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[6].subject }}</span>
               <p class="line7"/>
-              <span class="num">{{ getcity10[6].value }}</span>
+              <span class="num">{{ dfsTeam[6].value }}</span>
             </div>
             <!--每8项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[7].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[7].subject }}</span>
               <p class="line8"/>
-              <span class="num">{{ getcity10[7].value }}</span>
+              <span class="num">{{ dfsTeam[7].value }}</span>
             </div>
             <!--每9项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[8].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[8].subject }}</span>
               <p class="line9"/>
-              <span class="num">{{ getcity10[8].value }}</span>
+              <span class="num">{{ dfsTeam[8].value }}</span>
             </div>
             <!--每10项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[9].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[9].subject }}</span>
               <p class="line10"/>
-              <span class="num">{{ getcity10[9].value }}</span>
+              <span class="num">{{ dfsTeam[9].value }}</span>
             </div>
           </div>
         </div>
@@ -267,64 +267,64 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[0].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">{{ getcity10[0].value }}</span>
+              <span class="num">{{ dfsSource[0].value }}</span>
             </div>
             <!--每2项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[1].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">{{ getcity10[1].value }}</span>
+              <span class="num">{{ dfsSource[1].value }}</span>
             </div>
             <!--每3项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[2].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">{{ getcity10[2].value }}</span>
+              <span class="num">{{ dfsSource[2].value }}</span>
             </div>
             <!--每4项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[3].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">{{ getcity10[3].value }}</span>
+              <span class="num">{{ dfsSource[3].value }}</span>
             </div>
             <!--每5项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[4].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">{{ getcity10[4].value }}</span>
+              <span class="num">{{ dfsSource[4].value }}</span>
             </div>
             <!--每6项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[5].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[5].subject }}</span>
               <p class="line6"/>
-              <span class="num">{{ getcity10[5].value }}</span>
+              <span class="num">{{ dfsSource[5].value }}</span>
             </div>
             <!--每7项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[6].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[6].subject }}</span>
               <p class="line7"/>
-              <span class="num">{{ getcity10[6].value }}</span>
+              <span class="num">{{ dfsSource[6].value }}</span>
             </div>
             <!--每8项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[7].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[7].subject }}</span>
               <p class="line8"/>
-              <span class="num">{{ getcity10[7].value }}</span>
+              <span class="num">{{ dfsSource[7].value }}</span>
             </div>
             <!--每9项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[8].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[8].subject }}</span>
               <p class="line9"/>
-              <span class="num">{{ getcity10[8].value }}</span>
+              <span class="num">{{ dfsSource[8].value }}</span>
             </div>
             <!--每10项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[9].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[9].subject }}</span>
               <p class="line10"/>
-              <span class="num">{{ getcity10[9].value }}</span>
+              <span class="num">{{ dfsSource[9].value }}</span>
             </div>
           </div>
         </div>
@@ -381,7 +381,7 @@ import xfzhe from '@/components/Charts/holiday-xf-zhe'
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
 import PieChartFull from '@/views/dashboard/admin/components/dfs'
 import { mapGetters } from 'vuex'
-import { wechatDf } from '@/api/home'
+import { wechatDf, dfsSanke, dfsTeam, dfsSource } from '@/api/home'
 export default {
   components: {
     skkl, nlfb, xfzhe, YiZhou, PieChartFull, nlfbDdly, nlfbQdgg, ykxbXsqd, tdkl, dsdd
@@ -439,7 +439,10 @@ export default {
       dataObj: {
         start: '',
         end: ''
-      }
+      },
+      dfsSanke: [],
+      dfsTeam: [],
+      dfsSource: []
     }
   },
   mounted() {
@@ -502,6 +505,33 @@ export default {
         if (res.status === 200) {
           this.kydxq = data
           this.kydxqs = true
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 大佛寺散客
+      dfsSanke().then(res => {
+        const data = res.data.data
+        if(res.status === 200) {
+          this.dfsSanke = data
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      //大佛寺团队
+      dfsTeam().then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          this.dfsTeam = data
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      //大佛寺来源地
+      dfsSource().then(res => {
+        const data = res.data.data
+        if(res.status === 200) {
+          this.dfsSource = data
         }
       }).catch(err => {
         console.log(err)

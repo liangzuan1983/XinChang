@@ -160,3 +160,44 @@ export function outProvince() {
     method: 'get'
   })
 }
+//大佛寺散客客源地排行
+export function dfsSanke() {
+  return request({
+    url: 'dfsSanke/passenger',
+    method: 'get'
+  })
+}
+//大佛寺团队客源地排行
+export function dfsTeam() {
+  return request({
+    url: 'dfsTeam/passenger',
+    method: 'get'
+  })
+}
+// 大佛寺客户来源地分析
+export function dfsSource() {
+  return request({
+    url: 'dfsSource/passenger',
+    method: 'get'
+  })
+}
+//十九峰散客客源地排行
+export function sjfSanke() {
+  return request({
+    url: 'sjfSanke/passenger',
+    method: 'get'
+  })
+}
+// 十九峰团队客源地排行
+export function sjfTeam() {
+  return request({
+    url: 'sjfTeam/passenger',
+    method: 'get'
+  })
+}
+// 十九峰客户来源分析
+export function sjfSource() {
+  return request({
+    url: 'sjfSource/passenger'
+  })
+}

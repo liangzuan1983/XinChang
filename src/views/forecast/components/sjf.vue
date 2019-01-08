@@ -54,64 +54,64 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[0].subject }}</span>
+            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
+              <span class="name">{{ sjfSanke[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">{{ getcity10[0].value }}</span>
+              <span class="num">{{ sjfSanke[0].value }}</span>
             </div>
             <!--每2项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[1].subject }}</span>
+            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
+              <span class="name">{{ sjfSanke[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">{{ getcity10[1].value }}</span>
+              <span class="num">{{ sjfSanke[1].value }}</span>
             </div>
             <!--每3项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[2].subject }}</span>
+            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
+              <span class="name">{{ sjfSanke[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">{{ getcity10[2].value }}</span>
+              <span class="num">{{ sjfSanke[2].value }}</span>
             </div>
             <!--每4项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[3].subject }}</span>
+            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
+              <span class="name">{{ sjfSanke[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">{{ getcity10[3].value }}</span>
+              <span class="num">{{ sjfSanke[3].value }}</span>
             </div>
             <!--每5项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[4].subject }}</span>
+            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
+              <span class="name">{{ sjfSanke[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">{{ getcity10[4].value }}</span>
+              <span class="num">{{ sjfSanke[4].value }}</span>
             </div>
             <!--每6项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[5].subject }}</span>
+            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
+              <span class="name">{{ sjfSanke[5].subject }}</span>
               <p class="line6"/>
-              <span class="num">{{ getcity10[5].value }}</span>
+              <span class="num">{{ sjfSanke[5].value }}</span>
             </div>
             <!--每7项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[6].subject }}</span>
+            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
+              <span class="name">{{ sjfSanke[6].subject }}</span>
               <p class="line7"/>
-              <span class="num">{{ getcity10[6].value }}</span>
+              <span class="num">{{ sjfSanke[6].value }}</span>
             </div>
             <!--每8项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[7].subject }}</span>
+            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
+              <span class="name">{{ sjfSanke[7].subject }}</span>
               <p class="line8"/>
-              <span class="num">{{ getcity10[7].value }}</span>
+              <span class="num">{{ sjfSanke[7].value }}</span>
             </div>
             <!--每9项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[8].subject }}</span>
+            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
+              <span class="name">{{ sjfSanke[8].subject }}</span>
               <p class="line9"/>
-              <span class="num">{{ getcity10[8].value }}</span>
+              <span class="num">{{ sjfSanke[8].value }}</span>
             </div>
             <!--每10项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[9].subject }}</span>
+            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
+              <span class="name">{{ sjfSanke[9].subject }}</span>
               <p class="line10"/>
-              <span class="num">{{ getcity10[9].value }}</span>
+              <span class="num">{{ sjfSanke[9].value }}</span>
             </div>
           </div>
         </div>
@@ -136,64 +136,64 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[0].subject }}</span>
+            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
+              <span class="name">{{ sjfTeam[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">{{ getcity10[0].value }}</span>
+              <span class="num">{{ sjfTeam[0].value }}</span>
             </div>
             <!--每2项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[1].subject }}</span>
+            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
+              <span class="name">{{ sjfTeam[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">{{ getcity10[1].value }}</span>
+              <span class="num">{{ sjfTeam[1].value }}</span>
             </div>
             <!--每3项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[2].subject }}</span>
+            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
+              <span class="name">{{ sjfTeam[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">{{ getcity10[2].value }}</span>
+              <span class="num">{{ sjfTeam[2].value }}</span>
             </div>
             <!--每4项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[3].subject }}</span>
+            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
+              <span class="name">{{ sjfTeam[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">{{ getcity10[3].value }}</span>
+              <span class="num">{{ sjfTeam[3].value }}</span>
             </div>
             <!--每5项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[4].subject }}</span>
+            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
+              <span class="name">{{ sjfTeam[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">{{ getcity10[4].value }}</span>
+              <span class="num">{{ sjfTeam[4].value }}</span>
             </div>
             <!--每6项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[5].subject }}</span>
+            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
+              <span class="name">{{ sjfTeam[5].subject }}</span>
               <p class="line6"/>
-              <span class="num">{{ getcity10[5].value }}</span>
+              <span class="num">{{ sjfTeam[5].value }}</span>
             </div>
             <!--每7项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[6].subject }}</span>
+            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
+              <span class="name">{{ sjfTeam[6].subject }}</span>
               <p class="line7"/>
-              <span class="num">{{ getcity10[6].value }}</span>
+              <span class="num">{{ sjfTeam[6].value }}</span>
             </div>
             <!--每8项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[7].subject }}</span>
+            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
+              <span class="name">{{ sjfTeam[7].subject }}</span>
               <p class="line8"/>
-              <span class="num">{{ getcity10[7].value }}</span>
+              <span class="num">{{ sjfTeam[7].value }}</span>
             </div>
             <!--每9项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[8].subject }}</span>
+            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
+              <span class="name">{{ sjfTeam[8].subject }}</span>
               <p class="line9"/>
-              <span class="num">{{ getcity10[8].value }}</span>
+              <span class="num">{{ sjfTeam[8].value }}</span>
             </div>
             <!--每10项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[9].subject }}</span>
+            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
+              <span class="name">{{ sjfTeam[9].subject }}</span>
               <p class="line10"/>
-              <span class="num">{{ getcity10[9].value }}</span>
+              <span class="num">{{ sjfTeam[9].value }}</span>
             </div>
           </div>
         </div>
@@ -267,64 +267,64 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[0].subject }}</span>
+            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
+              <span class="name">{{ sjfSource[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">{{ getcity10[0].value }}</span>
+              <span class="num">{{ sjfSource[0].value }}</span>
             </div>
             <!--每2项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[1].subject }}</span>
+            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
+              <span class="name">{{ sjfSource[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">{{ getcity10[1].value }}</span>
+              <span class="num">{{ sjfSource[1].value }}</span>
             </div>
             <!--每3项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[2].subject }}</span>
+            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
+              <span class="name">{{ sjfSource[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">{{ getcity10[2].value }}</span>
+              <span class="num">{{ sjfSource[2].value }}</span>
             </div>
             <!--每4项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[3].subject }}</span>
+            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
+              <span class="name">{{ sjfSource[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">{{ getcity10[3].value }}</span>
+              <span class="num">{{ sjfSource[3].value }}</span>
             </div>
             <!--每5项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[4].subject }}</span>
+            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
+              <span class="name">{{ sjfSource[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">{{ getcity10[4].value }}</span>
+              <span class="num">{{ sjfSource[4].value }}</span>
             </div>
             <!--每6项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[5].subject }}</span>
+            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
+              <span class="name">{{ sjfSource[5].subject }}</span>
               <p class="line6"/>
-              <span class="num">{{ getcity10[5].value }}</span>
+              <span class="num">{{ sjfSource[5].value }}</span>
             </div>
             <!--每7项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[6].subject }}</span>
+            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
+              <span class="name">{{ sjfSource[6].subject }}</span>
               <p class="line7"/>
-              <span class="num">{{ getcity10[6].value }}</span>
+              <span class="num">{{ sjfSource[6].value }}</span>
             </div>
             <!--每8项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[7].subject }}</span>
+            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
+              <span class="name">{{ sjfSource[7].subject }}</span>
               <p class="line8"/>
-              <span class="num">{{ getcity10[7].value }}</span>
+              <span class="num">{{ sjfSource[7].value }}</span>
             </div>
             <!--每9项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[8].subject }}</span>
+            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
+              <span class="name">{{ sjfSource[8].subject }}</span>
               <p class="line9"/>
-              <span class="num">{{ getcity10[8].value }}</span>
+              <span class="num">{{ sjfSource[8].value }}</span>
             </div>
             <!--每10项-->
-            <div class="one-box" v-if="getcity10 && getcity10.length > 0">
-              <span class="name">{{ getcity10[9].subject }}</span>
+            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
+              <span class="name">{{ sjfSource[9].subject }}</span>
               <p class="line10"/>
-              <span class="num">{{ getcity10[9].value }}</span>
+              <span class="num">{{ sjfSource[9].value }}</span>
             </div>
           </div>
         </div>
@@ -381,7 +381,7 @@ import xfzhe from '@/components/Charts/holiday-xf-zhe'
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
 import PieChartFull from '@/views/dashboard/admin/components/dfs'
 import { mapGetters } from 'vuex'
-import { wechatSj } from '@/api/home'
+import { wechatSj, sjfSanke, sjfTeam, sjfSource } from '@/api/home'
 export default {
   components: {
     skkl, nlfb, xfzhe, YiZhou, PieChartFull, nlfbDdly, nlfbQdgg, ykxbXsqd, tdkl, dsdd
@@ -439,7 +439,10 @@ export default {
       dataObj: {
         start: '',
         end: ''
-      }
+      },
+      sjfSanke: [],
+      sjfTeam: [],
+      sjfSource: []
     }
   },
   mounted() {
@@ -502,6 +505,33 @@ export default {
         if (res.status === 200) {
           this.kydxq = data
           this.kydxqs = true
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 十九峰散客
+      sjfSanke().then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          this.sjfSanke = data
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 十九峰团队
+      sjfTeam().then(res => {
+        const data = res.data.data
+        if(res.status === 200) {
+          this.sjfTeam = data
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 十九峰来源
+      sjfSource().then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          this.sjfSource = data
         }
       }).catch(err => {
         console.log(err)
