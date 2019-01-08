@@ -146,3 +146,17 @@ export function town() {
     method: 'get'
   })
 }
+// 省内客源地自驾游
+export function inProvince() {
+  return request({
+    url: 'tourNumber/inProvince',
+    method: 'get'
+  })
+}
+// 省外客源地自驾游
+export function outProvince() {
+  return request({
+    url: 'tourNumber/outProvince',
+    method: 'get'
+  })
+}

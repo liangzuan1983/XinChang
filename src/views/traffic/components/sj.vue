@@ -54,33 +54,33 @@
             <div class="content">
               <!--每1项-->
               <div class="one-box">
-                <span class="name">杭州</span>
+                <span class="name">{{ inProvince[0].subject }}</span>
                 <p class="line1"/>
-                <span class="num">7262</span>
+                <span class="num">{{ inProvince[0].value }}</span>
               </div>
               <!--每2项-->
               <div class="one-box">
-                <span class="name">宁波</span>
+                <span class="name">{{ inProvince[1].subject }}</span>
                 <p class="line2"/>
-                <span class="num">6862</span>
+                <span class="num">{{ inProvince[1].value }}</span>
               </div>
               <!--每3项-->
               <div class="one-box">
-                <span class="name">温州</span>
+                <span class="name">{{ inProvince[2].subject }}</span>
                 <p class="line3"/>
-                <span class="num">6242</span>
+                <span class="num">{{ inProvince[2].value }}</span>
               </div>
               <!--每4项-->
               <div class="one-box">
-                <span class="name">台州</span>
+                <span class="name">{{ inProvince[3].subject }}</span>
                 <p class="line4"/>
-                <span class="num">5322</span>
+                <span class="num">{{ inProvince[3].value }}</span>
               </div>
               <!--每5项-->
               <div class="one-box">
-                <span class="name">绍兴</span>
+                <span class="name">{{ inProvince[4].subject }}</span>
                 <p class="line5"/>
-                <span class="num">4222</span>
+                <span class="num">{{ inProvince[4].value }}</span>
               </div>
             </div>
           </div>
@@ -92,33 +92,33 @@
             <div class="content">
               <!--每1项-->
               <div class="one-box">
-                <span class="name">上海</span>
+                <span class="name">{{ outProvince[0].subject }}</span>
                 <p class="line1"/>
-                <span class="num">7262</span>
+                <span class="num">{{ outProvince[0].value }}</span>
               </div>
               <!--每2项-->
               <div class="one-box">
-                <span class="name">苏州</span>
+                <span class="name">{{ outProvince[1].subject }}</span>
                 <p class="line2"/>
-                <span class="num">6862</span>
+                <span class="num">{{ outProvince[1].value }}</span>
               </div>
               <!--每3项-->
               <div class="one-box">
-                <span class="name">广州</span>
+                <span class="name">{{ outProvince[2].subject }}</span>
                 <p class="line3"/>
-                <span class="num">6242</span>
+                <span class="num">{{ outProvince[2].value }}</span>
               </div>
               <!--每4项-->
               <div class="one-box">
-                <span class="name">深圳</span>
+                <span class="name">{{ outProvince[3].subject }}</span>
                 <p class="line4"/>
-                <span class="num">5322</span>
+                <span class="num">{{ outProvince[3].value }}</span>
               </div>
               <!--每5项-->
               <div class="one-box">
-                <span class="name">北京</span>
+                <span class="name">{{ outProvince[4].subject}}</span>
                 <p class="line5"/>
-                <span class="num">4222</span>
+                <span class="num">{{ outProvince[4].value }}</span>
               </div>
             </div>
           </div>
@@ -131,6 +131,7 @@
 <script>
 import nlfb from '@/components/Charts/traffic-nlfb'
 import PieChartFull from '@/components/Charts/traffic-cxfs'
+import { inProvince, outProvince } from '@/api/home'
 export default {
   components: {
     nlfb, PieChartFull
@@ -140,7 +141,34 @@ export default {
       value4: [new Date(), new Date()],
       xfzheif: true,
       jjright: true,
-      nlfb: true
+      nlfb: true,
+      inProvince: [],
+      outProvince: []
+    }
+  },
+  mounted() {
+    this.initRequest()
+  },
+  methods: {
+    initRequest() {
+      //省内自驾游数量
+      inProvince().then(res => {
+        const data = res.data.data
+        if(res.status === 200) {
+          this.inProvince = data
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 省外客源地自驾游数
+      outProvince().then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          this.outProvince = data
+        }
+      }).catch(err => {
+        console.log(err)
+      })
     }
   }
 }
