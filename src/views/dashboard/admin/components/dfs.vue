@@ -54,7 +54,7 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
-      console.log(this.chartData, '组件内')
+      // console.log(this.chartData, '组件内')
       const data = this.chartData
       data.forEach(element => {
         const obj = {}
@@ -66,7 +66,7 @@ export default {
         visualMap: {
           show: false,
           min: 100,
-          max: 450,
+          max: 950,
           inRange: {
             colorLightness: [0, 1]
           }
@@ -81,14 +81,7 @@ export default {
             type: 'pie',
             radius: '75%',
             center: ['50%', '60%'],
-            data: [
-              { value: 335, name: '成人票' },
-              { value: 310, name: '老年票' },
-              { value: 274, name: '大佛寺公司' },
-              { value: 335, name: '学生票' },
-              { value: 310, name: '儿童票' },
-              { value: 274, name: '网络票' }
-            ].sort(function(a, b) { return a.value - b.value }),
+            data: this.dataArray.sort(function(a, b) { return a.value - b.value }),
             roseType: 'radius',
             label: {
               normal: {

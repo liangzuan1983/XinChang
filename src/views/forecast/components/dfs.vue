@@ -30,7 +30,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <skkl id="skkl" height="100%" width="100%"/>
+              <skkl v-if="dfsScenicFlows" :chartData='dfsScenicFlow' id="skkl" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -361,7 +361,7 @@ import xfzhe from '@/components/Charts/holiday-xf-zhe'
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
 import PieChartFull from '@/views/dashboard/admin/components/dfs'
 import { mapGetters } from 'vuex'
-import { wechatDf, dfsSanke, dfsTeam, dfsSource, sankeTypeDfs, dfsTouristSource } from '@/api/home'
+import { wechatDf, dfsSanke, dfsTeam, dfsSource, sankeTypeDfs, dfsTouristSource, dfsScenicFlow } from '@/api/home'
 export default {
   components: {
     skkl, nlfb, xfzhe, YiZhou, PieChartFull, nlfbDdly, nlfbQdgg, ykxbXsqd, tdkl, dsdd
@@ -424,8 +424,10 @@ export default {
       dfsTeam: [],
       dfsSource: [],
       sankeDfs: [],
-      sankeDfss: true,
-      dfsTouristSource: []
+      sankeDfss: false,
+      dfsTouristSource: [],
+      dfsScenicFlow: [],
+      dfsScenicFlows: false
     }
   },
   mounted() {
@@ -520,8 +522,8 @@ export default {
       }).catch(err => {
         console.log(err)
       })
-      // 大佛寺散客 记得加参数
-      sankeTypeDfs().then(res => {
+      // 大佛寺散客票型分析
+      sankeTypeDfs(this.dataObj).then(res => {
         const data = res.data.data
         if (res.status === 200) {
           this.sankeDfs = data
@@ -536,6 +538,17 @@ export default {
         if (res.status === 200) {
           // console.log(data, '111111')
           this.dfsTouristSource = data
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 大佛寺景区客流
+      dfsScenicFlow(this.dataObj).then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          console.log(data, '1111112')
+          this.dfsScenicFlow = data
+          this.dfsScenicFlows = true
         }
       }).catch(err => {
         console.log(err)

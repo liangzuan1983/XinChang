@@ -202,7 +202,7 @@ export function sjfSource() {
     method: 'get'
   })
 }
-// 大佛寺散客类型分析
+// 大佛寺散客票型分析
 export function sankeTypeDfs() {
   return request({
     url: 'dafosi/SankeType',
@@ -220,6 +220,14 @@ export function sankeTypeSjf() {
 export function dfsTouristSource(params) {
   return request({
     url: 'dafosi/touristSource',
+    method: 'get',
+    params
+  })
+}
+// 大佛寺景区客流
+export function dfsScenicFlow(params) {
+  return request({
+    url: 'dafosi/scenicFlow',
     method: 'get',
     params
   })

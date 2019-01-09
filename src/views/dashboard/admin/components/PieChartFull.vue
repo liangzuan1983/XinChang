@@ -54,7 +54,7 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
-      // console.log(this.chartData, '11')
+      // console.log(this.chartData, 'zu')
       const data = this.chartData
       function sortValue(a, b) {
         return b.value - a.value

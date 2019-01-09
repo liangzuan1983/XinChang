@@ -26,14 +26,16 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
+      type: Array,
       required: false
     }
   },
   data() {
     return {
       chart: null,
-      sidebarElm: null
+      sidebarElm: null,
+      time: [],
+      value: []
     }
   },
   watch: {
@@ -79,9 +81,15 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      console.log(this.chartData, '组件内')
+      const data = this.chartData
+      data.forEach(element => {
+        this.value.push(element.value)
+        this.time.push(element.subject)
+      });
       this.chart.setOption({
         legend: {
-          data: ['客流量', '同比客流量'],
+          data: ['客流量'],
           textStyle: {
             color: '#59697d'
           }
@@ -93,7 +101,7 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: ['2018-10-02', '2018-10-02', '2018-10-03', '2018-10-04', '2018-10-05', '2018-10-06', '2018-10-07'],
+            data: this.time,
             axisLabel: {
               textStyle: {
                 color: '#889db5'
@@ -122,22 +130,11 @@ export default {
           {
             name: '客流量',
             type: 'bar',
-            data: [2.0, 4.9, 7.0, 23.2, 32.6, 20.0, 6.4],
+            data: this.value,
             markPoint: {
               data: [
                 { type: 'max', name: '最大值' },
                 { type: 'min', name: '最小值' }
-              ]
-            }
-          },
-          {
-            name: '同比客流量',
-            type: 'bar',
-            data: [2.6, 5.9, 9.0, 26.4, 48.7, 18.8, 6.0],
-            markPoint: {
-              data: [
-                { name: '年最高', value: 182.2, xAxis: 7, yAxis: 183 },
-                { name: '年最低', value: 2.3, xAxis: 11, yAxis: 3 }
               ]
             }
           }
