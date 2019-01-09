@@ -1,20 +1,13 @@
 <template>
   <div class="warn">
-    <div class="amap-wrapper">
-      <el-amap vid="amapDemo" :zoom="zoom" :center="center" class="amap-demo">
-        <el-amap-circle 
-          v-for="(circle, index) in circles"
-          :key="index" :center="circle.center"
-          :radius="circle.radius"
-          :fill-opacity="circle.fillOpacity"
-          :fillColor="circle.color"
-          :strokeColor="circle.line"
-          :events="circle.events"/>
+    <div class="amap-page-container">
+      <el-amap-search-box class="search-box" :search-option="searchOption" :on-search-result="onSearchResult"></el-amap-search-box>
+      <el-amap vid="amapDemo" :plugin="plugin" :center='mapCenter' :zoom='12' class="amap-demo">
+        <el-amap-marker v-for="(marker, index) in markers" :key="index" :position="marker" ></el-amap-marker>
       </el-amap>
     </div>
     <!--浮窗-->
-    <div class="float">
-      <!--top-->
+    <!-- <div class="float">
       <div class="top">
         <h1 class="title">事件统计</h1>
         <p>事件总数: 10</p>
@@ -22,7 +15,6 @@
         <p>处理中事件: 4</p>
         <p>已完结事件: 4</p>
       </div>
-      <!--bottom-->
       <div class="bottom">
         <h1 class="title">预警事件信息</h1>
         <p>编号: 0001</p>
@@ -31,7 +23,7 @@
         <p>详情: 客流超载预警</p>
         <p>预案: 应急预案3</p>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -39,46 +31,51 @@
 export default {
   data() {
     return {
-      zoom: 15,
-      center: [120.917737, 29.498975],
-      circles: [
+      markers: [
+        [121.59996, 31.197646],
+        [121.40018, 31.197622],
+        [121.69991, 31.207649]
+      ],
+      searchOption: {
+        city: '上海',
+        citylimit: true
+      },
+      mapCenter: [121.59996, 31.197646],
+      plugin: [
         {
-          center: [120.901737, 29.497975],
-          radius: 200,
-          fillOpacity: 0.5,
-          color: 'red',
-          line: 'red',
+          pName: 'MapType',
+          defaultType: 0,
           events: {
-            click: () => {
-              alert('click');
-            }
-          }
-        },
-        {
-          center: [120.907737, 29.491975],
-          radius: 200,
-          fillOpacity: 0.5,
-          color: 'red',
-          line: 'red',
-          events: {
-            click: () => {
-              alert('click');
-            }
-          }
-        },
-        {
-          center: [120.917737, 29.498975],
-          radius: 200,
-          fillOpacity: 0.5,
-          color: 'red',
-          line: 'red',
-          events: {
-            click: () => {
-              alert('click');
+            init(instance) {
+              console.log(instance);
             }
           }
         }
       ]
+    }
+  },
+  methods: {
+    addMarker: function() {
+      let lng = 121.5 + Math.round(Math.random() * 1000) / 10000;
+      let lat = 31.197646 + Math.round(Math.random() * 500) / 10000;
+      this.markers.push([lng, lat]);
+    },
+    onSearchResult(pois) {
+      let latSum = 0;
+      let lngSum = 0;
+      if (pois.length > 0) {
+        pois.forEach(poi => {
+          let {lng, lat} = poi;
+          lngSum += lng;
+          latSum += lat;
+          this.markers.push([poi.lng, poi.lat]);
+        });
+        let center = {
+          lng: lngSum / pois.length,
+          lat: latSum / pois.length
+        };
+        this.mapCenter = [center.lng, center.lat];
+      }
     }
   }
 }
@@ -91,10 +88,16 @@ export default {
     position: relative;
     z-index: 99;
     padding: 1%;
-    .amap-wrapper {
+    .amap-page-container {
       width: 100%;
       height: 100%;
-      .amap-box {
+      position: relative;
+      .search-box {
+        position: absolute;
+        top: 25px;
+        left: 20px;
+      }
+      .amap-demo {
         width: 100%;
         height: 100%;
       }

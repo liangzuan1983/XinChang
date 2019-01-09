@@ -50,7 +50,7 @@
         <!--年龄-->
         <div class="xsph-box">
           <!--title-->
-          <p class="title">散客客源地排行</p>
+          <p class="title">游客客源地排行</p>
           <!--内容-->
           <div class="content">
             <!--每1项-->
@@ -132,7 +132,7 @@
         <!--游客消费能力占比-->
         <div class="xfnl-box">
           <!--title-->
-          <p class="title">团队客源地排行</p>
+          <p class="title">车辆来源地排行</p>
           <!--内容-->
           <div class="content">
             <!--每1项-->
