@@ -100,7 +100,7 @@ export default {
     .content {
       flex: 1;
       background: rgba(255, 255, 255, 0.05);
-      padding: 1%;
+      // padding: 1%;
     }
   }
 </style>
