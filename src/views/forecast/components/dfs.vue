@@ -546,7 +546,7 @@ export default {
       dfsScenicFlow(this.dataObj).then(res => {
         const data = res.data.data
         if (res.status === 200) {
-          console.log(data, '1111112')
+          // console.log(data, '1111112')
           this.dfsScenicFlow = data
           this.dfsScenicFlows = true
         }

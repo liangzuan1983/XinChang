@@ -81,7 +81,7 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
-      console.log(this.chartData, '组件内')
+      // console.log(this.chartData, '组件内')
       const data = this.chartData
       data.forEach(element => {
         this.value.push(element.value)
