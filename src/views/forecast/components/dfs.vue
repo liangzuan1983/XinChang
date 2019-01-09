@@ -221,7 +221,7 @@
         <!--年龄分布-->
         <div class="nlfb-box">
           <!--title-->
-          <p class="title">电商订单</p>
+          <p class="title">售票量</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">

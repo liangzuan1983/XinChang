@@ -116,7 +116,7 @@
           <div class="title">事件处理率</div>
           <div class="content">
             <div class="chart-wrapper">
-              <yi-zhou :fatherData="yktype" height="100%" width="100%"/>
+              <yi-zhous id="yktype" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@
 
 <script>
 import HolidaySjcl from '@/components/Charts/holiday-sjcl'
-import YiZhou from '@/views/dashboard/admin/components/YiZhou'
+import YiZhous from '@/views/dashboard/admin/components/YiZhou2'
 export default {
   data() {
     return {
@@ -179,7 +179,7 @@ export default {
     }
   },
   components: {
-    HolidaySjcl, YiZhou
+    HolidaySjcl, YiZhous
   },
   methods: {
     handleEdit(index, row) {

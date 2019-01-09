@@ -41,7 +41,7 @@ export default {
       props: ['text'],
       template: `<button>{{text}}</button>`
     };
-    const center = [121.59996, 31.197646];
+    const center = [120.897454,29.506942];
     const componentsMarkers = [1,2,3,4].map((item, index) => {
       return {
         position: [center[0] + index * 0.02, center[1] + index * 0.02],
@@ -90,7 +90,7 @@ export default {
     let markers = [];
     let index = 0;
 
-    let basePosition = [121.59996, 31.197646];
+    let basePosition = [120.897454,29.506942];
     let num = 10;
 
     for (let i = 0 ; i < num ; i++) {
