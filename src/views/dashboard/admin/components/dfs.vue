@@ -21,7 +21,7 @@ export default {
       type: String,
       default: '100%'
     },
-    fatherData: {
+    chartData: {
       type: Array,
       default: () => {
         return []
@@ -30,7 +30,8 @@ export default {
   },
   data() {
     return {
-      chart: null
+      chart: null,
+      dataArray: []
     }
   },
   mounted() {
@@ -53,7 +54,14 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
-
+      console.log(this.chartData, '组件内')
+      const data = this.chartData
+      data.forEach(element => {
+        const obj = {}
+        obj.name = element.subject
+        obj.value = element.value
+        this.dataArray.push(obj)
+      })
       this.chart.setOption({
         visualMap: {
           show: false,
@@ -74,9 +82,12 @@ export default {
             radius: '75%',
             center: ['50%', '60%'],
             data: [
-              { value: 335, name: '外地游客' },
-              { value: 310, name: '外宾' },
-              { value: 274, name: '绍兴本地游客' }
+              { value: 335, name: '成人票' },
+              { value: 310, name: '老年票' },
+              { value: 274, name: '大佛寺公司' },
+              { value: 335, name: '学生票' },
+              { value: 310, name: '儿童票' },
+              { value: 274, name: '网络票' }
             ].sort(function(a, b) { return a.value - b.value }),
             roseType: 'radius',
             label: {

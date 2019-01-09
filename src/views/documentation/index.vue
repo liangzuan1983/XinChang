@@ -2,8 +2,14 @@
   <div class="warn">
     <div class="amap-page-container">
       <el-amap-search-box class="search-box" :search-option="searchOption" :on-search-result="onSearchResult"></el-amap-search-box>
-      <el-amap vid="amapDemo" :plugin="plugin" :center='mapCenter' :zoom='12' class="amap-demo">
-        <el-amap-marker v-for="(marker, index) in markers" :key="index" :position="marker" ></el-amap-marker>
+      <el-amap vid="amapDemo" :plugin="plugin" :center='center' :zoom='zoom' class="amap-demo">
+        <!-- <el-amap-marker v-for="(marker, index) in markers" :key="index" :position="marker" ></el-amap-marker> -->
+        <el-amap-marker v-for="(marker, index) in componentsMarkers" 
+          :key="index"
+          :position="marker.position"
+          :vid="marker.vid"
+          :content-render="marker.contentRender">
+        </el-amap-marker>
       </el-amap>
     </div>
     <!--浮窗-->
@@ -30,17 +36,36 @@
 <script>
 export default {
   data() {
+    let self = this;
+    const BtnComponent = {
+      props: ['text'],
+      template: `<button>{{text}}</button>`
+    };
+    const center = [121.59996, 31.197646];
+    const componentsMarkers = [1,2,3,4].map((item, index) => {
+      return {
+        position: [center[0] + index * 0.02, center[1] + index * 0.02],
+        vid: `${index}-vid`,
+        contentRender: h => h(BtnComponent, {
+          props: {
+            text: `component ${index}`
+          },
+          style: {
+            background: 'rgb(173, 47, 47)',
+            color: '#eee'
+          },
+          nativeOn: {
+            click: () => this.handler(`component-${index}`)
+          }
+        })
+      }
+    });
     return {
-      markers: [
-        [121.59996, 31.197646],
-        [121.40018, 31.197622],
-        [121.69991, 31.207649]
-      ],
       searchOption: {
         city: '上海',
         citylimit: true
       },
-      mapCenter: [121.59996, 31.197646],
+      // mapCenter: [121.59996, 31.197646],
       plugin: [
         {
           pName: 'MapType',
@@ -51,8 +76,31 @@ export default {
             }
           }
         }
-      ]
+      ],
+      zoom: 12,
+      center,
+      markers: [],
+      markerRefs: [],
+      source: 'click',
+      componentsMarkers
     }
+  },
+  created() {
+    let self = this;
+    let markers = [];
+    let index = 0;
+
+    let basePosition = [121.59996, 31.197646];
+    let num = 10;
+
+    for (let i = 0 ; i < num ; i++) {
+      markers.push({
+        position: [basePosition[0], basePosition[1] + i * 0.03],
+        contentRender: h => h('button', {
+          on: {click: () => this.handler(i)}}, [`source-${i}`])
+      });
+    }
+    this.markers = markers;
   },
   methods: {
     addMarker: function() {
@@ -76,6 +124,9 @@ export default {
         };
         this.mapCenter = [center.lng, center.lat];
       }
+    },
+    handler(index) {
+      alert(`${ index } - trigger`);
     }
   }
 }

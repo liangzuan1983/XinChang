@@ -198,6 +198,29 @@ export function sjfTeam() {
 // 十九峰客户来源分析
 export function sjfSource() {
   return request({
-    url: 'sjfSource/passenger'
+    url: 'sjfSource/passenger',
+    method: 'get'
+  })
+}
+// 大佛寺散客类型分析
+export function sankeTypeDfs() {
+  return request({
+    url: 'dafosi/SankeType',
+    method: 'get'
+  })
+}
+// 十九峰散客类型分析
+export function sankeTypeSjf() {
+  return request({
+    url: 'shijiufengSankeType',
+    method: 'get'
+  })
+}
+// 大佛寺客源地排行
+export function dfsTouristSource(params) {
+  return request({
+    url: 'dafosi/touristSource',
+    method: 'get',
+    params
   })
 }

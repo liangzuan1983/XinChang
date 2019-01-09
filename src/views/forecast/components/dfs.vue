@@ -14,7 +14,7 @@
             start-placeholder="开始日期"
             end-placeholder="结束日期"/>
           <!--查询-->
-          <el-button size="mini" type="primary">查询</el-button>
+          <el-button size="mini" type="primary" @click="query">查询</el-button>
           <!--查询-->
           <img class="search" src="@/assets/icon/search.png" alt="">
           <!--下载-->
@@ -26,7 +26,7 @@
         <!--年龄分布-->
         <div class="nlfb-box">
           <!--title-->
-          <p class="title">散客客流</p>
+          <p class="title">景区客流</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
@@ -37,12 +37,12 @@
         <!--游客消费能力占比-->
         <div class="xfnl-box">
           <!--title-->
-          <p class="title">散客类型分析</p>
+          <p class="title">散客票型分析</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
               <div class="chart-wrapper">
-                <pie-chart-full height="100%" width="100%"/>
+                <pie-chart-full v-if="sankeDfss" id="sankeDfs" :chartData='sankeDfs' height="100%" width="100%"/>
               </div>
             </div>
           </div>
@@ -52,66 +52,36 @@
           <!--title-->
           <p class="title">游客客源地排行</p>
           <!--内容-->
-          <div class="content">
+          <div class="content1">
             <!--每1项-->
-            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
-              <span class="name">{{ dfsSanke[0].subject }}</span>
+            <div class="one-box" v-if="dfsTouristSource && dfsTouristSource.length > 0">
+              <span class="name">{{ dfsTouristSource[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">{{ dfsSanke[0].value }}</span>
+              <span class="num">{{ dfsTouristSource[0].value }}</span>
             </div>
             <!--每2项-->
-            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
-              <span class="name">{{ dfsSanke[1].subject }}</span>
+            <div class="one-box" v-if="dfsTouristSource && dfsTouristSource.length > 0">
+              <span class="name">{{ dfsTouristSource[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">{{ dfsSanke[1].value }}</span>
+              <span class="num">{{ dfsTouristSource[1].value }}</span>
             </div>
             <!--每3项-->
-            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0" >
-              <span class="name">{{ dfsSanke[2].subject }}</span>
+            <div class="one-box" v-if="dfsTouristSource && dfsTouristSource.length > 0" >
+              <span class="name">{{ dfsTouristSource[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">{{ dfsSanke[2].value }}</span>
+              <span class="num">{{ dfsTouristSource[2].value }}</span>
             </div>
             <!--每4项-->
-            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
-              <span class="name">{{ dfsSanke[3].subject }}</span>
+            <div class="one-box" v-if="dfsTouristSource && dfsTouristSource.length > 0">
+              <span class="name">{{ dfsTouristSource[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">{{ dfsSanke[3].value }}</span>
+              <span class="num">{{ dfsTouristSource[3].value }}</span>
             </div>
             <!--每5项-->
-            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
-              <span class="name">{{ dfsSanke[4].subject }}</span>
+            <div class="one-box" v-if="dfsTouristSource && dfsTouristSource.length > 0">
+              <span class="name">{{ dfsTouristSource[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">{{ dfsSanke[4].value }}</span>
-            </div>
-            <!--每6项-->
-            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
-              <span class="name">{{ dfsSanke[5].subject }}</span>
-              <p class="line6"/>
-              <span class="num">{{ dfsSanke[5].value }}</span>
-            </div>
-            <!--每7项-->
-            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
-              <span class="name">{{ dfsSanke[6].subject }}</span>
-              <p class="line7"/>
-              <span class="num">{{ dfsSanke[6].value }}</span>
-            </div>
-            <!--每8项-->
-            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
-              <span class="name">{{ dfsSanke[7].subject }}</span>
-              <p class="line8"/>
-              <span class="num">{{ dfsSanke[7].value }}</span>
-            </div>
-            <!--每9项-->
-            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
-              <span class="name">{{ dfsSanke[8].subject }}</span>
-              <p class="line9"/>
-              <span class="num">{{ dfsSanke[8].value }}</span>
-            </div>
-            <!--每10项-->
-            <div class="one-box" v-if="dfsSanke && dfsSanke.length > 0">
-              <span class="name">{{ dfsSanke[9].subject }}</span>
-              <p class="line10"/>
-              <span class="num">{{ dfsSanke[9].value }}</span>
+              <span class="num">{{ dfsTouristSource[4].value }}</span>
             </div>
           </div>
         </div>
@@ -121,7 +91,7 @@
         <!--年龄分布-->
         <div class="nlfb-box">
           <!--title-->
-          <p class="title">团队客流</p>
+          <p class="title">散客团队对比分析</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
@@ -381,7 +351,7 @@ import xfzhe from '@/components/Charts/holiday-xf-zhe'
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
 import PieChartFull from '@/views/dashboard/admin/components/dfs'
 import { mapGetters } from 'vuex'
-import { wechatDf, dfsSanke, dfsTeam, dfsSource } from '@/api/home'
+import { wechatDf, dfsSanke, dfsTeam, dfsSource, sankeTypeDfs, dfsTouristSource } from '@/api/home'
 export default {
   components: {
     skkl, nlfb, xfzhe, YiZhou, PieChartFull, nlfbDdly, nlfbQdgg, ykxbXsqd, tdkl, dsdd
@@ -442,7 +412,10 @@ export default {
       },
       dfsSanke: [],
       dfsTeam: [],
-      dfsSource: []
+      dfsSource: [],
+      sankeDfs: [],
+      sankeDfss: true,
+      dfsTouristSource: []
     }
   },
   mounted() {
@@ -536,6 +509,29 @@ export default {
       }).catch(err => {
         console.log(err)
       })
+      // 大佛寺散客 记得加参数
+      sankeTypeDfs().then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          this.sankeDfs = data
+          this.sankeDfss = true
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 大佛寺游客客源地
+      dfsTouristSource(this.dataObj).then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          // console.log(data, '111111')
+          this.dfsTouristSource = data
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+    },
+    query() {
+      this.initRequest()
     }
   }
 }
@@ -738,6 +734,101 @@ export default {
             justify-content: space-between;
             align-items: center;
             padding: 1% 2%;
+            .name {
+              font-size: 20px;
+              color: #889db5;
+              width: 20%;
+              margin-left: 10%;
+            }
+            .line1 {
+              height: 14px;
+              width: 50%;
+              background: #f69704;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line2 {
+              height: 14px;
+              width: 46%;
+              background: #f79007;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line3 {
+              height: 14px;
+              width: 42%;
+              background: #f88909;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line4 {
+              height: 14px;
+              width: 38%;
+              background: #f8820c;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line5 {
+              height: 14px;
+              width: 34%;
+              background: #f97b0e;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line6 {
+              height: 14px;
+              width: 30%;
+              background: #fa7311;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line7 {
+              height: 14px;
+              width: 26%;
+              background: #fb6c13;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line8 {
+              height: 14px;
+              width: 22%;
+              background: #fb6516;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line9 {
+              height: 14px;
+              width: 18%;
+              background: #fc5e18;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line10 {
+              height: 14px;
+              width: 14%;
+              background: #fd571b;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .num {
+              font-size: 16px;
+              color: #bbd5ff;
+              flex: 1;
+            }
+          }
+        }
+        .content1 {
+          background: rgba(255, 255, 255, 0.05);
+          flex: 1;
+          .chart-wrapper {
+            height: 320px;
+            width: 100%;
+          }
+          .one-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3% 2%;
             .name {
               font-size: 20px;
               color: #889db5;
