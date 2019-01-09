@@ -54,34 +54,44 @@
           <!--内容-->
           <div class="content1">
             <!--每1项-->
-            <div class="one-box" v-if="dfsTouristSource && dfsTouristSource.length > 0">
+            <div class="one-box" v-if="dfsTouristSource[0]">
               <span class="name">{{ dfsTouristSource[0].subject }}</span>
               <p class="line1"/>
               <span class="num">{{ dfsTouristSource[0].value }}</span>
             </div>
+            <div class="one-box" v-else>
+            </div>
             <!--每2项-->
-            <div class="one-box" v-if="dfsTouristSource && dfsTouristSource.length > 0">
+            <div class="one-box" v-if="dfsTouristSource[1]">
               <span class="name">{{ dfsTouristSource[1].subject }}</span>
               <p class="line2"/>
               <span class="num">{{ dfsTouristSource[1].value }}</span>
             </div>
+            <div class="one-box" v-else>
+            </div>
             <!--每3项-->
-            <div class="one-box" v-if="dfsTouristSource && dfsTouristSource.length > 0" >
+            <div class="one-box" v-if="dfsTouristSource[2]">
               <span class="name">{{ dfsTouristSource[2].subject }}</span>
               <p class="line3"/>
               <span class="num">{{ dfsTouristSource[2].value }}</span>
             </div>
+            <div class="one-box" v-else>
+            </div>
             <!--每4项-->
-            <div class="one-box" v-if="dfsTouristSource && dfsTouristSource.length > 0">
+            <div class="one-box" v-if="dfsTouristSource[3]">
               <span class="name">{{ dfsTouristSource[3].subject }}</span>
               <p class="line4"/>
               <span class="num">{{ dfsTouristSource[3].value }}</span>
             </div>
+            <div class="one-box" v-else>
+            </div>
             <!--每5项-->
-            <div class="one-box" v-if="dfsTouristSource && dfsTouristSource.length > 0">
+            <div class="one-box" v-if="dfsTouristSource[4]">
               <span class="name">{{ dfsTouristSource[4].subject }}</span>
               <p class="line5"/>
               <span class="num">{{ dfsTouristSource[4].value }}</span>
+            </div>
+            <div class="one-box" v-else>
             </div>
           </div>
         </div>
