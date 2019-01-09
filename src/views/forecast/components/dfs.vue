@@ -466,9 +466,10 @@ export default {
       }
       start = _start.getFullYear() + '-' + s_y + '-' + s_r
       end = _end.getFullYear() + '-' + e_y + '-' + e_r
+      // console.log(start, '开始时间')
+      // console.log(end, '结束时间')
       this.dataObj.start = start
       this.dataObj.end = end
-      // console.log(this.dataObj, '333')
     },
     initRequest() {
       // 投诉
@@ -531,6 +532,8 @@ export default {
       })
     },
     query() {
+      this.defaultDate()
+      console.log(this.dataObj, '日期是多少')
       this.initRequest()
     }
   }
