@@ -1,14 +1,16 @@
 <template>
   <div class="warn">
     <div class="amap-page-container">
-      <el-amap-search-box class="search-box" :search-option="searchOption" :on-search-result="onSearchResult"></el-amap-search-box>
-      <el-amap vid="amapDemo" :plugin="plugin" :center='center' :zoom='zoom' class="amap-demo">
-        <!-- <el-amap-marker v-for="(marker, index) in markers" :key="index" :position="marker" ></el-amap-marker> -->
-        <el-amap-marker v-for="(marker, index) in componentsMarkers" 
-          :key="index"
-          :position="marker.position"
-          :vid="marker.vid"
-          :content-render="marker.contentRender">
+      <el-amap
+        vid="amapDemo3"  
+        :center="center"
+        :zoom="zoom"
+        class="amap-demo">
+        <el-amap-marker v-for="(marker, index) in markers" :key="index" :position="marker.position" :vid="index">
+          <div :style="slotStyle">
+            <b>Hello {{ count }} times</b>
+            <button @click="onClick">Add</button>
+          </div>
         </el-amap-marker>
       </el-amap>
     </div>
@@ -37,52 +39,18 @@
 export default {
   data() {
     let self = this;
-    const BtnComponent = {
-      props: ['text'],
-      template: `<button>{{text}}</button>`
-    };
     const center = [120.897454,29.506942];
-    const componentsMarkers = [1,2,3,4].map((item, index) => {
-      return {
-        position: [center[0] + index * 0.02, center[1] + index * 0.02],
-        vid: `${index}-vid`,
-        contentRender: h => h(BtnComponent, {
-          props: {
-            text: `component ${index}`
-          },
-          style: {
-            background: 'rgb(173, 47, 47)',
-            color: '#eee'
-          },
-          nativeOn: {
-            click: () => this.handler(`component-${index}`)
-          }
-        })
-      }
-    });
     return {
-      searchOption: {
-        city: '上海',
-        citylimit: true
-      },
-      // mapCenter: [121.59996, 31.197646],
-      plugin: [
-        {
-          pName: 'MapType',
-          defaultType: 0,
-          events: {
-            init(instance) {
-              console.log(instance);
-            }
-          }
-        }
-      ],
       zoom: 12,
       center,
       markers: [],
-      markerRefs: [],
-      source: 'click',
-      componentsMarkers
+      count: 0,
+      slotStyle: {
+        padding: '2px 8px',
+        background: '#eee',
+        color: '#333',
+        border: '1px solid #aaa'
+      }
     }
   },
   created() {
@@ -91,42 +59,18 @@ export default {
     let index = 0;
 
     let basePosition = [120.897454,29.506942];
-    let num = 10;
+    let num = 3;
 
     for (let i = 0 ; i < num ; i++) {
       markers.push({
-        position: [basePosition[0], basePosition[1] + i * 0.03],
-        contentRender: h => h('button', {
-          on: {click: () => this.handler(i)}}, [`source-${i}`])
+        position: [basePosition[0], basePosition[1] + i * 0.03]
       });
     }
     this.markers = markers;
   },
   methods: {
-    addMarker: function() {
-      let lng = 121.5 + Math.round(Math.random() * 1000) / 10000;
-      let lat = 31.197646 + Math.round(Math.random() * 500) / 10000;
-      this.markers.push([lng, lat]);
-    },
-    onSearchResult(pois) {
-      let latSum = 0;
-      let lngSum = 0;
-      if (pois.length > 0) {
-        pois.forEach(poi => {
-          let {lng, lat} = poi;
-          lngSum += lng;
-          latSum += lat;
-          this.markers.push([poi.lng, poi.lat]);
-        });
-        let center = {
-          lng: lngSum / pois.length,
-          lat: latSum / pois.length
-        };
-        this.mapCenter = [center.lng, center.lat];
-      }
-    },
-    handler(index) {
-      alert(`${ index } - trigger`);
+    onClick() {
+      this.count += 1;
     }
   }
 }
