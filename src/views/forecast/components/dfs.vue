@@ -105,8 +105,8 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <!-- <tdkl id="tdkl" height="100%" width="100%"/> -->
-              <skkl v-if="dfsScenicFlows" :chartData='dfsScenicFlow' id="skkl1" height="100%" width="100%"/>
+              <tdkl id="tdkl" height="100%" width="100%"/>
+              <!-- <skkl v-if="dfsScenicFlows" :chartData='dfsScenicFlow' id="skkl1" height="100%" width="100%"/> -->
             </div>
           </div>
         </div>
@@ -117,64 +117,64 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
-              <span class="name">{{ dfsTeam[0].subject }}</span>
+            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+              <span class="name">{{ vehicleSource[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">{{ dfsTeam[0].value }}</span>
+              <span class="num">{{ vehicleSource[0].value }}</span>
             </div>
             <!--每2项-->
-            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
-              <span class="name">{{ dfsTeam[1].subject }}</span>
+            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+              <span class="name">{{ vehicleSource[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">{{ dfsTeam[1].value }}</span>
+              <span class="num">{{ vehicleSource[1].value }}</span>
             </div>
             <!--每3项-->
-            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
-              <span class="name">{{ dfsTeam[2].subject }}</span>
+            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+              <span class="name">{{ vehicleSource[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">{{ dfsTeam[2].value }}</span>
+              <span class="num">{{ vehicleSource[2].value }}</span>
             </div>
             <!--每4项-->
-            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
-              <span class="name">{{ dfsTeam[3].subject }}</span>
+            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+              <span class="name">{{ vehicleSource[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">{{ dfsTeam[3].value }}</span>
+              <span class="num">{{ vehicleSource[3].value }}</span>
             </div>
             <!--每5项-->
-            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
-              <span class="name">{{ dfsTeam[4].subject }}</span>
+            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+              <span class="name">{{ vehicleSource[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">{{ dfsTeam[4].value }}</span>
+              <span class="num">{{ vehicleSource[4].value }}</span>
             </div>
             <!--每6项-->
-            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
-              <span class="name">{{ dfsTeam[5].subject }}</span>
+            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+              <span class="name">{{ vehicleSource[5].subject }}</span>
               <p class="line6"/>
-              <span class="num">{{ dfsTeam[5].value }}</span>
+              <span class="num">{{ vehicleSource[5].value }}</span>
             </div>
             <!--每7项-->
-            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
-              <span class="name">{{ dfsTeam[6].subject }}</span>
+            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+              <span class="name">{{ vehicleSource[6].subject }}</span>
               <p class="line7"/>
-              <span class="num">{{ dfsTeam[6].value }}</span>
+              <span class="num">{{ vehicleSource[6].value }}</span>
             </div>
             <!--每8项-->
-            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
-              <span class="name">{{ dfsTeam[7].subject }}</span>
+            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+              <span class="name">{{ vehicleSource[7].subject }}</span>
               <p class="line8"/>
-              <span class="num">{{ dfsTeam[7].value }}</span>
+              <span class="num">{{ vehicleSource[7].value }}</span>
             </div>
             <!--每9项-->
-            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
-              <span class="name">{{ dfsTeam[8].subject }}</span>
+            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+              <span class="name">{{ vehicleSource[8].subject }}</span>
               <p class="line9"/>
-              <span class="num">{{ dfsTeam[8].value }}</span>
+              <span class="num">{{ vehicleSource[8].value }}</span>
             </div>
             <!--每10项-->
-            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
-              <span class="name">{{ dfsTeam[9].subject }}</span>
+            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+              <span class="name">{{ vehicleSource[9].subject }}</span>
               <p class="line10"/>
-              <span class="num">{{ dfsTeam[9].value }}</span>
+              <span class="num">{{ vehicleSource[9].value }}</span>
             </div>
           </div>
         </div>
@@ -226,8 +226,8 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <!-- <dsdd id="dsdd" height="100%" width="100%"/> -->
-              <skkl v-if="dfsScenicFlows" :chartData='dfsScenicFlow' id="skkl2" height="100%" width="100%"/>
+              <dsdd id="dsdd" height="100%" width="100%"/>
+              <!-- <skkl v-if="dfsScenicFlows" :chartData='dfsScenicFlow' id="skkl2" height="100%" width="100%"/> -->
             </div>
           </div>
         </div>
@@ -363,7 +363,17 @@ import xfzhe from '@/components/Charts/holiday-xf-zhe'
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
 import PieChartFull from '@/views/dashboard/admin/components/dfs'
 import { mapGetters } from 'vuex'
-import { wechatDf, dfsSanke, dfsTeam, dfsSource, sankeTypeDfs, dfsTouristSource, dfsScenicFlow } from '@/api/home'
+import {
+  wechatDf,
+  dfsSanke,
+  dfsTeam,
+  dfsSource,
+  sankeTypeDfs,
+  dfsTouristSource,
+  dfsScenicFlow,
+  groupIndividualRate,
+  vehicleSource
+} from '@/api/home'
 export default {
   components: {
     skkl, nlfb, xfzhe, YiZhou, PieChartFull, nlfbDdly, nlfbQdgg, ykxbXsqd, tdkl, dsdd
@@ -429,7 +439,8 @@ export default {
       sankeDfss: false,
       dfsTouristSource: [],
       dfsScenicFlow: [],
-      dfsScenicFlows: false
+      dfsScenicFlows: false,
+      vehicleSource: []
     }
   },
   mounted() {
@@ -552,6 +563,24 @@ export default {
           // this.dfsScenicFlow = []
           this.dfsScenicFlow = data
           this.dfsScenicFlows = true
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 大佛寺散客团队分析
+      groupIndividualRate(this.dataObj).then(res => {
+        const data = res.data.data
+        if(res.status === 200) {
+          console.log(data, '111234')
+        }
+      }).catch(err => {
+        console.log(res)
+      })
+      // 大佛寺车辆来源地排行
+      vehicleSource(this.dataObj).then(res => {
+        const data = res.data.data
+        if(res.status === 200) {
+          this.vehicleSource = data
         }
       }).catch(err => {
         console.log(err)

@@ -232,3 +232,19 @@ export function dfsScenicFlow(params) {
     params
   })
 }
+// 大佛寺团队散客游
+export function groupIndividualRate(params) {
+  return request({
+    url: 'dafosi/groupIndividualRate',
+    method: 'get',
+    params
+  })
+}
+//大佛寺车辆来源地排行
+export function vehicleSource(params) {
+  return request({
+    url: 'dafosi/vehicleSource',
+    method: 'get',
+    params
+  })
+}
