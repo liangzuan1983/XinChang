@@ -242,10 +242,12 @@ export function groupIndividualRate(params) {
   })
 }
 //大佛寺车辆来源地排行
-export function vehicleSource(params) {
+export function vehicleSourceDfs(params) {
   return request({
     url: 'dafosi/vehicleSource',
     method: 'get',
     params
   })
 }
+//大佛寺售票量
+// export function 

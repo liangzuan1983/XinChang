@@ -42,7 +42,7 @@
           <div class="content">
             <div class="chart-wrapper">
               <div class="chart-wrapper">
-                <pie-chart-full v-if="sankeDfss" id="sankeDfs" :chartData='sankeDfs' height="100%" width="100%"/>
+                <pie-chart-full id="sankeDfs" :chartData='sankeDfs' height="100%" width="100%"/>
               </div>
             </div>
           </div>
@@ -351,17 +351,17 @@
 </template>
 
 <script>
-import skkl from '@/components/Charts/holiday-kl-skkl'
-import tdkl from '@/components/Charts/holiday-kl-tdkl'
-import dsdd from '@/components/Charts/holiday-kl-dsdd'
-import ykxbXsqd from '@/components/Charts/holiday-xsqd'
-import nlfb from '@/components/Charts/holiday-nlfb'
-import nlfbQdgg from '@/components/Charts/holiday-qdgg'
-import nlfbDdly from '@/components/Charts/dfs-ddly'
-import xfzhe from '@/components/Charts/holiday-xf-zhe'
-import YiZhou from '@/views/dashboard/admin/components/YiZhou'
-import PieChartFull from '@/views/dashboard/admin/components/dfs'
-import { mapGetters } from 'vuex'
+import skkl from "@/components/Charts/holiday-kl-skkl";
+import tdkl from "@/components/Charts/holiday-kl-tdkl";
+import dsdd from "@/components/Charts/holiday-kl-dsdd";
+import ykxbXsqd from "@/components/Charts/holiday-xsqd";
+import nlfb from "@/components/Charts/holiday-nlfb";
+import nlfbQdgg from "@/components/Charts/holiday-qdgg";
+import nlfbDdly from "@/components/Charts/dfs-ddly";
+import xfzhe from "@/components/Charts/holiday-xf-zhe";
+import YiZhou from "@/views/dashboard/admin/components/YiZhou";
+import PieChartFull from "@/views/dashboard/admin/components/dfs";
+import { mapGetters } from "vuex";
 import {
   wechatDf,
   dfsSanke,
@@ -371,53 +371,70 @@ import {
   dfsTouristSource,
   dfsScenicFlow,
   groupIndividualRate,
-  vehicleSource
-} from '@/api/home'
+  vehicleSourceDfs
+} from "@/api/home";
 export default {
   components: {
-    skkl, nlfb, xfzhe, YiZhou, PieChartFull, nlfbDdly, nlfbQdgg, ykxbXsqd, tdkl, dsdd
+    skkl,
+    nlfb,
+    xfzhe,
+    YiZhou,
+    PieChartFull,
+    nlfbDdly,
+    nlfbQdgg,
+    ykxbXsqd,
+    tdkl,
+    dsdd
   },
   data() {
     return {
       years: [
         {
-          value: '选项1',
-          label: '2014'
-        }, {
-          value: '选项2',
-          label: '2015'
-        }, {
-          value: '选项3',
-          label: '2016'
-        }, {
-          value: '选项4',
-          label: '2017'
-        }, {
-          value: '选项5',
-          label: '2018'
+          value: "选项1",
+          label: "2014"
+        },
+        {
+          value: "选项2",
+          label: "2015"
+        },
+        {
+          value: "选项3",
+          label: "2016"
+        },
+        {
+          value: "选项4",
+          label: "2017"
+        },
+        {
+          value: "选项5",
+          label: "2018"
         }
       ],
-      yearsDefault: '2018',
+      yearsDefault: "2018",
       holiday: [
         {
-          value: '选项1',
-          label: '新年'
-        }, {
-          value: '选项2',
-          label: '圣诞节'
-        }, {
-          value: '选项3',
-          label: '元旦'
-        }, {
-          value: '选项4',
-          label: '端午节'
-        }, {
-          value: '选项5',
-          label: '国庆节'
+          value: "选项1",
+          label: "新年"
+        },
+        {
+          value: "选项2",
+          label: "圣诞节"
+        },
+        {
+          value: "选项3",
+          label: "元旦"
+        },
+        {
+          value: "选项4",
+          label: "端午节"
+        },
+        {
+          value: "选项5",
+          label: "国庆节"
         }
       ],
-      holidayDefault: '国庆节',
-      ids: ['bing1', 'bing2', 'bing3', 'bing4', 'bing5', 'bing6'],
+      holidayDefault: "国庆节",
+      ids: ["bing1", "bing2", "bing3", "bing4", "bing5", "bing6"],
       bingIf1: true,
       bingIf2: true,
       bingIf3: true,
@@ -428,175 +445,193 @@ export default {
       value4: [new Date() - 3600 * 1000 * 24 * 7, new Date()],
       kydxqs: false,
       dataObj: {
-        start: '',
-        end: ''
+        start: "",
+        end: ""
       },
       dfsSanke: [],
       dfsTeam: [],
       dfsSource: [],
       sankeDfs: [],
-      sankeDfss: false,
+      // sankeDfss: false,
       dfsTouristSource: [],
       dfsScenicFlow: [],
       dfsScenicFlows: false,
       vehicleSource: [],
       groupIndividualRate: [],
       groupIndividualRates: false
-    }
+    };
   },
   mounted() {
-    this.$store.dispatch('getCity')
-    this.defaultDate()
-    this.initRequest()
+    this.$store.dispatch("getCity");
+    this.defaultDate();
+    this.initRequest();
   },
   computed: {
-    ...mapGetters([
-      'getcity10'
-    ])
+    ...mapGetters(["getcity10"]),
+    // sankeDfss() {
+    //   return this.sankeDfs && this.sankeDfs.length > 0;
+    // }
   },
   methods: {
     defaultDate() {
-      let start
-      let end
-      let _start = new Date(this.value4[0])
-      let _end = this.value4[1]
+      let start;
+      let end;
+      let _start = new Date(this.value4[0]);
+      let _end = this.value4[1];
       // console.log(_start, '111')
       // console.log(_end, '222')
-      let s_y = _start.getMonth() + 1
-      let s_r = _start.getDate()
-      let e_y = _end.getMonth() + 1
-      let e_r = _end.getDate()
+      let s_y = _start.getMonth() + 1;
+      let s_r = _start.getDate();
+      let e_y = _end.getMonth() + 1;
+      let e_r = _end.getDate();
       // 开始月
       if (s_y > 0 && s_y < 10) {
-        s_y = '0' + s_y
+        s_y = "0" + s_y;
       } else {
-        s_y = s_y
+        s_y = s_y;
       }
       // 开始日
       if (s_r > 0 && s_r < 10) {
-        s_r = '0' + s_r
+        s_r = "0" + s_r;
       } else {
-        s_r = s_r
+        s_r = s_r;
       }
       // 结束月
       if (e_y > 0 && e_y < 10) {
-        e_y = '0' + e_y
+        e_y = "0" + e_y;
       } else {
-        e_y = e_y
+        e_y = e_y;
       }
       // 结束日
       if (e_r > 0 && e_r < 10) {
-        e_r = '0' + e_r
+        e_r = "0" + e_r;
       } else {
-        e_r = e_r
+        e_r = e_r;
       }
-      start = _start.getFullYear() + '-' + s_y + '-' + s_r
-      end = _end.getFullYear() + '-' + e_y + '-' + e_r
+      start = _start.getFullYear() + "-" + s_y + "-" + s_r;
+      end = _end.getFullYear() + "-" + e_y + "-" + e_r;
       // console.log(start, '开始时间')
       // console.log(end, '结束时间')
-      this.dataObj.start = start
-      this.dataObj.end = end
+      this.dataObj.start = start;
+      this.dataObj.end = end;
     },
     initRequest() {
       // 投诉
-      wechatDf(this.dataObj).then(res => {
-        // console.log(res)
-        const data = res.data.data
-        if (res.status === 200) {
-          this.kydxq = data
-          this.kydxqs = true
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      wechatDf(this.dataObj)
+        .then(res => {
+          // console.log(res)
+          const data = res.data.data;
+          if (res.status === 200) {
+            this.kydxq = data;
+            this.kydxqs = true;
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
       // 大佛寺散客
-      dfsSanke().then(res => {
-        const data = res.data.data
-        if(res.status === 200) {
-          this.dfsSanke = data
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      dfsSanke()
+        .then(res => {
+          const data = res.data.data;
+          if (res.status === 200) {
+            this.dfsSanke = data;
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
       //大佛寺团队
-      dfsTeam().then(res => {
-        const data = res.data.data
-        if (res.status === 200) {
-          this.dfsTeam = data
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      dfsTeam()
+        .then(res => {
+          const data = res.data.data;
+          if (res.status === 200) {
+            this.dfsTeam = data;
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
       //大佛寺来源地
-      dfsSource().then(res => {
-        const data = res.data.data
-        if(res.status === 200) {
-          this.dfsSource = data
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      dfsSource()
+        .then(res => {
+          const data = res.data.data;
+          if (res.status === 200) {
+            this.dfsSource = data;
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
       // 大佛寺散客票型分析
-      sankeTypeDfs(this.dataObj).then(res => {
-        const data = res.data.data
-        if (res.status === 200) {
-          console.log(data, '1313')
-          this.sankeDfs = data
-          this.sankeDfss = true
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      sankeTypeDfs(this.dataObj)
+        .then(res => {
+          const data = res.data.data;
+          if (res.status === 200) {
+            console.log(data, "1313");
+            this.sankeDfs = data;
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
       // 大佛寺游客客源地
-      dfsTouristSource(this.dataObj).then(res => {
-        const data = res.data.data
-        if (res.status === 200) {
-          // console.log(data, '111111')
-          this.dfsTouristSource = data
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      dfsTouristSource(this.dataObj)
+        .then(res => {
+          const data = res.data.data;
+          if (res.status === 200) {
+            // console.log(data, '111111')
+            this.dfsTouristSource = data;
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
       // 大佛寺景区客流
-      dfsScenicFlow(this.dataObj).then(res => {
-        const data = res.data.data
-        if (res.status === 200) {
-          // console.log(data, '1111112')
-          // this.dfsScenicFlow = []
-          this.dfsScenicFlow = data
-          this.dfsScenicFlows = true
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      dfsScenicFlow(this.dataObj)
+        .then(res => {
+          const data = res.data.data;
+          if (res.status === 200) {
+            // console.log(data, '1111112')
+            // this.dfsScenicFlow = []
+            this.dfsScenicFlow = data;
+            this.dfsScenicFlows = true;
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
       // 大佛寺散客团队分析
-      groupIndividualRate(this.dataObj).then(res => {
-        const data = res.data.data
-        if(res.status === 200) {
-          // console.log(data)
-          this.groupIndividualRate = data
-          this.groupIndividualRates = true
-        }
-      }).catch(err => {
-        console.log(res)
-      })
+      groupIndividualRate(this.dataObj)
+        .then(res => {
+          const data = res.data.data;
+          if (res.status === 200) {
+            // console.log(data)
+            this.groupIndividualRate = data;
+            this.groupIndividualRates = true;
+          }
+        })
+        .catch(err => {
+          console.log(res);
+        });
       // 大佛寺车辆来源地排行
-      vehicleSource(this.dataObj).then(res => {
-        const data = res.data.data
-        if(res.status === 200) {
-          this.vehicleSource = data
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      vehicleSourceDfs(this.dataObj)
+        .then(res => {
+          const data = res.data.data;
+          if (res.status === 200) {
+            this.vehicleSource = data;
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
     query() {
-      this.defaultDate()
+      this.defaultDate();
       // console.log(this.dataObj, '日期是多少')
-      this.initRequest()
+      this.initRequest();
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -611,8 +646,8 @@ export default {
   // flex-direction: column;
   overflow-y: overlay;
   .el-date-editor .el-range-separator {
-    padding: 0!important;
-    color: #000!important;
+    padding: 0 !important;
+    color: #000 !important;
   }
   .cx {
     // background: rgba(255, 255, 255, 0.05);

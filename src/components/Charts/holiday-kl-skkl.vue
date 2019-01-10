@@ -40,7 +40,6 @@ export default {
   },
   watch: {
     chartData: {
-      deep: true,
       handler(val) {
         this.setOptions(val);
       }
