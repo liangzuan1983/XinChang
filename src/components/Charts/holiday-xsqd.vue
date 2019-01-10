@@ -21,26 +21,34 @@ export default {
       type: String,
       default: '100%'
     },
-    fatherData: {
+    chartData: {
       type: Array,
       default: () => {
         return []
       }
     }
   },
+  watch: {
+    chartData(val) {
+      if(val && val.length > 0) {
+        this.initChart()
+      }
+    }
+  },
   data() {
     return {
-      chart: null
+      chart: null,
+      newArray: []
     }
   },
   mounted() {
-    this.initChart()
-    this.__resizeHandler = debounce(() => {
-      if (this.chart) {
-        this.chart.resize()
-      }
-    }, 100)
-    window.addEventListener('resize', this.__resizeHandler)
+    // this.initChart()
+    // this.__resizeHandler = debounce(() => {
+    //   if (this.chart) {
+    //     this.chart.resize()
+    //   }
+    // }, 100)
+    // window.addEventListener('resize', this.__resizeHandler)
   },
   beforeDestroy() {
     if (!this.chart) {
@@ -53,27 +61,34 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
-
+      console.log(this.chartData, '2222')
+      const data = this.chartData
+      this.newArray = data.map(element => {
+        return {
+          name: element.subject,
+          value: element.value
+        }
+      })
       this.chart.setOption({
         visualMap: {
           show: false,
-          min: 100,
-          max: 450,
+          min: 1,
+          max: 1500,
           inRange: {
             colorLightness: [0, 1]
           }
         },
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
         series: [
           {
-            name: '访问来源',
+            name: '销售渠道',
             type: 'pie',
             radius: '70%',
             center: ['50%', '50%'],
-            data: [
-              { value: 335, name: '线上' },
-              { value: 310, name: '线下零售' },
-              { value: 274, name: '旅行社团购' }
-            ].sort(function(a, b) { return a.value - b.value }),
+            data: this.newArray,
             roseType: 'radius',
             label: {
               normal: {

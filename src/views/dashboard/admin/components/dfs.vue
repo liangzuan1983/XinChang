@@ -74,7 +74,7 @@ export default {
       this.dataArray = data.map(element => {
         return { name: element.subject, value: element.value }
       })
-      console.log(this.dataArray, "组件内");
+      // console.log(this.dataArray, "组件内");
       this.chart.setOption({
         visualMap: {
           show: false,

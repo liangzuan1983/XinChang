@@ -330,7 +330,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <ykxb-xsqd height="100%" width="100%"/>
+              <ykxb-xsqd :chartData='saleChannelDfs' height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -371,7 +371,8 @@ import {
   dfsTouristSource,
   dfsScenicFlow,
   groupIndividualRate,
-  vehicleSourceDfs
+  vehicleSourceDfs,
+  saleChannelDfs
 } from "@/api/home";
 export default {
   components: {
@@ -458,7 +459,8 @@ export default {
       dfsScenicFlows: false,
       vehicleSource: [],
       groupIndividualRate: [],
-      groupIndividualRates: false
+      groupIndividualRates: false,
+      saleChannelDfs: []
     };
   },
   mounted() {
@@ -467,10 +469,7 @@ export default {
     this.initRequest();
   },
   computed: {
-    ...mapGetters(["getcity10"]),
-    // sankeDfss() {
-    //   return this.sankeDfs && this.sankeDfs.length > 0;
-    // }
+    ...mapGetters(["getcity10"])
   },
   methods: {
     defaultDate() {
@@ -567,8 +566,8 @@ export default {
         .then(res => {
           const data = res.data.data;
           if (res.status === 200) {
-            console.log(data, "1313");
             this.sankeDfs = data;
+            // this.sankeDfss = true
           }
         })
         .catch(err => {
@@ -624,6 +623,16 @@ export default {
         .catch(err => {
           console.log(err);
         });
+      // 大佛寺销售渠道
+      saleChannelDfs(this.dataObj).then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          console.log(data, '11111111111')
+          this.saleChannelDfs = data
+        }
+      }).catch(err => {
+
+      })
     },
     query() {
       this.defaultDate();

@@ -249,5 +249,13 @@ export function vehicleSourceDfs(params) {
     params
   })
 }
+// 大佛寺销售渠道
+export function saleChannelDfs(params) {
+  return request({
+    url: 'dafosi/saleChannel',
+    method: 'get',
+    params
+  })
+}
 //大佛寺售票量
 // export function 
