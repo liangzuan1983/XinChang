@@ -11,7 +11,7 @@ export default {
   props: {
     className: {
       type: String,
-      default: 'holidayzhu'
+      default: 'nlfb'
     },
     width: {
       type: String,
@@ -26,8 +26,8 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   data() {
@@ -80,68 +80,53 @@ export default {
     },
     setOptions({ expectedData, actualData } = {}) {
       this.chart.setOption({
-        legend: {
-          data: ['客流量', '同比客流量'],
-          textStyle: {
-            color: '#59697d'
-          }
-        },
         tooltip: {
-          trigger: 'axis'
+          trigger: 'item',
+          formatter: '{a} <br/>{b}: {c} ({d}%)'
         },
-        calculable: true,
-        xAxis: [
-          {
-            type: 'category',
-            data: ['2018-10-02', '2018-10-02', '2018-10-03', '2018-10-04', '2018-10-05', '2018-10-06', '2018-10-07'],
-            // data: [],
-            axisLabel: {
-              textStyle: {
-                color: '#889db5'
-              }
-            }
+        color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客年龄分布
+        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客消费能力占比
+        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客线上偏好
+        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客过夜占比
+        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 行业消费占比
+        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客消费占比
+        legend: {
+          orient: 'vertical',
+          x: 'left',
+          data: ['散客', '团队'],
+          textStyle: {
+            color: '#889db5'
           }
-        ],
-        grid: {
-          top: '18%',
-          left: '3%',
-          right: '5%',
-          bottom: '5%',
-          containLabel: true
         },
-        yAxis: [
-          {
-            type: 'value',
-            axisLabel: {
-              textStyle: {
-                color: '#889db5'
-              }
-            }
-          }
-        ],
         series: [
           {
-            name: '客流量',
-            type: 'bar',
-            data: [2.0, 4.9, 7.0, 23.2, 32.6, 20.0, 6.4],
-            markPoint: {
-              data: [
-                { type: 'max', name: '最大值' },
-                { type: 'min', name: '最小值' }
-              ]
-            }
-          },
-          // {
-          //   name: '同比客流量',
-          //   type: 'bar',
-          //   data: [2.6, 5.9, 9.0, 26.4, 48.7, 18.8, 6.0],
-          //   markPoint: {
-          //     data: [
-          //       { name: '年最高', value: 182.2, xAxis: 7, yAxis: 183 },
-          //       { name: '年最低', value: 2.3, xAxis: 11, yAxis: 3 }
-          //     ]
-          //   }
-          // }
+            name: '访问来源',
+            type: 'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+              normal: {
+                show: false,
+                position: 'center'
+              },
+              emphasis: {
+                show: true,
+                textStyle: {
+                  fontSize: '30',
+                  fontWeight: 'bold'
+                }
+              }
+            },
+            labelLine: {
+              normal: {
+                show: false
+              }
+            },
+            data: [
+              { value: this.chartData[0].value, name: '散客' },
+              { value: this.chartData[1].value, name: '团队' },
+            ]
+          }
         ]
       })
     },

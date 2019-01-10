@@ -105,8 +105,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <tdkl id="tdkl" height="100%" width="100%"/>
-              <!-- <skkl v-if="dfsScenicFlows" :chartData='dfsScenicFlow' id="skkl1" height="100%" width="100%"/> -->
+              <tdkl v-if="groupIndividualRates" :chartData='groupIndividualRate' id="tdkl" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -440,7 +439,9 @@ export default {
       dfsTouristSource: [],
       dfsScenicFlow: [],
       dfsScenicFlows: false,
-      vehicleSource: []
+      vehicleSource: [],
+      groupIndividualRate: [],
+      groupIndividualRates: false
     }
   },
   mounted() {
@@ -571,7 +572,9 @@ export default {
       groupIndividualRate(this.dataObj).then(res => {
         const data = res.data.data
         if(res.status === 200) {
-          console.log(data, '111234')
+          console.log(data)
+          this.groupIndividualRate = data
+          this.groupIndividualRates = true
         }
       }).catch(err => {
         console.log(res)
