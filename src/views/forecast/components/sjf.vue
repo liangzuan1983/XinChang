@@ -1,5 +1,5 @@
 <template>
-  <div class="sjf">
+  <div class="dfs">
     <!--假日数据查询-->
     <div class="cx">
       <!--top-->
@@ -14,7 +14,7 @@
             start-placeholder="开始日期"
             end-placeholder="结束日期"/>
           <!--查询-->
-          <el-button size="mini" type="primary">查询</el-button>
+          <el-button size="mini" type="primary" @click="query">查询</el-button>
           <!--查询-->
           <img class="search" src="@/assets/icon/search.png" alt="">
           <!--下载-->
@@ -26,23 +26,23 @@
         <!--年龄分布-->
         <div class="nlfb-box">
           <!--title-->
-          <p class="title">散客客流</p>
+          <p class="title">景区客流</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <skkl id="skkl" height="100%" width="100%"/>
+              <skkl v-if="dfsScenicFlows" :chartData='dfsScenicFlow' id="skkl" height="100%" width="100%"/>
             </div>
           </div>
         </div>
         <!--游客消费能力占比-->
         <div class="xfnl-box">
           <!--title-->
-          <p class="title">散客类型分析</p>
+          <p class="title">散客票型分析</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
               <div class="chart-wrapper">
-                <pie-chart-full height="100%" width="100%"/>
+                <pie-chart-full v-if="sankeDfss" id="sankeDfs" :chartData='sankeDfs' height="100%" width="100%"/>
               </div>
             </div>
           </div>
@@ -52,66 +52,46 @@
           <!--title-->
           <p class="title">游客客源地排行</p>
           <!--内容-->
-          <div class="content">
+          <div class="content1">
             <!--每1项-->
-            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
-              <span class="name">{{ sjfSanke[0].subject }}</span>
+            <div class="one-box" v-if="dfsTouristSource[0]">
+              <span class="name">{{ dfsTouristSource[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">{{ sjfSanke[0].value }}</span>
+              <span class="num">{{ dfsTouristSource[0].value }}</span>
+            </div>
+            <div class="one-box" v-else>
             </div>
             <!--每2项-->
-            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
-              <span class="name">{{ sjfSanke[1].subject }}</span>
+            <div class="one-box" v-if="dfsTouristSource[1]">
+              <span class="name">{{ dfsTouristSource[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">{{ sjfSanke[1].value }}</span>
+              <span class="num">{{ dfsTouristSource[1].value }}</span>
+            </div>
+            <div class="one-box" v-else>
             </div>
             <!--每3项-->
-            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
-              <span class="name">{{ sjfSanke[2].subject }}</span>
+            <div class="one-box" v-if="dfsTouristSource[2]">
+              <span class="name">{{ dfsTouristSource[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">{{ sjfSanke[2].value }}</span>
+              <span class="num">{{ dfsTouristSource[2].value }}</span>
+            </div>
+            <div class="one-box" v-else>
             </div>
             <!--每4项-->
-            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
-              <span class="name">{{ sjfSanke[3].subject }}</span>
+            <div class="one-box" v-if="dfsTouristSource[3]">
+              <span class="name">{{ dfsTouristSource[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">{{ sjfSanke[3].value }}</span>
+              <span class="num">{{ dfsTouristSource[3].value }}</span>
+            </div>
+            <div class="one-box" v-else>
             </div>
             <!--每5项-->
-            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
-              <span class="name">{{ sjfSanke[4].subject }}</span>
+            <div class="one-box" v-if="dfsTouristSource[4]">
+              <span class="name">{{ dfsTouristSource[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">{{ sjfSanke[4].value }}</span>
+              <span class="num">{{ dfsTouristSource[4].value }}</span>
             </div>
-            <!--每6项-->
-            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
-              <span class="name">{{ sjfSanke[5].subject }}</span>
-              <p class="line6"/>
-              <span class="num">{{ sjfSanke[5].value }}</span>
-            </div>
-            <!--每7项-->
-            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
-              <span class="name">{{ sjfSanke[6].subject }}</span>
-              <p class="line7"/>
-              <span class="num">{{ sjfSanke[6].value }}</span>
-            </div>
-            <!--每8项-->
-            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
-              <span class="name">{{ sjfSanke[7].subject }}</span>
-              <p class="line8"/>
-              <span class="num">{{ sjfSanke[7].value }}</span>
-            </div>
-            <!--每9项-->
-            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
-              <span class="name">{{ sjfSanke[8].subject }}</span>
-              <p class="line9"/>
-              <span class="num">{{ sjfSanke[8].value }}</span>
-            </div>
-            <!--每10项-->
-            <div class="one-box" v-if="sjfSanke && sjfSanke.length > 0">
-              <span class="name">{{ sjfSanke[9].subject }}</span>
-              <p class="line10"/>
-              <span class="num">{{ sjfSanke[9].value }}</span>
+            <div class="one-box" v-else>
             </div>
           </div>
         </div>
@@ -121,7 +101,7 @@
         <!--年龄分布-->
         <div class="nlfb-box">
           <!--title-->
-          <p class="title">团队客流</p>
+          <p class="title">散客团队对比分析</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
@@ -136,64 +116,64 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
-              <span class="name">{{ sjfTeam[0].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">{{ sjfTeam[0].value }}</span>
+              <span class="num">{{ dfsTeam[0].value }}</span>
             </div>
             <!--每2项-->
-            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
-              <span class="name">{{ sjfTeam[1].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">{{ sjfTeam[1].value }}</span>
+              <span class="num">{{ dfsTeam[1].value }}</span>
             </div>
             <!--每3项-->
-            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
-              <span class="name">{{ sjfTeam[2].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">{{ sjfTeam[2].value }}</span>
+              <span class="num">{{ dfsTeam[2].value }}</span>
             </div>
             <!--每4项-->
-            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
-              <span class="name">{{ sjfTeam[3].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">{{ sjfTeam[3].value }}</span>
+              <span class="num">{{ dfsTeam[3].value }}</span>
             </div>
             <!--每5项-->
-            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
-              <span class="name">{{ sjfTeam[4].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">{{ sjfTeam[4].value }}</span>
+              <span class="num">{{ dfsTeam[4].value }}</span>
             </div>
             <!--每6项-->
-            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
-              <span class="name">{{ sjfTeam[5].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[5].subject }}</span>
               <p class="line6"/>
-              <span class="num">{{ sjfTeam[5].value }}</span>
+              <span class="num">{{ dfsTeam[5].value }}</span>
             </div>
             <!--每7项-->
-            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
-              <span class="name">{{ sjfTeam[6].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[6].subject }}</span>
               <p class="line7"/>
-              <span class="num">{{ sjfTeam[6].value }}</span>
+              <span class="num">{{ dfsTeam[6].value }}</span>
             </div>
             <!--每8项-->
-            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
-              <span class="name">{{ sjfTeam[7].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[7].subject }}</span>
               <p class="line8"/>
-              <span class="num">{{ sjfTeam[7].value }}</span>
+              <span class="num">{{ dfsTeam[7].value }}</span>
             </div>
             <!--每9项-->
-            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
-              <span class="name">{{ sjfTeam[8].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[8].subject }}</span>
               <p class="line9"/>
-              <span class="num">{{ sjfTeam[8].value }}</span>
+              <span class="num">{{ dfsTeam[8].value }}</span>
             </div>
             <!--每10项-->
-            <div class="one-box" v-if="sjfTeam && sjfTeam.length > 0">
-              <span class="name">{{ sjfTeam[9].subject }}</span>
+            <div class="one-box" v-if="dfsTeam && dfsTeam.length > 0">
+              <span class="name">{{ dfsTeam[9].subject }}</span>
               <p class="line10"/>
-              <span class="num">{{ sjfTeam[9].value }}</span>
+              <span class="num">{{ dfsTeam[9].value }}</span>
             </div>
           </div>
         </div>
@@ -241,7 +221,7 @@
         <!--年龄分布-->
         <div class="nlfb-box">
           <!--title-->
-          <p class="title">电商订单</p>
+          <p class="title">售票量</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
@@ -267,64 +247,64 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
-              <span class="name">{{ sjfSource[0].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">{{ sjfSource[0].value }}</span>
+              <span class="num">{{ dfsSource[0].value }}</span>
             </div>
             <!--每2项-->
-            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
-              <span class="name">{{ sjfSource[1].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">{{ sjfSource[1].value }}</span>
+              <span class="num">{{ dfsSource[1].value }}</span>
             </div>
             <!--每3项-->
-            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
-              <span class="name">{{ sjfSource[2].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">{{ sjfSource[2].value }}</span>
+              <span class="num">{{ dfsSource[2].value }}</span>
             </div>
             <!--每4项-->
-            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
-              <span class="name">{{ sjfSource[3].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">{{ sjfSource[3].value }}</span>
+              <span class="num">{{ dfsSource[3].value }}</span>
             </div>
             <!--每5项-->
-            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
-              <span class="name">{{ sjfSource[4].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">{{ sjfSource[4].value }}</span>
+              <span class="num">{{ dfsSource[4].value }}</span>
             </div>
             <!--每6项-->
-            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
-              <span class="name">{{ sjfSource[5].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[5].subject }}</span>
               <p class="line6"/>
-              <span class="num">{{ sjfSource[5].value }}</span>
+              <span class="num">{{ dfsSource[5].value }}</span>
             </div>
             <!--每7项-->
-            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
-              <span class="name">{{ sjfSource[6].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[6].subject }}</span>
               <p class="line7"/>
-              <span class="num">{{ sjfSource[6].value }}</span>
+              <span class="num">{{ dfsSource[6].value }}</span>
             </div>
             <!--每8项-->
-            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
-              <span class="name">{{ sjfSource[7].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[7].subject }}</span>
               <p class="line8"/>
-              <span class="num">{{ sjfSource[7].value }}</span>
+              <span class="num">{{ dfsSource[7].value }}</span>
             </div>
             <!--每9项-->
-            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
-              <span class="name">{{ sjfSource[8].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[8].subject }}</span>
               <p class="line9"/>
-              <span class="num">{{ sjfSource[8].value }}</span>
+              <span class="num">{{ dfsSource[8].value }}</span>
             </div>
             <!--每10项-->
-            <div class="one-box" v-if="sjfSource && sjfSource.length > 0">
-              <span class="name">{{ sjfSource[9].subject }}</span>
+            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
+              <span class="name">{{ dfsSource[9].subject }}</span>
               <p class="line10"/>
-              <span class="num">{{ sjfSource[9].value }}</span>
+              <span class="num">{{ dfsSource[9].value }}</span>
             </div>
           </div>
         </div>
@@ -381,7 +361,7 @@ import xfzhe from '@/components/Charts/holiday-xf-zhe'
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
 import PieChartFull from '@/views/dashboard/admin/components/dfs'
 import { mapGetters } from 'vuex'
-import { wechatSj, sjfSanke, sjfTeam, sjfSource } from '@/api/home'
+import { wechatDf, dfsSanke, dfsTeam, dfsSource, sankeTypeDfs, dfsTouristSource, dfsScenicFlow } from '@/api/home'
 export default {
   components: {
     skkl, nlfb, xfzhe, YiZhou, PieChartFull, nlfbDdly, nlfbQdgg, ykxbXsqd, tdkl, dsdd
@@ -434,15 +414,20 @@ export default {
       bingIf5: true,
       bingIf6: true,
       xfzhe: true,
-      value4: [new Date() - 3600 * 1000 * 24 * 7, new Date()],
+      value4: [new Date() - 3600 * 1000 * 24 * 14, new Date()],
       kydxqs: false,
       dataObj: {
         start: '',
         end: ''
       },
-      sjfSanke: [],
-      sjfTeam: [],
-      sjfSource: []
+      dfsSanke: [],
+      dfsTeam: [],
+      dfsSource: [],
+      sankeDfs: [],
+      sankeDfss: false,
+      dfsTouristSource: [],
+      dfsScenicFlow: [],
+      dfsScenicFlows: false
     }
   },
   mounted() {
@@ -493,13 +478,14 @@ export default {
       }
       start = _start.getFullYear() + '-' + s_y + '-' + s_r
       end = _end.getFullYear() + '-' + e_y + '-' + e_r
+      // console.log(start, '开始时间')
+      // console.log(end, '结束时间')
       this.dataObj.start = start
       this.dataObj.end = end
-      // console.log(this.dataObj, '333')
     },
     initRequest() {
       // 投诉
-      wechatSj(this.dataObj).then(res => {
+      wechatDf(this.dataObj).then(res => {
         // console.log(res)
         const data = res.data.data
         if (res.status === 200) {
@@ -509,40 +495,77 @@ export default {
       }).catch(err => {
         console.log(err)
       })
-      // 十九峰散客
-      sjfSanke().then(res => {
-        const data = res.data.data
-        if (res.status === 200) {
-          this.sjfSanke = data
-        }
-      }).catch(err => {
-        console.log(err)
-      })
-      // 十九峰团队
-      sjfTeam().then(res => {
+      // 大佛寺散客
+      dfsSanke().then(res => {
         const data = res.data.data
         if(res.status === 200) {
-          this.sjfTeam = data
+          this.dfsSanke = data
         }
       }).catch(err => {
         console.log(err)
       })
-      // 十九峰来源
-      sjfSource().then(res => {
+      //大佛寺团队
+      dfsTeam().then(res => {
         const data = res.data.data
         if (res.status === 200) {
-          this.sjfSource = data
+          this.dfsTeam = data
         }
       }).catch(err => {
         console.log(err)
       })
+      //大佛寺来源地
+      dfsSource().then(res => {
+        const data = res.data.data
+        if(res.status === 200) {
+          this.dfsSource = data
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 大佛寺散客票型分析
+      sankeTypeDfs(this.dataObj).then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          this.sankeDfs = data
+          this.sankeDfss = true
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 大佛寺游客客源地
+      dfsTouristSource(this.dataObj).then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          // console.log(data, '111111')
+          this.dfsTouristSource = data
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 大佛寺景区客流
+      dfsScenicFlow(this.dataObj).then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          // console.log(data, '1111112')
+          // this.dfsScenicFlow = []
+          this.dfsScenicFlow = data
+          this.dfsScenicFlows = true
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+    },
+    query() {
+      this.defaultDate()
+      // console.log(this.dataObj, '日期是多少')
+      this.initRequest()
     }
   }
 }
 </script>
 
 <style lang="scss">
-.sjf {
+.dfs {
   position: relative;
   z-index: 999;
   width: 100%;
@@ -738,6 +761,101 @@ export default {
             justify-content: space-between;
             align-items: center;
             padding: 1% 2%;
+            .name {
+              font-size: 20px;
+              color: #889db5;
+              width: 20%;
+              margin-left: 10%;
+            }
+            .line1 {
+              height: 14px;
+              width: 50%;
+              background: #f69704;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line2 {
+              height: 14px;
+              width: 46%;
+              background: #f79007;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line3 {
+              height: 14px;
+              width: 42%;
+              background: #f88909;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line4 {
+              height: 14px;
+              width: 38%;
+              background: #f8820c;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line5 {
+              height: 14px;
+              width: 34%;
+              background: #f97b0e;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line6 {
+              height: 14px;
+              width: 30%;
+              background: #fa7311;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line7 {
+              height: 14px;
+              width: 26%;
+              background: #fb6c13;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line8 {
+              height: 14px;
+              width: 22%;
+              background: #fb6516;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line9 {
+              height: 14px;
+              width: 18%;
+              background: #fc5e18;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line10 {
+              height: 14px;
+              width: 14%;
+              background: #fd571b;
+              border-radius: 10px;
+              margin-right: 2%;
+            }
+            .num {
+              font-size: 16px;
+              color: #bbd5ff;
+              flex: 1;
+            }
+          }
+        }
+        .content1 {
+          background: rgba(255, 255, 255, 0.05);
+          flex: 1;
+          .chart-wrapper {
+            height: 320px;
+            width: 100%;
+          }
+          .one-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3% 2%;
             .name {
               font-size: 20px;
               color: #889db5;
