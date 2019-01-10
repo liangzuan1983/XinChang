@@ -547,6 +547,7 @@ export default {
         const data = res.data.data
         if (res.status === 200) {
           // console.log(data, '1111112')
+          // this.dfsScenicFlow = []
           this.dfsScenicFlow = data
           this.dfsScenicFlows = true
         }
@@ -556,7 +557,7 @@ export default {
     },
     query() {
       this.defaultDate()
-      console.log(this.dataObj, '日期是多少')
+      // console.log(this.dataObj, '日期是多少')
       this.initRequest()
     }
   }

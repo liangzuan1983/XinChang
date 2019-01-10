@@ -3,23 +3,23 @@
 </template>
 
 <script>
-import echarts from 'echarts'
-require('echarts/theme/macarons') // echarts theme
-import { debounce } from '@/utils'
+import echarts from "echarts";
+require("echarts/theme/macarons"); // echarts theme
+import { debounce } from "@/utils";
 
 export default {
   props: {
     className: {
       type: String,
-      default: 'holidayzhu'
+      default: "holidayzhu"
     },
     width: {
       type: String,
-      default: '100%'
+      default: "100%"
     },
     height: {
       type: String,
-      default: '100%'
+      default: "100%"
     },
     autoResize: {
       type: Boolean,
@@ -36,115 +36,126 @@ export default {
       sidebarElm: null,
       time: [],
       value: []
-    }
+    };
   },
   watch: {
     chartData: {
       deep: true,
       handler(val) {
-        this.setOptions(val)
+        this.setOptions(val);
       }
     }
   },
   mounted() {
-    this.initChart()
+    this.initChart();
     if (this.autoResize) {
       this.__resizeHandler = debounce(() => {
         if (this.chart) {
-          this.chart.resize()
+          this.chart.resize();
         }
-      }, 100)
-      window.addEventListener('resize', this.__resizeHandler)
+      }, 100);
+      window.addEventListener("resize", this.__resizeHandler);
     }
 
     // 监听侧边栏的变化
-    this.sidebarElm = document.getElementsByClassName('sidebar-container')[0]
-    this.sidebarElm && this.sidebarElm.addEventListener('transitionend', this.sidebarResizeHandler)
+    this.sidebarElm = document.getElementsByClassName("sidebar-container")[0];
+    this.sidebarElm &&
+      this.sidebarElm.addEventListener(
+        "transitionend",
+        this.sidebarResizeHandler
+      );
   },
   beforeDestroy() {
     if (!this.chart) {
-      return
+      return;
     }
     if (this.autoResize) {
-      window.removeEventListener('resize', this.__resizeHandler)
+      window.removeEventListener("resize", this.__resizeHandler);
     }
 
-    this.sidebarElm && this.sidebarElm.removeEventListener('transitionend', this.sidebarResizeHandler)
+    this.sidebarElm &&
+      this.sidebarElm.removeEventListener(
+        "transitionend",
+        this.sidebarResizeHandler
+      );
 
-    this.chart.dispose()
-    this.chart = null
+    this.chart.dispose();
+    this.chart = null;
   },
   methods: {
     sidebarResizeHandler(e) {
-      if (e.propertyName === 'width') {
-        this.__resizeHandler()
+      if (e.propertyName === "width") {
+        this.__resizeHandler();
       }
     },
     setOptions({ expectedData, actualData } = {}) {
       // console.log(this.chartData, '组件内')
-      const data = this.chartData
-      data.forEach(element => {
-        this.value.push(element.value)
-        this.time.push(element.subject)
-      });
+      let kong = [];
+      kong = this.chartData;
+      // kong.forEach(element => {
+      //   this.value.push(element.value);
+      //   this.time.push(element.subject);
+      // });
+      this.value = kong.map(t => t.value);
+      this.time = kong.map(t => t.subject);
       this.chart.setOption({
         legend: {
-          data: ['客流量'],
+          data: ["客流量"],
           textStyle: {
-            color: '#59697d'
+            color: "#59697d"
           }
         },
         tooltip: {
-          trigger: 'axis'
+          trigger: "axis"
         },
         calculable: true,
         xAxis: [
           {
-            type: 'category',
+            type: "category",
             data: this.time,
             axisLabel: {
               textStyle: {
-                color: '#889db5'
+                color: "#889db5"
               }
             }
           }
         ],
         grid: {
-          top: '18%',
-          left: '3%',
-          right: '5%',
-          bottom: '5%',
+          top: "18%",
+          left: "3%",
+          right: "5%",
+          bottom: "5%",
           containLabel: true
         },
         yAxis: [
           {
-            type: 'value',
+            type: "value",
             axisLabel: {
               textStyle: {
-                color: '#889db5'
+                color: "#889db5"
               }
             }
           }
         ],
         series: [
           {
-            name: '客流量',
-            type: 'bar',
+            name: "客流量",
+            type: "bar",
             data: this.value,
             markPoint: {
               data: [
-                { type: 'max', name: '最大值' },
-                { type: 'min', name: '最小值' }
+                { type: "max", name: "最大值" },
+                { type: "min", name: "最小值" }
               ]
             }
           }
         ]
-      })
+      });
     },
     initChart() {
-      this.chart = echarts.init(this.$el, 'macarons')
-      this.setOptions(this.chartData)
+      this.chart = echarts.init(this.$el, "macarons");
+      this.setOptions(this.chartData);
     }
   }
-}
+};
 </script>
