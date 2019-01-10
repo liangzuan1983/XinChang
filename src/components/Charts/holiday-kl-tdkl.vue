@@ -94,6 +94,7 @@ export default {
           {
             type: 'category',
             data: ['2018-10-02', '2018-10-02', '2018-10-03', '2018-10-04', '2018-10-05', '2018-10-06', '2018-10-07'],
+            // data: [],
             axisLabel: {
               textStyle: {
                 color: '#889db5'
@@ -130,17 +131,17 @@ export default {
               ]
             }
           },
-          {
-            name: '同比客流量',
-            type: 'bar',
-            data: [2.6, 5.9, 9.0, 26.4, 48.7, 18.8, 6.0],
-            markPoint: {
-              data: [
-                { name: '年最高', value: 182.2, xAxis: 7, yAxis: 183 },
-                { name: '年最低', value: 2.3, xAxis: 11, yAxis: 3 }
-              ]
-            }
-          }
+          // {
+          //   name: '同比客流量',
+          //   type: 'bar',
+          //   data: [2.6, 5.9, 9.0, 26.4, 48.7, 18.8, 6.0],
+          //   markPoint: {
+          //     data: [
+          //       { name: '年最高', value: 182.2, xAxis: 7, yAxis: 183 },
+          //       { name: '年最低', value: 2.3, xAxis: 11, yAxis: 3 }
+          //     ]
+          //   }
+          // }
         ]
       })
     },

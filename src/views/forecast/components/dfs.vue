@@ -101,11 +101,12 @@
         <!--年龄分布-->
         <div class="nlfb-box">
           <!--title-->
-          <p class="title">散客团队对比分析</p>
+          <p class="title">散客团队分析</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <tdkl id="tdkl" height="100%" width="100%"/>
+              <!-- <tdkl id="tdkl" height="100%" width="100%"/> -->
+              <skkl v-if="dfsScenicFlows" :chartData='dfsScenicFlow' id="skkl1" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -225,7 +226,8 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <dsdd id="dsdd" height="100%" width="100%"/>
+              <!-- <dsdd id="dsdd" height="100%" width="100%"/> -->
+              <skkl v-if="dfsScenicFlows" :chartData='dfsScenicFlow' id="skkl2" height="100%" width="100%"/>
             </div>
           </div>
         </div>
