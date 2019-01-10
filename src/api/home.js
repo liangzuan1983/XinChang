@@ -203,10 +203,11 @@ export function sjfSource() {
   })
 }
 // 大佛寺散客票型分析
-export function sankeTypeDfs() {
+export function sankeTypeDfs(params) {
   return request({
     url: 'dafosi/SankeType',
-    method: 'get'
+    method: 'get',
+    params
   })
 }
 // 十九峰散客类型分析

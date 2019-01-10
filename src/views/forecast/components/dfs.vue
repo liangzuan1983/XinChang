@@ -540,6 +540,7 @@ export default {
       sankeTypeDfs(this.dataObj).then(res => {
         const data = res.data.data
         if (res.status === 200) {
+          console.log(data, '1313')
           this.sankeDfs = data
           this.sankeDfss = true
         }
@@ -572,7 +573,7 @@ export default {
       groupIndividualRate(this.dataObj).then(res => {
         const data = res.data.data
         if(res.status === 200) {
-          console.log(data)
+          // console.log(data)
           this.groupIndividualRate = data
           this.groupIndividualRates = true
         }
