@@ -26,14 +26,15 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   data() {
     return {
       chart: null,
-      sidebarElm: null
+      sidebarElm: null,
+      newArr: []
     }
   },
   watch: {
@@ -79,6 +80,14 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      // console.log(this.chartData, '组件内')
+      const data = this.chartData
+      this.newArr = data.map(element => {
+        return {
+          name: element.subject,
+          value: element.value
+        }
+      })
       this.chart.setOption({
         color: ['#0bdfb8', '#0ac5e4', '#868fce', '#6072f1', '#be60c6', '#cf6d72'],
         tooltip : {
@@ -87,16 +96,11 @@ export default {
         },
         series: [
           {
-            name: '访问来源',
+            name: '投诉类型分布',
             type: 'pie',
             radius: '55%',
             center: ['50%', '60%'],
-            data: [
-              { value: 335, name: '服务质量' },
-              { value: 310, name: '投诉导游' },
-              { value: 234, name: '合同纠纷' },
-              { value: 135, name: '价格' }
-            ],
+            data: this.newArr,
             itemStyle: {
               emphasis: {
                 shadowBlur: 10,

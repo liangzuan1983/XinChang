@@ -73,14 +73,6 @@ export function base() {
     method: 'get'
   })
 }
-// 投诉率
-export function tousu(params) {
-  return request({
-    url: 'tousu',
-    method: 'get',
-    params
-  })
-}
 
 // 大佛寺微信点击率
 export function wechatDf(params) {
@@ -360,6 +352,22 @@ export function orderSourceDfs(params) {
 export function orderSourceSjf(params) {
   return request({
     url: 'shijiufeng/orderSource',
+    method: 'get',
+    params
+  })
+}
+// 投诉率
+export function tousu(params) {
+  return request({
+    url: 'tousu',
+    method: 'get',
+    params
+  })
+}
+// 投诉类型分布
+export function tousuType(params) {
+  return request({
+    url: 'tousu/type',
     method: 'get',
     params
   })

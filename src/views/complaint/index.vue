@@ -35,7 +35,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <jjright v-if="jjright" id="jjright" height="100%" width="100%"/>
+              <jjright v-if="jjright" :chartData='tousuType' id="jjright" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@
 <script>
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
 import jjright from '@/components/Charts/complaint-ts'
-import { tousu } from '@/api/home'
+import { tousu, tousuType } from '@/api/home'
 export default {
   components: {
     YiZhou, jjright
@@ -60,7 +60,8 @@ export default {
     return {
       value4: [new Date() - 3600 * 1000 * 24 * 7, new Date()],
       xfzheif: true,
-      jjright: true,
+      jjright: false,
+      tousuType: [],
       dataObj: {
         start: '',
         end: ''
@@ -110,6 +111,7 @@ export default {
       this.dataObj.end = s_end;
       console.log(this.dataObj.start, '开始时间2')
       console.log(this.dataObj.end, '结束时间2')
+      this.initRequest()
     },
     defaultDate() {
       let start
@@ -150,20 +152,35 @@ export default {
       end = _end.getFullYear() + '-' + e_y + '-' + e_r
       this.dataObj.start = start
       this.dataObj.end = end
-      console.log(this.dataObj, '333')
+      // console.log(this.dataObj, '333')
     },
     initRequest() {
       // 投诉
-      tousu(this.dataObj).then(res => {
-        // console.log(res)
-        const data = res.data.data
-        if (res.status === 200) {
-          this.tsChart = data
-          this.tsCharts = true
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      tousu(this.dataObj)
+        .then(res => {
+          // console.log(res)
+          const data = res.data.data
+          if (res.status === 200) {
+            this.tsChart = data
+            this.tsCharts = true
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      // 投诉类型分布
+      tousuType(this.dataObj)
+        .then(res => {
+          const data = res.data.data
+          if (res.status === 200) {
+            console.log(data, '1234')
+            this.tousuType = data
+            this.jjright = true
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   }
 }
