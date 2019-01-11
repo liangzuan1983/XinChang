@@ -257,5 +257,19 @@ export function saleChannelDfs(params) {
     params
   })
 }
+// 大佛寺旅行社销量排行
+export function tourAgencyDfs(params) {
+  return request({
+    url: 'dafosi/tourAgency',
+    method: 'get',
+    params
+  })
+}
 //大佛寺售票量
-// export function 
+export function onlionOrderDfs(params) {
+  return request({
+    url: 'dafosi/onlionOrder',
+    method: 'get',
+    params
+  })
+}

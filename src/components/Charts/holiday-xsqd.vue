@@ -61,7 +61,7 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
-      console.log(this.chartData, '2222')
+      // console.log(this.chartData, '2222')
       const data = this.chartData
       this.newArray = data.map(element => {
         return {

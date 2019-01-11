@@ -225,7 +225,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <dsdd id="dsdd" height="100%" width="100%"/>
+              <dsdd id="dsdd" v-if="onlionOrderDfss" :chartData='onlionOrderDfs' height="100%" width="100%"/>
               <!-- <skkl v-if="dfsScenicFlows" :chartData='dfsScenicFlow' id="skkl2" height="100%" width="100%"/> -->
             </div>
           </div>
@@ -372,7 +372,8 @@ import {
   dfsScenicFlow,
   groupIndividualRate,
   vehicleSourceDfs,
-  saleChannelDfs
+  saleChannelDfs,
+  onlionOrderDfs
 } from "@/api/home";
 export default {
   components: {
@@ -460,7 +461,9 @@ export default {
       vehicleSource: [],
       groupIndividualRate: [],
       groupIndividualRates: false,
-      saleChannelDfs: []
+      saleChannelDfs: [],
+      onlionOrderDfs: [],
+      onlionOrderDfss: false
     };
   },
   mounted() {
@@ -624,15 +627,29 @@ export default {
           console.log(err);
         });
       // 大佛寺销售渠道
-      saleChannelDfs(this.dataObj).then(res => {
+      saleChannelDfs(this.dataObj)
+        .then(res => {
         const data = res.data.data
         if (res.status === 200) {
-          console.log(data, '11111111111')
+          // console.log(data, '11111111111')
           this.saleChannelDfs = data
         }
-      }).catch(err => {
-
-      })
+        }).catch(err => {
+          console.log(res)
+        })
+      // 大佛寺售票量
+      onlionOrderDfs(this.dataObj)
+        .then(res => {
+          const data = res.data.data
+          if(res.status === 200) {
+            // console.log(data, '11111111112')
+            this.onlionOrderDfs = data
+            this.onlionOrderDfss = true
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
     query() {
       this.defaultDate();
