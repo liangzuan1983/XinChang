@@ -81,6 +81,7 @@ export function tousu(params) {
     params
   })
 }
+
 // 大佛寺微信点击率
 export function wechatDf(params) {
   return request({
@@ -97,6 +98,7 @@ export function wechatSj(params) {
     params
   })
 }
+
 // 旅游消费额度变化趋势
 export function limit() {
   return request({
@@ -217,7 +219,7 @@ export function sankeTypeSjf() {
     method: 'get'
   })
 }
-// 大佛寺客源地排行
+// 大佛寺游客客源地排行
 export function dfsTouristSource(params) {
   return request({
     url: 'dafosi/touristSource',
@@ -225,18 +227,42 @@ export function dfsTouristSource(params) {
     params
   })
 }
+// 十九峰游客客源地排行
+export function SjfTouristSource(params) {
+  return request({
+    url: 'shijiufeng/touristSource',
+    method: 'get',
+    params
+  })
+}
 // 大佛寺景区客流
-export function dfsScenicFlow(params) {
+export function dfsScenicFlowDfs(params) {
   return request({
     url: 'dafosi/scenicFlow',
     method: 'get',
     params
   })
 }
-// 大佛寺团队散客游
-export function groupIndividualRate(params) {
+// 十九峰景区客流
+export function dfsScenicFlowSjf(params) {
+  return request({
+    url: 'shijiufeng/scenicFlow',
+    method: 'get',
+    params
+  })
+}
+// 大佛寺团队散客游客占比分析
+export function groupIndividualRateDfs(params) {
   return request({
     url: 'dafosi/groupIndividualRate',
+    method: 'get',
+    params
+  })
+}
+// 十九峰团队散客游客占比分析
+export function groupIndividualRateSjf(params) {
+  return request({
+    url: 'shijiufeng/groupIndividualRate',
     method: 'get',
     params
   })
@@ -249,10 +275,26 @@ export function vehicleSourceDfs(params) {
     params
   })
 }
+//十九峰车辆来源地排行
+export function vehicleSourceSjf(params) {
+  return request({
+    url: 'shijiufeng/vehicleSource',
+    method: 'get',
+    params
+  })
+}
 // 大佛寺销售渠道
 export function saleChannelDfs(params) {
   return request({
     url: 'dafosi/saleChannel',
+    method: 'get',
+    params
+  })
+}
+// 十九峰销售渠道
+export function saleChannelSjf(params) {
+  return request({
+    url: 'shijiufeng/saleChannel',
     method: 'get',
     params
   })
@@ -265,10 +307,59 @@ export function tourAgencyDfs(params) {
     params
   })
 }
+// 十九峰旅行社销量排行
+export function tourAgencySjf(params) {
+  return request({
+    url: 'shijiufeng/tourAgency',
+    method: 'get',
+    params
+  })
+}
 //大佛寺售票量
 export function onlionOrderDfs(params) {
   return request({
     url: 'dafosi/onlionOrder',
+    method: 'get',
+    params
+  })
+}
+//十九峰售票量
+export function onlionOrderSjf(params) {
+  return request({
+    url: 'shijiufeng/onlionOrder',
+    method: 'get',
+    params
+  })
+}
+// 大佛寺客户来源地分析
+export function clientSourceDfs(params) {
+  return request({
+    url: 'dafosi/clientSource',
+    method: 'get',
+    params
+  })
+}
+// 十九峰客户来源地分析
+export function clientSourceSjf(params) {
+  return request({
+    url: 'shijiufeng/clientSource',
+    method: 'get',
+    params
+  })
+}
+
+// 大佛寺订单来源
+export function orderSourceDfs(params) {
+  return request({
+    url: 'dafosi/orderSource',
+    method: 'get',
+    params
+  })
+}
+// 十九峰订单来源
+export function orderSourceSjf(params) {
+  return request({
+    url: 'shijiufeng/orderSource',
     method: 'get',
     params
   })

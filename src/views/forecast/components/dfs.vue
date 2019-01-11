@@ -30,7 +30,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <skkl v-if="dfsScenicFlows" :chartData='dfsScenicFlow' id="skkl" height="100%" width="100%"/>
+              <skkl v-if="dfsScenicFlowsDfs" :chartData='dfsScenicFlowDfs' id="skkl" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <tdkl v-if="groupIndividualRates" :chartData='groupIndividualRate' id="tdkl" height="100%" width="100%"/>
+              <tdkl v-if="groupIndividualRateDfss" :chartData='groupIndividualRateDfs' id="tdkl" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -116,64 +116,84 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+            <div class="one-box" v-if="vehicleSource[0]">
               <span class="name">{{ vehicleSource[0].subject }}</span>
               <p class="line1"/>
               <span class="num">{{ vehicleSource[0].value }}</span>
             </div>
+            <div class="one-box" v-else>
+            </div>
             <!--每2项-->
-            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+            <div class="one-box" v-if="vehicleSource[1]">
               <span class="name">{{ vehicleSource[1].subject }}</span>
               <p class="line2"/>
               <span class="num">{{ vehicleSource[1].value }}</span>
             </div>
+            <div class="one-box" v-else>
+            </div>
             <!--每3项-->
-            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+            <div class="one-box" v-if="vehicleSource[2]">
               <span class="name">{{ vehicleSource[2].subject }}</span>
               <p class="line3"/>
               <span class="num">{{ vehicleSource[2].value }}</span>
             </div>
+            <div class="one-box" v-else>
+            </div>
             <!--每4项-->
-            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+            <div class="one-box" v-if="vehicleSource[3]">
               <span class="name">{{ vehicleSource[3].subject }}</span>
               <p class="line4"/>
               <span class="num">{{ vehicleSource[3].value }}</span>
             </div>
+            <div class="one-box" v-else>
+            </div>
             <!--每5项-->
-            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+            <div class="one-box" v-if="vehicleSource[4]">
               <span class="name">{{ vehicleSource[4].subject }}</span>
               <p class="line5"/>
               <span class="num">{{ vehicleSource[4].value }}</span>
             </div>
+            <div class="one-box" v-else>
+            </div>
             <!--每6项-->
-            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+            <div class="one-box" v-if="vehicleSource[5]">
               <span class="name">{{ vehicleSource[5].subject }}</span>
               <p class="line6"/>
               <span class="num">{{ vehicleSource[5].value }}</span>
             </div>
+            <div class="one-box" v-else>
+            </div>
             <!--每7项-->
-            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+            <div class="one-box" v-if="vehicleSource[6]">
               <span class="name">{{ vehicleSource[6].subject }}</span>
               <p class="line7"/>
               <span class="num">{{ vehicleSource[6].value }}</span>
             </div>
+            <div class="one-box" v-else>
+            </div>
             <!--每8项-->
-            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+            <div class="one-box" v-if="vehicleSource[7]">
               <span class="name">{{ vehicleSource[7].subject }}</span>
               <p class="line8"/>
               <span class="num">{{ vehicleSource[7].value }}</span>
             </div>
+            <div class="one-box" v-else>
+            </div>
             <!--每9项-->
-            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+            <div class="one-box" v-if="vehicleSource[8]">
               <span class="name">{{ vehicleSource[8].subject }}</span>
               <p class="line9"/>
               <span class="num">{{ vehicleSource[8].value }}</span>
             </div>
+            <div class="one-box" v-else>
+            </div>
             <!--每10项-->
-            <div class="one-box" v-if="vehicleSource && vehicleSource.length > 0">
+            <div class="one-box" v-if="vehicleSource[9]">
               <span class="name">{{ vehicleSource[9].subject }}</span>
               <p class="line10"/>
               <span class="num">{{ vehicleSource[9].value }}</span>
+            </div>
+            <div class="one-box" v-else>
             </div>
           </div>
         </div>
@@ -248,64 +268,44 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
-              <span class="name">{{ dfsSource[0].subject }}</span>
+            <div class="one-box" v-if="clientSourceDfs[0]">
+              <span class="name">{{ clientSourceDfs[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">{{ dfsSource[0].value }}</span>
+              <span class="num">{{ clientSourceDfs[0].value }}</span>
+            </div>
+            <div class="one-box" v-else>
             </div>
             <!--每2项-->
-            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
-              <span class="name">{{ dfsSource[1].subject }}</span>
+            <div class="one-box" v-if="clientSourceDfs[1]">
+              <span class="name">{{ clientSourceDfs[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">{{ dfsSource[1].value }}</span>
+              <span class="num">{{ clientSourceDfs[1].value }}</span>
+            </div>
+            <div class="one-box" v-else>
             </div>
             <!--每3项-->
-            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
-              <span class="name">{{ dfsSource[2].subject }}</span>
+            <div class="one-box" v-if="clientSourceDfs[2]">
+              <span class="name">{{ clientSourceDfs[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">{{ dfsSource[2].value }}</span>
+              <span class="num">{{ clientSourceDfs[2].value }}</span>
+            </div>
+            <div class="one-box" v-else>
             </div>
             <!--每4项-->
-            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
-              <span class="name">{{ dfsSource[3].subject }}</span>
+            <div class="one-box" v-if="clientSourceDfs[3]">
+              <span class="name">{{ clientSourceDfs[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">{{ dfsSource[3].value }}</span>
+              <span class="num">{{ clientSourceDfs[3].value }}</span>
+            </div>
+            <div class="one-box" v-else>
             </div>
             <!--每5项-->
-            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
-              <span class="name">{{ dfsSource[4].subject }}</span>
+            <div class="one-box" v-if="clientSourceDfs[4]">
+              <span class="name">{{ clientSourceDfs[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">{{ dfsSource[4].value }}</span>
+              <span class="num">{{ clientSourceDfs[4].value }}</span>
             </div>
-            <!--每6项-->
-            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
-              <span class="name">{{ dfsSource[5].subject }}</span>
-              <p class="line6"/>
-              <span class="num">{{ dfsSource[5].value }}</span>
-            </div>
-            <!--每7项-->
-            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
-              <span class="name">{{ dfsSource[6].subject }}</span>
-              <p class="line7"/>
-              <span class="num">{{ dfsSource[6].value }}</span>
-            </div>
-            <!--每8项-->
-            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
-              <span class="name">{{ dfsSource[7].subject }}</span>
-              <p class="line8"/>
-              <span class="num">{{ dfsSource[7].value }}</span>
-            </div>
-            <!--每9项-->
-            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
-              <span class="name">{{ dfsSource[8].subject }}</span>
-              <p class="line9"/>
-              <span class="num">{{ dfsSource[8].value }}</span>
-            </div>
-            <!--每10项-->
-            <div class="one-box" v-if="dfsSource && dfsSource.length > 0">
-              <span class="name">{{ dfsSource[9].subject }}</span>
-              <p class="line10"/>
-              <span class="num">{{ dfsSource[9].value }}</span>
+            <div class="one-box" v-else>
             </div>
           </div>
         </div>
@@ -369,11 +369,12 @@ import {
   dfsSource,
   sankeTypeDfs,
   dfsTouristSource,
-  dfsScenicFlow,
-  groupIndividualRate,
+  dfsScenicFlowDfs,
+  groupIndividualRateDfs,
   vehicleSourceDfs,
   saleChannelDfs,
-  onlionOrderDfs
+  onlionOrderDfs,
+  clientSourceDfs
 } from "@/api/home";
 export default {
   components: {
@@ -456,14 +457,15 @@ export default {
       sankeDfs: [],
       // sankeDfss: false,
       dfsTouristSource: [],
-      dfsScenicFlow: [],
-      dfsScenicFlows: false,
+      dfsScenicFlowDfs: [],
+      dfsScenicFlowsDfs: false,
       vehicleSource: [],
-      groupIndividualRate: [],
-      groupIndividualRates: false,
+      groupIndividualRateDfs: [],
+      groupIndividualRateDfss: false,
       saleChannelDfs: [],
       onlionOrderDfs: [],
-      onlionOrderDfss: false
+      onlionOrderDfss: false,
+      clientSourceDfs: []
     };
   },
   mounted() {
@@ -589,27 +591,27 @@ export default {
           console.log(err);
         });
       // 大佛寺景区客流
-      dfsScenicFlow(this.dataObj)
+      dfsScenicFlowDfs(this.dataObj)
         .then(res => {
           const data = res.data.data;
           if (res.status === 200) {
             // console.log(data, '1111112')
             // this.dfsScenicFlow = []
-            this.dfsScenicFlow = data;
-            this.dfsScenicFlows = true;
+            this.dfsScenicFlowDfs = data;
+            this.dfsScenicFlowsDfs = true;
           }
         })
         .catch(err => {
           console.log(err);
         });
       // 大佛寺散客团队分析
-      groupIndividualRate(this.dataObj)
+      groupIndividualRateDfs(this.dataObj)
         .then(res => {
           const data = res.data.data;
           if (res.status === 200) {
             // console.log(data)
-            this.groupIndividualRate = data;
-            this.groupIndividualRates = true;
+            this.groupIndividualRateDfs = data;
+            this.groupIndividualRateDfss = true;
           }
         })
         .catch(err => {
@@ -645,6 +647,18 @@ export default {
             // console.log(data, '11111111112')
             this.onlionOrderDfs = data
             this.onlionOrderDfss = true
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      // 大佛寺客户来源地分析
+      clientSourceDfs(this.dataObj)
+        .then(res => {
+          const data = res.data.data
+          if (res.status === 200) {
+            console.log(data, '2223')
+            this.clientSourceDfs = data
           }
         })
         .catch(err => {
@@ -856,7 +870,7 @@ export default {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1% 2%;
+            padding: 3% 2%;
             .name {
               font-size: 20px;
               color: #889db5;
