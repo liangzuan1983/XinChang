@@ -215,7 +215,7 @@ export function sankeTypeDfs(params) {
 // 十九峰散客类型分析
 export function sankeTypeSjf() {
   return request({
-    url: 'shijiufengSankeType',
+    url: 'shijiufeng/SankeType',
     method: 'get'
   })
 }
