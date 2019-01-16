@@ -218,7 +218,7 @@
             <div class="chart-wrapper">
               <pie-chart-full
                 v-if="getcity.length && getcity.length > 0"
-                :chartData='getcity'
+                :chartData='shengqu'
                 id="home-top5"
                 height="100%"
                 width="100%"/>
@@ -484,6 +484,7 @@ import dtView from './components/dt.vue'
 import lvView from './components/lv.vue'
 import { mapGetters } from 'vuex'
 import { hotTown, weekly, base, limit, type, resource, importDfs, importSjf  } from '@/api/home'
+import { getTourNumberInPro, getTown } from '@/api/traffic'
 export default {
   name: 'DashboardAdmin',
   components: {
@@ -511,7 +512,8 @@ export default {
       h: 10,
       w: 80,
       zhengz: 10,
-      fuz: 20
+      fuz: 20,
+      shengqu: []
     }
   },
   computed: {
@@ -522,6 +524,7 @@ export default {
   mounted() {
     this.$store.dispatch('getCity')
     this.requestAll()
+    this.shengneitop5()
   },
   methods: {
     qyEvent() {
@@ -541,12 +544,14 @@ export default {
       // this.lvzy = false
       this.qybs = true
       this.zybs = false
+      this.shengneitop5()
     },
     lyEvents() {
       // this.qykl = false
       // this.lvzy = true
       this.qybs = false
       this.zybs = true
+      this.xiantop5()
     },
     TwoLevelPages(place) {
       this.$router.push({
@@ -631,6 +636,30 @@ export default {
         if (res.status === 200) {
           this.importSjf = data
           // console.log(data, '222')
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+    },
+    shengneitop5() {
+      // 省内top
+      getTourNumberInPro().then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          this.shengqu = data
+          // console.log(data, 'shi')
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+    },
+    xiantop5() {
+      // 省内top
+      getTown().then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          this.shengqu = data
+          // console.log(data, 'qu')
         }
       }).catch(err => {
         console.log(err)

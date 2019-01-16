@@ -19,3 +19,10 @@ export function getTourNumberOutPro(params) {
     params
   })
 }
+//乡镇自驾游客源地
+export function getTown() {
+  return request({
+    url: 'town',
+    method: 'get'
+  })
+}
