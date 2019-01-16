@@ -94,14 +94,6 @@ export default {
           trigger: 'item',
           formatter: '{a} <br/>{b} : {c} ({d}%)'
         },
-        // legend: {
-        //   orient: 'vertical',
-        //   left: 'left',
-        //   data: ['住宿', '餐饮', '门票', '交通', '娱乐'],
-        //   textStyle: {
-        //     color: '#889db5'
-        //   }
-        // },
         series: [
           {
             name: '客源地top5',

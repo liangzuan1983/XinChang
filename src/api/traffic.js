@@ -6,7 +6,7 @@ import request from '@/utils/request'
 //省内自驾游客源地
 export function getTourNumberInPro(params) {
   return request({
-    url: 'tourNumber/inProvince',
+    url: 'tour/xinchang/tourNumber/inProvince',
     method: 'get',
     params
   })
@@ -14,7 +14,7 @@ export function getTourNumberInPro(params) {
 //省外自驾游客源地
 export function getTourNumberOutPro(params) {
   return request({
-    url: 'tourNumber/outProvince',
+    url: 'tour/xinchang/tourNumber/outProvince',
     method: 'get',
     params
   })
@@ -22,7 +22,7 @@ export function getTourNumberOutPro(params) {
 //乡镇自驾游客源地
 export function getTown() {
   return request({
-    url: 'town',
+    url: 'tour/xinchang/town',
     method: 'get'
   })
 }

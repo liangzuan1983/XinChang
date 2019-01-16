@@ -483,7 +483,7 @@ import jdt from '@/views/dashboard/admin/components/jdt'
 import dtView from './components/dt.vue'
 import lvView from './components/lv.vue'
 import { mapGetters } from 'vuex'
-import { hotTown, weekly, base, limit, type, resource, importDfs, importSjf  } from '@/api/home'
+import { hotTown, weekly, base, limit, type, resource, importDfs, importSjf, countWithDate  } from '@/api/home'
 import { getTourNumberInPro, getTown } from '@/api/traffic'
 export default {
   name: 'DashboardAdmin',
@@ -636,6 +636,20 @@ export default {
         if (res.status === 200) {
           this.importSjf = data
           // console.log(data, '222')
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+      // 好评率差评率
+      countWithDate().then(res => {
+        const data = res.data.data
+        if (res.status === 200) {
+          let bad = data.neg;
+          let good = data.pos;
+          this.fuz = (bad / (bad + good) * 100).toFixed(2);
+          this.zhengz = (good / (bad + good) * 100).toFixed(2);
+          console.log(this.badNum)
+          console.log(data, '好评率 差评率')
         }
       }).catch(err => {
         console.log(err)
