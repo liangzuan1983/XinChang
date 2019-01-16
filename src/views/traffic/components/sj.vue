@@ -11,7 +11,7 @@
           start-placeholder="开始日期"
           end-placeholder="结束日期"/>
         <!--查询-->
-        <el-button size="mini" type="primary">查询</el-button>
+        <el-button size="mini" type="primary" @click="dataSelect">查询</el-button>
         <!--查询-->
         <img class="search" src="@/assets/icon/search.png" alt="">
         <!--下载-->
@@ -180,6 +180,9 @@ export default {
         console.log(err)
       })
 
+    },
+    dataSelect() {
+      console.log(this.value4[0], 'value4')
     }
   }
 }

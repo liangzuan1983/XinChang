@@ -666,6 +666,7 @@ export default {
         })
     },
     query() {
+      console.log(this.value4[1], 'value4')
       this.defaultDate();
       // console.log(this.dataObj, '日期是多少')
       this.initRequest();

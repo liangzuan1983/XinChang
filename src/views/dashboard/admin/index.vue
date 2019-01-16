@@ -207,7 +207,7 @@
         <div class="kyd">
           <!--标题行-->
           <div class="zdjq-title-box">
-            <p class="title">客源地 城市 区县 TOP5</p>
+            <p class="title">客源地 城市 区县 top5</p>
             <p class="title-right" @click="TwoLevelPages('/PassengerFlowAnalysis/index')">
               <span>更多</span>
               <span class="el-icon-d-arrow-right"/>
@@ -216,7 +216,19 @@
           <!--内容区-->
           <div class="content-box">
             <div class="chart-wrapper">
-              <pie-chart-full v-if="getcity.length && getcity.length > 0" :chartData='getcity' id="home-top5" height="100%" width="100%"/>
+              <pie-chart-full
+                v-if="getcity.length && getcity.length > 0"
+                :chartData='getcity'
+                id="home-top5"
+                height="100%"
+                width="100%"/>
+                <!--按钮-->
+                <div class="btn">
+                  <div class="btn-box">
+                    <p :class="{qyb: qyb}" class="qy" @click="qyEvent">城市</p>
+                    <p :class="{zyb: zyb}" class="zy" @click="lyEvent">县城</p>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
@@ -1107,6 +1119,7 @@ export default {
         display: flex;
         flex-direction: column;
         padding: 2% 3%;
+        position: relative;
         .zdjq-title-box {
           margin-bottom: 3%;
           flex: 1;
@@ -1133,6 +1146,48 @@ export default {
           .chart-wrapper {
             width: 100%;
             height: 100%;
+            .btn {
+              position: absolute;
+              right: 5%;
+              bottom: 5%;
+              width: 35%;
+              display: flex;
+              height: 15%;
+              .btn-box {
+                flex: 1;
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                width: 10%;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 30px;
+                padding: 2%;
+                .qy {
+                  flex: 1;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  color: #ffffff;
+                  font-size: 22px;
+                  // background: hotpink;
+                  border-radius: 30px;
+                  cursor: pointer;
+                }
+                .qyb { background: rgba(255, 255, 255, 0.2); }
+                .zy {
+                  flex: 1;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  color: #ffffff;
+                  font-size: 22px;
+                  // background: aquamarine;
+                  border-radius: 30px;
+                  cursor: pointer;
+                }
+                .zyb { background: rgba(255, 255, 255, 0.2); }
+              }
+            }
           }
         }
       }
