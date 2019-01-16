@@ -430,8 +430,8 @@ export default {
       if (start.getMonth() >= 0 && start.getMonth() < 10) {
         s_y = '0' + (start.getMonth() + 1);
       } else {
-        s_y = start.getMonth() + 1
-      } 
+        s_y = start.getMonth() + 1;
+      }
       if (end.getMonth() >= 0 && end.getMonth() < 10) {
         e_y = '0' + (end.getMonth() + 1);
       } else {

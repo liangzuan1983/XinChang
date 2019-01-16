@@ -53,35 +53,40 @@
             <!--内容-->
             <div class="content">
               <!--每1项-->
-              <div class="one-box">
+              <div class="one-box" v-if="inProvince[0]">
                 <span class="name">{{ inProvince[0].subject }}</span>
                 <p class="line1"/>
                 <span class="num">{{ inProvince[0].value }}</span>
               </div>
+              <div v-else></div>
               <!--每2项-->
-              <div class="one-box">
+              <div class="one-box" v-if="inProvince[1]">
                 <span class="name">{{ inProvince[1].subject }}</span>
                 <p class="line2"/>
                 <span class="num">{{ inProvince[1].value }}</span>
               </div>
+              <div v-else></div>
               <!--每3项-->
-              <div class="one-box">
+              <div class="one-box" v-if="inProvince[2]">
                 <span class="name">{{ inProvince[2].subject }}</span>
                 <p class="line3"/>
                 <span class="num">{{ inProvince[2].value }}</span>
               </div>
+              <div v-else></div>
               <!--每4项-->
-              <div class="one-box">
+              <div class="one-box" v-if="inProvince[3]">
                 <span class="name">{{ inProvince[3].subject }}</span>
                 <p class="line4"/>
                 <span class="num">{{ inProvince[3].value }}</span>
               </div>
+              <div v-else></div>
               <!--每5项-->
-              <div class="one-box">
+              <div class="one-box" v-if="inProvince[4]">
                 <span class="name">{{ inProvince[4].subject }}</span>
                 <p class="line5"/>
                 <span class="num">{{ inProvince[4].value }}</span>
               </div>
+              <div v-else></div>
             </div>
           </div>
           <!--右-->
@@ -91,35 +96,40 @@
             <!--内容-->
             <div class="content">
               <!--每1项-->
-              <div class="one-box">
+              <div class="one-box" v-if="outProvince[0]">
                 <span class="name">{{ outProvince[0].subject }}</span>
                 <p class="line1"/>
                 <span class="num">{{ outProvince[0].value }}</span>
               </div>
+              <div v-else/>
               <!--每2项-->
-              <div class="one-box">
+              <div class="one-box" v-if="outProvince[1]">
                 <span class="name">{{ outProvince[1].subject }}</span>
                 <p class="line2"/>
                 <span class="num">{{ outProvince[1].value }}</span>
               </div>
+              <div v-else/>
               <!--每3项-->
-              <div class="one-box">
+              <div class="one-box" v-if="outProvince[2]">
                 <span class="name">{{ outProvince[2].subject }}</span>
                 <p class="line3"/>
                 <span class="num">{{ outProvince[2].value }}</span>
               </div>
+              <div v-else/>
               <!--每4项-->
-              <div class="one-box">
+              <div class="one-box" v-if="outProvince[3]">
                 <span class="name">{{ outProvince[3].subject }}</span>
                 <p class="line4"/>
                 <span class="num">{{ outProvince[3].value }}</span>
               </div>
+              <div v-else/>
               <!--每5项-->
-              <div class="one-box">
+              <div class="one-box" v-if="outProvince[4]">
                 <span class="name">{{ outProvince[4].subject}}</span>
                 <p class="line5"/>
                 <span class="num">{{ outProvince[4].value }}</span>
               </div>
+              <div v-else/>
             </div>
           </div>
         </div>
@@ -131,7 +141,7 @@
 <script>
 import nlfb from '@/components/Charts/traffic-nlfb'
 import PieChartFull from '@/components/Charts/traffic-cxfs'
-import { inProvince, outProvince } from '@/api/home'
+import { getTourNumberInPro, getTourNumberOutPro } from '@/api/traffic'
 export default {
   components: {
     nlfb, PieChartFull
@@ -152,7 +162,7 @@ export default {
   methods: {
     initRequest() {
       //省内自驾游数量
-      inProvince().then(res => {
+      getTourNumberInPro().then(res => {
         const data = res.data.data
         if(res.status === 200) {
           this.inProvince = data
@@ -161,7 +171,7 @@ export default {
         console.log(err)
       })
       // 省外客源地自驾游数
-      outProvince().then(res => {
+      getTourNumberOutPro().then(res => {
         const data = res.data.data
         if (res.status === 200) {
           this.outProvince = data
@@ -169,6 +179,7 @@ export default {
       }).catch(err => {
         console.log(err)
       })
+
     }
   }
 }

@@ -140,20 +140,6 @@ export function town() {
     method: 'get'
   })
 }
-// 省内客源地自驾游
-export function inProvince() {
-  return request({
-    url: 'tourNumber/inProvince',
-    method: 'get'
-  })
-}
-// 省外客源地自驾游
-export function outProvince() {
-  return request({
-    url: 'tourNumber/outProvince',
-    method: 'get'
-  })
-}
 //大佛寺散客客源地排行
 export function dfsSanke() {
   return request({
@@ -372,3 +358,4 @@ export function tousuType(params) {
     params
   })
 }
+//
