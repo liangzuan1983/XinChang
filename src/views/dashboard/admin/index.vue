@@ -225,8 +225,8 @@
                 <!--按钮-->
                 <div class="btn">
                   <div class="btn-box">
-                    <p :class="{qyb: qyb}" class="qy" @click="qyEvent">城市</p>
-                    <p :class="{zyb: zyb}" class="zy" @click="lyEvent">县城</p>
+                    <p :class="{qyb: qybs}" class="qy" @click="qyEvents">城市</p>
+                    <p :class="{zyb: zybs}" class="zy" @click="lyEvents">县城</p>
                   </div>
                 </div>
             </div>
@@ -257,7 +257,7 @@
       <div class="cyjc">
         <!--标题行-->
         <div class="zdjq-title-box">
-          <p class="title">产业检测数据</p>
+          <p class="title">产业监测数据</p>
           <p class="title-right" @click="TwoLevelPages('/economicalOperation/index')">
             <span>更多</span>
             <span class="el-icon-d-arrow-right"/>
@@ -438,6 +438,19 @@
             <span class="el-icon-d-arrow-right"/>
           </p>
         </div>
+        <!--正负-->
+        <div class="zfzf">
+          <!--zheng-->
+          <div class="zzzz">
+            <p class="title">正面</p>
+            <el-progress type="circle" :stroke-width='h' :width='w' :percentage="zhengz" color="#32cf35"/>
+          </div>
+          <!--fu-->
+          <div class="ffff">
+            <p class="title">负面</p>
+            <el-progress type="circle" :stroke-width='h' :width='w' :percentage="fuz" color="#ea8ebc"/>
+          </div>
+        </div>
         <!--内容区-->
         <div class="content-box">
           <!--舆情 热门-->
@@ -452,23 +465,6 @@
                   <span class="unit">条</span>
                 </p>
               </div>
-            </div>
-            <!--热门话题-->
-            <div class="rm-box">
-              <img src="@/assets/icon/remen.png" alt="">
-              <div class="text-box">
-                <p class="title">热门话题</p>
-                <p class="num-box">
-                  <span class="num">18</span>
-                  <span class="unit">个</span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <!--进度条-->
-          <div class="jdt">
-            <div class="chart-wrapper">
-              <jdt height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -497,6 +493,8 @@ export default {
     return {
       qyb: true,
       zyb: false,
+      qybs: true,
+      zybs: false,
       qykl: true,
       lvzy: false,
       kydxq: [],
@@ -509,7 +507,11 @@ export default {
       limits: false,
       types: false,
       importDfs: [],
-      importSjf: []
+      importSjf: [],
+      h: 10,
+      w: 80,
+      zhengz: 10,
+      fuz: 20
     }
   },
   computed: {
@@ -533,6 +535,18 @@ export default {
       this.lvzy = true
       this.qyb = false
       this.zyb = true
+    },
+    qyEvents() {
+      // this.qykl = true
+      // this.lvzy = false
+      this.qybs = true
+      this.zybs = false
+    },
+    lyEvents() {
+      // this.qykl = false
+      // this.lvzy = true
+      this.qybs = false
+      this.zybs = true
     },
     TwoLevelPages(place) {
       this.$router.push({
@@ -626,7 +640,7 @@ export default {
 }
 </script>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
+<style rel="stylesheet/scss" lang="scss">
 .dashboard-editor-container {
   padding: 5px;
   width: 100%;
@@ -637,6 +651,14 @@ export default {
   position: relative;
   z-index: 999;
   overflow: hidden;
+  .el-progress__text {
+    color: #e1dfdd;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: bold;
+    position: relative;
+    top: -38px;
+  }
   .left {
     flex: 1;
     // background: yellow;
@@ -1560,10 +1582,10 @@ export default {
       }
     }
     .yqfx {
-      flex: 1;
+      // flex: 1;
       background: rgba(255, 255, 255, 0.05);
-      display: flex;
-      flex-direction: column;
+      // display: flex;
+      // flex-direction: column;
       padding: 2% 3%;
       .zdjq-title-box {
         margin-bottom: 3%;
@@ -1585,6 +1607,30 @@ export default {
           }
         }
       }
+      .zfzf {
+        display: flex;
+        justify-content: space-around;
+        .zzzz {
+          text-align: center;
+          .title {
+            color: #e1e0dd;
+            font-size: 16px;
+            font-weight: bold;
+            position: relative;
+            top:50px;
+          }
+        }
+        .ffff {
+          text-align: center;
+          .title {
+            color: #e1e0dd;
+            font-size: 16px;
+            font-weight: bold;
+            position: relative;
+            top:50px;
+          }
+        }
+      }
       .content-box {
         flex: 1;
         // background: #0982de;
@@ -1592,59 +1638,30 @@ export default {
         flex-direction: column;
         .yr-box {
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
           // flex: 1;
           .yq-box {
             flex: 1;
             // background: forestgreen;
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
+            align-items: center;
             img {
-              width: 57px;
-              height: 57px;
-              margin-right: 5%;
+              width: 30px;
+              height: 30px;
+              margin-right: 2%;
             }
             .text-box {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
               .title {
                 font-size: 20px;
                 color: #ffffff;
                 font-weight: bold;
                 margin-bottom: 5%;
-              }
-              .num-box {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                .num {
-                  font-size: 28px;
-                  color: #f69704;
-                  font-weight: bold;
-                  margin-right: 10%;
-                }
-                .unit {
-                  font-size: 20px;
-                  color: #ffffff;
-                  font-weight: bold;
-                }
-              }
-            }
-          }
-          .rm-box {
-            flex: 1;
-            // background: #f69704;
-            display: flex;
-            justify-content: flex-start;
-            img {
-              width: 57px;
-              height: 57px;
-              margin-right: 5%;
-            }
-            .text-box {
-              .title {
-                font-size: 20px;
-                color: #ffffff;
-                font-weight: bold;
-                margin-bottom: 5%;
+                margin-top: 5px;
+                margin-right: 3px;
               }
               .num-box {
                 display: flex;

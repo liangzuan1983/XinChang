@@ -11,7 +11,7 @@ export default {
   props: {
     className: {
       type: String,
-      default: 'pie'
+      default: 'ykxb'
     },
     width: {
       type: String,
@@ -21,107 +21,108 @@ export default {
       type: String,
       default: '100%'
     },
+    autoResize: {
+      type: Boolean,
+      default: true
+    },
     chartData: {
       type: Array,
-      default: () => {
-        return []
-      }
+      required: true
     }
   },
   data() {
     return {
       chart: null,
-      dataArray: []
+      sidebarElm: null,
+      newData: []
+    }
+  },
+  watch: {
+    chartData: {
+      deep: true,
+      handler(val) {
+        this.setOptions(val)
+      }
     }
   },
   mounted() {
     this.initChart()
-    this.__resizeHandler = debounce(() => {
-      if (this.chart) {
-        this.chart.resize()
-      }
-    }, 100)
-    window.addEventListener('resize', this.__resizeHandler)
+    if (this.autoResize) {
+      this.__resizeHandler = debounce(() => {
+        if (this.chart) {
+          this.chart.resize()
+        }
+      }, 100)
+      window.addEventListener('resize', this.__resizeHandler)
+    }
+
+    // 监听侧边栏的变化
+    this.sidebarElm = document.getElementsByClassName('sidebar-container')[0]
+    this.sidebarElm && this.sidebarElm.addEventListener('transitionend', this.sidebarResizeHandler)
   },
   beforeDestroy() {
     if (!this.chart) {
       return
     }
-    window.removeEventListener('resize', this.__resizeHandler)
+    if (this.autoResize) {
+      window.removeEventListener('resize', this.__resizeHandler)
+    }
+
+    this.sidebarElm && this.sidebarElm.removeEventListener('transitionend', this.sidebarResizeHandler)
+
     this.chart.dispose()
     this.chart = null
   },
   methods: {
-    initChart() {
-      this.chart = echarts.init(this.$el, 'macarons')
-      // console.log(this.chartData, 'zu')
-      const data = this.chartData
-      function sortValue(a, b) {
-        return b.value - a.value
+    sidebarResizeHandler(e) {
+      if (e.propertyName === 'width') {
+        this.__resizeHandler()
       }
-      data.sort(sortValue)
-      data.forEach(element => {
-        const obj = {}
-        obj.name = element.subject
-        obj.value = element.value
-        this.dataArray.push(obj)
+    },
+    setOptions({ expectedData, actualData } = {}) {
+      console.log(this.chartData, '1112')
+      let data = this.chartData;
+      this.newData = data.map(element => {
+        return {
+          name: element.subject,
+          value: element.value
+        }
       })
-      // console.log(data, 'qian')
-      const newData = this.dataArray.slice(0, 5)
-      // console.log(newData, 'hou')
+      console.log(this.newData, '222')
       this.chart.setOption({
-        visualMap: {
-          show: false,
-          min: 0,
-          max: 0.5,
-          inRange: {
-            colorLightness: [0, 1]
-          }
-        },
-        tooltip : {
+        tooltip: {
           trigger: 'item',
-          formatter: "{a} <br/>{b} : {c} ({d}%)"
+          formatter: '{a} <br/>{b} : {c} ({d}%)'
         },
+        // legend: {
+        //   orient: 'vertical',
+        //   left: 'left',
+        //   data: ['住宿', '餐饮', '门票', '交通', '娱乐'],
+        //   textStyle: {
+        //     color: '#889db5'
+        //   }
+        // },
         series: [
           {
-            name: '访问来源',
+            name: '客源地top5',
             type: 'pie',
-            radius: '90%',
-            center: ['50%', '53%'],
-            data: newData.sort(function(a, b) { return a.value - b.value }),
-            roseType: 'radius',
-            label: {
-              normal: {
-                textStyle: {
-                  // color: 'rgba(255, 255, 255, 0.3)'
-                }
-              }
-            },
-            labelLine: {
-              normal: {
-                lineStyle: {
-                  // color: 'rgba(255, 255, 255, 0.3)'
-                },
-                smooth: 0.2,
-                length: 1,
-                length2: 3,
-                show: false
-              }
-            },
+            radius: '55%',
+            center: ['50%', '60%'],
+            data: this.newData,
             itemStyle: {
-              normal: {
-                color: '#e090ca',
-                shadowBlur: 15
+              emphasis: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
               }
-            },
-            animationType: 'scale',
-            animationEasing: 'elasticOut',
-            animationDelay: function(idx) {
-              return Math.random() * 200
             }
           }
         ]
       })
+    },
+    initChart() {
+      this.chart = echarts.init(this.$el, 'macarons')
+      this.setOptions(this.chartData)
     }
   }
 }
