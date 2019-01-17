@@ -253,6 +253,11 @@
     </div>
     <!--右-->
     <div class="right">
+      <!--sskl-->
+      <div class="sskl">
+        <div class="title">实时客流</div>
+        <div class="num">67577</div>
+      </div>
       <!--cyjc-->
       <div class="cyjc">
         <!--标题行-->
@@ -1331,6 +1336,22 @@ export default {
     // background: hotpink;
     display: flex;
     flex-direction: column;
+    .sskl {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 1%;
+      .title {
+        color: #ffffff;
+        font-size: 25px;
+        font-weight: bold;
+      }
+      .num {
+        color: #f69704;
+        font-size: 35px;
+        font-weight: bold;
+      }
+    }
     .cyjc {
       flex: 1;
       background: rgba(255, 255, 255, 0.05);
@@ -1509,8 +1530,8 @@ export default {
       .content-box {
         flex: 1;
         // background: #0982de;
-        background: rgba(255, 255, 255, 0.05);
-        padding: 3%;
+        // background: rgba(255, 255, 255, 0.05);
+        // padding: 3%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -1628,7 +1649,7 @@ export default {
       flex-direction: column;
       padding: 2% 3%;
       .zdjq-title-box {
-        margin-bottom: 3%;
+        // margin-bottom: 3%;
         flex: 1;
         // background: red;
         display: flex;
@@ -1648,7 +1669,7 @@ export default {
         }
       }
       .content-box {
-        flex: 6;
+        // flex: 4;
         // background: lightcyan;
       }
     }
@@ -1659,7 +1680,7 @@ export default {
       // flex-direction: column;
       padding: 2% 3%;
       .zdjq-title-box {
-        margin-bottom: 3%;
+        // margin-bottom: 3%;
         // flex: 1;
         // background: red;
         display: flex;
