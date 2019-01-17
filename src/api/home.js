@@ -365,3 +365,10 @@ export function countWithDate() {
     method: 'get'
   })
 }
+//字符云
+export function getKeyword() {
+  return request({
+    url: 'v1/comment/keyword/xinchang',
+    method: 'get'
+  })
+}

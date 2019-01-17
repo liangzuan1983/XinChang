@@ -424,7 +424,7 @@
         <!--内容区-->
         <div class="content-box">
           <div class="chart-wrapper">
-            <zi-fu-yun height="100%" width="100%"/>
+            <zi-fu-yun :chartData='zifuYun' height="100%" width="100%"/>
           </div>
         </div>
       </div>
@@ -483,7 +483,7 @@ import jdt from '@/views/dashboard/admin/components/jdt'
 import dtView from './components/dt.vue'
 import lvView from './components/lv.vue'
 import { mapGetters } from 'vuex'
-import { hotTown, weekly, base, limit, type, resource, importDfs, importSjf, countWithDate  } from '@/api/home'
+import { hotTown, weekly, base, limit, type, resource, importDfs, importSjf, countWithDate, getKeyword } from '@/api/home'
 import { getTourNumberInPro, getTown } from '@/api/traffic'
 export default {
   name: 'DashboardAdmin',
@@ -513,7 +513,8 @@ export default {
       w: 80,
       zhengz: 10,
       fuz: 20,
-      shengqu: []
+      shengqu: [],
+      zifuYun: []
     }
   },
   computed: {
@@ -560,100 +561,127 @@ export default {
     },
     requestAll() {
       // 热门城市
-      hotTown().then(res => {
-        const data = res.data.data
-        if(res.status === 200) {
-          this.hotTown = data
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      hotTown()
+        .then(res => {
+          const data = res.data.data
+          if(res.status === 200) {
+            this.hotTown = data
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
       // 近一周游客数
-      weekly().then(res => {
-        const data = res.data.data
-        if(res.status === 200) {
-          this.kydxq = data
-          this.weekly = true
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      weekly()
+        .then(res => {
+          const data = res.data.data
+          if(res.status === 200) {
+            this.kydxq = data
+            this.weekly = true
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
       // 产业检测
-      base().then(res => {
-        const data = res.data.data
-        if (res.status === 200) {
-          this.base = data
-          // console.log(this.base)
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      base()
+        .then(res => {
+          const data = res.data.data
+          if (res.status === 200) {
+            this.base = data
+            // console.log(this.base)
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
       // 旅游消费额度变化趋势
-      limit().then(res => {
-        const data = res.data.data
-        if(res.status === 200) {
-          // console.log(data, '111')
-          this.limit = data
-          this.limits = true
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      limit()
+        .then(res => {
+          const data = res.data.data
+          if(res.status === 200) {
+            // console.log(data, '111')
+            this.limit = data
+            this.limits = true
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
       // 旅游消费类型
-      type().then(res => {
-        const data = res.data.data
-        if(res.status === 200) {
-          // console.log(data, '222')
-          this.type = data
-          this.types = true
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      type()
+        .then(res => {
+          const data = res.data.data
+          if(res.status === 200) {
+            // console.log(data, '222')
+            this.type = data
+            this.types = true
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
       // 资源分布
-      resource().then(res => {
-        const data = res.data.data
-        if(res.status === 200) {
-          this.resource = data
-          // console.log(data, '111')
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      resource()
+        .then(res => {
+          const data = res.data.data
+          if(res.status === 200) {
+            this.resource = data
+            // console.log(data, '111')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
       // 重点景区大佛寺
-      importDfs().then(res => {
-        const data = res.data.data
-        if (res.status === 200) {
-          this.importDfs = data
-          // console.log(data, '111')
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      importDfs()
+        .then(res => {
+          const data = res.data.data
+          if (res.status === 200) {
+            this.importDfs = data
+            // console.log(data, '111')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
       // 重点景区十九峰
-      importSjf().then(res => {
-        const data = res.data.data
-        if (res.status === 200) {
-          this.importSjf = data
-          // console.log(data, '222')
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      importSjf()
+        .then(res => {
+          const data = res.data.data
+          if (res.status === 200) {
+            this.importSjf = data
+            // console.log(data, '222')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
       // 好评率差评率
-      countWithDate().then(res => {
-        const data = res.data.data
-        if (res.status === 200) {
-          let bad = data.neg;
-          let good = data.pos;
-          this.fuz = (bad / (bad + good) * 100).toFixed(2);
-          this.zhengz = (good / (bad + good) * 100).toFixed(2);
-          console.log(this.badNum)
-          console.log(data, '好评率 差评率')
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      countWithDate()
+        .then(res => {
+          const data = res.data.data
+          if (res.status === 200) {
+            let bad = data.neg;
+            let good = data.pos;
+            this.fuz = Number((bad / (bad + good) * 100).toFixed(2));
+            this.zhengz = Number((good / (bad + good) * 100).toFixed(2));
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      getKeyword()
+        .then(res => {
+          let data = res.data.data
+          if(res.status === 200) {
+            this.zifuYun = data
+            // console.log(data, '111')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
     shengneitop5() {
       // 省内top

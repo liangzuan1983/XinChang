@@ -21,6 +21,12 @@ export default {
     height: {
       type: String,
       default: "100%"
+    },
+    chartData: {
+      type: Array,
+      default: () => {
+        return []
+      }
     }
   },
   data() {
@@ -103,14 +109,21 @@ export default {
       ]
     }
   },
+  watch: {
+    chartData(val) {
+      if(val) {
+        this.initChart()
+      }
+    }
+  },
   mounted() {
     this.initChart();
-    this.__resizeHandler = debounce(() => {
-      if (this.chart) {
-        this.chart.resize();
-      }
-    }, 100);
-    window.addEventListener("resize", this.__resizeHandler);
+    // this.__resizeHandler = debounce(() => {
+    //   if (this.chart) {
+    //     this.chart.resize();
+    //   }
+    // }, 100);
+    // window.addEventListener("resize", this.__resizeHandler);
   },
   beforeDestroy() {
     if (!this.chart) {
@@ -125,7 +138,14 @@ export default {
       let myChart = echarts.init(this.$el, "macarons")
       let maskImage = new Image()
       maskImage.src = this.markUrl
-
+      //处理数据
+      let data = this.chartData;
+      this.presents = data.map(element => {
+        return {
+          name: element.keyWord,
+          value: element.weight
+        }
+      })
       maskImage.onload = () => {
         myChart.setOption({
           tooltip: {
