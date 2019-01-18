@@ -5,7 +5,7 @@
       <div class="time-box">
         <span>时间选择： </span>
         <el-date-picker
-          v-model="value4"
+          v-model="value6"
           type="daterange"
           range-separator="至"
           start-placeholder="开始日期"
@@ -148,30 +148,36 @@ export default {
   },
   data() {
     return {
-      value4: [new Date(), new Date()],
+      value6: [new Date() - 3600 * 1000 * 24 * 7, new Date()],
       xfzheif: true,
       jjright: true,
       nlfb: true,
       inProvince: [],
-      outProvince: []
+      outProvince: [],
+      dataObj: {
+        start: '',
+        end: ''
+      }
     }
   },
   mounted() {
+    this.searchTime()
     this.initRequest()
   },
   methods: {
     initRequest() {
       //省内自驾游数量
-      getTourNumberInPro().then(res => {
+      getTourNumberInPro(this.dataObj).then(res => {
         const data = res.data.data
         if(res.status === 200) {
           this.inProvince = data
+          // console.log(this.inProvince, '11')
         }
       }).catch(err => {
         console.log(err)
       })
       // 省外客源地自驾游数
-      getTourNumberOutPro().then(res => {
+      getTourNumberOutPro(this.dataObj).then(res => {
         const data = res.data.data
         if (res.status === 200) {
           this.outProvince = data
@@ -179,10 +185,53 @@ export default {
       }).catch(err => {
         console.log(err)
       })
-
+    },
+    //计算时间
+    searchTime() {
+      let start = this.dataObj.start
+      let end = this.dataObj.end
+      let s_start;
+      let s_end;
+      let s_y;
+      let s_r;
+      let e_y;
+      let e_r;
+      start = this.value6[0]
+      end = this.value6[1]
+      if (typeof(start) === 'number') {
+        start = new Date(start)
+      }
+      if (start.getMonth() >= 0 && start.getMonth() < 10) {
+        s_y = '0' + (start.getMonth() + 1);
+      } else {
+        s_y = start.getMonth() + 1;
+      }
+      if (end.getMonth() >= 0 && end.getMonth() < 10) {
+        e_y = '0' + (end.getMonth() + 1);
+      } else {
+        e_y = end.getMonth() + 1;
+      }
+      if(start.getDate() >= 0 && start.getDate() < 10) {
+        s_r = '0' + start.getDate();
+      } else {
+        s_r = start.getDate();
+      }
+      if(end.getDate() >= 0 && end.getDate() < 10) {
+        e_r = '0' + end.getDate();
+      } else {
+        e_r = end.getDate();
+      }
+      s_start = start.getFullYear() + '-' + s_y + '-' + s_r;
+      s_end = end.getFullYear() + '-' +  e_y + '-' + e_r;
+      console.log(s_start, '开始时间2')
+      console.log(s_end, '结束时间2')
+      this.dataObj.start = s_start;
+      this.dataObj.end = s_end
     },
     dataSelect() {
-      console.log(this.value4[0], 'value4')
+      //先计算时间
+      this.searchTime();
+      this.initRequest()
     }
   }
 }

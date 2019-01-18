@@ -5,13 +5,13 @@
       <div class="time-box">
         <span>时间选择： </span>
         <el-date-picker
-          v-model="value4"
+          v-model="value6"
           type="daterange"
           range-separator="至"
           start-placeholder="开始日期"
           end-placeholder="结束日期"/>
         <!--查询-->
-        <el-button size="mini" type="primary">查询</el-button>
+        <el-button size="mini" type="primary" @click="dataSearch">查询</el-button>
         <!--查询-->
         <img class="search" src="@/assets/icon/search.png" alt="">
         <!--下载-->
@@ -36,7 +36,7 @@
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
-                <holiday-kl-zhu height="100%" width="100%"/>
+                <holiday-kl-zhu :chartData='getConsumeTourisms' height="100%" width="100%"/>
               </div>
             </div>
           </div>
@@ -47,7 +47,7 @@
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
-                <nlfb v-if="nlfb" height="100%" width="100%"/>
+                <nlfb :chartData='getConsumeSources' height="100%" width="100%"/>
               </div>
             </div>
           </div>
@@ -61,7 +61,7 @@
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
-                <xfzhe v-if="xfzhe" height="100%" width="100%"/>
+                <xfzhe :chartData='getTrades' height="100%" width="100%"/>
               </div>
             </div>
           </div>
@@ -72,7 +72,7 @@
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
-                <ykxb height="100%" width="100%"/>
+                <ykxb :chartData='getTypes' height="100%" width="100%"/>
               </div>
             </div>
           </div>
@@ -87,18 +87,130 @@ import nlfb from '@/components/Charts/consumption-nlfb'
 import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
 import xfzhe from '@/components/Charts/holiday-xf-zhe'
 import ykxb from '@/components/Charts/consumption-xiaofei'
+import { getConsumeTourism, getConsumeSource, getTrade, getType } from '@/api/consumption'
 export default {
   components: {
     nlfb, HolidayKlZhu, xfzhe, ykxb
   },
   data() {
     return {
-      value4: [new Date(), new Date()],
+      value6: [new Date() - 3600 * 1000 * 24 * 7, new Date()],
       xfzheif: true,
       jjright: true,
-      nlfb: true,
-      xfzhe: true,
-      tabPosition: 'top'
+      tabPosition: 'top',
+      dataObj: {
+        start: '',
+        end: ''
+      },
+      getConsumeTourisms: [],
+      getConsumeSources: [],
+      getTrades: [],
+      getTypes: []
+    }
+  },
+  mounted() {
+    //先算时间
+    this.searchTime()
+    this.requestAll()
+  },
+  methods: {
+    //计算时间
+    searchTime() {
+      let start = this.dataObj.start
+      let end = this.dataObj.end
+      let s_start;
+      let s_end;
+      let s_y;
+      let s_r;
+      let e_y;
+      let e_r;
+      start = this.value6[0]
+      end = this.value6[1]
+      if (typeof(start) === 'number') {
+        start = new Date(start)
+      }
+      if (start.getMonth() >= 0 && start.getMonth() < 10) {
+        s_y = '0' + (start.getMonth() + 1);
+      } else {
+        s_y = start.getMonth() + 1;
+      }
+      if (end.getMonth() >= 0 && end.getMonth() < 10) {
+        e_y = '0' + (end.getMonth() + 1);
+      } else {
+        e_y = end.getMonth() + 1;
+      }
+      if(start.getDate() >= 0 && start.getDate() < 10) {
+        s_r = '0' + start.getDate();
+      } else {
+        s_r = start.getDate();
+      }
+      if(end.getDate() >= 0 && end.getDate() < 10) {
+        e_r = '0' + end.getDate();
+      } else {
+        e_r = end.getDate();
+      }
+      s_start = start.getFullYear() + '-' + s_y + '-' + s_r;
+      s_end = end.getFullYear() + '-' +  e_y + '-' + e_r;
+      console.log(s_start, '开始时间2')
+      console.log(s_end, '结束时间2')
+      this.dataObj.start = s_start;
+      this.dataObj.end = s_end
+    },
+    //点击日期事件
+    dataSearch() {
+      this.searchTime()
+      this.requestAll()
+    },
+    //全部四个请求
+    requestAll() {
+      //游客消费
+      getConsumeTourism(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if (res.status === 200) {
+            // console.log(data, '游客消费')
+            this.getConsumeTourisms = data
+          } 
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //游客消费占比
+      getConsumeSource(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if(res.status === 200) {
+            // console.log(data, '游客消费占比')
+            this.getConsumeSources = data
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //行业消费
+      getTrade(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if(res.status === 200) {
+            console.log(data, '行业消费')
+            this.getTrades = data
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //行业消费占比
+      getType(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if(res.status === 200) {
+            console.log(data, '行业消费占比')
+            this.getTypes = data
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   }
 }

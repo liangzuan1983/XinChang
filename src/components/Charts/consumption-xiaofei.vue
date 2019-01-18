@@ -26,8 +26,8 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   data() {

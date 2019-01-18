@@ -26,14 +26,18 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   data() {
     return {
       chart: null,
-      sidebarElm: null
+      sidebarElm: null,
+      time: [],
+      name: [],
+      value: [],
+      newData: []
     }
   },
   watch: {
@@ -79,6 +83,16 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      let data = this.chartData;
+      let inData = this.chartData[0].data
+      //日期
+      this.time = data.map(element => element.date)
+      //名字
+      this.name = inData.map(element => element.subject)
+      //值
+      
+      //新数组
+      
       this.chart.setOption({
         tooltip: {
           trigger: 'axis',
@@ -90,7 +104,7 @@ export default {
           }
         },
         legend: {
-          data: ['吃', '住', '行', '购', '娱'],
+          data: this.name,
           textStyle: {
             color: '#889db5'
           }
@@ -105,7 +119,7 @@ export default {
           {
             type: 'category',
             boundaryGap: false,
-            data: ['10-1', '10-2', '10-3', '10-4', '10-5', '10-6', '10-7'],
+            data: this.time,
             axisLabel: {
               textStyle: {
                 color: '#889db5'
