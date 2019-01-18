@@ -207,7 +207,7 @@
         <div class="kyd">
           <!--标题行-->
           <div class="zdjq-title-box">
-            <p class="title">客源地 城市 区县 top5</p>
+            <p class="title">客源来源地top5</p>
             <p class="title-right" @click="TwoLevelPages('/PassengerFlowAnalysis/index')">
               <span>更多</span>
               <span class="el-icon-d-arrow-right"/>

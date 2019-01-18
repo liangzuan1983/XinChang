@@ -7,3 +7,11 @@ export function getPassageFlow(params) {
     params
   })
 }
+// 游客类型分析
+export function getTouristsType(params) {
+  return request({
+    url: 'tour/xinchang/touristsType',
+    method: 'get',
+    params
+  })
+}

@@ -378,7 +378,7 @@ import passengerYklx from '@/views/dashboard/admin/components/passengerYklx'
 import nlfb from '@/components/Charts/passenger-ykgy'
 import { mapGetters } from 'vuex'
 import { town } from '@/api/home'
-import { getPassageFlow } from '@/api/flow'
+import { getPassageFlow, getTouristsType } from '@/api/flow'
 export default {
   components: {
     HolidayKlZhu, passengerYklx, nlfb
@@ -393,11 +393,7 @@ export default {
   data() {
     return {
       value6: [new Date() - 3600 * 1000 * 24 * 7, new Date()],
-      yktype: [
-        { value: 335, name: '散客' },
-        { value: 310, name: '一卡通游客' },
-        { value: 274, name: '跟团游' }
-      ],
+      yktype: [],
       dataObj: {
         start: '',
         end: ''
@@ -411,6 +407,8 @@ export default {
     this.initRequest()
     //客流分析单独提出来请求
     this.getFlowfn()
+    //游客类型分析
+    this.getTouristsTypefn()
     this.$store.dispatch('getCity')
     this.$store.dispatch('getLine')
   },
@@ -423,6 +421,8 @@ export default {
       this.searchTime();
       //客流分析
       this.getFlowfn()
+      //游客类型分析
+      this.getTouristsTypefn()
     },
     searchTime() {
       let start = this.dataObj.start
@@ -491,7 +491,21 @@ export default {
         .catch(err => {
           console.log(err)
         })
-    } 
+    },
+    // 游客类型分析
+    getTouristsTypefn() {
+      getTouristsType(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if(res.status === 200) {
+            this.yktype = data
+            // console.log(this.yktype, '111')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
   }
 }
 </script>
