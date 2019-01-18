@@ -81,7 +81,7 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
-      console.log(this.chartData, '123')
+      // console.log(this.chartData, '123')
       let data = this.chartData;
       this.name = data.map(element => element.subject);
       this.newData = data.map(element => {
@@ -90,8 +90,8 @@ export default {
           name: element.subject
         }
       })
-      console.log(this.name, 'name')
-      console.log(this.newData, 'newData')
+      // console.log(this.name, 'name')
+      // console.log(this.newData, 'newData')
       this.chart.setOption({
         tooltip: {
           trigger: 'item',

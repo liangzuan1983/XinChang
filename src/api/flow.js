@@ -31,3 +31,27 @@ export function getTouristStay(params) {
     params
   })
 }
+//游客来源地top10城市
+export function getTouristCity(params) {
+  return request({
+    url: 'tour/xinchang/touristCity',
+    method: 'get',
+    params
+  })
+}
+//游客来源地top10县区
+export function getTouristCounty(params) {
+  return request({
+    url: 'tour/xinchang/touristCounty',
+    method: 'get',
+    params
+  })
+}
+//热门旅游线路top10
+export function getTourRoute(params) {
+  return request({
+    url: 'tour/xinchang/tourRoute',
+    method: 'get',
+    params
+  })
+}

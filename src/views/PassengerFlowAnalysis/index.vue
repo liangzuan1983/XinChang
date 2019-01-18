@@ -386,17 +386,23 @@ import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
 import passengerYklx from '@/views/dashboard/admin/components/passengerYklx'
 import nlfb from '@/components/Charts/passenger-ykgy'
 import { mapGetters } from 'vuex'
-import { town } from '@/api/home'
-import { getPassageFlow, getTouristsType, getScenicVillage, getTouristStay } from '@/api/flow'
+// import { town } from '@/api/home'
+import { 
+  getPassageFlow,
+  getTouristsType,
+  getScenicVillage,
+  getTouristStay,
+  getTouristCity,
+  getTouristCounty,
+  getTourRoute
+} from '@/api/flow'
 export default {
   components: {
     HolidayKlZhu, passengerYklx, nlfb
   },
   computed: {
     ...mapGetters([
-      'getcity',
-      'getcity10',
-      'getline'
+      'getcity'
     ])
   },
   data() {
@@ -410,18 +416,19 @@ export default {
       town: [],
       getPassageFlow: [],
       getScenicVillages: [],
-      getTouristStays: []
+      getTouristStays: [],
+      getcity10: [],
+      getline: []
     }
   },
   mounted() {
     this.searchTime()
-    this.initRequest()
     //上面两个请求
     this.top()
     //left
     this.left()
-    this.$store.dispatch('getCity')
-    this.$store.dispatch('getLine')
+    //right
+    this.right()
   },
   methods: {
     search() {
@@ -435,12 +442,15 @@ export default {
     },
     //左边搜索
     leftSearch() {
+      this.searchTime()
       this.left()
     },
     //右边搜索
     rightSearch() {
-
+      this.searchTime()
+      this.right()
     },
+    //计算时间
     searchTime() {
       let start = this.dataObj.start
       let end = this.dataObj.end
@@ -481,19 +491,6 @@ export default {
       console.log(s_end, '结束时间2')
       this.dataObj.start = s_start;
       this.dataObj.end = s_end
-    },
-    initRequest() {
-      town()
-        .then(res => {
-          const data = res.data.data
-          // console.log(data, '111')
-          if (res.status === 200) {
-            this.town = data
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
     },
     //上面两个请求
     top() {
@@ -542,6 +539,44 @@ export default {
           if (res.status === 200) {
             this.getTouristStays = data
             // console.log(this.getTouristStays, '123321')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      // 游客来源地top10城市
+      getTouristCity(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if (res.status === 200) {
+            // console.log(data, 'ccc')
+            this.getcity10 = data
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      // 游客来源地top10县城
+      getTouristCounty(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if (res.status === 200) {
+            // console.log(data, 'xxx')
+            this.town = data
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    //右边请求
+    right() {
+      //热门旅游线路top10
+      getTourRoute()
+        .then(res => {
+          let data = res.data.data
+          if (res.status === 200) {
+            this.getline = data
           }
         })
         .catch(err => {
