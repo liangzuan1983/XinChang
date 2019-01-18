@@ -26,14 +26,16 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   data() {
     return {
       chart: null,
-      sidebarElm: null
+      sidebarElm: null,
+      name: [],
+      newData: []
     }
   },
   watch: {
@@ -79,21 +81,27 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      console.log(this.chartData, '123')
+      let data = this.chartData;
+      this.name = data.map(element => element.subject);
+      this.newData = data.map(element => {
+        return {
+          value: element.value,
+          name: element.subject
+        }
+      })
+      console.log(this.name, 'name')
+      console.log(this.newData, 'newData')
       this.chart.setOption({
         tooltip: {
           trigger: 'item',
           formatter: '{a} <br/>{b}: {c} ({d}%)'
         },
         color: ['#d8b8f3', '#1aa81a', '#d7ffd7', '#b3e2b3'], // 游客年龄分布
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客消费能力占比
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客线上偏好
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客过夜占比
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 行业消费占比
-        // color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'], // 游客消费占比
         legend: {
           orient: 'vertical',
           x: 'left',
-          data: ['不过夜', '过夜游2-3日', '过夜游3-5日', '过夜游5日以上'],
+          data: this.name,
           textStyle: {
             color: '#889db5'
           }
@@ -122,12 +130,7 @@ export default {
                 show: false
               }
             },
-            data: [
-              { value: 335, name: '不过夜' },
-              { value: 310, name: '过夜游2-3日' },
-              { value: 234, name: '过夜游3-5日' },
-              { value: 135, name: '过夜游5日以上' }
-            ]
+            data: this.newData
           }
         ]
       })

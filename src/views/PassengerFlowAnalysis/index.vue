@@ -56,7 +56,7 @@
             start-placeholder="开始日期"
             end-placeholder="结束日期"/>
           <!--查询-->
-          <el-button size="mini" type="primary">查询</el-button>
+          <el-button size="mini" type="primary" @click="leftSearch">查询</el-button>
           <!--查询-->
           <img class="search" src="@/assets/icon/search.png" alt="">
           <!--下载-->
@@ -70,65 +70,74 @@
             <!--内容-->
             <div class="content">
               <!--每1项-->
-              <div class="one-box">
-                <span class="name">十九峰</span>
+              <div class="one-box" v-if="getScenicVillages[0]">
+                <span class="name">{{ getScenicVillages[0].subject }}</span>
                 <p class="line1"/>
-                <span class="num">7262</span>
+                <span class="num">{{ getScenicVillages[0].value }}</span>
               </div>
+              <div v-else></div>
               <!--每2项-->
-              <div class="one-box">
-                <span class="name">大佛寺</span>
+              <div class="one-box" v-if="getScenicVillages[1]">
+                <span class="name">{{ getScenicVillages[1].subject }}</span>
                 <p class="line2"/>
-                <span class="num">6862</span>
+                <span class="num">{{ getScenicVillages[1].value }}</span>
               </div>
+              <div v-else></div>
               <!--每3项-->
-              <div class="one-box">
-                <span class="name">丝绸世界</span>
+              <div class="one-box" v-if="getScenicVillages[2]">
+                <span class="name">{{ getScenicVillages[2].subject }}</span>
                 <p class="line3"/>
-                <span class="num">6242</span>
+                <span class="num">{{ getScenicVillages[2].value }}</span>
               </div>
+              <div v-else></div>
               <!--每4项-->
-              <div class="one-box">
-                <span class="name">中国茶世</span>
+              <div class="one-box" v-if="getScenicVillages[3]">
+                <span class="name">{{ getScenicVillages[3].subject }}</span>
                 <p class="line4"/>
-                <span class="num">5322</span>
+                <span class="num">{{ getScenicVillages[3].value }}</span>
               </div>
+              <div v-else></div>
               <!--每5项-->
-              <div class="one-box">
-                <span class="name">天烛仙境</span>
+              <div class="one-box" v-if="getScenicVillages[4]">
+                <span class="name">{{ getScenicVillages[4].subject }}</span>
                 <p class="line5"/>
-                <span class="num">4222</span>
+                <span class="num">{{ getScenicVillages[4].value }}</span>
               </div>
+              <div v-else></div>
               <!--每6项-->
-              <div class="one-box">
-                <span class="name">梅渚村</span>
+              <div class="one-box" v-if="getScenicVillages[5]">
+                <span class="name">{{ getScenicVillages[5].subject }}</span>
                 <p class="line6"/>
-                <span class="num">3212</span>
+                <span class="num">{{ getScenicVillages[5].value }}</span>
               </div>
+              <div v-else></div>
               <!--每7项-->
-              <div class="one-box">
-                <span class="name">巧英乡</span>
+              <div class="one-box" v-if="getScenicVillages[6]">
+                <span class="name">{{ getScenicVillages[6].subject }}</span>
                 <p class="line7"/>
-                <span class="num">2342</span>
+                <span class="num">{{ getScenicVillages[6].value }}</span>
               </div>
               <!--每8项-->
-              <div class="one-box">
-                <span class="name">东茗乡</span>
+              <div class="one-box" v-if="getScenicVillages[7]">
+                <span class="name">{{ getScenicVillages[7].subject }}</span>
                 <p class="line8"/>
-                <span class="num">1232</span>
+                <span class="num">{{ getScenicVillages[7].value }}</span>
               </div>
+              <div v-else></div>
               <!--每9项-->
-              <div class="one-box">
-                <span class="name">回乡镇</span>
+              <div class="one-box" v-if="getScenicVillages[8]">
+                <span class="name">{{ getScenicVillages[8].subject }}</span>
                 <p class="line9"/>
-                <span class="num">672</span>
+                <span class="num">{{ getScenicVillages[8].value }}</span>
               </div>
+              <div v-else></div>
               <!--每10项-->
-              <div class="one-box">
-                <span class="name">沙溪镇</span>
+              <div class="one-box" v-if="getScenicVillages[9]">
+                <span class="name">{{ getScenicVillages[9].subject }}</span>
                 <p class="line10"/>
-                <span class="num">342</span>
+                <span class="num">{{ getScenicVillages[9].value }}</span>
               </div>
+              <div v-else></div>
             </div>
           </div>
           <div class="two">
@@ -137,7 +146,7 @@
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
-                <nlfb height="100%" width="100%"/>
+                <nlfb :chartData='getTouristStays' height="100%" width="100%"/>
               </div>
             </div>
           </div>
@@ -293,7 +302,7 @@
             end-placeholder="结束日期">
           </el-date-picker>
           <!--查询-->
-          <el-button size="mini" type="primary">查询</el-button>
+          <el-button size="mini" type="primary" @click="rightSearch">查询</el-button>
           <!--查询-->
           <img class="search" src="@/assets/icon/search.png" alt="">
           <!--下载-->
@@ -306,7 +315,7 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="this.getline.length > 0">
+            <div class="one-box" v-if="getline.length > 0">
               <span class="name">{{ getline[0].subject }}</span>
               <p class="line1"/>
               <span class="num">{{ getline[0].value }}</span>
@@ -378,7 +387,7 @@ import passengerYklx from '@/views/dashboard/admin/components/passengerYklx'
 import nlfb from '@/components/Charts/passenger-ykgy'
 import { mapGetters } from 'vuex'
 import { town } from '@/api/home'
-import { getPassageFlow, getTouristsType } from '@/api/flow'
+import { getPassageFlow, getTouristsType, getScenicVillage, getTouristStay } from '@/api/flow'
 export default {
   components: {
     HolidayKlZhu, passengerYklx, nlfb
@@ -399,16 +408,18 @@ export default {
         end: ''
       },
       town: [],
-      getPassageFlow: []
+      getPassageFlow: [],
+      getScenicVillages: [],
+      getTouristStays: []
     }
   },
   mounted() {
     this.searchTime()
     this.initRequest()
-    //客流分析单独提出来请求
-    this.getFlowfn()
-    //游客类型分析
-    this.getTouristsTypefn()
+    //上面两个请求
+    this.top()
+    //left
+    this.left()
     this.$store.dispatch('getCity')
     this.$store.dispatch('getLine')
   },
@@ -419,10 +430,16 @@ export default {
     topSearch() {
       //先把时间计算出来
       this.searchTime();
-      //客流分析
-      this.getFlowfn()
-      //游客类型分析
-      this.getTouristsTypefn()
+      //上面两个请求
+     this.top()
+    },
+    //左边搜索
+    leftSearch() {
+      this.left()
+    },
+    //右边搜索
+    rightSearch() {
+
     },
     searchTime() {
       let start = this.dataObj.start
@@ -478,8 +495,8 @@ export default {
           console.log(err)
         })
     },
-    //客流分析
-    getFlowfn() {
+    //上面两个请求
+    top() {
       //全域客流分析
       getPassageFlow(this.dataObj)
         .then(res => {
@@ -491,15 +508,40 @@ export default {
         .catch(err => {
           console.log(err)
         })
-    },
-    // 游客类型分析
-    getTouristsTypefn() {
+      // 游客类型分析
       getTouristsType(this.dataObj)
         .then(res => {
           let data = res.data.data
           if(res.status === 200) {
             this.yktype = data
             // console.log(this.yktype, '111')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    //左边两个请求
+    left() {
+      // 景区及A级村庄客流TOP10
+      getScenicVillage(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if (res.status === 200) {
+            this.getScenicVillages = data
+            // console.log(this.getScenicVillages, '11')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //游客过夜比例
+      getTouristStay(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if (res.status === 200) {
+            this.getTouristStays = data
+            // console.log(this.getTouristStays, '123321')
           }
         })
         .catch(err => {
@@ -752,7 +794,7 @@ export default {
             flex-direction: column;
             // background: rgba(255, 255, 255, 0.05);
             .chart-wrapper {
-              height: 100%;
+              height: 320px;
               width: 100%;
             }
             .one-box {

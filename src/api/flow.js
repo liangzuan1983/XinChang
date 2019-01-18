@@ -15,3 +15,19 @@ export function getTouristsType(params) {
     params
   })
 }
+//景区及A级村庄客流TOP10
+export function getScenicVillage(params) {
+  return request({
+    url: 'tour/xinchang/scenicVillage',
+    method: 'get',
+    params
+  })
+}
+//游客过夜比例
+export function getTouristStay(params) {
+  return request({
+    url: 'tour/xinchang/touristStay',
+    method: 'get',
+    params
+  })
+}
