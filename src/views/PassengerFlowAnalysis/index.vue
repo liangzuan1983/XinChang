@@ -13,7 +13,7 @@
           end-placeholder="结束日期">
         </el-date-picker>
         <!--查询-->
-        <el-button size="mini" type="primary" @click="searchTime">查询</el-button>
+        <el-button size="mini" type="primary" @click="topSearch">查询</el-button>
         <!--查询-->
         <img class="search" src="@/assets/icon/search.png" alt="" @click="search">
         <!--下载-->
@@ -23,10 +23,10 @@
         <!--全域客流量同比分析-->
         <div class="left">
           <!--标题-->
-          <div class="title">全域客流量同比分析</div>
+          <div class="title">全域客流量分析</div>
           <div class="content">
             <div class="chart-wrapper">
-              <holiday-kl-zhu height="100%" width="100%"/>
+              <holiday-kl-zhu :chartData='getPassageFlow' height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -150,61 +150,61 @@
             <!--内容-->
             <div class="content">
               <!--每1项-->
-              <div class="one-box" v-if="this.getcity10.length > 0">
+              <div class="one-box" v-if="this.getcity10[0]">
                 <span class="name">{{ getcity10[0].subject }}</span>
                 <p class="line1"/>
                 <span class="num">{{ getcity10[0].value }}</span>
               </div>
               <!--每2项-->
-              <div class="one-box" v-if="this.getcity10.length > 0">
+              <div class="one-box" v-if="this.getcity10[1]">
                 <span class="name">{{ getcity10[1].subject }}</span>
                 <p class="line2"/>
                 <span class="num">{{ getcity10[1].value }}</span>
               </div>
               <!--每3项-->
-              <div class="one-box" v-if="this.getcity10.length > 0">
+              <div class="one-box" v-if="this.getcity10[2]">
                 <span class="name">{{ getcity10[2].subject }}</span>
                 <p class="line3"/>
                 <span class="num">{{ getcity10[2].value }}</span>
               </div>
               <!--每4项-->
-              <div class="one-box" v-if="this.getcity10.length > 0">
+              <div class="one-box" v-if="this.getcity10[3]">
                 <span class="name">{{ getcity10[3].subject }}</span>
                 <p class="line4"/>
                 <span class="num">{{ getcity10[3].value }}</span>
               </div>
               <!--每5项-->
-              <div class="one-box" v-if="this.getcity10.length > 0">
+              <div class="one-box" v-if="this.getcity10[4]">
                 <span class="name">{{ getcity10[4].subject }}</span>
                 <p class="line5"/>
                 <span class="num">{{ getcity10[4].value }}</span>
               </div>
               <!--每6项-->
-              <div class="one-box" v-if="this.getcity10.length > 0">
+              <div class="one-box" v-if="this.getcity10[5]">
                 <span class="name">{{ getcity10[5].subject }}</span>
                 <p class="line6"/>
                 <span class="num">{{ getcity10[5].value }}</span>
               </div>
               <!--每7项-->
-              <div class="one-box" v-if="this.getcity10.length > 0">
+              <div class="one-box" v-if="this.getcity10[6]">
                 <span class="name">{{ getcity10[6].subject }}</span>
                 <p class="line7"/>
                 <span class="num">{{ getcity10[6].value }}</span>
               </div>
               <!--每8项-->
-              <div class="one-box" v-if="this.getcity10.length > 0">
+              <div class="one-box" v-if="this.getcity10[7]">
                 <span class="name">{{ getcity10[7].subject }}</span>
                 <p class="line8"/>
                 <span class="num">{{ getcity10[7].value }}</span>
               </div>
               <!--每9项-->
-              <div class="one-box" v-if="this.getcity10.length > 0">
+              <div class="one-box" v-if="this.getcity10[8]">
                 <span class="name">{{ getcity10[8].subject }}</span>
                 <p class="line9"/>
                 <span class="num">{{ getcity10[8].value }}</span>
               </div>
               <!--每10项-->
-              <div class="one-box" v-if="this.getcity10.length > 0">
+              <div class="one-box" v-if="this.getcity10[9]">
                 <span class="name">{{ getcity10[9].subject }}</span>
                 <p class="line10"/>
                 <span class="num">{{ getcity10[9].value }}</span>
@@ -217,61 +217,61 @@
             <!--内容-->
             <div class="content">
               <!--每1项-->
-              <div class="one-box">
+              <div class="one-box" v-if="town[0]">
                 <span class="name">{{ town[0].subject }}</span>
                 <p class="line1"/>
                 <span class="num">{{ town[0].value }}</span>
               </div>
               <!--每2项-->
-              <div class="one-box">
+              <div class="one-box" v-if="town[1]">
                 <span class="name">{{ town[1].subject }}</span>
                 <p class="line2"/>
                 <span class="num">{{ town[1].value }}</span>
               </div>
               <!--每3项-->
-              <div class="one-box">
+              <div class="one-box" v-if="town[2]">
                 <span class="name">{{ town[2].subject }}</span>
                 <p class="line3"/>
                 <span class="num">{{ town[2].value }}</span>
               </div>
               <!--每4项-->
-              <div class="one-box">
+              <div class="one-box" v-if="town[3]">
                 <span class="name">{{ town[3].subject }}</span>
                 <p class="line4"/>
                 <span class="num">{{ town[3].value }}</span>
               </div>
               <!--每5项-->
-              <div class="one-box">
+              <div class="one-box" v-if="town[4]">
                 <span class="name">{{ town[4].subject }}</span>
                 <p class="line5"/>
                 <span class="num">{{ town[4].value }}</span>
               </div>
               <!--每6项-->
-              <div class="one-box">
+              <div class="one-box" v-if="town[5]">
                 <span class="name">{{ town[5].subject }}</span>
                 <p class="line6"/>
                 <span class="num">{{ town[5].value }}</span>
               </div>
               <!--每7项-->
-              <div class="one-box">
+              <div class="one-box" v-if="town[6]">
                 <span class="name">{{ town[6].subject }}</span>
                 <p class="line7"/>
                 <span class="num">{{ town[6].value }}</span>
               </div>
               <!--每8项-->
-              <div class="one-box">
+              <div class="one-box" v-if="town[7]">
                 <span class="name">{{ town[7].subject }}</span>
                 <p class="line8"/>
                 <span class="num">{{ town[7].value }}</span>
               </div>
               <!--每9项-->
-              <div class="one-box">
+              <div class="one-box" v-if="town[8]">
                 <span class="name">{{ town[8].subject }}</span>
                 <p class="line9"/>
                 <span class="num">{{ town[8].value }}</span>
               </div>
               <!--每10项-->
-              <div class="one-box">
+              <div class="one-box" v-if="town[9]">
                 <span class="name">{{ town[9].subject }}</span>
                 <p class="line10"/>
                 <span class="num">{{ town[9].value }}</span>
@@ -378,6 +378,7 @@ import passengerYklx from '@/views/dashboard/admin/components/passengerYklx'
 import nlfb from '@/components/Charts/passenger-ykgy'
 import { mapGetters } from 'vuex'
 import { town } from '@/api/home'
+import { getPassageFlow } from '@/api/flow'
 export default {
   components: {
     HolidayKlZhu, passengerYklx, nlfb
@@ -401,17 +402,27 @@ export default {
         start: '',
         end: ''
       },
-      town: []
+      town: [],
+      getPassageFlow: []
     }
   },
   mounted() {
+    this.searchTime()
+    this.initRequest()
+    //客流分析单独提出来请求
+    this.getFlowfn()
     this.$store.dispatch('getCity')
     this.$store.dispatch('getLine')
-    this.initRequest()
   },
   methods: {
     search() {
       window.open('http://61.174.54.66:8020/download.pdf')
+    },
+    topSearch() {
+      //先把时间计算出来
+      this.searchTime();
+      //客流分析
+      this.getFlowfn()
     },
     searchTime() {
       let start = this.dataObj.start
@@ -451,18 +462,36 @@ export default {
       s_end = end.getFullYear() + '-' +  e_y + '-' + e_r;
       console.log(s_start, '开始时间2')
       console.log(s_end, '结束时间2')
+      this.dataObj.start = s_start;
+      this.dataObj.end = s_end
     },
     initRequest() {
-      town().then(res => {
-        const data = res.data.data
-        console.log(data, '111')
-        if (res.status === 200) {
-          this.town = data
-        }
-      }).catch(err => {
-        console.log(err)
-      })
-    }
+      town()
+        .then(res => {
+          const data = res.data.data
+          // console.log(data, '111')
+          if (res.status === 200) {
+            this.town = data
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    //客流分析
+    getFlowfn() {
+      //全域客流分析
+      getPassageFlow(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if(res.status === 200) {
+            this.getPassageFlow = data
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    } 
   }
 }
 </script>
