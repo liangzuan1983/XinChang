@@ -315,61 +315,61 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="getline.length > 0">
+            <div class="one-box" v-if="getline[0]">
               <span class="name">{{ getline[0].subject }}</span>
               <p class="line1"/>
               <span class="num">{{ getline[0].value }}</span>
             </div>
             <!--每2项-->
-            <div class="one-box" v-if="this.getline.length > 0">
+            <div class="one-box" v-if="getline[1]">
               <span class="name">{{ getline[1].subject }}</span>
               <p class="line2"/>
               <span class="num">{{ getline[1].value }}</span>
             </div>
             <!--每3项-->
-            <div class="one-box" v-if="this.getline.length > 0">
+            <div class="one-box" v-if="getline[2]">
               <span class="name">{{ getline[2].subject }}</span>
               <p class="line3"/>
               <span class="num">{{ getline[2].value }}</span>
             </div>
             <!--每4项-->
-            <div class="one-box" v-if="this.getline.length > 0">
+            <div class="one-box" v-if="getline[3]">
               <span class="name">{{ getline[3].subject }}</span>
               <p class="line4"/>
               <span class="num">{{ getline[3].value }}</span>
             </div>
             <!--每5项-->
-            <div class="one-box" v-if="this.getline.length > 0">
+            <div class="one-box" v-if="getline[4]">
               <span class="name">{{ getline[4].subject }}</span>
               <p class="line5"/>
               <span class="num">{{ getline[4].value }}</span>
             </div>
             <!--每6项-->
-            <div class="one-box" v-if="this.getline.length > 0">
+            <div class="one-box" v-if="getline[5]">
               <span class="name">{{ getline[5].subject }}</span>
               <p class="line6"/>
               <span class="num">{{ getline[5].value }}</span>
             </div>
             <!--每7项-->
-            <div class="one-box" v-if="this.getline.length > 0">
+            <div class="one-box" v-if="getline[6]">
               <span class="name">{{ getline[6].subject }}</span>
               <p class="line7"/>
               <span class="num">{{ getline[6].value }}</span>
             </div>
             <!--每8项-->
-            <div class="one-box" v-if="this.getline.length > 0">
+            <div class="one-box" v-if="getline[7]">
               <span class="name">{{ getline[7].subject }}</span>
               <p class="line8"/>
               <span class="num">{{ getline[7].value }}</span>
             </div>
             <!--每9项-->
-            <div class="one-box" v-if="this.getline.length > 0">
+            <div class="one-box" v-if="getline[8]">
               <span class="name">{{ getline[8].subject }}</span>
               <p class="line9"/>
               <span class="num">{{ getline[8].value }}</span>
             </div>
             <!--每10项-->
-            <div class="one-box" v-if="this.getline.length > 0">
+            <div class="one-box" v-if="getline[9]">
               <span class="name">{{ getline[9].subject }}</span>
               <p class="line10"/>
               <span class="num">{{ getline[9].value }}</span>
@@ -572,7 +572,7 @@ export default {
     //右边请求
     right() {
       //热门旅游线路top10
-      getTourRoute()
+      getTourRoute(this.dataObj)
         .then(res => {
           let data = res.data.data
           if (res.status === 200) {
