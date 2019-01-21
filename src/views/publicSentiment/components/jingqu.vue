@@ -67,7 +67,7 @@
               <div class="lefts">
                 <p class="titles">整体好评率</p>
                 <el-progress 
-                  v-if="countWeeklys" 
+                  v-if="countWeeklys"
                   :stroke-width="hou" :width="cWidth" 
                   :percentage="Number((countWeeklys.totalRate*100).toFixed(2))" 
                   type="circle"/>
@@ -103,7 +103,7 @@
         <!--内容-->
         <div class="content">
           <div class="chart-wrapper">
-            <zhengfu width="100%" height="100%"/>
+            <zhengfu v-if="countDistributionsif" :chartData='countDistributions' width="100%" height="100%"/>
           </div>
         </div>
         <!--标题-->
@@ -305,7 +305,8 @@ export default {
       countAnnuallys: [],
       lists: [],
       getRanks: [],
-      getAreaDimensions: []
+      getAreaDimensions: [],
+      countDistributionsif: false
     }
   },
   mounted() {
@@ -330,7 +331,7 @@ export default {
         .then(res => {
           let data = res.data.data;
           this.countWeeklys = data;
-          console.log(data, '近7日评论数')
+          // console.log(data, '近7日评论数')
         })
         .catch(err => {
           console.log(err)
@@ -340,6 +341,7 @@ export default {
         .then(res => {
           let data = res.data.data;
           this.countDistributions = data;
+          this.countDistributionsif = true
           console.log(data, '评论分析')
         })
         .catch(err => {

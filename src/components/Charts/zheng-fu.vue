@@ -26,14 +26,17 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   data() {
     return {
       chart: null,
-      sidebarElm: null
+      sidebarElm: null,
+      name: [],
+      goodData: [],
+      badData: []
     }
   },
   watch: {
@@ -79,6 +82,11 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      console.log(this.chartData, '组件内')
+      let data = this.chartData;
+      this.name = data.map(element => element.ota);
+      this.goodData = data.map(element => element.pos);
+      this.badData = data.map(element => element.neg*-1);
       this.chart.setOption({
         tooltip: {
           trigger: 'axis',
@@ -87,7 +95,7 @@ export default {
           }
         },
         legend: {
-          data: ['利润', '支出', '收入'],
+          data: ['好评', '差评'],
           textStyle: {
             color: '#889db5'
           }
@@ -113,7 +121,7 @@ export default {
           {
             type: 'category',
             axisTick: { show: false },
-            data: ['艺龙', '携程', '去哪儿', '蜂窝', '途牛'],
+            data: this.name,
             axisLabel: {
               textStyle: {
                 color: '#889db5'
@@ -123,7 +131,7 @@ export default {
         ],
         series: [
           {
-            name: '收入',
+            name: '好评',
             type: 'bar',
             stack: '总量',
             label: {
@@ -131,10 +139,10 @@ export default {
                 show: true
               }
             },
-            data: [320, 302, 341, 374, 390]
+            data: this.goodData
           },
           {
-            name: '支出',
+            name: '差评',
             type: 'bar',
             stack: '总量',
             label: {
@@ -143,7 +151,7 @@ export default {
                 position: 'left'
               }
             },
-            data: [-120, -132, -101, -134, -160]
+            data: this.badData
           }
         ]
       })
