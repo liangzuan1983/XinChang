@@ -1,21 +1,21 @@
 <template>
   <div class="jingqu">
     <!--时间选择-->
-    <div class="time-box">
-      <span>时间选择： </span>
+    <!-- <div class="time-box"> -->
+      <!-- <span>时间选择： </span>
       <el-date-picker
         v-model="value4"
         type="daterange"
         range-separator="至"
         start-placeholder="开始日期"
-        end-placeholder="结束日期"/>
+        end-placeholder="结束日期"/> -->
       <!--查询-->
-      <el-button size="mini" type="primary">查询</el-button>
+      <!-- <el-button size="mini" type="primary">查询</el-button> -->
       <!--查询-->
-      <img class="search" src="@/assets/icon/search.png" alt="">
+      <!-- <img class="search" src="@/assets/icon/search.png" alt=""> -->
       <!--下载-->
       <!-- <img class="down" src="@/assets/icon/down.png" alt=""> -->
-    </div>
+    <!-- </div> -->
     <!--内容-->
     <div class="content0">
       <!--左-->
@@ -89,7 +89,7 @@
       <!--右-->
       <div class="right">
         <!--标题-->
-        <p class="title">评论分析</p>
+        <p class="title">评论分布</p>
         <!--内容-->
         <div class="content">
           <div class="chart-wrapper">
@@ -276,7 +276,13 @@ export default {
           draggable: false,
           template: '<span>1</span>',
         }
-      ]
+      ],
+      category: 1
+    }
+  },
+  methods: {
+    requestAll() {
+      
     }
   }
 }
