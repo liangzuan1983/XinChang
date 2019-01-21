@@ -49,16 +49,21 @@
               <div class="top">
                 <p class="titles">评论总数</p>
                 <p class="num" v-if="countWeeklys">{{ countWeeklys.weeklyTotal }}条</p>
+                <p class="num" v-else>0条</p>
               </div>
               <!--下-->
               <div class="bottom">
                 <div class="leftz">
                   <p class="titles">好评数</p>
                   <p class="num" v-if="countWeeklys">{{ countWeeklys.weeklyPos }}条</p>
+                  <p class="num" v-else>0条</p>
                 </div>
                 <div class="rightz">
                   <p class="titles">差评数</p>
-                  <p class="num" v-if="countWeeklys">{{ countWeeklys.weeklyTotal-countWeeklys.weeklyPos }}条</p>
+                  <p class="num" v-if="countWeeklys.weeklyTotal-countWeeklys.weeklyPos">
+                    {{ countWeeklys.weeklyTotal-countWeeklys.weeklyPos }}条
+                  </p>
+                  <p class="num" v-else>0条</p>
                 </div>
               </div>
             </div>
@@ -133,7 +138,7 @@
                     <span class="title" v-text="item.createdate"/>
                     <span class="date">[ {{ item.tour }} {{ item.ota }} ]</span>
                   </p>
-                  <p class="neirong">{{ item.content }}</p>
+                  <p class="neirong" v-html="item.content"></p>
                 </div>
               </li>
             </ul>
@@ -147,34 +152,34 @@
         <!--内容-->
         <div class="content">
           <!--每1项-->
-          <div class="one-box">
-            <span class="name">大佛寺</span>
+          <div class="one-box" v-if="getRanks[0]">
+            <span class="name">{{ getRanks[0].name }}</span>
             <p class="line1"/>
-            <span class="num">7262</span>
+            <span class="num">{{ getRanks[0].good }}</span>
           </div>
           <!--每2项-->
-          <div class="one-box">
-            <span class="name">十九峰</span>
+          <div class="one-box" v-if="getRanks[1]">
+            <span class="name">{{ getRanks[1].name }}</span>
             <p class="line2"/>
-            <span class="num">6862</span>
+            <span class="num">{{ getRanks[1].good }}</span>
           </div>
           <!--每3项-->
-          <div class="one-box">
-            <span class="name">丝绸世界</span>
+          <div class="one-box" v-if="getRanks[2]">
+            <span class="name">{{ getRanks[2].name }}</span>
             <p class="line3"/>
-            <span class="num">6242</span>
+            <span class="num">{{ getRanks[2].good }}</span>
           </div>
           <!--每4项-->
-          <div class="one-box">
-            <span class="name">灵隐村</span>
+          <div class="one-box" v-if="getRanks[3]">
+            <span class="name">{{ getRanks[3].name }}</span>
             <p class="line4"/>
-            <span class="num">5322</span>
+            <span class="num">{{ getRanks[3].good }}</span>
           </div>
           <!--每5项-->
-          <div class="one-box">
-            <span class="name">天烛仙境</span>
+          <div class="one-box" v-if="getRanks[4]">
+            <span class="name">{{ getRanks[4].name }}</span>
             <p class="line5"/>
-            <span class="num">4222</span>
+            <span class="num">{{ getRanks[4].good }}</span>
           </div>
         </div>
       </div>
@@ -336,7 +341,7 @@ export default {
           let data = res.data.data;
           if (res.status === 200) {
             this.listData = data;
-            console.log(data, '实时新增评论');
+            // console.log(data, '实时新增评论');
           }
         })
         .catch(err => {
@@ -346,9 +351,24 @@ export default {
       getRank({ category: this.category })
         .then(res => {
           let data = res.data.data;
+          let newArr =[];
           if(res.status === 200) {
-            this.getRanks = data;
-            console.log(data, '好评率排行')
+            newArr = data.map(element => {
+              return {
+                good: element.total-element.neg,
+                name: element.name
+              }
+            })
+            function compare(property) {
+              return function(a, b) {
+                var value1 = a[property];
+                var value2 = b[property];
+                return value2 - value1;
+              }
+            }
+            
+            this.getRanks = newArr.sort(compare('good'));
+            // console.log(this.getRanks, '好评率排行')
           }
         })
         .catch(err => {
@@ -377,6 +397,9 @@ export default {
     height: 100%;
     display: flex;
     flex-direction: column;
+    facility, quiet, food, management, cleaning, location, price, view, flow {
+      color: red
+    }
     .el-date-editor .el-range-separator {
       padding: 0!important;
       color: #000!important;
