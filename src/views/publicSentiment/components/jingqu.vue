@@ -111,7 +111,7 @@
         <!--内容-->
         <div class="content">
           <div class="chart-wrapper">
-            <hcdd width="100%" height="100%"/>
+            <hcdd v-if="countAnnuallysif" :chartData='countAnnuallys' width="100%" height="100%"/>
           </div>
         </div>
       </div>
@@ -307,7 +307,8 @@ export default {
       getRanks: [],
       getAreaDimensions: [],
       countDistributionsif: false,
-      countMonthlysif: false
+      countMonthlysif: false,
+      countAnnuallysif: false
     }
   },
   mounted() {
@@ -355,7 +356,7 @@ export default {
           if (res.status === 200) {
             this.countMonthlys = data;
             this.countMonthlysif = true
-            console.log(data, '近30日评论')
+            // console.log(data, '近30日评论')
           }
         })
         .catch(err => {
@@ -367,6 +368,7 @@ export default {
           let data = res.data.data;
           if(res.status === 200) {
             this.countAnnuallys = data;
+            this.countAnnuallysif = true
             console.log(data, '近12个月评论数')
           }
         })

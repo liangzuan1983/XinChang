@@ -26,14 +26,17 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   data() {
     return {
       chart: null,
-      sidebarElm: null
+      sidebarElm: null,
+      time: [],
+      good: [],
+      bad: []
     }
   },
   watch: {
@@ -79,6 +82,11 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      let data = this.chartData;
+      // console.log(data, '组件内')
+      this.time = data.map(element => element.date);
+      this.good = data.map(element => element.pos);
+      this.bad = data.map(element => element.neg);
       this.chart.setOption({
         tooltip: {
           trigger: 'axis',
@@ -102,7 +110,7 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+            data: this.time,
             axisLabel: {
               textStyle: {
                 color: '#889db5'
@@ -125,13 +133,13 @@ export default {
             name: '差评',
             type: 'bar',
             stack: '广告',
-            data: [120, 132, 101, 134, 90, 230, 210, 320, 332, 301, 334, 390]
+            data: this.bad
           },
           {
             name: '好评',
             type: 'bar',
             stack: '广告',
-            data: [220, 182, 191, 234, 290, 330, 310, 320, 332, 301, 334, 390]
+            data: this.good
           }
         ]
       })
