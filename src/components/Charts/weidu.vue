@@ -26,14 +26,16 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   data() {
     return {
       chart: null,
-      sidebarElm: null
+      sidebarElm: null,
+      name: [],
+      value: []
     }
   },
   watch: {
@@ -79,6 +81,10 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      // console.log(this.chartData, '组件内1')
+      let data = this.chartData;
+      this.name = data.map(element => element.subject);
+      this.value = data.map(element => element.value);
       this.chart.setOption({
         tooltip: {
           trigger: 'axis',
@@ -104,7 +110,7 @@ export default {
         },
         yAxis: {
           type: 'category',
-          data: ['卫生', '设施', '餐饮', '位置', '管理', '价格', '噪音'],
+          data: this.name,
           axisLabel: {
             textStyle: {
               color: '#889db5'
@@ -115,7 +121,7 @@ export default {
           {
             name: '2011年',
             type: 'bar',
-            data: [6, 7, 7, 14, 13, 63, 35]
+            data: this.value
           }
         ]
       })

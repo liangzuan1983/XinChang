@@ -190,7 +190,7 @@
         <!--内容-->
         <div class="content">
           <div class="chart-wrapper">
-            <weidu height="100%" width="100%"/>
+            <weidu v-if="getAreaDimensionsif" :chartData='getAreaDimensions' height="100%" width="100%"/>
           </div>
         </div>
       </div>
@@ -201,7 +201,7 @@
         <!--内容-->
         <div class="content">
           <div class="chart-wrapper">
-            <meigui height="100%" width="100%"/>
+            <meigui v-if="getAreaDimensionsif" :chartData='getAreaDimensions' height="100%" width="100%"/>
           </div>
         </div>
       </div>
@@ -268,7 +268,8 @@ export default {
       getAreaDimensions: [],
       countDistributionsif: false,
       countMonthlysif: false,
-      countAnnuallysif: false
+      countAnnuallysif: false,
+      getAreaDimensionsif: false
     }
   },
   mounted() {
@@ -380,7 +381,8 @@ export default {
           let data = res.data.data;
           if (res.status === 200) {
             this.getAreaDimensions = data;
-            console.log(data, '评论维度分析+差评分析')
+            this.getAreaDimensionsif = true
+            // console.log(data, '评论维度分析+差评分析')
           }
         })
         .catch(err => {

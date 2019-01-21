@@ -2,8 +2,8 @@
   <div class="jiudian">
     <!--时间选择-->
     <!-- <div class="time-box"> -->
-      <!-- <span>时间选择： </span> -->
-      <!-- <el-date-picker
+      <!-- <span>时间选择： </span>
+      <el-date-picker
         v-model="value4"
         type="daterange"
         range-separator="至"
@@ -48,17 +48,22 @@
               <!--上-->
               <div class="top">
                 <p class="titles">评论总数</p>
-                <p class="num">6条</p>
+                <p class="num" v-if="countWeeklys">{{ countWeeklys.weeklyTotal }}条</p>
+                <p class="num" v-else>0条</p>
               </div>
               <!--下-->
               <div class="bottom">
                 <div class="leftz">
                   <p class="titles">好评数</p>
-                  <p class="num">5条</p>
+                  <p class="num" v-if="countWeeklys">{{ countWeeklys.weeklyPos }}条</p>
+                  <p class="num" v-else>0条</p>
                 </div>
                 <div class="rightz">
                   <p class="titles">差评数</p>
-                  <p class="num">1条</p>
+                  <p class="num" v-if="countWeeklys.weeklyTotal-countWeeklys.weeklyPos">
+                    {{ countWeeklys.weeklyTotal-countWeeklys.weeklyPos }}条
+                  </p>
+                  <p class="num" v-else>0条</p>
                 </div>
               </div>
             </div>
@@ -66,11 +71,21 @@
             <div class="right-seven">
               <div class="lefts">
                 <p class="titles">整体好评率</p>
-                <el-progress :stroke-width="hou" :width="cWidth" :percentage="82" type="circle"/>
+                <el-progress 
+                  v-if="countWeeklys"
+                  :stroke-width="hou" :width="cWidth" 
+                  :percentage="Number((countWeeklys.totalRate*100).toFixed(2))" 
+                  type="circle"/>
               </div>
               <div class="rights">
                 <p class="titles">近一周好评</p>
-                <el-progress :stroke-width="hou" :width="cWidth" :percentage="34" type="circle" color="#8e71c7"/>
+                <el-progress 
+                  v-if="countWeeklys" 
+                  :stroke-width="hou" 
+                  :width="cWidth" 
+                  :percentage="Number((countWeeklys.weeklyPos/countWeeklys.weeklyTotal*100).toFixed(2))" 
+                  type="circle" 
+                  color="#8e71c7"/>
               </div>
             </div>
           </div>
@@ -81,7 +96,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <haoping width="100%" height="100%"/>
+              <haoping v-if="countMonthlysif" :chartData='countMonthlys' width="100%" height="100%"/>
             </div>
           </div>
         </div>
@@ -93,7 +108,7 @@
         <!--内容-->
         <div class="content">
           <div class="chart-wrapper">
-            <zhengfu width="100%" height="100%"/>
+            <zhengfu v-if="countDistributionsif" :chartData='countDistributions' width="100%" height="100%"/>
           </div>
         </div>
         <!--标题-->
@@ -101,7 +116,7 @@
         <!--内容-->
         <div class="content">
           <div class="chart-wrapper">
-            <hcdd width="100%" height="100%"/>
+            <hcdd v-if="countAnnuallysif" :chartData='countAnnuallys' width="100%" height="100%"/>
           </div>
         </div>
       </div>
@@ -114,16 +129,16 @@
         <p class="title">实时新增评论</p>
         <!--内容-->
         <div class="contente">
-          <vue-seamless-scroll :data="listData" class="seamless-warp">
+          <vue-seamless-scroll v-if="listData"  :data="listData" class="seamless-warp">
             <ul class="item">
               <li v-for="(item, index) in listData" :key="index" class="woshili">
                 <p class="pppp">{{ index + 1 }}</p>
                 <div class="content-boxsss">
                   <p class="top-boxsss">
-                    <span class="title" v-text="item.date"/>
-                    <span class="date" v-text="item.title"/>
+                    <span class="title" v-text="item.createdate"/>
+                    <span class="date">[ {{ item.tour }} {{ item.ota }} ]</span>
                   </p>
-                  <p class="neirong">{{ item.content }}</p>
+                  <p class="neirong" v-html="item.content"></p>
                 </div>
               </li>
             </ul>
@@ -137,34 +152,34 @@
         <!--内容-->
         <div class="content">
           <!--每1项-->
-          <div class="one-box">
-            <span class="name">大佛寺</span>
+          <div class="one-box" v-if="getRanks[0]">
+            <span class="name">{{ getRanks[0].name }}</span>
             <p class="line1"/>
-            <span class="num">7262</span>
+            <span class="num">{{ getRanks[0].good }}</span>
           </div>
           <!--每2项-->
-          <div class="one-box">
-            <span class="name">十九峰</span>
+          <div class="one-box" v-if="getRanks[1]">
+            <span class="name">{{ getRanks[1].name }}</span>
             <p class="line2"/>
-            <span class="num">6862</span>
+            <span class="num">{{ getRanks[1].good }}</span>
           </div>
           <!--每3项-->
-          <div class="one-box">
-            <span class="name">丝绸世界</span>
+          <div class="one-box" v-if="getRanks[2]">
+            <span class="name">{{ getRanks[2].name }}</span>
             <p class="line3"/>
-            <span class="num">6242</span>
+            <span class="num">{{ getRanks[2].good }}</span>
           </div>
           <!--每4项-->
-          <div class="one-box">
-            <span class="name">灵隐村</span>
+          <div class="one-box" v-if="getRanks[3]">
+            <span class="name">{{ getRanks[3].name }}</span>
             <p class="line4"/>
-            <span class="num">5322</span>
+            <span class="num">{{ getRanks[3].good }}</span>
           </div>
           <!--每5项-->
-          <div class="one-box">
-            <span class="name">天烛仙境</span>
+          <div class="one-box" v-if="getRanks[4]">
+            <span class="name">{{ getRanks[4].name }}</span>
             <p class="line5"/>
-            <span class="num">4222</span>
+            <span class="num">{{ getRanks[4].good }}</span>
           </div>
         </div>
       </div>
@@ -175,7 +190,7 @@
         <!--内容-->
         <div class="content">
           <div class="chart-wrapper">
-            <weidu height="100%" width="100%"/>
+            <weidu v-if="getAreaDimensionsif" :chartData='getAreaDimensions' height="100%" width="100%"/>
           </div>
         </div>
       </div>
@@ -186,7 +201,7 @@
         <!--内容-->
         <div class="content">
           <div class="chart-wrapper">
-            <meigui height="100%" width="100%"/>
+            <meigui v-if="getAreaDimensionsif" :chartData='getAreaDimensions' height="100%" width="100%"/>
           </div>
         </div>
       </div>
@@ -201,63 +216,28 @@ import ykxb from '@/components/Charts/holiday-ykxb'
 import zhengfu from '@/components/Charts/zheng-fu.vue'
 import meigui from '@/components/Charts/meigui'
 import weidu from '@/components/Charts/weidu'
+import {
+  tourController,
+  countWeekly,
+  countDistribution,
+  countMonthly,
+  countAnnually,
+  list,
+  getRank,
+  getAreaDimension
+} from '@/api/public'
 export default {
   components: {
     ykxb, haoping, hcdd, zhengfu, meigui, weidu
   },
   data() {
     return {
-      value4: [new Date(), new Date()],
+      // value4: [new Date(), new Date()],
       xfzheif: true,
       jjright: true,
       cWidth: 70,
       hou: 8,
-      listData: [
-        {
-          'content': '这里的景色真的美',
-          'date': '2017-12-16',
-          'title': '[丽水隐居画乡院落酒店]'
-        },
-        {
-          'content': '我喜欢这里的美食,真让人流连忘返',
-          'date': '2017-12-16',
-          'title': '[丽水画居匠心民宿]'
-        }, {
-            'content': '这座山爬的我气喘吁吁',
-            'date': '2017-12-16',
-            'title': '[丽水隐居画乡院落酒店]'
-        },
-        {
-            'content': '这里的河水好清澈啊',
-            'date': '2017-12-16',
-            'title': '[丽水隐居画乡院落酒店]'
-        },
-        {
-            'content': '我觉得我下次还会和朋友一起来玩的',
-            'date': '2017-12-16',
-            'title': '[丽水隐居画乡院落酒店]'
-        },
-        {
-            'content': '我喜欢那个蹦极运动,让我心潮澎湃',
-            'date': '2017-12-16',
-            'title': '[丽水隐居画乡院落酒店]'
-        },
-        {
-            'content': '这个地方有很多漂亮小姐姐',
-            'date': '2017-12-16',
-            'title': '[丽水隐居画乡院落酒店]'
-        },
-        {
-            'content': '人文情怀很浓郁,不枉此行啊',
-            'date': '2017-12-16',
-            'title': '[丽水隐居画乡院落酒店]'
-        },
-        {
-            'content': '上有天堂下有苏杭',
-            'date': '2017-12-16',
-            'title': '[丽水隐居画乡院落酒店]'
-        }
-      ],
+      listData: [],
       zoom: 14,
       center: [120.901737, 29.497975],
       markers: [
@@ -277,7 +257,137 @@ export default {
           template: '<span>1</span>',
         }
       ],
-      category: 0
+      category: 0,
+      tourControllers: [],
+      countWeeklys: [],
+      countDistributions: [],
+      countMonthlys: [],
+      countAnnuallys: [],
+      lists: [],
+      getRanks: [],
+      getAreaDimensions: [],
+      countDistributionsif: false,
+      countMonthlysif: false,
+      countAnnuallysif: false,
+      getAreaDimensionsif: false
+    }
+  },
+  mounted() {
+    this.requestAll();
+  },
+  methods: {
+    requestAll() {
+      //地图
+      tourController({ category: this.category })
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            console.log(data, '地图')
+            this.tourControllers = data
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //近7日评论数
+      countWeekly({ category: this.category })
+        .then(res => {
+          let data = res.data.data;
+          this.countWeeklys = data;
+          // console.log(data, '近7日评论数')
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //评论分析
+      countDistribution({ category: this.category })
+        .then(res => {
+          let data = res.data.data;
+          this.countDistributions = data;
+          this.countDistributionsif = true
+          // console.log(data, '评论分析')
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //近30日评论
+      countMonthly({ category: this.category })
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            this.countMonthlys = data;
+            this.countMonthlysif = true
+            // console.log(data, '近30日评论')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //近12个月评论数
+      countAnnually({ category: this.category })
+        .then(res => {
+          let data = res.data.data;
+          if(res.status === 200) {
+            this.countAnnuallys = data;
+            this.countAnnuallysif = true
+            // console.log(data, '近12个月评论数')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //实时新增评论
+      list({ category: this.category})
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            this.listData = data;
+            // console.log(data, '实时新增评论');
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //好评率排行
+      getRank({ category: this.category })
+        .then(res => {
+          let data = res.data.data;
+          let newArr =[];
+          if(res.status === 200) {
+            newArr = data.map(element => {
+              return {
+                good: element.total-element.neg,
+                name: element.name
+              }
+            })
+            function compare(property) {
+              return function(a, b) {
+                var value1 = a[property];
+                var value2 = b[property];
+                return value2 - value1;
+              }
+            }
+            
+            this.getRanks = newArr.sort(compare('good'));
+            // console.log(this.getRanks, '好评率排行')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //8.评论维度分析 9.差评分析
+      getAreaDimension({ category: this.category })
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            this.getAreaDimensions = data;
+            this.getAreaDimensionsif = true
+            // console.log(data, '评论维度分析+差评分析')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   }
 }
@@ -289,6 +399,9 @@ export default {
     height: 100%;
     display: flex;
     flex-direction: column;
+    facility, quiet, food, management, cleaning, location, price, view, flow {
+      color: red
+    }
     .el-date-editor .el-range-separator {
       padding: 0!important;
       color: #000!important;
@@ -606,7 +719,7 @@ export default {
             .name {
               font-size: 20px;
               color: #889db5;
-              width: 30%;
+              width: 40%;
             }
             .line1 {
               height: 14px;

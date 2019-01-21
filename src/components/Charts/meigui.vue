@@ -26,14 +26,16 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   data() {
     return {
       chart: null,
-      sidebarElm: null
+      sidebarElm: null,
+      name: [],
+      value: []
     }
   },
   watch: {
@@ -79,6 +81,15 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      // console.log(this.chartData, '组件内2')
+      let data = this.chartData;
+      this.name = data.map(element => element.subject);
+      this.value = data.map(element => {
+        return {
+          value: element.value,
+          name: element.subject
+        }
+      });
       this.chart.setOption({
         tooltip: {
           trigger: 'item',
@@ -87,7 +98,7 @@ export default {
         legend: {
           x: 'right',
           y: '',
-          data: ['卫生', '设施', '餐饮', '位置', '管理', '价格', '噪音'],
+          data: this.name,
           textStyle: {
             color: '#889db5'
           },
@@ -103,15 +114,7 @@ export default {
             radius: ['20%', '70%'],
             center: ['50%', '50%'],
             roseType: 'area',
-            data: [
-              { value: 10, name: '卫生' },
-              { value: 5, name: '设施' },
-              { value: 15, name: '餐饮' },
-              { value: 25, name: '位置' },
-              { value: 20, name: '管理' },
-              { value: 35, name: '价格' },
-              { value: 30, name: '噪音' }
-            ]
+            data: this.value
           }
         ]
       })
