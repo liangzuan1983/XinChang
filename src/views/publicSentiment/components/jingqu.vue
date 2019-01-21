@@ -91,7 +91,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <haoping width="100%" height="100%"/>
+              <haoping v-if="countMonthlysif" :chartData='countMonthlys' width="100%" height="100%"/>
             </div>
           </div>
         </div>
@@ -306,7 +306,8 @@ export default {
       lists: [],
       getRanks: [],
       getAreaDimensions: [],
-      countDistributionsif: false
+      countDistributionsif: false,
+      countMonthlysif: false
     }
   },
   mounted() {
@@ -342,7 +343,7 @@ export default {
           let data = res.data.data;
           this.countDistributions = data;
           this.countDistributionsif = true
-          console.log(data, '评论分析')
+          // console.log(data, '评论分析')
         })
         .catch(err => {
           console.log(err)
@@ -353,6 +354,7 @@ export default {
           let data = res.data.data;
           if (res.status === 200) {
             this.countMonthlys = data;
+            this.countMonthlysif = true
             console.log(data, '近30日评论')
           }
         })

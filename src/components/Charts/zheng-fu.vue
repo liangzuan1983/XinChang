@@ -82,7 +82,7 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
-      console.log(this.chartData, '组件内')
+      // console.log(this.chartData, '组件内')
       let data = this.chartData;
       this.name = data.map(element => element.ota);
       this.goodData = data.map(element => element.pos);
