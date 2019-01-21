@@ -1,4 +1,4 @@
-import request from '@/utils'
+import request from '@/utils/request'
 //1.地图
 export function tourController(params) {
   return request({
@@ -55,15 +55,7 @@ export function getRank(params) {
     params
   })
 } 
-//8.评论维度分析
-export function getAreaDimension(params) {
-  return request({
-    url: 'v1/comment/dimension/xinchang',
-    method: 'get',
-    params
-  })
-}
-//9.差评维度分析
+//8.评论维度分析 9.差评分析
 export function getAreaDimension(params) {
   return request({
     url: 'v1/comment/dimension/xinchang',

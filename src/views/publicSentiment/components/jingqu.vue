@@ -48,17 +48,17 @@
               <!--上-->
               <div class="top">
                 <p class="titles">评论总数</p>
-                <p class="num">6条</p>
+                <p class="num" v-if="countWeeklys">{{ countWeeklys.weeklyTotal }}条</p>
               </div>
               <!--下-->
               <div class="bottom">
                 <div class="leftz">
                   <p class="titles">好评数</p>
-                  <p class="num">5条</p>
+                  <p class="num" v-if="countWeeklys">{{ countWeeklys.weeklyPos }}条</p>
                 </div>
                 <div class="rightz">
                   <p class="titles">差评数</p>
-                  <p class="num">1条</p>
+                  <p class="num" v-if="countWeeklys">{{ countWeeklys.weeklyTotal-countWeeklys.weeklyPos }}条</p>
                 </div>
               </div>
             </div>
@@ -66,11 +66,21 @@
             <div class="right-seven">
               <div class="lefts">
                 <p class="titles">整体好评率</p>
-                <el-progress :stroke-width="hou" :width="cWidth" :percentage="82" type="circle"/>
+                <el-progress 
+                  v-if="countWeeklys" 
+                  :stroke-width="hou" :width="cWidth" 
+                  :percentage="Number((countWeeklys.totalRate*100).toFixed(2))" 
+                  type="circle"/>
               </div>
               <div class="rights">
                 <p class="titles">近一周好评</p>
-                <el-progress :stroke-width="hou" :width="cWidth" :percentage="34" type="circle" color="#8e71c7"/>
+                <el-progress 
+                  v-if="countWeeklys" 
+                  :stroke-width="hou" 
+                  :width="cWidth" 
+                  :percentage="Number((countWeeklys.weeklyPos/countWeeklys.weeklyTotal*100).toFixed(2))" 
+                  type="circle" 
+                  color="#8e71c7"/>
               </div>
             </div>
           </div>
@@ -201,13 +211,23 @@ import ykxb from '@/components/Charts/holiday-ykxb'
 import zhengfu from '@/components/Charts/zheng-fu.vue'
 import meigui from '@/components/Charts/meigui'
 import weidu from '@/components/Charts/weidu'
+import {
+  tourController,
+  countWeekly,
+  countDistribution,
+  countMonthly,
+  countAnnually,
+  list,
+  getRank,
+  getAreaDimension
+} from '@/api/public'
 export default {
   components: {
     ykxb, haoping, hcdd, zhengfu, meigui, weidu
   },
   data() {
     return {
-      value4: [new Date(), new Date()],
+      // value4: [new Date(), new Date()],
       xfzheif: true,
       jjright: true,
       cWidth: 70,
@@ -277,12 +297,114 @@ export default {
           template: '<span>1</span>',
         }
       ],
-      category: 1
+      category: 1,
+      tourControllers: [],
+      countWeeklys: [],
+      countDistributions: [],
+      countMonthlys: [],
+      countAnnuallys: [],
+      lists: [],
+      getRanks: [],
+      getAreaDimensions: []
     }
+  },
+  mounted() {
+    this.requestAll();
   },
   methods: {
     requestAll() {
-      
+      //地图
+      tourController({ category: this.category })
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            console.log(data, '地图')
+            this.tourControllers = data
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //近7日评论数
+      countWeekly({ category: this.category })
+        .then(res => {
+          let data = res.data.data;
+          this.countWeeklys = data;
+          console.log(data, '近7日评论数')
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //评论分析
+      countDistribution({ category: this.category })
+        .then(res => {
+          let data = res.data.data;
+          this.countDistributions = data;
+          console.log(data, '评论分析')
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //近30日评论
+      countMonthly({ category: this.category })
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            this.countMonthlys = data;
+            console.log(data, '近30日评论')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //近12个月评论数
+      countAnnually({ category: this.category })
+        .then(res => {
+          let data = res.data.data;
+          if(res.status === 200) {
+            this.countAnnuallys = data;
+            console.log(data, '近12个月评论数')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //实时新增评论
+      list({ category: this.category})
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            this.lists = data;
+            console.log(data, '实时新增评论');
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //好评率排行
+      getRank({ category: this.category })
+        .then(res => {
+          let data = res.data.data;
+          if(res.status === 200) {
+            this.getRanks = data;
+            console.log(data, '好评率排行')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //8.评论维度分析 9.差评分析
+      getAreaDimension({ category: this.category })
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            this.getAreaDimensions = data;
+            console.log(data, '评论维度分析+差评分析')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   }
 }
