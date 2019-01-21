@@ -204,7 +204,7 @@ export default {
         .then(res => {
           let data = res.data.data
           if(res.status === 200) {
-            console.log(data, '行业消费占比')
+            // console.log(data, '行业消费占比')
             this.getTypes = data
           }
         })
