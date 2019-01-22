@@ -375,7 +375,7 @@ import {
   saleChannelDfs,
   onlionOrderDfs,
   clientSourceDfs
-} from "@/api/home";
+} from "@/api/forecast-dfs";
 export default {
   components: {
     skkl,

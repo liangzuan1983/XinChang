@@ -375,7 +375,7 @@ import {
   saleChannelSjf,
   onlionOrderSjf,
   clientSourceSjf
-} from "@/api/home";
+} from "@/api/forecast-sjf";
 export default {
   components: {
     skkl,
