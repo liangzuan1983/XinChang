@@ -80,50 +80,67 @@ export default {
     },
     setOptions({ expectedData, actualData } = {}) {
       this.chart.setOption({
-        tooltip: {
-          trigger: 'item',
-          formatter: '{a} <br/>{b}: {c} ({d}%)'
-        },
-        color: ['#47a1e6', '#0982de', '#dcdcdc', '#c2e0f7', '#84c1ef'],
-        legend: {
-          orient: 'vertical',
-          x: 'left',
-          data: ['18岁以下', '18-25岁', '25-35岁', '35-60岁', '60岁以上'],
-          textStyle: {
-            color: '#889db5'
+        tooltip : {
+          trigger: 'axis',
+          axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+            type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
           }
         },
+        grid: {
+          top: '3%',
+          left: '3%',
+          right: '4%',
+          bottom: '0%',
+          containLabel: true
+        },
+        xAxis: [
+          {
+            type: 'value',
+            show: false
+          }
+        ],
+        yAxis: [
+          {
+            type: 'category',
+            axisTick: {show: false},
+            data: ['18岁以下', '18-25岁', '25-35岁', '35-40岁', '60岁以上'],
+            axisLine: {       //y轴
+              show: false
+            },
+            axisLabel: {
+              show: true,
+              textStyle: {
+                color: '#889db5'
+              }
+            }
+          }
+        ],
         series: [
           {
-            name: '访问来源',
-            type: 'pie',
-            radius: ['50%', '70%'],
-            avoidLabelOverlap: false,
+            name:'人数',
+            type:'bar',
             label: {
               normal: {
-                show: false,
-                position: 'center'
-              },
-              emphasis: {
                 show: true,
-                textStyle: {
-                  fontSize: '30',
-                  fontWeight: 'bold'
-                }
+                position: 'inside'
               }
             },
-            labelLine: {
+            data:[200, 170, 240, 244, 200],
+            itemStyle: {
+              emphasis: {
+                barBorderRadius: 7
+              },
               normal: {
-                show: false
+                barBorderRadius: 7,
+                color: new echarts.graphic.LinearGradient(
+                  0, 0, 1, 0,
+                  [
+                    {offset: 0, color: '#3977E6'},
+                    {offset: 1, color: '#37BBF8'}
+                  ]
+                )
               }
-            },
-            data: [
-              { value: this.chartData[0].value, name: '18岁以下' },
-              { value: this.chartData[1].value, name: '18-25岁' },
-              { value: this.chartData[2].value, name: '25-35岁' },
-              { value: this.chartData[3].value, name: '35-60岁' },
-              { value: this.chartData[4].value, name: '60岁以上' }
-            ]
+            }
           }
         ]
       })
