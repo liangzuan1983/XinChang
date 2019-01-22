@@ -25,7 +25,35 @@
           <p class="title">游客性别比例</p>
           <!--内容-->
           <div class="content">
-            <ykxb :chartData='getsex' id="por" height="100%" width="100%"/>
+            <!-- <ykxb :chartData='getsex' id="por" height="100%" width="100%"/> -->
+            <div class="sex-box">
+              <div class="left-box">
+                <div class="top">
+                  <img src="@/assets/fmcstm.png" alt="">
+                  <div class="right-box">
+                    <p class="title">女性游客</p>
+                    <p class="text-box"><span class="num">1715</span><span class="unit">个</span></p>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <p class="title">占比</p>
+                  <p class="num">50.3%</p>
+                </div>
+              </div>
+              <div class="right-box">
+                <div class="top">
+                  <img src="@/assets/mcstm.png" alt="">
+                  <div class="right-box">
+                    <p class="title">男性游客</p>
+                    <p class="text-box"><span class="num">1620</span><span class="unit">个</span></p>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <p class="title">占比</p>
+                  <p class="num">49.7%</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <!--右-->
@@ -179,9 +207,122 @@ export default {
         .content {
           flex: 1;
           padding-top: 5%;
+          display: flex;
+          align-items: center;
           .chart-wrapper {
             width: 100%;
             height: 100%;
+          }
+          .sex-box {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            .left-box {
+              flex: 1;
+              background: transparent;
+              .top {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                img {
+                  width: 70px;
+                  height: 70px;
+                  margin-right: 5%;
+                }
+                .right-box {
+                  .title {
+                    font-size: 26px;
+                    color: #ffffff;
+                    font-weight: bold;
+                    background: transparent;
+                    margin-bottom: 10px;
+                  }
+                  .text-box {
+                    display: flex;
+                    .num {
+                      font-size: 28px;
+                      color: #f69704;
+                      font-weight: bold;
+                      background: transparent;
+                      margin-right: 10px;
+                    }
+                    .unit {
+                      font-weight: bold;
+                      font-size: 24px;
+                      color: #ffffff;
+                    }
+                  }
+                }
+              }
+              .bottom {
+                display: flex;
+                justify-content: flex-start;
+                .title {
+                  font-size: 24px;
+                  color: #ffffff;
+                  background: transparent;
+                  margin-right: 30px;
+                }
+                .num {
+                  font-size: 28px;
+                  color: #f69704;
+                  font-weight: bold;
+                }
+              }
+            }
+            .right-box {
+              flex:1;
+              .top {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                img {
+                  width: 70px;
+                  height: 70px;
+                  margin-right: 5%;
+                }
+                .right-box {
+                  background: transparent;
+                  .title {
+                    font-size: 26px;
+                    color: #ffffff;
+                    font-weight: bold;
+                    background: transparent;
+                    margin-bottom: 10px;
+                  }
+                  .text-box {
+                    display: flex;
+                    .num {
+                      font-size: 28px;
+                      color: #f69704;
+                      font-weight: bold;
+                      background: transparent;
+                      margin-right: 10px;
+                    }
+                    .unit {
+                      font-weight: bold;
+                      font-size: 24px;
+                      color: #ffffff;
+                    }
+                  }
+                }
+              }
+              .bottom {
+                display: flex;
+                justify-content: flex-start;
+                .title {
+                  font-size: 24px;
+                  color: #ffffff;
+                  background: transparent;
+                  margin-right: 30px;
+                }
+                .num {
+                  font-size: 28px;
+                  color: #f69704;
+                  font-weight: bold;
+                }
+              }
+            }
           }
         }
       }
