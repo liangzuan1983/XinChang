@@ -92,54 +92,67 @@ export default {
         // console.log(this.nameAndValue, 'and')
       })
       this.chart.setOption({
-        tooltip: {
-          trigger: 'item',
-          formatter: '{a} <br/>{b}: {c} ({d}%)'
+        radar: {
+          radius: '60%',
+          splitNumber: 8,
+          axisLine: {
+            lineStyle: {
+              color: '#fff',
+              opacity: .2
+            }
+          },
+          splitLine: {
+            lineStyle: {
+              color: '#fff',
+              opacity: .2
+            }
+          },
+          splitArea: {
+            areaStyle: {
+              color: 'rgba(127,95,132,.3)',
+              opacity: 1,
+              shadowBlur: 45,
+              shadowColor: 'rgba(0,0,0,.5)',
+              shadowOffsetX: 0,
+              shadowOffsetY: 15,
+            }
+          },
+          indicator: [{
+            name: '聊天社交',
+            max: 6000
+          }, {
+            name: '影音',
+            max: 16000
+          }, {
+            name: '购物',
+            max: 30000
+          }, {
+            name: '生活实用',
+            max: 35000
+          }, {
+            name: '新闻阅读',
+            max: 50000
+          }]
         },
-        color: ['#f69704', '#00ffff', '#47b2d3', '#0982de', '#ffe000'], // 游客线上偏好
-        legend: {
-          orient: 'vertical',
-          x: 'left',
-          // data: ['购物', '理财', '旅游', '金融', '视频'],
-          data: this.name,
-          textStyle: {
-            color: '#889db5'
-          }
-        },
-        series: [
-          {
-            name: '访问来源',
-            type: 'pie',
-            radius: ['50%', '70%'],
-            avoidLabelOverlap: false,
-            label: {
-              normal: {
-                show: false,
-                position: 'center'
-              },
-              emphasis: {
-                show: true,
-                textStyle: {
-                  fontSize: '30',
-                  fontWeight: 'bold'
-                }
-              }
-            },
-            labelLine: {
-              normal: {
-                show: false
-              }
-            },
-            data: this.nameAndValue
-            // data: [
-            //   { value: 335, name: '购物' },
-            //   { value: 310, name: '理财' },
-            //   { value: 234, name: '旅游' },
-            //   { value: 135, name: '金融财经' },
-            //   { value: 1548, name: '视频' }
-            // ]
-          }
-        ]
+        series: [{
+          name: '预算 vs 开销（Budget vs spending）',
+          type: 'radar',
+          symbolSize: 0,
+          areaStyle: {
+            normal: {
+              shadowBlur: 13,
+              shadowColor: 'rgba(0,0,0,.2)',
+              shadowOffsetX: 0,
+              shadowOffsetY: 10,
+              opacity: 1
+            }
+          },
+          data: [{
+            value: [5000, 7000, 12000, 11000, 15000, 14000],
+            name: '预算分配（Allocated Budget）',
+          }]
+        }],
+        color: ['#f69704']
       })
     },
     initChart() {
