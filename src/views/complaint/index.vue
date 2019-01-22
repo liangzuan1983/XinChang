@@ -47,7 +47,7 @@
 <script>
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
 import jjright from '@/components/Charts/complaint-ts'
-import { tousu, tousuType } from '@/api/home'
+import { tousu, tousuType } from '@/api/complaint'
 export default {
   components: {
     YiZhou, jjright

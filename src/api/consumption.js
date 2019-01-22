@@ -2,7 +2,7 @@ import request from '@/utils/request'
 //游客消费
 export function getConsumeTourism(params) {
   return request({
-    url: 'tour/xinchang/consume/tourism',
+    url: 'tour/xinchang/consume/limit',
     method: 'get',
     params
   })
