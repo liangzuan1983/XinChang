@@ -79,6 +79,7 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      // console.log(this.chartData, '组件内')
       this.chart.setOption({
         tooltip: {
           trigger: 'item',
@@ -88,14 +89,14 @@ export default {
         legend: {
           orient: 'vertical',
           x: 'left',
-          data: ['（0-200）（低）', '（200-500）（中）', '（500 以上）（高）'],
+          data: ['低', '中', '高'],
           textStyle: {
             color: '#889db5'
           }
         },
         series: [
           {
-            name: '访问来源',
+            name: '游客消费能力占比',
             type: 'pie',
             radius: ['50%', '70%'],
             avoidLabelOverlap: false,
@@ -118,9 +119,9 @@ export default {
               }
             },
             data: [
-              { value: this.chartData[1].value, name: '（0-200）（低）' },
-              { value: this.chartData[0].value, name: '（200-500）（中）' },
-              { value: this.chartData[2].value, name: '（500 以上）（高）' }
+              { value: this.chartData[1].value, name: '低' },
+              { value: this.chartData[0].value, name: '中' },
+              { value: this.chartData[2].value, name: '高' }
             ]
           }
         ]

@@ -34,8 +34,8 @@ export default {
     return {
       chart: null,
       sidebarElm: null,
-      name: [],
-      nameAndValue: []
+      value: [],
+      newData: []
     }
   },
   watch: {
@@ -81,15 +81,14 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      // console.log(this.chartData, '组件内')
       const data = this.chartData
-      data.forEach(element => {
-        const obj = {}
-        this.name.push(element.subject)
-        obj.value = element.value
-        obj.name = element.subject
-        this.nameAndValue.push(obj)
-        // console.log(this.name, 'name')
-        // console.log(this.nameAndValue, 'and')
+      this.value = data.map(element => element.value);
+      this.newData = data.map(element => {
+        return {
+          name: element.subject,
+          max: element.value*1.5
+        }
       })
       this.chart.setOption({
         radar: {
@@ -117,22 +116,7 @@ export default {
               shadowOffsetY: 15,
             }
           },
-          indicator: [{
-            name: '聊天社交',
-            max: 6000
-          }, {
-            name: '影音',
-            max: 16000
-          }, {
-            name: '购物',
-            max: 30000
-          }, {
-            name: '生活实用',
-            max: 35000
-          }, {
-            name: '新闻阅读',
-            max: 50000
-          }]
+          indicator: this.newData
         },
         series: [{
           name: '预算 vs 开销（Budget vs spending）',
@@ -148,7 +132,7 @@ export default {
             }
           },
           data: [{
-            value: [5000, 7000, 12000, 11000, 15000, 14000],
+            value: this.value,
             name: '预算分配（Allocated Budget）',
           }]
         }],

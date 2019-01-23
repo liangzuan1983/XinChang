@@ -108,7 +108,7 @@ export default {
         },
         series: [
           {
-            name: '访问来源',
+            name: '游客占比',
             type: 'pie',
             radius: ['50%', '70%'],
             avoidLabelOverlap: false,

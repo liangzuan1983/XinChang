@@ -220,7 +220,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb-xfnl :chartData="getconsume" id="spe-xfnl" height="100%" width="100%"/>
+              <nlfb-xfnl v-if="getConsumesif" :chartData="getConsumes" id="spe-xfnl" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -231,7 +231,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb-xsph :chartData='gethobby' id="spe-xsph" height="100%" width="100%"/>
+              <nlfb-xsph :chartData='getHobbys' id="spe-xsph" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -245,65 +245,75 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="this.getline.length > 0">
-              <span class="name">{{ getline[0].subject }}</span>
+            <div class="one-box" v-if="getLines[0]">
+              <span class="name">{{ getLines[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">{{ getline[0].value }}</span>
+              <span class="num">{{ getLines[0].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每2项-->
-            <div class="one-box" v-if="this.getline.length > 0">
-              <span class="name">{{ getline[1].subject }}</span>
+            <div class="one-box" v-if="getLines[1]">
+              <span class="name">{{ getLines[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">{{ getline[1].value }}</span>
+              <span class="num">{{ getLines[1].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每3项-->
-            <div class="one-box" v-if="this.getline.length > 0">
-              <span class="name">{{ getline[2].subject }}</span>
+            <div class="one-box" v-if="getLines[2]">
+              <span class="name">{{ getLines[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">{{ getline[2].value }}</span>
+              <span class="num">{{ getLines[2].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每4项-->
-            <div class="one-box" v-if="this.getline.length > 0">
-              <span class="name">{{ getline[3].subject }}</span>
+            <div class="one-box" v-if="getLines[3]">
+              <span class="name">{{ getLines[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">{{ getline[3].value }}</span>
+              <span class="num">{{ getLines[3].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每5项-->
-            <div class="one-box" v-if="this.getline.length > 0">
-              <span class="name">{{ getline[4].subject }}</span>
+            <div class="one-box" v-if="getLines[4]">
+              <span class="name">{{ getLines[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">{{ getline[4].value }}</span>
+              <span class="num">{{ getLines[4].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每6项-->
-            <div class="one-box" v-if="this.getline.length > 0">
-              <span class="name">{{ getline[5].subject }}</span>
+            <div class="one-box" v-if="getLines[5]">
+              <span class="name">{{ getLines[5].subject }}</span>
               <p class="line6"/>
-              <span class="num">{{ getline[5].value }}</span>
+              <span class="num">{{ getLines[5].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每7项-->
-            <div class="one-box" v-if="this.getline.length > 0">
-              <span class="name">{{ getline[6].subject }}</span>
+            <div class="one-box" v-if="getLines[6]">
+              <span class="name">{{ getLines[6].subject }}</span>
               <p class="line7"/>
-              <span class="num">{{ getline[6].value }}</span>
+              <span class="num">{{ getLines[6].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每8项-->
-            <div class="one-box" v-if="this.getline.length > 0">
-              <span class="name">{{ getline[7].subject }}</span>
+            <div class="one-box" v-if="getLines[7]">
+              <span class="name">{{ getLines[7].subject }}</span>
               <p class="line8"/>
-              <span class="num">{{ getline[7].value }}</span>
+              <span class="num">{{ getLines[7].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每9项-->
-            <div class="one-box" v-if="this.getline.length > 0">
-              <span class="name">{{ getline[8].subject }}</span>
+            <div class="one-box" v-if="getLines[8]">
+              <span class="name">{{ getLines[8].subject }}</span>
               <p class="line9"/>
-              <span class="num">{{ getline[8].value }}</span>
+              <span class="num">{{ getLines[8].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每10项-->
-            <div class="one-box" v-if="this.getline.length > 0">
-              <span class="name">{{ getline[9].subject }}</span>
+            <div class="one-box" v-if="getLines">
+              <span class="name">{{ getLines[9].subject }}</span>
               <p class="line10"/>
-              <span class="num">{{ getline[9].value }}</span>
+              <span class="num">{{ getLines[9].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
           </div>
         </div>
         <!--游客消费能力占比-->
@@ -313,7 +323,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb-gy v-if="bingIf2" :id="ids[1]" height="100%" width="100%"/>
+              <nlfb-gy v-if="bingIf2" :chartData='getTouristStays' :id="ids[1]" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -324,65 +334,75 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="this.getcity10.length > 0">
-              <span class="name">{{ getcity10[0].subject }}</span>
+            <div class="one-box" v-if="getTouristCitys[0]">
+              <span class="name">{{ getTouristCitys[0].subject }}</span>
               <p class="line1"/>
-              <span class="num">{{ getcity10[0].value }}</span>
+              <span class="num">{{ getTouristCitys[0].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每2项-->
-            <div class="one-box" v-if="this.getcity10.length > 0">
-              <span class="name">{{ getcity10[1].subject }}</span>
+            <div class="one-box" v-if="getTouristCitys[1]">
+              <span class="name">{{ getTouristCitys[1].subject }}</span>
               <p class="line2"/>
-              <span class="num">{{ getcity10[1].value }}</span>
+              <span class="num">{{ getTouristCitys[1].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每3项-->
-            <div class="one-box" v-if="this.getcity10.length > 0">
-              <span class="name">{{ getcity10[2].subject }}</span>
+            <div class="one-box" v-if="getTouristCitys[2]">
+              <span class="name">{{ getTouristCitys[2].subject }}</span>
               <p class="line3"/>
-              <span class="num">{{ getcity10[2].value }}</span>
+              <span class="num">{{ getTouristCitys[2].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每4项-->
-            <div class="one-box" v-if="this.getcity10.length > 0">
-              <span class="name">{{ getcity10[3].subject }}</span>
+            <div class="one-box" v-if="getTouristCitys[3]">
+              <span class="name">{{ getTouristCitys[3].subject }}</span>
               <p class="line4"/>
-              <span class="num">{{ getcity10[3].value }}</span>
+              <span class="num">{{ getTouristCitys[3].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每5项-->
-            <div class="one-box" v-if="this.getcity10.length > 0">
-              <span class="name">{{ getcity10[4].subject }}</span>
+            <div class="one-box" v-if="getTouristCitys[4]">
+              <span class="name">{{ getTouristCitys[4].subject }}</span>
               <p class="line5"/>
-              <span class="num">{{ getcity10[4].value }}</span>
+              <span class="num">{{ getTouristCitys[4].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每6项-->
-            <div class="one-box" v-if="this.getcity10.length > 0">
-              <span class="name">{{ getcity10[5].subject }}</span>
+            <div class="one-box" v-if="getTouristCitys[5]">
+              <span class="name">{{ getTouristCitys[5].subject }}</span>
               <p class="line6"/>
-              <span class="num">{{ getcity10[5].value }}</span>
+              <span class="num">{{ getTouristCitys[5].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每7项-->
-            <div class="one-box" v-if="this.getcity10.length > 0">
-              <span class="name">{{ getcity10[6].subject }}</span>
+            <div class="one-box" v-if="getTouristCitys[6]">
+              <span class="name">{{ getTouristCitys[6].subject }}</span>
               <p class="line7"/>
-              <span class="num">{{ getcity10[6].value }}</span>
+              <span class="num">{{ getTouristCitys[6].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每8项-->
-            <div class="one-box" v-if="this.getcity10.length > 0">
-              <span class="name">{{ getcity10[7].subject }}</span>
+            <div class="one-box" v-if="getTouristCitys[7]">
+              <span class="name">{{ getTouristCitys[7].subject }}</span>
               <p class="line8"/>
-              <span class="num">{{ getcity10[7].value }}</span>
+              <span class="num">{{ getTouristCitys[7].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每9项-->
-            <div class="one-box" v-if="this.getcity10.length > 0">
-              <span class="name">{{ getcity10[8].subject }}</span>
+            <div class="one-box" v-if="getTouristCitys[8]">
+              <span class="name">{{ getTouristCitys[8].subject }}</span>
               <p class="line9"/>
-              <span class="num">{{ getcity10[8].value }}</span>
+              <span class="num">{{ getTouristCitys[8].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
             <!--每10项-->
-            <div class="one-box" v-if="this.getcity10.length > 0">
-              <span class="name">{{ getcity10[9].subject }}</span>
+            <div class="one-box" v-if="getTouristCitys[9]">
+              <span class="name">{{ getTouristCitys[9].subject }}</span>
               <p class="line10"/>
-              <span class="num">{{ getcity10[9].value }}</span>
+              <span class="num">{{ getTouristCitys[9].value }}</span>
             </div>
+            <div class="one-box" v-else></div>
           </div>
         </div>
       </div>
@@ -406,7 +426,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb-hyxf v-if="bingIf4" :id="ids[4]" height="100%" width="100%"/>
+              <nlfb-hyxf v-if="bingIf4" :chartData='getTypes' :id="ids[4]" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -496,26 +516,32 @@ export default {
       holidayDefault: '国庆',
       ids: ['bing1', 'bing2', 'bing3', 'bing4', 'bing5', 'bing6'],
       bingIf1: true,
-      bingIf2: true,
+      bingIf2: false,
       bingIf3: true,
-      bingIf4: true,
+      bingIf4: false,
       bingIf5: false,
       bingIf6: true,
+      getConsumesif: false,
       xfzhe: true,
       dataObj: {
         year: '',
         festival: ''
       },
       getPassageFlows: '',
-      getGenders: ''
+      getGenders: '',
+      getConsumes: '',
+      getHobbys: '',
+      getAges: '',
+      getLines: '',
+      getTouristStays: '',
+      getTouristCitys: '',
+      getTypes: ''
     }
   },
   computed: {
     ...mapGetters([
-      'getconsume',
       'gethobby',
       'getcity10',
-      'getline'
     ])
   },
   mounted() {
@@ -574,7 +600,93 @@ export default {
           if (res.status === 200) {
             this.getAges = data
             this.bingIf5 = true
-            console.log(data, '游客年龄分布')
+            // console.log(data, '游客年龄分布')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //6.游客消费能力占比
+      getConsume(this.dataObj)
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            this.getConsumes = data
+            this.getConsumesif = true
+            // console.log(data, '游客消费能力占比')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //7.游客线上偏好
+      getHobby(this.dataObj)
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            this.getHobbys = data
+            // console.log(data, '游客线上偏好')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //8.热门游览线路TOP10
+      getLine(this.dataObj)
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            this.getLines = data
+            // console.log(data, '热门游览线路top10')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //9.游客过夜占比
+      getTouristStay(this.dataObj)
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            this.getTouristStays = data
+            this.bingIf2 = true
+            // console.log(data, '游客过夜占比')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //10.客源地top10
+      getTouristCity(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if (res.status === 200) {
+            this.getTouristCitys = data
+            // console.log(data, '客源地top10')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //11.游客消费
+      getTrade(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if (res.status === 200) {
+            console.log(data, '11.游客消费')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //12.行业消费占比分析
+      getType(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if (res.status === 200) {
+            this.getTypes = data
+            this.bingIf4 = true
+            // console.log(data, '12.行业消费占比分析')
           }
         })
         .catch(err => {
