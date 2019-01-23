@@ -85,37 +85,48 @@ export default {
     setOptions({ expectedData, actualData } = {}) {
 
       let data = this.chartData;
-      console.log(data)
-      let inData = this.chartData[0].data
-      //日期
+      //取名字
+      let dataArr = this.chartData[0].data
+      console.log(data, '组件内')
+      //先取名字
+      this.name = dataArr.map(element => element.subject);
+      //取时间
       this.time = data.map(element => element.date)
-      //名字
-      this.name = inData.map(element => element.subject)
-      //整这个鸡巴新格式，我擦
-      let doubleArr = [];
-      let item, itemValue, x;
-      //二维数组
-      doubleArr = data.map(element => element.data);
-      console.log(doubleArr,'二维数组')
-      var num = doubleArr[0].length;
-      // console.log(num, 'ddd')
-      //先确定只循环5遍
-      for(var i=0;i<num;i++) {
-        
-      }
-      for(var i=0; i<doubleArr.length; i++) {
-        item = doubleArr[i]
-        // console.log(doubleArr[0].length,'dd')
-        // console.log(item, '看看每一项item')
-        for(var j=0; j<item.length; j++) {
-          itemValue = item[j]
-          // console.log(itemValue, '来看看每个最里面值')
-          return {
-            
-          }
+      let nameArr = this.name
+      console.log(this.name.length,'length')
+      //出现新格式
+      // nameArr.map((item, i) => {
+      //   this.newData = data.map((element, index) => {
+      //     return {
+      //       name: nameArr.map(item => item)[i],
+      //       type: 'line',
+      //       stack: '总量',
+      //       areaStyle: {},
+      //       data: data.map(element => element.data[i].value)
+      //     }
+      //   });
+      // });
+      // this.newData = nameArr.map((element, index) => {
+      //   return data.map((item, i) => {
+      //     return {
+      //       name: element,
+      //       type: 'line',
+      //       stack: '总量',
+      //       areaStyle: {},
+      //       data: data.map(element => element.data[index].value)
+      //     }
+      //   })
+      // })
+      this.newData = nameArr.map((item, i) => {
+        return {
+          name: item,
+          type: 'line',
+          stack: '总量',
+          areaStyle: {},
+          data: data.map(element => element.data[i].value)
         }
-      }
-
+      })
+      console.log(this.newData, '123');
       this.chart.setOption({
         tooltip: {
           trigger: 'axis',
@@ -127,7 +138,7 @@ export default {
           }
         },
         legend: {
-          data: this.name,
+          data:['吃','住','行','购','娱'],
           textStyle: {
             color: '#889db5'
           }
@@ -142,7 +153,7 @@ export default {
           {
             type: 'category',
             boundaryGap: false,
-            data: this.time,
+            data: ['周一','周二','周三','周四','周五','周六','周日'],
             axisLabel: {
               textStyle: {
                 color: '#889db5'

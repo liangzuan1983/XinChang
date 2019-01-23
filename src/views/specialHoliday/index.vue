@@ -308,7 +308,7 @@
             </div>
             <div class="one-box" v-else></div>
             <!--每10项-->
-            <div class="one-box" v-if="getLines">
+            <div class="one-box" v-if="getLines[9]">
               <span class="name">{{ getLines[9].subject }}</span>
               <p class="line10"/>
               <span class="num">{{ getLines[9].value }}</span>
@@ -415,7 +415,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <xfzhe v-if="xfzhe" height="100%" width="100%"/>
+              <xfzhe v-if="xfzhe" :chartData='getTrades' height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -437,7 +437,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb-ykxf v-if="bingIf5" :id="ids[5]" height="100%" width="100%"/>
+              <nlfb-ykxf v-if="bingIf5" :chartData='getTradess' :id="ids[5]" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -522,20 +522,22 @@ export default {
       bingIf5: false,
       bingIf6: true,
       getConsumesif: false,
-      xfzhe: true,
+      xfzhe: false,
       dataObj: {
         year: '',
         festival: ''
       },
-      getPassageFlows: '',
-      getGenders: '',
-      getConsumes: '',
-      getHobbys: '',
-      getAges: '',
-      getLines: '',
-      getTouristStays: '',
-      getTouristCitys: '',
-      getTypes: ''
+      getPassageFlows: [],
+      getGenders: [],
+      getConsumes: [],
+      getHobbys: [],
+      getAges: [],
+      getLines: [],
+      getTouristStays: [],
+      getTouristCitys: [],
+      getTypes: [],
+      getTradess: [],
+      getTrades: []
     }
   },
   computed: {
@@ -673,7 +675,9 @@ export default {
         .then(res => {
           let data = res.data.data
           if (res.status === 200) {
-            console.log(data, '11.游客消费')
+            this.getTrades = data
+            this.xfzhe = true
+            // console.log(data, '11.游客消费')
           }
         })
         .catch(err => {
@@ -687,6 +691,19 @@ export default {
             this.getTypes = data
             this.bingIf4 = true
             // console.log(data, '12.行业消费占比分析')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //13.游客消费占比
+      getTrades(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if (res.status === 200) {
+            // console.log(data, '13.游客消费占比')
+            this.getTradess = data
+            this.bingIf5 = true
           }
         })
         .catch(err => {
