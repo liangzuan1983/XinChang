@@ -147,7 +147,11 @@
         <div class="time-box">
           <p class="title">时间选择： </p>
           <!--年份-->
-          <el-select v-model="yearsDefault" size="mini" class="select1" placeholder="请选择">
+          <el-select
+            v-model="yearsDefault"
+            size="mini"
+            class="select1"
+            placeholder="请选择" @change="selectYear">
             <el-option
               v-for="item in years"
               :key="item.value"
@@ -156,7 +160,7 @@
           </el-select>
           <p class="line">- - - -</p>
           <!--假日-->
-          <el-select v-model="holidayDefault" size="mini" class="select2" placeholder="请选择">
+          <el-select v-model="holidayDefault" size="mini" class="select2" placeholder="请选择" @change="selectJier">
             <el-option
               v-for="item in holiday"
               :key="item.value"
@@ -164,7 +168,7 @@
               :value="item.value"/>
           </el-select>
           <!--查询-->
-          <el-button size="mini" type="primary">查询</el-button>
+          <el-button size="mini" type="primary" @click="query">查询</el-button>
           <!--查询-->
           <img class="search" src="@/assets/icon/search.png" alt="">
           <!--下载-->
@@ -180,7 +184,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <holiday-kl-zhu height="100%" width="100%"/>
+              <holiday-kl-zhu :chartData='getPassageFlows' height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -191,7 +195,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <ykxb :chartData="getsex" id="spe"  height="100%" width="100%"/>
+              <ykxb :chartData="getGenders" id="spe"  height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -205,7 +209,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb :chartData='getage' id="yknl" height="100%" width="100%"/>
+              <nlfb :chartData='getAges' id="yknl" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -433,7 +437,19 @@ import nlfbXsph from '@/components/Charts/special-xsph'
 import xfzhe from '@/components/Charts/holiday-xf-zhe'
 import nlfbGy from '@/components/Charts/passenger-ykgy'
 import { mapGetters } from 'vuex'
-// import { gender } from '@/api/home' 
+import { 
+  getPassageFlow,
+  getGender,
+  getAge,
+  getConsume,
+  getHobby,
+  getLine,
+  getTouristStay,
+  getTouristCity,
+  getTrade,
+  getType,
+  getTrades
+} from '@/api/holiday' 
 export default {
   components: {
     HolidayKlZhu, ykxb, nlfb, xfzhe, nlfbXfnl, nlfbXsph, nlfbGy, nlfbHyxf, nlfbYkxf
@@ -442,56 +458,60 @@ export default {
     return {
       years: [
         {
-          value: '选项1',
-          label: '2014'
-        }, {
-          value: '选项2',
+          value: '2015',
           label: '2015'
         }, {
-          value: '选项3',
+          value: '2016',
           label: '2016'
         }, {
-          value: '选项4',
+          value: '2017',
           label: '2017'
         }, {
-          value: '选项5',
+          value: '2018',
           label: '2018'
+        }, {
+          value: '2019',
+          label: '2019'
         }
       ],
-      yearsDefault: '2018',
+      yearsDefault: '2019',
       holiday: [
         {
-          value: '选项1',
-          label: '新年'
+          value: 'chunjie',
+          label: '春节'
         }, {
-          value: '选项2',
-          label: '圣诞节'
-        }, {
-          value: '选项3',
+          value: 'yuandan',
           label: '元旦'
         }, {
-          value: '选项4',
-          label: '端午节'
+          value: 'duanwu',
+          label: '端午'
         }, {
-          value: '选项5',
-          label: '国庆节'
+          value: 'zhongqiu',
+          label: '中秋'
+        }, {
+          value: 'guoqing',
+          label: '国庆'
         }
       ],
-      holidayDefault: '国庆节',
+      holidayDefault: '国庆',
       ids: ['bing1', 'bing2', 'bing3', 'bing4', 'bing5', 'bing6'],
       bingIf1: true,
       bingIf2: true,
       bingIf3: true,
       bingIf4: true,
-      bingIf5: true,
+      bingIf5: false,
       bingIf6: true,
-      xfzhe: true
+      xfzhe: true,
+      dataObj: {
+        year: '',
+        festival: ''
+      },
+      getPassageFlows: '',
+      getGenders: ''
     }
   },
   computed: {
     ...mapGetters([
-      'getsex',
-      'getage',
       'getconsume',
       'gethobby',
       'getcity10',
@@ -500,11 +520,83 @@ export default {
   },
   mounted() {
     this.$store.dispatch('getLine')
+    //计算参数
+    this.params()
+    //加载是默认请求全部
+    this.requestAll()
   },
   methods: {
-    request() {
-      
+    //计算参数
+    params() {
+      this.dataObj.year = this.yearsDefault
+      if (this.holidayDefault === '国庆') {
+        this.dataObj.festival = 'guoqing'
+      } else if (this.holidayDefault === '中秋') {
+        this.dataObj.festival = 'zhongqiu'
+      } else if (this.holidayDefault === '端午') {
+        this.dataObj.festival = 'duanwu'
+      } else if (this.holidayDefault === '元旦') {
+        this.dataObj.festival = 'yuandan'
+      } else if (this.holidayDefault === '春节') {
+        this.dataObj.festival = 'chunjie'
+      }
+      // console.log(this.dataObj, '参数')
+    },
+    requestAll() {
+      //3.客流数据
+      getPassageFlow(this.dataObj)
+        .then(res => {
+          let data = res.data.data;
+          if(res.status === 200) {
+            this.getPassageFlows = data
+            // console.log(data, '客流数据')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //4.游客性别占比
+      getGender(this.dataObj)
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            this.getGenders = data
+            // console.log(data, '游客性别占比')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //5.游客年龄分布
+      getAge(this.dataObj)
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            this.getAges = data
+            this.bingIf5 = true
+            console.log(data, '游客年龄分布')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    //选择年份事件
+    selectYear(value) {
+      // console.log(value, 'value1')
+      this.dataObj.year = value
+    },
+    //选择节日
+    selectJier(value) {
+      // console.log(value, '节日')
+      this.dataObj.festival = value
+    },
+    //查询事件
+    query() {
+      // console.log('年份:' + this.dataObj.year + '节日:' + this.dataObj.festival);
+      this.requestAll()
     }
+
   }
 }
 </script>

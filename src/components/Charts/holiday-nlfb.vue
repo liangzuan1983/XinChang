@@ -33,7 +33,9 @@ export default {
   data() {
     return {
       chart: null,
-      sidebarElm: null
+      sidebarElm: null,
+      name: [],
+      value: []
     }
   },
   watch: {
@@ -79,6 +81,10 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      // console.log(this.chartData, '组件内')
+      let data = this.chartData;
+      this.name = data.map(element => element.subject)
+      this.value = data.map(element => element.value)
       this.chart.setOption({
         tooltip : {
           trigger: 'axis',
@@ -87,7 +93,7 @@ export default {
           }
         },
         grid: {
-          top: '3%',
+          top: '10%',
           left: '3%',
           right: '4%',
           bottom: '0%',
@@ -103,7 +109,7 @@ export default {
           {
             type: 'category',
             axisTick: {show: false},
-            data: ['18岁以下', '18-25岁', '25-35岁', '35-40岁', '60岁以上'],
+            data: this.name,
             axisLine: {       //y轴
               show: false
             },
@@ -125,7 +131,7 @@ export default {
                 position: 'inside'
               }
             },
-            data:[200, 170, 240, 244, 200],
+            data:this.value,
             itemStyle: {
               emphasis: {
                 barBorderRadius: 7
