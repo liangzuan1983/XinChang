@@ -95,28 +95,6 @@ export default {
       let nameArr = this.name
       console.log(this.name.length,'length')
       //出现新格式
-      // nameArr.map((item, i) => {
-      //   this.newData = data.map((element, index) => {
-      //     return {
-      //       name: nameArr.map(item => item)[i],
-      //       type: 'line',
-      //       stack: '总量',
-      //       areaStyle: {},
-      //       data: data.map(element => element.data[i].value)
-      //     }
-      //   });
-      // });
-      // this.newData = nameArr.map((element, index) => {
-      //   return data.map((item, i) => {
-      //     return {
-      //       name: element,
-      //       type: 'line',
-      //       stack: '总量',
-      //       areaStyle: {},
-      //       data: data.map(element => element.data[index].value)
-      //     }
-      //   })
-      // })
       this.newData = nameArr.map((item, i) => {
         return {
           name: item,
@@ -138,7 +116,7 @@ export default {
           }
         },
         legend: {
-          data:['吃','住','行','购','娱'],
+          data: this.name,
           textStyle: {
             color: '#889db5'
           }
@@ -153,7 +131,7 @@ export default {
           {
             type: 'category',
             boundaryGap: false,
-            data: ['周一','周二','周三','周四','周五','周六','周日'],
+            data: this.time,
             axisLabel: {
               textStyle: {
                 color: '#889db5'
@@ -171,49 +149,7 @@ export default {
             }
           }
         ],
-        series: [
-          {
-            name: '吃',
-            type: 'line',
-            stack: '总量',
-            areaStyle: {},
-            data: [120, 132, 101, 134, 90, 230, 210]
-          },
-          {
-            name: '住',
-            type: 'line',
-            stack: '总量',
-            areaStyle: {},
-            data: [220, 182, 191, 234, 290, 330, 310]
-          },
-          {
-            name: '行',
-            type: 'line',
-            stack: '总量',
-            areaStyle: {},
-            data: [150, 232, 201, 154, 190, 330, 410]
-          },
-          {
-            name: '购',
-            type: 'line',
-            stack: '总量',
-            areaStyle: { normal: {}},
-            data: [320, 332, 301, 334, 390, 330, 320]
-          },
-          {
-            name: '娱',
-            type: 'line',
-            stack: '总量',
-            label: {
-              normal: {
-                show: true,
-                position: 'top'
-              }
-            },
-            areaStyle: { normal: {}},
-            data: [820, 932, 901, 934, 1290, 1330, 1320]
-          }
-        ]
+        series: this.newData
       })
     },
     initChart() {
