@@ -5,13 +5,13 @@
       <div class="time-box">
         <span>时间选择： </span>
         <el-date-picker
-          v-model="value4"
+          v-model="value6"
           type="daterange"
           range-separator="至"
           start-placeholder="开始日期"
           end-placeholder="结束日期"/>
         <!--查询-->
-        <el-button size="mini" type="primary">查询</el-button>
+        <el-button size="mini" type="primary" @click="topSearch">查询</el-button>
         <!--查询-->
         <img class="search" src="@/assets/icon/search.png" alt="">
         <!--下载-->
@@ -32,12 +32,14 @@
                   <img src="@/assets/fmcstm.png" alt="">
                   <div class="right-box">
                     <p class="title">女性游客</p>
-                    <p class="text-box"><span class="num">1715</span><span class="unit">个</span></p>
+                    <p class="text-box"><span class="num">{{ getGenders[0].value }}</span><span class="unit">个</span></p>
                   </div>
                 </div>
                 <div class="bottom">
                   <p class="title">占比</p>
-                  <p class="num">50.3%</p>
+                  <p class="num">
+                    {{ (getGenders[0].value / (getGenders[0].value + getGenders[1].value)).toFixed(2)*100 }}%
+                  </p>
                 </div>
               </div>
               <div class="right-box">
@@ -45,12 +47,14 @@
                   <img src="@/assets/mcstm.png" alt="">
                   <div class="right-box">
                     <p class="title">男性游客</p>
-                    <p class="text-box"><span class="num">1620</span><span class="unit">个</span></p>
+                    <p class="text-box"><span class="num">{{ getGenders[1].value }}</span><span class="unit">个</span></p>
                   </div>
                 </div>
                 <div class="bottom">
                   <p class="title">占比</p>
-                  <p class="num">49.7%</p>
+                  <p class="num">
+                    {{ (getGenders[1].value / (getGenders[0].value + getGenders[1].value)).toFixed(2)*100 }}%
+                  </p>
                 </div>
               </div>
             </div>
@@ -63,7 +67,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb :chartData='getage' id="ykhx-nl" height="100%" width="100%"/>
+              <nlfb :chartData='getAges' id="ykhx-nl" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -74,7 +78,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb-xfnl :chartData="getconsume" id="nlfb-xfnl" height="100%" width="100%"/>
+              <nlfb-xfnl :chartData="getConsumes" id="nlfb-xfnl" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -87,7 +91,7 @@
           <p class="title">游客线上偏好</p>
           <!--内容-->
           <div class="content">
-            <nlfb-xsph :chartData='gethobby' id="por-xsph" height="100%" width="100%"/>
+            <nlfb-xsph v-if="aaa" :chartData='getHobbys' id="por-xsph" height="100%" width="100%"/>
           </div>
         </div>
         <!--右-->
@@ -97,7 +101,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb-sjzd v-if="bingIf4" :id="ids[3]" height="100%" width="100%"/>
+              <nlfb-sjzd v-if="bingIf4" :chartData='getMobilePhones' :id="ids[3]" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -108,7 +112,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <ykxb-xlyk height="100%" width="100%"/>
+              <ykxb-xlyk v-if="xxll" :chartData='getTouristsProportions' height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -126,29 +130,174 @@ import nlfbXsph from '@/components/Charts/special-xsph'
 import nlfbSjzd from '@/components/Charts/special-sjzd'
 // import { gender } from '@/api/home'
 import { mapGetters } from 'vuex'
+import {
+  getGender,
+  getAge,
+  getConsume,
+  getHobby,
+  getMobilePhone,
+  getTouristsProportion
+} from '@/api/port'
 export default {
   components: {
     nlfb, ykxb, nlfbXfnl, nlfbXsph, nlfbSjzd, ykxbXlyk
   },
+  mounted() {
+    this.searchTime();
+    this.requestAll();
+  },
   data() {
     return {
-      value4: [new Date(), new Date()],
+      value6: [new Date() - 3600 * 1000 * 24 * 7, new Date()],
       xfzheif: true,
       jjright: true,
       ids: ['bing1', 'bing2', 'bing3', 'bing4'],
       bingIf1: true,
       bingIf2: true,
       bingIf3: true,
-      bingIf4: true
+      bingIf4: false,
+      dataObj: {
+        start: '',
+        end: ''
+      },
+      getAges: [],
+      getConsumes: [],
+      aaa: false,
+      getTouristsProportions: [],
+      xxll: false,
+      getGenders: []
     }
   },
   computed: {
     ...mapGetters([
-      'getsex',
-      'getage',
-      'getconsume',
-      'gethobby'
+      'getsex'
     ])
+  },
+  methods: {
+    //计算时间
+    searchTime() {
+      let start = this.dataObj.start
+      let end = this.dataObj.end
+      let s_start;
+      let s_end;
+      let s_y;
+      let s_r;
+      let e_y;
+      let e_r;
+      start = this.value6[0]
+      end = this.value6[1]
+      if (typeof(start) === 'number') {
+        start = new Date(start)
+      }
+      if (start.getMonth() >= 0 && start.getMonth() < 10) {
+        s_y = '0' + (start.getMonth() + 1);
+      } else {
+        s_y = start.getMonth() + 1;
+      }
+      if (end.getMonth() >= 0 && end.getMonth() < 10) {
+        e_y = '0' + (end.getMonth() + 1);
+      } else {
+        e_y = end.getMonth() + 1;
+      }
+      if(start.getDate() >= 0 && start.getDate() < 10) {
+        s_r = '0' + start.getDate();
+      } else {
+        s_r = start.getDate();
+      }
+      if(end.getDate() >= 0 && end.getDate() < 10) {
+        e_r = '0' + end.getDate();
+      } else {
+        e_r = end.getDate();
+      }
+      s_start = start.getFullYear() + '-' + s_y + '-' + s_r;
+      s_end = end.getFullYear() + '-' +  e_y + '-' + e_r;
+      console.log(s_start, '开始时间2')
+      console.log(s_end, '结束时间2')
+      this.dataObj.start = s_start;
+      this.dataObj.end = s_end
+    },
+    topSearch() {
+      //先把时间计算出来
+      this.searchTime();
+      //上面两个请求
+     this.requestAll()
+    },
+    requestAll() {
+      //1.游客性别比例
+      getGender(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if (res.status === 200) {
+            console.log(data, '游客性别比例')
+            this.getGenders = data
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //2.游客年龄分析
+      getAge(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if (res.status === 200) {
+            // console.log(data, '游客年龄分析')
+            this.getAges = data
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //3.游客消费水平
+      getConsume(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if (res.status === 200) {
+            // console.log(data, '游客消费水平')
+            this.getConsumes = data
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //4.游客线上偏好
+      getHobby(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if (res.status === 200) {
+            // console.log(data, '游客线上偏好')
+            this.getHobbys = data
+            this.aaa = true
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //5.手机终端
+      getMobilePhone(this.dataObj)
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            // console.log(data, '手机终端')
+            this.getMobilePhones = data
+            this.bingIf4 = true
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //6.新老游客比例
+      getTouristsProportion(this.dataObj)
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            this.getTouristsProportions = data
+            this.xxll = true
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
   }
 }
 </script>

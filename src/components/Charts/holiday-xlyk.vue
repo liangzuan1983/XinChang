@@ -26,14 +26,16 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   data() {
     return {
       chart: null,
-      sidebarElm: null
+      sidebarElm: null,
+      name: [],
+      newData: []
     }
   },
   watch: {
@@ -79,6 +81,15 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      // console.log(this.chartData, '新老游客比例');
+      let data = this.chartData;
+      this.name = data.map(element => element.subject);
+      this.newData = data.map(element => {
+        return {
+          value: element.value,
+          name: element.subject
+        }
+      })
       this.chart.setOption({
         tooltip: {
           trigger: 'item',
@@ -87,21 +98,18 @@ export default {
         legend: {
           orient: 'vertical',
           left: 'left',
-          data: ['新游客', '老游客'],
+          data: this.name,
           textStyle: {
             color: '#889db5'
           }
         },
         series: [
           {
-            name: '访问来源',
+            name: '新老游客比例',
             type: 'pie',
             radius: '55%',
             center: ['50%', '60%'],
-            data: [
-              { value: 335, name: '新游客' },
-              { value: 310, name: '老游客' }
-            ],
+            data: this.newData,
             itemStyle: {
               emphasis: {
                 shadowBlur: 10,

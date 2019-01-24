@@ -27,7 +27,7 @@ export default {
     },
     chartData: {
       type: Array,
-      required: false
+      required: true
     }
   },
   data() {

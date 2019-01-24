@@ -75,7 +75,7 @@ export default {
   },
   mounted() {
     this.request()
-    this.storeData()
+    // this.storeData()
   },
   computed: {
     ...mapGetters([
