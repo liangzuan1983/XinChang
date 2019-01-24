@@ -197,7 +197,7 @@ export default {
         .then(res => {
           let data = res.data.data
           if (res.status === 200) {
-            console.log(data, '涉旅行业接待能力')
+            // console.log(data, '涉旅行业接待能力')
             this.getTradess = data
             this.xfzheifs = true
           }

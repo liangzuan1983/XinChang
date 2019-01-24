@@ -35,6 +35,13 @@ export default {
       value: []
     }
   },
+  watch: {
+    chartData(value) {
+      if (value) {
+        this.initChart()
+      }
+    }
+  },
   mounted() {
     this.initChart()
     this.__resizeHandler = debounce(() => {

@@ -38,10 +38,9 @@ export default {
     }
   },
   watch: {
-    chartData: {
-      deep: true,
-      handler(val) {
-        this.setOptions(val)
+    chartData(val) {
+      if(val) {
+        this.initChart()
       }
     }
   },
