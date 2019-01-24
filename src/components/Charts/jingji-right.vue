@@ -26,14 +26,15 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   data() {
     return {
       chart: null,
-      sidebarElm: null
+      sidebarElm: null,
+      newData: []
     }
   },
   watch: {
@@ -79,6 +80,14 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      // console.log(this.chartData, '1231')
+      let data = this.chartData;
+      this.newData = data.map(element => {
+        return {
+          value: element.value,
+          name: element.subject
+        }
+      })
       this.chart.setOption({
         color: ['#0bdfb8', '#0ac5e4', '#868fce', '#6072f1', '#be60c6', '#cf6d72'],
         tooltip : {
@@ -87,18 +96,11 @@ export default {
         },
         series: [
           {
-            name: '访问来源',
+            name: '各类旅行业收入占比',
             type: 'pie',
             radius: '55%',
             center: ['50%', '60%'],
-            data: [
-              { value: 335, name: '娱乐' },
-              { value: 310, name: '餐饮' },
-              { value: 234, name: '住宿' },
-              { value: 135, name: '交通' },
-              { value: 154, name: '游玩' },
-              { value: 154, name: '购物' }
-            ],
+            data: this.newData,
             itemStyle: {
               emphasis: {
                 shadowBlur: 10,

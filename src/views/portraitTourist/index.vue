@@ -128,8 +128,7 @@ import ykxbXlyk from '@/components/Charts/holiday-xlyk'
 import nlfbXfnl from '@/components/Charts/special-xfnl'
 import nlfbXsph from '@/components/Charts/special-xsph'
 import nlfbSjzd from '@/components/Charts/special-sjzd'
-// import { gender } from '@/api/home'
-import { mapGetters } from 'vuex'
+// import { gender } from '@/api/home''
 import {
   getGender,
   getAge,
@@ -167,11 +166,6 @@ export default {
       xxll: false,
       getGenders: []
     }
-  },
-  computed: {
-    ...mapGetters([
-      'getsex'
-    ])
   },
   methods: {
     //计算时间

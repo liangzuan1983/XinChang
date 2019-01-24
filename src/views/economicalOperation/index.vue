@@ -11,7 +11,7 @@
           start-placeholder="开始日期"
           end-placeholder="结束日期"/>
         <!--查询-->
-        <el-button size="mini" type="primary">查询</el-button>
+        <el-button size="mini" type="primary" @click="topSearch">查询</el-button>
         <!--查询-->
         <img class="search" src="@/assets/icon/search.png" alt="">
         <!--下载-->
@@ -26,7 +26,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <xfzhe v-if="xfzheif" id="jj" height="100%" width="100%"/>
+              <xfzhe v-if="xfzheif" id="jj" :chartData='getTrades' height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -37,7 +37,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <jjright v-if="jjright" id="jjright" height="100%" width="100%"/>
+              <jjright v-if="jjright" :chartData='getTypes' id="jjright" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -50,7 +50,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <yi-zhou v-if="qiches" :chartData='qiche' id="jj" height="100%" width="100%"/>
+              <yi-zhou v-if="qiches" :chartData='getPassageCapacitys' id="jj" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <xfzhe v-if="xfzheif" id="jj" height="100%" width="100%"/>
+              <xfzhe v-if="xfzheifs" :chartData='getTradess' id="jj" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -74,7 +74,12 @@
 import xfzhe from '@/components/Charts/holiday-xf-zhe'
 import jjright from '@/components/Charts/jingji-right'
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
-import { capacity } from '@/api/home'
+import {
+  getTrade,
+  getType,
+  getPassageCapacity,
+  getTrades
+} from '@/api/econo.js'
 export default {
   components: {
     xfzhe, jjright, YiZhou
@@ -82,14 +87,17 @@ export default {
   data() {
     return {
       value4: [new Date() - 3600 * 1000 * 24 * 7, new Date()],
-      xfzheif: true,
-      jjright: true,
+      xfzheif: false,
+      jjright: false,
       dataObj: {
         start: '',
         end: ''
       },
       qiches: false,
-      qiche: []
+      getTrades: [],
+      getTypes: [],
+      getPassageCapacitys: [],
+      xfzheifs: false
     }
   },
   mounted() {
@@ -138,18 +146,65 @@ export default {
       this.dataObj.end = end
       // console.log(this.dataObj, '333')
     },
+    topSearch() {
+      //先把时间计算出来
+      this.defaultDate();
+      //上面两个请求
+     this.initRequest();
+    },
     initRequest() {
-      // 旅游汽车客运量
-      capacity(this.dataObj).then(res => {
-        // console.log(res)
-        const data = res.data.data
-        if (res.status === 200) {
-          this.qiche = data
-          this.qiches = true
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      //1.各类旅行业收入
+      getTrade(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if(res.status === 200) {
+            // console.log(data, '各类旅行业收入')
+            this.xfzheif = true
+            this.getTrades = data
+            this.jjright = true
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //2.各类旅行业收入占比
+      getType(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if(res.status === 200) {
+            // console.log(data, '各类旅行业收入占比')
+            this.getTypes = data
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //3.旅游汽车客运公司客运量
+      getPassageCapacity(this.dataObj)
+        .then(res => {
+          let data = res.data.data
+          if(res.status === 200) {
+            this.getPassageCapacitys = data
+            this.qiches = true
+            // console.log(data, '旅行汽车客运公司客运量')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //4. 涉旅行业接待能力
+      getTrades(this.datObj)
+        .then(res => {
+          let data = res.data.data
+          if (res.status === 200) {
+            console.log(data, '涉旅行业接待能力')
+            this.getTradess = data
+            this.xfzheifs = true
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   }
 }
