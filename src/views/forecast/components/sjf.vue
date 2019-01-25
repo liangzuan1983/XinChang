@@ -40,9 +40,103 @@
           <p class="title">散客票型分析</p>
           <!--内容-->
           <div class="content">
-            <div class="chart-wrapper">
+            <!-- <div class="chart-wrapper">
               <div class="chart-wrapper">
                 <pie-chart-full id="sankeDfs" :chartData='sankeDfs' height="100%" width="100%"/>
+              </div>
+            </div> -->
+            <div class="sex-box">
+              <div class="left-box">
+                <div class="tops">
+                  <img src="@/assets/tk4.png" alt="">
+                  <div class="right-box">
+                    <p class="title">成人票</p>
+                    <p class="text-box"><span class="num">256</span></p>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <p class="title">占比</p>
+                  <p class="num">
+                    36%
+                  </p>
+                </div>
+              </div>
+              <div class="right-box">
+                <div class="tops">
+                  <img src="@/assets/tk6.png" alt="">
+                  <div class="right-box">
+                    <p class="title">老年票</p>
+                    <p class="text-box"><span class="num">457</span></p>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <p class="title">占比</p>
+                  <p class="num">
+                    64%
+                  </p>
+                </div>
+              </div>
+              <div class="right-box">
+                <div class="tops">
+                  <img src="@/assets/tk5.png" alt="">
+                  <div class="right-box">
+                    <p class="title">大佛寺公司</p>
+                    <p class="text-box"><span class="num">457</span></p>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <p class="title">占比</p>
+                  <p class="num">
+                    64%
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="sex-box">
+              <div class="left-box">
+                <div class="tops">
+                  <img src="@/assets/tk1.png" alt="">
+                  <div class="right-box">
+                    <p class="title">学生票</p>
+                    <p class="text-box"><span class="num">1715</span></p>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <p class="title">占比</p>
+                  <p class="num">
+                    15.3%
+                  </p>
+                </div>
+              </div>
+              <div class="right-box">
+                <div class="tops">
+                  <img src="@/assets/tk3.png" alt="">
+                  <div class="right-box">
+                    <p class="title">儿童票</p>
+                    <p class="text-box"><span class="num">1620</span></p>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <p class="title">占比</p>
+                  <p class="num">
+                    15.7%
+                  </p>
+                </div>
+              </div>
+              <div class="right-box">
+                <div class="tops">
+                  <img src="@/assets/tk2.png" alt="">
+                  <div class="right-box">
+                    <p class="title">网络票</p>
+                    <p class="text-box"><span class="num">1620</span></p>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <p class="title">占比</p>
+                  <p class="num">
+                    15.7%
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -759,6 +853,119 @@ export default {
           .chart-wrapper {
             height: 320px;
             width: 100%;
+          }
+          .sex-box {
+            width: 100%;
+            display: flex;
+            margin-left: 5%;
+            margin-top: 7%;
+            justify-content: space-around;
+            .left-box {
+              flex: 1;
+              background: transparent;
+              .tops {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                img {
+                  width: 50px;
+                  height: 50px;
+                  margin-right: 5%;
+                }
+                .right-box {
+                  .title {
+                    font-size: 18px;
+                    color: #ffffff;
+                    font-weight: bold;
+                    background: transparent;
+                    margin-bottom: 10px;
+                  }
+                  .text-box {
+                    display: flex;
+                    .num {
+                      font-size: 18px;
+                      color: #fff;
+                      font-weight: bold;
+                      background: transparent;
+                      margin-right: 10px;
+                    }
+                    .unit {
+                      font-weight: bold;
+                      font-size: 24px;
+                      color: #ffffff;
+                    }
+                  }
+                }
+              }
+              .bottom {
+                display: flex;
+                justify-content: flex-start;
+                .title {
+                  font-size: 16px;
+                  color: #ffffff;
+                  background: transparent;
+                  margin-right: 15px;
+                }
+                .num {
+                  font-size: 20px;
+                  color: #f69704;
+                  font-weight: bold;
+                }
+              }
+            }
+            .right-box {
+              flex:1;
+              .tops {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                img {
+                  width: 50px;
+                  height: 50px;
+                  margin-right: 5%;
+                }
+                .right-box {
+                  background: transparent;
+                  .title {
+                    font-size: 18px;
+                    color: #ffffff;
+                    font-weight: bold;
+                    background: transparent;
+                    margin-bottom: 10px;
+                  }
+                  .text-box {
+                    display: flex;
+                    .num {
+                      font-size: 18px;
+                      color: #fff;
+                      font-weight: bold;
+                      background: transparent;
+                      margin-right: 10px;
+                    }
+                    .unit {
+                      font-weight: bold;
+                      font-size: 24px;
+                      color: #ffffff;
+                    }
+                  }
+                }
+              }
+              .bottom {
+                display: flex;
+                justify-content: flex-start;
+                .title {
+                  font-size: 16px;
+                  color: #ffffff;
+                  background: transparent;
+                  margin-right: 15px;
+                }
+                .num {
+                  font-size: 20px;
+                  color: #f69704;
+                  font-weight: bold;
+                }
+              }
+            }
           }
           .one-box {
             display: flex;

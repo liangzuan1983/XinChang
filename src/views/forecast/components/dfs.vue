@@ -48,7 +48,7 @@
             <div class="sex-box">
               <div class="left-box">
                 <div class="tops">
-                  <img src="@/assets/fmcstm.png" alt="">
+                  <img src="@/assets/tk4.png" alt="">
                   <div class="right-box">
                     <p class="title">成人票</p>
                     <p class="text-box"><span class="num">256</span></p>
@@ -63,7 +63,7 @@
               </div>
               <div class="right-box">
                 <div class="tops">
-                  <img src="@/assets/mcstm.png" alt="">
+                  <img src="@/assets/tk6.png" alt="">
                   <div class="right-box">
                     <p class="title">老年票</p>
                     <p class="text-box"><span class="num">457</span></p>
@@ -78,7 +78,7 @@
               </div>
               <div class="right-box">
                 <div class="tops">
-                  <img src="@/assets/mcstm.png" alt="">
+                  <img src="@/assets/tk5.png" alt="">
                   <div class="right-box">
                     <p class="title">大佛寺公司</p>
                     <p class="text-box"><span class="num">457</span></p>
@@ -95,7 +95,7 @@
             <div class="sex-box">
               <div class="left-box">
                 <div class="tops">
-                  <img src="@/assets/fmcstm.png" alt="">
+                  <img src="@/assets/tk1.png" alt="">
                   <div class="right-box">
                     <p class="title">学生票</p>
                     <p class="text-box"><span class="num">1715</span></p>
@@ -110,7 +110,7 @@
               </div>
               <div class="right-box">
                 <div class="tops">
-                  <img src="@/assets/mcstm.png" alt="">
+                  <img src="@/assets/tk3.png" alt="">
                   <div class="right-box">
                     <p class="title">儿童票</p>
                     <p class="text-box"><span class="num">1620</span></p>
@@ -125,7 +125,7 @@
               </div>
               <div class="right-box">
                 <div class="tops">
-                  <img src="@/assets/mcstm.png" alt="">
+                  <img src="@/assets/tk2.png" alt="">
                   <div class="right-box">
                     <p class="title">网络票</p>
                     <p class="text-box"><span class="num">1620</span></p>
