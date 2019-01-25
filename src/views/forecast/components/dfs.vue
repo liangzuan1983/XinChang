@@ -40,9 +40,103 @@
           <p class="title">散客票型分析</p>
           <!--内容-->
           <div class="content">
-            <div class="chart-wrapper">
-              <div class="chart-wrapper">
+            <!-- <div class="chart-wrapper"> -->
+              <!-- <div class="chart-wrapper">
                 <pie-chart-full id="sankeDfs" :chartData='sankeDfs' height="100%" width="100%"/>
+              </div> -->
+            <!-- </div> -->
+            <div class="sex-box">
+              <div class="left-box">
+                <div class="tops">
+                  <img src="@/assets/fmcstm.png" alt="">
+                  <div class="right-box">
+                    <p class="title">成人票</p>
+                    <p class="text-box"><span class="num">256</span></p>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <p class="title">占比</p>
+                  <p class="num">
+                    36%
+                  </p>
+                </div>
+              </div>
+              <div class="right-box">
+                <div class="tops">
+                  <img src="@/assets/mcstm.png" alt="">
+                  <div class="right-box">
+                    <p class="title">老年票</p>
+                    <p class="text-box"><span class="num">457</span></p>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <p class="title">占比</p>
+                  <p class="num">
+                    64%
+                  </p>
+                </div>
+              </div>
+              <div class="right-box">
+                <div class="tops">
+                  <img src="@/assets/mcstm.png" alt="">
+                  <div class="right-box">
+                    <p class="title">大佛寺公司</p>
+                    <p class="text-box"><span class="num">457</span></p>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <p class="title">占比</p>
+                  <p class="num">
+                    64%
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="sex-box">
+              <div class="left-box">
+                <div class="tops">
+                  <img src="@/assets/fmcstm.png" alt="">
+                  <div class="right-box">
+                    <p class="title">学生票</p>
+                    <p class="text-box"><span class="num">1715</span></p>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <p class="title">占比</p>
+                  <p class="num">
+                    15.3%
+                  </p>
+                </div>
+              </div>
+              <div class="right-box">
+                <div class="tops">
+                  <img src="@/assets/mcstm.png" alt="">
+                  <div class="right-box">
+                    <p class="title">儿童票</p>
+                    <p class="text-box"><span class="num">1620</span></p>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <p class="title">占比</p>
+                  <p class="num">
+                    15.7%
+                  </p>
+                </div>
+              </div>
+              <div class="right-box">
+                <div class="tops">
+                  <img src="@/assets/mcstm.png" alt="">
+                  <div class="right-box">
+                    <p class="title">网络票</p>
+                    <p class="text-box"><span class="num">1620</span></p>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <p class="title">占比</p>
+                  <p class="num">
+                    15.7%
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -760,6 +854,119 @@ export default {
             height: 320px;
             width: 100%;
           }
+          .sex-box {
+            width: 100%;
+            display: flex;
+            margin-left: 5%;
+            margin-top: 7%;
+            justify-content: space-around;
+            .left-box {
+              flex: 1;
+              background: transparent;
+              .tops {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                img {
+                  width: 50px;
+                  height: 50px;
+                  margin-right: 5%;
+                }
+                .right-box {
+                  .title {
+                    font-size: 18px;
+                    color: #ffffff;
+                    font-weight: bold;
+                    background: transparent;
+                    margin-bottom: 10px;
+                  }
+                  .text-box {
+                    display: flex;
+                    .num {
+                      font-size: 18px;
+                      color: #fff;
+                      font-weight: bold;
+                      background: transparent;
+                      margin-right: 10px;
+                    }
+                    .unit {
+                      font-weight: bold;
+                      font-size: 24px;
+                      color: #ffffff;
+                    }
+                  }
+                }
+              }
+              .bottom {
+                display: flex;
+                justify-content: flex-start;
+                .title {
+                  font-size: 16px;
+                  color: #ffffff;
+                  background: transparent;
+                  margin-right: 15px;
+                }
+                .num {
+                  font-size: 20px;
+                  color: #f69704;
+                  font-weight: bold;
+                }
+              }
+            }
+            .right-box {
+              flex:1;
+              .tops {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                img {
+                  width: 50px;
+                  height: 50px;
+                  margin-right: 5%;
+                }
+                .right-box {
+                  background: transparent;
+                  .title {
+                    font-size: 18px;
+                    color: #ffffff;
+                    font-weight: bold;
+                    background: transparent;
+                    margin-bottom: 10px;
+                  }
+                  .text-box {
+                    display: flex;
+                    .num {
+                      font-size: 18px;
+                      color: #fff;
+                      font-weight: bold;
+                      background: transparent;
+                      margin-right: 10px;
+                    }
+                    .unit {
+                      font-weight: bold;
+                      font-size: 24px;
+                      color: #ffffff;
+                    }
+                  }
+                }
+              }
+              .bottom {
+                display: flex;
+                justify-content: flex-start;
+                .title {
+                  font-size: 16px;
+                  color: #ffffff;
+                  background: transparent;
+                  margin-right: 15px;
+                }
+                .num {
+                  font-size: 20px;
+                  color: #f69704;
+                  font-weight: bold;
+                }
+              }
+            }
+          }
           .one-box {
             display: flex;
             justify-content: space-between;
@@ -881,71 +1088,71 @@ export default {
             .line1 {
               height: 14px;
               width: 50%;
-              background: #f69704;
-              border-radius: 10px;
+              background: #b3e2b3;
+              // border-radius: 10px;
               margin-right: 2%;
             }
             .line2 {
               height: 14px;
               width: 46%;
-              background: #f79007;
-              border-radius: 10px;
+              background: #66c566;
+              // border-radius: 10px;
               margin-right: 2%;
             }
             .line3 {
               height: 14px;
               width: 42%;
-              background: #f88909;
-              border-radius: 10px;
+              background: #1aa81a;
+              // border-radius: 10px;
               margin-right: 2%;
             }
             .line4 {
               height: 14px;
               width: 38%;
-              background: #f8820c;
-              border-radius: 10px;
+              background: #1aa81a;
+              // border-radius: 10px;
               margin-right: 2%;
             }
             .line5 {
               height: 14px;
               width: 34%;
-              background: #f97b0e;
-              border-radius: 10px;
+              background: #1aa81a;
+              // border-radius: 10px;
               margin-right: 2%;
             }
             .line6 {
               height: 14px;
               width: 30%;
-              background: #fa7311;
-              border-radius: 10px;
+              background: #1aa81a;
+              // border-radius: 10px;
               margin-right: 2%;
             }
             .line7 {
               height: 14px;
               width: 26%;
-              background: #fb6c13;
-              border-radius: 10px;
+              background: #1aa81a;
+              // border-radius: 10px;
               margin-right: 2%;
             }
             .line8 {
               height: 14px;
               width: 22%;
-              background: #fb6516;
-              border-radius: 10px;
+              background: #1aa81a;
+              // border-radius: 10px;
               margin-right: 2%;
             }
             .line9 {
               height: 14px;
               width: 18%;
-              background: #fc5e18;
-              border-radius: 10px;
+              background: #1aa81a;
+              // border-radius: 10px;
               margin-right: 2%;
             }
             .line10 {
               height: 14px;
               width: 14%;
-              background: #fd571b;
-              border-radius: 10px;
+              background: #1aa81a;
+              // border-radius: 10px;
               margin-right: 2%;
             }
             .num {
@@ -976,70 +1183,70 @@ export default {
             .line1 {
               height: 14px;
               width: 50%;
-              background: #f69704;
+              background: #fd8ba5;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line2 {
               height: 14px;
               width: 46%;
-              background: #f79007;
+              background: #dd90cd;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line3 {
               height: 14px;
               width: 42%;
-              background: #f88909;
+              background: #c494ed;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line4 {
               height: 14px;
               width: 38%;
-              background: #f8820c;
+              background: #c494ed;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line5 {
               height: 14px;
               width: 34%;
-              background: #f97b0e;
+              background: #c494ed;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line6 {
               height: 14px;
               width: 30%;
-              background: #fa7311;
+              background: #c494ed;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line7 {
               height: 14px;
               width: 26%;
-              background: #fb6c13;
+              background: #c494ed;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line8 {
               height: 14px;
               width: 22%;
-              background: #fb6516;
+              background: #c494ed;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line9 {
               height: 14px;
               width: 18%;
-              background: #fc5e18;
+              background: #c494ed;
               border-radius: 10px;
               margin-right: 2%;
             }
             .line10 {
               height: 14px;
               width: 14%;
-              background: #fd571b;
+              background: #c494ed;
               border-radius: 10px;
               margin-right: 2%;
             }

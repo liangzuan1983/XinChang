@@ -29,9 +29,9 @@
           <img v-if="weatherData.type === '小雨'" src="@/assets/weather/47.png" alt="">
           <img v-if="weatherData.type === '中雨'" src="@/assets/weather/49.png" alt="">
           <img v-if="weatherData.type === '大雨'" src="@/assets/weather/51.png" alt="">
-          <img v-if="weatherData.type === '小雪'" src="@/assets/weather/53.png" alt="">
-          <img v-if="weatherData.type === '中雪'" src="@/assets/weather/46.png" alt="">
-          <img v-if="weatherData.type === '大雪'" src="@/assets/weather/46.png" alt="">
+          <img v-if="weatherData.type === '小雪'" src="@/assets/weather/xx.png" alt="">
+          <img v-if="weatherData.type === '中雪'" src="@/assets/weather/zx.png" alt="">
+          <img v-if="weatherData.type === '大雪'" src="@/assets/weather/dx.png" alt="">
           <!--是否晴天-->
           <span v-if="weatherData.type">{{ weatherData.type }}</span>
           <span v-else>晴</span>
