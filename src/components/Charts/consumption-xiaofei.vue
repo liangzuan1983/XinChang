@@ -11,7 +11,7 @@ export default {
   props: {
     className: {
       type: String,
-      default: 'ykxb'
+      default: 'nlfb'
     },
     width: {
       type: String,
@@ -92,11 +92,12 @@ export default {
       this.chart.setOption({
         tooltip: {
           trigger: 'item',
-          formatter: '{a} <br/>{b} : {c} ({d}%)'
+          formatter: '{a} <br/>{b}: {c} ({d}%)'
         },
+        color: ['#d7797f', '#32c6c8', '#b5a1dd', '#5ab0ef', '#ffb87f'],
         legend: {
           orient: 'vertical',
-          left: 'left',
+          x: 'left',
           data: this.name,
           textStyle: {
             color: '#889db5'
@@ -104,18 +105,29 @@ export default {
         },
         series: [
           {
-            name: '访问来源',
+            name: '游客消费占比',
             type: 'pie',
-            radius: '55%',
-            center: ['50%', '60%'],
-            data: this.newData,
-            itemStyle: {
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+              normal: {
+                show: false,
+                position: 'center'
+              },
               emphasis: {
-                shadowBlur: 10,
-                shadowOffsetX: 0,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                show: true,
+                textStyle: {
+                  fontSize: '30',
+                  fontWeight: 'bold'
+                }
               }
-            }
+            },
+            labelLine: {
+              normal: {
+                show: false
+              }
+            },
+            data: this.newData
           }
         ]
       })

@@ -11,7 +11,7 @@ export default {
   props: {
     className: {
       type: String,
-      default: 'nlfb'
+      default: 'holidayzhu'
     },
     width: {
       type: String,
@@ -26,14 +26,16 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   data() {
     return {
       chart: null,
-      sidebarElm: null
+      sidebarElm: null,
+      time: [],
+      value: []
     }
   },
   watch: {
@@ -79,48 +81,72 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      // console.log(this.chartData, '123')
+      let data = this.chartData;
+      this.time = data.map(element => element.subject)
+      this.value = data.map(element => element.value)
       this.chart.setOption({
-        tooltip: {
-          trigger: 'item',
-          formatter: '{a} <br/>{b}: {c} ({d}%)'
-        },
-        color: ['#1aa81a', '#66c566', '#b3e2b3', '#d7ffd7'], // 游客年龄分布
         legend: {
-          orient: 'vertical',
-          x: 'left',
-          data: ['大佛寺', '十九峰'],
+          data: ['客流量'],
           textStyle: {
-            color: '#889db5'
+            color: '#59697d'
           }
         },
+        tooltip: {
+          trigger: 'axis'
+        },
+        calculable: true,
+        xAxis: [
+          {
+            type: 'category',
+            data: this.time,
+            axisLabel: {
+              textStyle: {
+                color: '#889db5'
+              }
+            }
+          }
+        ],
+        grid: {
+          top: '22%',
+          left: '3%',
+          right: '3%',
+          bottom: '3%',
+          containLabel: true
+        },
+        yAxis: [
+          {
+            type: 'value',
+            axisLabel: {
+              textStyle: {
+                color: '#889db5'
+              }
+            }
+          }
+        ],
         series: [
           {
-            name: '访问来源',
-            type: 'pie',
-            radius: ['50%', '70%'],
-            avoidLabelOverlap: false,
-            label: {
+            name: '客流量',
+            type: 'bar',
+            data: this.value,
+            markPoint: {
+              data: [
+                { type: 'max', name: '最大值' },
+                { type: 'min', name: '最小值' }
+              ]
+            },
+            itemStyle: {
               normal: {
-                show: false,
-                position: 'center'
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                  offset: 0,
+                  color: '#42aed4'
+                },
+                {
+                  offset: 1,
+                  color: '#0a83de'
+                }])
               },
-              emphasis: {
-                show: true,
-                textStyle: {
-                  fontSize: '30',
-                  fontWeight: 'bold'
-                }
-              }
-            },
-            labelLine: {
-              normal: {
-                show: false
-              }
-            },
-            data: [
-              { value: 335, name: '大佛寺' },
-              { value: 310, name: '十九峰' }
-            ]
+            }
           }
         ]
       })

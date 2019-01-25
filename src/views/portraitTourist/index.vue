@@ -359,6 +359,7 @@ export default {
           .sex-box {
             width: 100%;
             display: flex;
+            margin-left: 5%;
             justify-content: space-around;
             .left-box {
               flex: 1;

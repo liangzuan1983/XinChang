@@ -184,7 +184,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <holiday-kl-zhu :chartData='getPassageFlows' height="100%" width="100%"/>
+              <holiday-kl-zhuz :chartData='getPassageFlows' height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -195,7 +195,39 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <ykxb :chartData="getGenders" id="spe"  height="100%" width="100%"/>
+              <!-- <ykxb :chartData="getGenders" id="spe"  height="100%" width="100%"/> -->
+              <div class="sex-box">
+                <div class="left-box">
+                  <div class="top">
+                    <img src="@/assets/fmcstm.png" alt="">
+                    <div class="right-box">
+                      <p class="title">女性游客</p>
+                      <p class="text-box"><span class="num">{{ getGenders[0].value }}</span><span class="unit">个</span></p>
+                    </div>
+                  </div>
+                  <div class="bottom">
+                    <p class="title">占比</p>
+                    <p class="num">
+                      {{ (getGenders[0].value / (getGenders[0].value + getGenders[1].value)).toFixed(2)*100 }}%
+                    </p>
+                  </div>
+                </div>
+                <div class="right-box">
+                  <div class="top">
+                    <img src="@/assets/mcstm.png" alt="">
+                    <div class="right-box">
+                      <p class="title">男性游客</p>
+                      <p class="text-box"><span class="num">{{ getGenders[1].value }}</span><span class="unit">个</span></p>
+                    </div>
+                  </div>
+                  <div class="bottom">
+                    <p class="title">占比</p>
+                    <p class="num">
+                      {{ (getGenders[1].value / (getGenders[0].value + getGenders[1].value)).toFixed(2)*100 }}%
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -447,7 +479,7 @@
 </template>
 
 <script>
-import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
+import HolidayKlZhuz from '@/components/Charts/holiday-kl-zhuz'
 import ykxb from '@/components/Charts/holiday-ykxb'
 import nlfb from '@/components/Charts/holiday-nlfb'
 import nlfbHyxf from '@/components/Charts/special-hyxf'
@@ -472,7 +504,7 @@ import {
 } from '@/api/holiday' 
 export default {
   components: {
-    HolidayKlZhu, ykxb, nlfb, xfzhe, nlfbXfnl, nlfbXsph, nlfbGy, nlfbHyxf, nlfbYkxf
+    HolidayKlZhuz, ykxb, nlfb, xfzhe, nlfbXfnl, nlfbXsph, nlfbGy, nlfbHyxf, nlfbYkxf
   },
   data() {
     return {
@@ -1062,9 +1094,124 @@ export default {
         }
         .content {
           background: rgba(255, 255, 255, 0.05);
+          display: flex;
+          align-items: center;
           .chart-wrapper {
             height: 320px;
             width: 100%;
+          }
+          .sex-box {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15%;
+            margin-left: 5%;
+            .left-box {
+              flex: 1;
+              background: transparent;
+              .top {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                img {
+                  width: 70px;
+                  height: 70px;
+                  margin-right: 5%;
+                }
+                .right-box {
+                  .title {
+                    font-size: 26px;
+                    color: #ffffff;
+                    font-weight: bold;
+                    background: transparent;
+                    margin-bottom: 10px;
+                  }
+                  .text-box {
+                    display: flex;
+                    .num {
+                      font-size: 28px;
+                      color: #f69704;
+                      font-weight: bold;
+                      background: transparent;
+                      margin-right: 10px;
+                    }
+                    .unit {
+                      font-weight: bold;
+                      font-size: 24px;
+                      color: #ffffff;
+                    }
+                  }
+                }
+              }
+              .bottom {
+                display: flex;
+                justify-content: flex-start;
+                .title {
+                  font-size: 24px;
+                  color: #ffffff;
+                  background: transparent;
+                  margin-right: 30px;
+                }
+                .num {
+                  font-size: 28px;
+                  color: #f69704;
+                  font-weight: bold;
+                }
+              }
+            }
+            .right-box {
+              flex:1;
+              .top {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                img {
+                  width: 70px;
+                  height: 70px;
+                  margin-right: 5%;
+                }
+                .right-box {
+                  background: transparent;
+                  .title {
+                    font-size: 26px;
+                    color: #ffffff;
+                    font-weight: bold;
+                    background: transparent;
+                    margin-bottom: 10px;
+                  }
+                  .text-box {
+                    display: flex;
+                    .num {
+                      font-size: 28px;
+                      color: #f69704;
+                      font-weight: bold;
+                      background: transparent;
+                      margin-right: 10px;
+                    }
+                    .unit {
+                      font-weight: bold;
+                      font-size: 24px;
+                      color: #ffffff;
+                    }
+                  }
+                }
+              }
+              .bottom {
+                display: flex;
+                justify-content: flex-start;
+                .title {
+                  font-size: 24px;
+                  color: #ffffff;
+                  background: transparent;
+                  margin-right: 30px;
+                }
+                .num {
+                  font-size: 28px;
+                  color: #f69704;
+                  font-weight: bold;
+                }
+              }
+            }
           }
         }
       }

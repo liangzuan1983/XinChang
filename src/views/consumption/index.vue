@@ -36,7 +36,7 @@
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
-                <holiday-kl-zhu :chartData='getConsumeTourisms' height="100%" width="100%"/>
+                <holiday-kl-zhus :chartData='getConsumeTourisms' height="100%" width="100%"/>
               </div>
             </div>
           </div>
@@ -84,13 +84,13 @@
 
 <script>
 import nlfb from '@/components/Charts/consumption-nlfb'
-import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
+import HolidayKlZhus from '@/components/Charts/holiday-kl-zhus'
 import xfzhe from '@/components/Charts/holiday-xf-zhe'
 import ykxb from '@/components/Charts/consumption-xiaofei'
 import { getConsumeTourism, getConsumeSource, getTrade, getType } from '@/api/consumption'
 export default {
   components: {
-    nlfb, HolidayKlZhu, xfzhe, ykxb
+    nlfb, HolidayKlZhus, xfzhe, ykxb
   },
   data() {
     return {

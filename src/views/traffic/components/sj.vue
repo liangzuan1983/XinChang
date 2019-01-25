@@ -384,36 +384,36 @@ export default {
               .line1 {
                 height: 14px;
                 width: 80%;
-                background: #47b2d3;
-                border-radius: 10px;
+                background: #fd8ba5;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line2 {
                 height: 14px;
                 width: 70%;
-                background: #40add4;
-                border-radius: 10px;
+                background: #f08db5;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line3 {
                 height: 14px;
                 width: 60%;
-                background: #39a7d5;
-                border-radius: 10px;
+                background: #e48fc5;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line4 {
                 height: 14px;
                 width: 50%;
-                background: #32a2d7;
-                border-radius: 10px;
+                background: #d791d5;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line5 {
                 height: 14px;
                 width: 40%;
-                background: #2b9dd8;
-                border-radius: 10px;
+                background: #c494ed;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .num {
