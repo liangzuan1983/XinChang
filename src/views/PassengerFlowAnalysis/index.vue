@@ -737,70 +737,70 @@ export default {
                 height: 14px;
                 width: 50%;
                 background: #47b2d3;
-                border-radius: 10px;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line2 {
                 height: 14px;
                 width: 46%;
                 background: #40add4;
-                border-radius: 10px;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line3 {
                 height: 14px;
                 width: 42%;
                 background: #39a7d5;
-                border-radius: 10px;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line4 {
                 height: 14px;
                 width: 38%;
                 background: #32a2d7;
-                border-radius: 10px;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line5 {
                 height: 14px;
                 width: 34%;
                 background: #2b9dd8;
-                border-radius: 10px;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line6 {
                 height: 14px;
                 width: 30%;
                 background: #2597d9;
-                border-radius: 10px;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line7 {
                 height: 14px;
                 width: 26%;
                 background: #1e92da;
-                border-radius: 10px;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line8 {
                 height: 14px;
                 width: 22%;
                 background: #178ddc;
-                border-radius: 10px;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line9 {
                 height: 14px;
                 width: 18%;
                 background: #1087dd;
-                border-radius: 10px;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line10 {
                 height: 14px;
                 width: 14%;
                 background: #0982de;
-                border-radius: 10px;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .num {
@@ -840,76 +840,76 @@ export default {
               .name {
                 font-size: 20px;
                 color: #889db5;
-                width: 20%;
+                width: 25%;
               }
               .line1 {
                 height: 14px;
                 width: 50%;
-                background: #f69704;
-                border-radius: 10px;
+                background: #47b2d3;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line2 {
                 height: 14px;
                 width: 46%;
-                background: #f79007;
-                border-radius: 10px;
+                background: #40add4;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line3 {
                 height: 14px;
                 width: 42%;
-                background: #f88909;
-                border-radius: 10px;
+                background: #39a7d5;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line4 {
                 height: 14px;
                 width: 38%;
-                background: #f8820c;
-                border-radius: 10px;
+                background: #32a2d7;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line5 {
                 height: 14px;
                 width: 34%;
-                background: #f97b0e;
-                border-radius: 10px;
+                background: #2b9dd8;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line6 {
                 height: 14px;
                 width: 30%;
-                background: #fa7311;
-                border-radius: 10px;
+                background: #2597d9;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line7 {
                 height: 14px;
                 width: 26%;
-                background: #fb6c13;
-                border-radius: 10px;
+                background: #1e92da;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line8 {
                 height: 14px;
                 width: 22%;
-                background: #fb6516;
-                border-radius: 10px;
+                background: #178ddc;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line9 {
                 height: 14px;
                 width: 18%;
-                background: #fc5e18;
-                border-radius: 10px;
+                background: #1087dd;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .line10 {
                 height: 14px;
                 width: 14%;
-                background: #fd571b;
-                border-radius: 10px;
+                background: #0982de;
+                // border-radius: 10px;
                 margin-right: 2%;
               }
               .num {
@@ -970,71 +970,71 @@ export default {
             .line1 {
               height: 14px;
               width: 50%;
-              background: #f69704;
-              border-radius: 10px;
+              background: #fd8ba5;
+              // border-radius: 10px;
               margin-right: 3%;
             }
             .line2 {
               height: 14px;
               width: 46%;
-              background: #f79007;
-              border-radius: 10px;
+              background: #f78cad;
+              // border-radius: 10px;
               margin-right: 3%;
             }
             .line3 {
               height: 14px;
               width: 42%;
-              background: #f88909;
-              border-radius: 10px;
+              background: #f08db5;
+              // border-radius: 10px;
               margin-right: 3%;
             }
             .line4 {
               height: 14px;
               width: 38%;
-              background: #f8820c;
-              border-radius: 10px;
+              background: #ea8ebd;
+              // border-radius: 10px;
               margin-right: 2%;
             }
             .line5 {
               height: 14px;
               width: 34%;
-              background: #f97b0e;
-              border-radius: 10px;
+              background: #e48fc5;
+              // border-radius: 10px;
               margin-right: 3%;
             }
             .line6 {
               height: 14px;
               width: 30%;
-              background: #fa7311;
-              border-radius: 10px;
+              background: #dd90cd;
+              // border-radius: 10px;
               margin-right: 3%;
             }
             .line7 {
               height: 14px;
               width: 26%;
-              background: #fb6c13;
-              border-radius: 10px;
+              background: #d791d5;
+              // border-radius: 10px;
               margin-right: 3%;
             }
             .line8 {
               height: 14px;
               width: 22%;
-              background: #fb6516;
-              border-radius: 10px;
+              background: #d192dd;
+              // border-radius: 10px;
               margin-right: 3%;
             }
             .line9 {
               height: 14px;
               width: 18%;
-              background: #fc5e18;
-              border-radius: 10px;
+              background: #ca93e5;
+              // border-radius: 10px;
               margin-right: 3%;
             }
             .line10 {
               height: 14px;
               width: 14%;
-              background: #fd571b;
-              border-radius: 10px;
+              background: #c494ed;
+              // border-radius: 10px;
               margin-right: 3%;
             }
             .num {

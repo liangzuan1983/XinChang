@@ -108,10 +108,10 @@ export default {
           }
         ],
         grid: {
-          top: '18%',
+          top: '22%',
           left: '3%',
-          right: '5%',
-          bottom: '5%',
+          right: '3%',
+          bottom: '3%',
           containLabel: true
         },
         yAxis: [
@@ -134,6 +134,18 @@ export default {
                 { type: 'max', name: '最大值' },
                 { type: 'min', name: '最小值' }
               ]
+            },
+            itemStyle: {
+              normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                  offset: 0,
+                  color: '#37d53b'
+                },
+                {
+                  offset: 1,
+                  color: '#1ba91b'
+                }])
+              },
             }
           }
         ]
