@@ -1,6 +1,10 @@
 <template>
   <div class="weatherEnvironment">
-    <div @click="fuck">产业监测</div>
+    <!-- <div @click="fuck">产业监测</div> -->
+    <iframe src="http://61.174.54.82:18007/three"
+      class="iframe"
+      frameborder="0" 
+      scrolling="auto"/>
   </div>
 </template>
 
@@ -18,10 +22,13 @@ export default {
   .weatherEnvironment {
     position: relative;
     z-index: 999;
-    div {
-      color: #ffffff;
-      font-size: 30px;
-      margin: 10px;
+    width: 100%;
+    height: 100%;
+    // display: flex;
+    .iframe {
+      // flex: 1;
+      width: 100%;
+      height: 100%;
     }
   }
 </style>
