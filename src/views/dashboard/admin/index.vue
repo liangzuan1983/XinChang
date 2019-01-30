@@ -225,8 +225,8 @@
                 <!--按钮-->
                 <div class="btn">
                   <div class="btn-box">
-                    <p :class="{qyb: qybs}" class="qy" @click="qyEvents">城市</p>
-                    <p :class="{zyb: zybs}" class="zy" @click="lyEvents">县城</p>
+                    <p :class="{qyb: qybs}" class="qy" @click="qyEvents"></p>
+                    <p :class="{zyb: zybs}" class="zy" @click="lyEvents"></p>
                   </div>
                 </div>
             </div>
@@ -1248,15 +1248,15 @@ export default {
               position: absolute;
               right: 5%;
               bottom: 5%;
-              width: 35%;
+              width: 8%;
               display: flex;
-              height: 15%;
+              height: 5%;
               .btn-box {
                 flex: 1;
                 position: relative;
                 display: flex;
                 justify-content: space-between;
-                width: 10%;
+                width: 5%;
                 background: rgba(255, 255, 255, 0.2);
                 border-radius: 30px;
                 padding: 2%;
