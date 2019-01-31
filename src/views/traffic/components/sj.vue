@@ -28,7 +28,7 @@
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
-                <nlfb v-if="nlfb" height="100%" width="100%"/>
+                <nlfb v-if="nlfb" :chartData='getCarCounts' height="100%" width="100%"/>
               </div>
             </div>
           </div>
@@ -39,7 +39,7 @@
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
-                <pie-chart-full height="100%" width="100%"/>
+                <pie-chart-full :chartData='getCarTypes' height="100%" width="100%"/>
               </div>
             </div>
           </div>
@@ -141,7 +141,7 @@
 <script>
 import nlfb from '@/components/Charts/traffic-nlfb'
 import PieChartFull from '@/components/Charts/traffic-cxfs'
-import { getTourNumberInPro, getTourNumberOutPro } from '@/api/traffic'
+import { getCarCount, getCarType, getTourNumberInPro, getTourNumberOutPro } from '@/api/traffic'
 export default {
   components: {
     nlfb, PieChartFull
@@ -151,13 +151,15 @@ export default {
       value6: [new Date() - 3600 * 1000 * 24 * 7, new Date()],
       xfzheif: true,
       jjright: true,
-      nlfb: true,
+      nlfb: false,
       inProvince: [],
       outProvince: [],
       dataObj: {
         start: '',
         end: ''
-      }
+      },
+      getCarCounts: [],
+      getCarTypes: []
     }
   },
   mounted() {
@@ -166,6 +168,31 @@ export default {
   },
   methods: {
     initRequest() {
+      //高速卡口
+      getCarCount(this.dataObj)
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            console.log(data, '高速卡口');
+            this.getCarCounts = data
+            this.nlfb = true
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      //游客出行方式
+      getCarType(this.dataObj)
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            console.log(data, '游客出行方式')
+            this.getCarTypes = data
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
       //省内自驾游数量
       getTourNumberInPro(this.dataObj).then(res => {
         const data = res.data.data

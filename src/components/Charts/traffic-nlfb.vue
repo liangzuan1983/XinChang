@@ -26,14 +26,16 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   data() {
     return {
       chart: null,
-      sidebarElm: null
+      sidebarElm: null,
+      name: [],
+      newData: []
     }
   },
   watch: {
@@ -79,6 +81,14 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      let data = this.chartData;
+      this.name = data.map(element => element.subject);
+      this.newData = data.map(element => {
+        return {
+          value: element.value,
+          name: element.subject
+        }
+      })
       this.chart.setOption({
         tooltip: {
           trigger: 'item',
@@ -88,14 +98,14 @@ export default {
         legend: {
           orient: 'vertical',
           x: 'left',
-          data: ['大佛寺', '十九峰'],
+          data: this.name,
           textStyle: {
             color: '#889db5'
           }
         },
         series: [
           {
-            name: '访问来源',
+            name: '高速卡口车辆占比',
             type: 'pie',
             radius: ['50%', '70%'],
             avoidLabelOverlap: false,
@@ -117,10 +127,7 @@ export default {
                 show: false
               }
             },
-            data: [
-              { value: 335, name: '大佛寺' },
-              { value: 310, name: '十九峰' }
-            ]
+            data: this.newData
           }
         ]
       })
