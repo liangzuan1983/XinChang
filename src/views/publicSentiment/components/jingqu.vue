@@ -23,15 +23,8 @@
         <!--内容-->
         <div class="content">
           <div class="amap-wrapper">
-            <el-amap vid="amapDemo" :zoom="zoom" :center="center" class="amap-box">
-              <el-amap-marker
-                v-for="(marker, index) in markers"
-                :key="index"
-                :position="marker.position"
-                :events="marker.events"
-                :visible="marker.visible"
-                :draggable="marker.draggable"
-                :vid="index"/>
+            <el-amap vid="amapDemo" :center="mapCenter" :zoom="12" class="amap-demo">
+              <el-amap-marker v-for="(marker, index) in tourControllers" :key="index" :position="marker" ></el-amap-marker>
             </el-amap>
           </div>
         </div>
@@ -238,25 +231,12 @@ export default {
       cWidth: 70,
       hou: 8,
       listData: [],
-      zoom: 14,
-      center: [120.901737, 29.497975],
       markers: [
-        {
-          position: [120.901737, 29.497975],
-          events: {
-            click: () => {
-              alert('click marker');
-            },
-            dragend: (e) => {
-              console.log('---event---: dragend')
-              this.markers[0].position = [e.lnglat.lng, e.lnglat.lat];
-            }
-          },
-          visible: true,
-          draggable: false,
-          template: '<span>1</span>',
-        }
+        [121.59996, 31.197646],
+        [121.40018, 31.197622],
+        [121.69991, 31.207649]
       ],
+      mapCenter: [120.901737, 29.497975],
       category: 1,
       tourControllers: [],
       countWeeklys: [],
@@ -283,7 +263,12 @@ export default {
           let data = res.data.data;
           if (res.status === 200) {
             console.log(data, '地图')
-            this.tourControllers = data
+            this.tourControllers = data.map(element => {
+              return [
+                element.longitude,
+                element.latitude
+              ]
+            })
           }
         })
         .catch(err => {
