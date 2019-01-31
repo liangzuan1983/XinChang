@@ -47,12 +47,12 @@ export default {
         margin: 0 40px;
         text-align: center;
         img {
-          width: 180px;
-          height: 180px;
+          width: 100px;
+          height: 100px;
           margin-bottom: 20px;
         }
         .name {
-          font-size: 33px;
+          font-size: 24px;
           color: #bbd5ff;
         }
       }

@@ -26,8 +26,8 @@ export default {
       default: false
     },
     chartData: {
-      type: Object,
-      required: false
+      type: Array,
+      required: true
     }
   },
   // [{name:'xx' , value:[123 ,123, 3333]}]
@@ -85,14 +85,6 @@ export default {
   },
   mounted() {
     this.initChart()
-    // if (this.autoResize) {
-    //   this.__resizeHandler = debounce(() => {
-    //     if (this.chart) {
-    //       this.chart.resize()
-    //     }
-    //   }, 100)
-    //   window.addEventListener('resize', this.__resizeHandler)
-    // }
 
     // 监听侧边栏的变化
     this.sidebarElm = document.getElementsByClassName('sidebar-container')[0]
@@ -126,6 +118,8 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      let data = this.chartData;
+      
       let option = {
         geo: {
           label: {

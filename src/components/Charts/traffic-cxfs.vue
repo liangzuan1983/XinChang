@@ -21,7 +21,7 @@ export default {
       type: String,
       default: '100%'
     },
-    fatherData: {
+    chartData: {
       type: Array,
       default: () => {
         return []
@@ -30,7 +30,8 @@ export default {
   },
   data() {
     return {
-      chart: null
+      chart: null,
+      newData: []
     }
   },
   mounted() {
@@ -53,11 +54,17 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
-
+      let data = this.chartData;
+      this.newData = data.map(element => {
+        return {
+          value: element.value,
+          name: element.subject
+        }
+      })
       this.chart.setOption({
         visualMap: {
           show: false,
-          min: 100,
+          min: 1,
           max: 450,
           inRange: {
             colorLightness: [0, 1]
@@ -65,15 +72,11 @@ export default {
         },
         series: [
           {
-            name: '访问来源',
+            name: '游客出行方式',
             type: 'pie',
             radius: '75%',
             center: ['50%', '60%'],
-            data: [
-              { value: 335, name: '跟团' },
-              { value: 310, name: '公共交通自由行' },
-              { value: 274, name: '自驾' }
-            ].sort(function(a, b) { return a.value - b.value }),
+            data: this.newData.sort(function(a, b) { return a.value - b.value }),
             roseType: 'radius',
             label: {
               normal: {

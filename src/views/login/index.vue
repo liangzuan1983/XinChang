@@ -185,6 +185,9 @@ $light_gray:#eee;
   height: 100%;
   width: 100%;
   background-color: #111a29;
+  display:flex;
+  justify-content: center;
+  align-items: center;
   .login-form {
     position: absolute;
     left: 0;
@@ -192,7 +195,7 @@ $light_gray:#eee;
     width: 520px;
     max-width: 100%;
     padding: 35px 35px 15px 35px;
-    margin: 120px auto;
+    margin: 0 auto;
     z-index: 999999;
   }
   .tips {

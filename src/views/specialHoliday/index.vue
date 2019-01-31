@@ -208,7 +208,7 @@
                   <div class="bottom">
                     <p class="title">占比</p>
                     <p class="num">
-                      {{ (getGenders[0].value / (getGenders[0].value + getGenders[1].value)).toFixed(2)*100 }}%
+                      {{ ((getGenders[0].value / (getGenders[0].value + getGenders[1].value))*100).toFixed(2) }}%
                     </p>
                   </div>
                 </div>
@@ -223,7 +223,7 @@
                   <div class="bottom">
                     <p class="title">占比</p>
                     <p class="num">
-                      {{ (getGenders[1].value / (getGenders[0].value + getGenders[1].value)).toFixed(2)*100 }}%
+                      {{ ((getGenders[1].value / (getGenders[0].value + getGenders[1].value))*100).toFixed(2) }}%
                     </p>
                   </div>
                 </div>

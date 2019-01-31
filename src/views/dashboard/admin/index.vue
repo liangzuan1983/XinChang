@@ -190,9 +190,9 @@
       <!--main-->
       <div class="main">
         <!--全域客流-->
-        <dt-view v-if="qykl" width="100%" height="100%"/>
+        <dt-view v-if="qykl" :chartData='getRealTimes' width="100%" height="100%"/>
         <!--旅游资源-->
-        <lv-view v-if="lvzy" width="100%" height="100%"/>
+        <lv-view v-if="lvzy" :chartData='getRealTimes' width="100%" height="100%"/>
         <!--按钮-->
         <div class="btn">
           <div class="btn-box">
@@ -225,8 +225,8 @@
                 <!--按钮-->
                 <div class="btn">
                   <div class="btn-box">
-                    <p :class="{qyb: qybs}" class="qy" @click="qyEvents">城市</p>
-                    <p :class="{zyb: zybs}" class="zy" @click="lyEvents">县城</p>
+                    <p :class="{qyb: qybs}" class="qy" @click="qyEvents"></p>
+                    <p :class="{zyb: zybs}" class="zy" @click="lyEvents"></p>
                   </div>
                 </div>
             </div>
@@ -466,7 +466,7 @@
               <div class="text-box">
                 <p class="title">舆情信息</p>
                 <p class="num-box">
-                  <span class="num">265</span>
+                  <span class="num">{{ all }}</span>
                   <span class="unit">条</span>
                 </p>
               </div>
@@ -488,7 +488,7 @@ import jdt from '@/views/dashboard/admin/components/jdt'
 import dtView from './components/dt.vue'
 import lvView from './components/lv.vue'
 import { mapGetters } from 'vuex'
-import { hotTown, weekly, base, limit, type, resource, importDfs, importSjf, countWithDate, getKeyword } from '@/api/home'
+import { hotTown, weekly, base, limit, type, resource, importDfs, importSjf, countWithDate, getKeyword, getRealTime } from '@/api/home'
 import { getTourNumberInPro, getTown } from '@/api/traffic'
 export default {
   name: 'DashboardAdmin',
@@ -519,7 +519,9 @@ export default {
       zhengz: 10,
       fuz: 20,
       shengqu: [],
-      zifuYun: []
+      zifuYun: [],
+      getRealTimes: [],
+      all: ''
     }
   },
   computed: {
@@ -669,6 +671,7 @@ export default {
           if (res.status === 200) {
             let bad = data.neg;
             let good = data.pos;
+            this.all = bad + good;
             this.fuz = Number((bad / (bad + good) * 100).toFixed(2));
             this.zhengz = Number((good / (bad + good) * 100).toFixed(2));
           }
@@ -686,6 +689,18 @@ export default {
         })
         .catch(err => {
           console.log(err)
+        })
+      //中间大图
+      getRealTime()
+        .then(res => {
+          let data = res.data.data;
+          if(res.status === 200) {
+            console.log(data, '热点')
+            this.getRealTimes = data
+          }
+        })
+        .catch(err => {
+
         })
     },
     shengneitop5() {
@@ -1248,15 +1263,15 @@ export default {
               position: absolute;
               right: 5%;
               bottom: 5%;
-              width: 35%;
+              width: 8%;
               display: flex;
-              height: 15%;
+              height: 5%;
               .btn-box {
                 flex: 1;
                 position: relative;
                 display: flex;
                 justify-content: space-between;
-                width: 10%;
+                width: 5%;
                 background: rgba(255, 255, 255, 0.2);
                 border-radius: 30px;
                 padding: 2%;
