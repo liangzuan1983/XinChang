@@ -39,7 +39,7 @@
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
-                <pie-chart-full :chartData='getCarTypes' height="100%" width="100%"/>
+                <pie-chart-full v-if="sss" :chartData='getCarTypes' height="100%" width="100%"/>
               </div>
             </div>
           </div>
@@ -159,7 +159,8 @@ export default {
         end: ''
       },
       getCarCounts: [],
-      getCarTypes: []
+      getCarTypes: [],
+      sss: false
     }
   },
   mounted() {
@@ -188,6 +189,7 @@ export default {
           if (res.status === 200) {
             console.log(data, '游客出行方式')
             this.getCarTypes = data
+            this.sss = true
           }
         })
         .catch(err => {
