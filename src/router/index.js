@@ -262,39 +262,52 @@ export const constantRouterMap = [
         path: 'doc',
         component: () => import('@/views/documentation/index'),
         name: 'doc',
-        meta: { title: 'doc'}
+        meta: { title: 'doc' }
       },
       {
         path: 'setup',
         component: () => import('@/views/documentation/SetUp'),
         name: 'setup',
-        meta: { title: 'setup'}
+        meta: { title: 'setup' }
       },
       {
         path: 'manage',
         component: () => import('@/views/documentation/manage'),
         name: 'manage',
-        meta: { title: 'manage'}
+        meta: { title: 'manage' }
       },
       {
         path: 'statistics',
         component: () => import('@/views/documentation/Statistics'),
         name: 'statistics',
-        meta: { title: 'statistics'}
+        meta: { title: 'statistics' }
       },
       {
         path: 'addPoint',
         component: () => import('@/views/documentation/components/addPoint'),
         name: 'addPoint',
-        meta: { title: 'addPoint'},
+        meta: { title: 'addPoint' },
         hidden: true
       },
       {
         path: 'addWarn',
         component: () => import('@/views/documentation/components/addWarn'),
         name: 'addWarn',
-        meta: { title: 'addWarn'},
+        meta: { title: 'addWarn' },
         hidden: true
+      }
+    ]
+  },
+  {
+    path: '/InteractivePlatform', // 互动平台
+    component: Layout,
+    redirect: '/InteractivePlatform/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/InteractivePlatform/index'),
+        name: 'InteractivePlatform',
+        meta: { title: 'InteractivePlatform', icon: 'drag', noCache: true }
       }
     ]
   }
