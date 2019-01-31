@@ -134,3 +134,10 @@ export function getKeyword() {
     method: 'get'
   })
 }
+//中间大图
+export function getRealTime() {
+  return request({
+    url: 'tour/xinchang/realTime',
+    method: 'get'
+  })
+}
