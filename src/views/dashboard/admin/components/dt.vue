@@ -118,8 +118,6 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
-      let data = this.chartData;
-      
       let option = {
         geo: {
           label: {
@@ -157,7 +155,7 @@ export default {
         },
         visualMap: {
           min: 0,
-          max: 500,
+          max: 150,
           splitNumber: 5,
           inRange: {
             color: ['#d94e5d', '#eac736', '#50a3ba'].reverse()
@@ -171,7 +169,7 @@ export default {
             name: 'AQI',
             type: 'heatmap',
             coordinateSystem: 'geo',
-            data: this.datas
+            data: this.chartData
           }
         ]
       }

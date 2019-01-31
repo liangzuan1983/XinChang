@@ -1,12 +1,12 @@
 import request from '@/utils/request'
-//1.地图
+//1.景区地图
 export function tourController(params) {
   return request({
     url: 'v1/comment/tour/xinchang',
     method: 'get',
     params
   })
-}
+} 
 //2.近7日评论数
 export function countWeekly(params) {
   return request({

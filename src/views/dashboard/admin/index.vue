@@ -192,7 +192,7 @@
         <!--全域客流-->
         <dt-view v-if="qykl" :chartData='getRealTimes' width="100%" height="100%"/>
         <!--旅游资源-->
-        <lv-view v-if="lvzy" :chartData='getRealTimes' width="100%" height="100%"/>
+        <lv-view v-if="lvzy"  width="100%" height="100%"/>
         <!--按钮-->
         <div class="btn">
           <div class="btn-box">
@@ -696,7 +696,16 @@ export default {
           let data = res.data.data;
           if(res.status === 200) {
             console.log(data, '热点')
-            this.getRealTimes = data
+            this.getRealTimes = data.map(element => {
+              return {
+                value: [
+                  element.point[0],
+                  element.point[1],
+                  element.value
+                ]
+              }
+            })
+            console.log(this.getRealTimes, '新格式')
           }
         })
         .catch(err => {
