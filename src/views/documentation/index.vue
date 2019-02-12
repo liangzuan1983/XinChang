@@ -6,14 +6,17 @@
         :center="center"
         :zoom="zoom"
         class="amap-demo">
-        <el-amap-marker :position="markers" :vid="index">
-          <div :style="slotStyle">
-            <img src="@/assets/jk.png" alt="" srcset="" @click="onClickT">
+        <!--这里的状态是后台传输，前台循环出来的-->
+        <el-amap-marker v-for="(item, index) in markers" :key="index" :position="item" :vid="index">
+          <div :style="slotStyle1">
+            <img src="@/assets/jk.png" alt="" srcset="" @click="onClickT(index)">
           </div>
-        </el-amap-marker>
-        <el-amap-marker :position="markers2" :vid="index">
-          <div :style="slotStyle2">
-            <img src="@/assets/lou.png" alt="" srcset="" @click="onClickB">
+          <!--下面是点击显示窗口-->
+          <div class="mt20">
+            <div :style="slotStyle">
+              <b>Hello {{ index }} times</b>
+              <button @click="onClick">Add</button>
+            </div>
           </div>
         </el-amap-marker>
       </el-amap>
@@ -40,10 +43,18 @@ export default {
       zoom: 12,
       center,
       // markers: [],
-      markers: [120.897454,29.506942],
-      markers2: [120.954782,29.462718],
+      markers: [
+        [ 120.897454, 29.506942 ],
+        [ 120.954782, 29.462718 ]
+      ],
       count: 0,
       slotStyle: {
+        padding: '2px 8px',
+        background: '#eee',
+        color: '#333',
+        border: '1px solid #aaa'
+      },
+      slotStyle1: {
         padding: '2px 8px',
         background: 'red',
         color: '#333',
@@ -61,19 +72,11 @@ export default {
     }
   },
   methods: {
-    onClickT() {
-      if (this.top === true) {
-        this.top = false
-      } else if (this.top === false) {
-        this.top = true
-      }
+    onClickT(index) {
+      console.log(index, 'index')
     },
-    onClickB() {
-      if (this.bottom === true) {
-        this.bottom = false
-      } else if (this.bottom === false) {
-        this.bottom = true
-      }
+    onClick() {
+      this.count += 1;
     }
   }
 }
@@ -86,6 +89,9 @@ export default {
     position: relative;
     z-index: 99;
     padding: 1%;
+    .mt20 {
+      margin-top: 10px;
+    }
     .amap-page-container {
       width: 100%;
       height: 100%;
