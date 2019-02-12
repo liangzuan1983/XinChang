@@ -732,10 +732,10 @@ export default {
     //点击切换隐藏事件
     ckHidden() {
       if (this.qybs === true) {
-        this.qyEvents()
+        this.lyEvents()
         this.qybs = false
       } else if(this.qybs === false) {
-        this.lyEvents()
+        this.qyEvents()
         this.qybs = true
       }
     }
