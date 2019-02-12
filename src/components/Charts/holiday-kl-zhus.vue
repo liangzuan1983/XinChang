@@ -86,12 +86,12 @@ export default {
       this.time = data.map(element => element.subject)
       this.value = data.map(element => element.value)
       this.chart.setOption({
-        legend: {
-          data: ['客流量'],
-          textStyle: {
-            color: '#59697d'
-          }
-        },
+        // legend: {
+        //   data: ['消费金额'],
+        //   textStyle: {
+        //     color: '#59697d'
+        //   }
+        // },
         tooltip: {
           trigger: 'axis'
         },
@@ -126,7 +126,7 @@ export default {
         ],
         series: [
           {
-            name: '客流量',
+            name: '消费金额',
             type: 'bar',
             data: this.value,
             markPoint: {
