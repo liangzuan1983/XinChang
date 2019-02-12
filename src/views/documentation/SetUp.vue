@@ -48,11 +48,11 @@
       <el-table-column
         fixed="right"
         label="操作"
-        width="150">
+        width="200">
         <template slot-scope="scope">
           <el-button
             size="mini"
-            @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+            @click="handleEdit(scope.$index, scope.row)">设置预警预案</el-button>
           <el-button
             size="mini"
             type="danger"
@@ -116,7 +116,22 @@ export default {
       })
     },
     handleDelete(index, rows) {
-      rows.splice(index, 1)
+      this.$confirm('此操作将删除该条记录, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          rows.splice(index, 1)
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });          
+        });
     },
     // tabale颜色
     getRowClass({ row, column, rowIndex, columnIndex }) {
