@@ -215,9 +215,8 @@
           </div>
           <!--内容区-->
           <div class="content-box">
-            <div class="chart-wrapper">
+            <div class="chart-wrapper" @click="ckHidden">
               <pie-chart-full
-                v-if="getcity.length && getcity.length > 0"
                 :chartData='shengqu'
                 id="home-top5"
                 height="100%"
@@ -524,13 +523,7 @@ export default {
       all: ''
     }
   },
-  computed: {
-    ...mapGetters([
-      'getcity'
-    ])
-  },
   mounted() {
-    this.$store.dispatch('getCity')
     this.requestAll()
     this.shengneitop5()
   },
@@ -735,6 +728,16 @@ export default {
       }).catch(err => {
         console.log(err)
       })
+    },
+    //点击切换隐藏事件
+    ckHidden() {
+      if (this.qybs === true) {
+        this.qyEvents()
+        this.qybs = false
+      } else if(this.qybs === false) {
+        this.lyEvents()
+        this.qybs = true
+      }
     }
   }
 }
@@ -1281,7 +1284,8 @@ export default {
                 display: flex;
                 justify-content: space-between;
                 width: 5%;
-                background: rgba(255, 255, 255, 0.2);
+                // background: rgba(255, 255, 255, 0.2);
+                background: transparent;
                 border-radius: 30px;
                 padding: 2%;
                 .qy {
@@ -1295,7 +1299,10 @@ export default {
                   border-radius: 30px;
                   cursor: pointer;
                 }
-                .qyb { background: rgba(255, 255, 255, 0.2); }
+                .qyb { 
+                  // background: rgba(255, 255, 255, 0.2);
+                  background: transparent;
+                }
                 .zy {
                   flex: 1;
                   display: flex;
@@ -1307,7 +1314,10 @@ export default {
                   border-radius: 30px;
                   cursor: pointer;
                 }
-                .zyb { background: rgba(255, 255, 255, 0.2); }
+                .zyb { 
+                  // background: rgba(255, 255, 255, 0.2);
+                  background: transparent;
+                }
               }
             }
           }

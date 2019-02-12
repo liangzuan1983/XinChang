@@ -222,7 +222,7 @@ export default {
   }
   .right-menu {
     height: 100%;
-    width: 34%;
+    width: 30%;
     display: flex;
     justify-content: space-between;
     align-items: center;

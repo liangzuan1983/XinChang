@@ -270,12 +270,12 @@ export const constantRouterMap = [
         name: 'setup',
         meta: { title: 'setup' }
       },
-      {
-        path: 'manage',
-        component: () => import('@/views/documentation/manage'),
-        name: 'manage',
-        meta: { title: 'manage' }
-      },
+      // {
+      //   path: 'manage',
+      //   component: () => import('@/views/documentation/manage'),
+      //   name: 'manage',
+      //   meta: { title: 'manage' }
+      // },
       {
         path: 'statistics',
         component: () => import('@/views/documentation/Statistics'),
