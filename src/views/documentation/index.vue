@@ -9,13 +9,18 @@
         <!--这里的状态是后台传输，前台循环出来的-->
         <el-amap-marker v-for="(item, index) in markers" :key="index" :position="item" :vid="index">
           <div :style="slotStyle1">
-            <img src="@/assets/jk.png" alt="" srcset="" @click="onClickT(index)">
+            <img class="icon-img" src="@/assets/jk.png" alt="" srcset="" @click="onClickT(index)">
           </div>
           <!--下面是点击显示窗口-->
           <div class="mt20">
             <div :style="slotStyle">
-              <b>Hello {{ index }} times</b>
-              <button @click="onClick">Add</button>
+              <p>Hello {{ index }} times</p>
+              <p>点位名称: 大佛寺入口</p>
+              <p>预警事件: 实时客流超载</p>
+              <p>客流阈值: 500</p>
+              <p>事件状态: 待处理</p>
+              <p>点位名称: 调派周边人员前往现场进行人员疏导工作。</p>
+              <button @click="onClick">处理中</button>
             </div>
           </div>
         </el-amap-marker>
@@ -49,12 +54,15 @@ export default {
       ],
       count: 0,
       slotStyle: {
+        width: '150px',
         padding: '2px 8px',
         background: '#eee',
         color: '#333',
         border: '1px solid #aaa'
       },
       slotStyle1: {
+        width: '50px',
+        height: '50px',
         padding: '2px 8px',
         background: 'red',
         color: '#333',
@@ -96,6 +104,9 @@ export default {
       width: 100%;
       height: 100%;
       position: relative;
+      .icon-img {
+        width: 50px;
+      }
       .search-box {
         position: absolute;
         top: 25px;
