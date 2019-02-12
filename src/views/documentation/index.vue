@@ -13,14 +13,13 @@
           </div>
           <!--下面是点击显示窗口-->
           <div class="mt20">
-            <div :style="slotStyle">
-              <p>Hello {{ index }} times</p>
+            <div :style="slotStyle" class="ppp">
               <p>点位名称: 大佛寺入口</p>
               <p>预警事件: 实时客流超载</p>
               <p>客流阈值: 500</p>
               <p>事件状态: 待处理</p>
               <p>点位名称: 调派周边人员前往现场进行人员疏导工作。</p>
-              <button @click="onClick">处理中</button>
+              <el-button type="warning" style="margin-left: 30px;margin-bottom:5px" @click="onClick">处理中</el-button>
             </div>
           </div>
         </el-amap-marker>
@@ -43,7 +42,7 @@
 export default {
   data() {
     let self = this;
-    const center = [120.897454,29.506942];
+    const center = [120.954782, 29.462718];
     return {
       zoom: 12,
       center,
@@ -58,7 +57,8 @@ export default {
         padding: '2px 8px',
         background: '#eee',
         color: '#333',
-        border: '1px solid #aaa'
+        border: '1px solid #aaa',
+        borderRadius: '10px'
       },
       slotStyle1: {
         width: '50px',
@@ -99,6 +99,14 @@ export default {
     padding: 1%;
     .mt20 {
       margin-top: 10px;
+    }
+    .ppp {
+      p { 
+        margin-top: 3px;
+        margin-bottom: 3px;
+        font-size: 12px;
+        line-height: 25px;
+      }
     }
     .amap-page-container {
       width: 100%;
