@@ -86,12 +86,6 @@ export default {
       this.time = data.map(element => element.subject)
       this.value = data.map(element => element.value)
       this.chart.setOption({
-        legend: {
-          data: ['订单数'],
-          textStyle: {
-            color: '#59697d'
-          }
-        },
         tooltip: {
           trigger: 'axis'
         },
