@@ -8,18 +8,19 @@
         class="amap-demo">
         <!--这里的状态是后台传输，前台循环出来的-->
         <el-amap-marker v-for="(item, index) in markers" :key="index" :position="item" :vid="index">
-          <div :style="slotStyle1">
-            <img class="icon-img" src="@/assets/jk.png" alt="" srcset="" @click="onClickT(index)">
+          <div :style="slotStyle1" @click="onClickT(index)">
+            <img class="icon-img" src="@/assets/jk.png" alt="" srcset="">
           </div>
           <!--下面是点击显示窗口-->
-          <div class="mt20">
+          <div class="mt20" v-show="infoBox === index">
             <div :style="slotStyle" class="ppp">
               <p>点位名称: 大佛寺入口</p>
               <p>预警事件: 实时客流超载</p>
               <p>客流阈值: 500</p>
               <p>事件状态: 待处理</p>
               <p>点位名称: 调派周边人员前往现场进行人员疏导工作。</p>
-              <el-button type="warning" style="margin-left: 30px;margin-bottom:5px" @click="onClick">处理中</el-button>
+              <el-button type="warning" style="margin-left: 30px;margin-bottom:5px" v-if="ing" @click="onClick">处理中</el-button>
+              <el-button type="success" style="margin-left: 30px;margin-bottom:5px" v-if="end">已处理</el-button>
             </div>
           </div>
         </el-amap-marker>
@@ -76,15 +77,23 @@ export default {
         border: '1px solid #aaa',
         borderRadius: '10px'
       },
-      top: true
+      top: true,
+      ing: true,
+      end: false,
+      infoBox: null
     }
+  },
+  created() {
+    console.log(this.infoBox, 'infobox')
   },
   methods: {
     onClickT(index) {
       console.log(index, 'index')
+      this.infoBox = index
     },
     onClick() {
-      this.count += 1;
+      this.ing = false,
+      this.end = true
     }
   }
 }
@@ -102,8 +111,7 @@ export default {
     }
     .ppp {
       p { 
-        margin-top: 3px;
-        margin-bottom: 3px;
+        margin-top: 5px;
         font-size: 12px;
         line-height: 25px;
       }
