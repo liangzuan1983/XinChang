@@ -1,7 +1,8 @@
 <template>
   <div class="three">
     <div class="three-box">
-      <div class="one" @click="other('http://gk.zjxcdfs.com/Login')">
+      <div class="one">
+      <!-- <div class="one" @click="other('http://gk.zjxcdfs.com/Login')"> -->
         <img src="@/assets/icon/icon-shujuyq.png" alt="">
         <p class="name">大佛寺数据中心</p>
       </div>
@@ -9,7 +10,8 @@
         <img src="@/assets/icon/icon-timeyq.png" alt="">
         <p class="name">新昌大数据中心</p>
       </div>
-      <div class="one" @click="other('http://data.zjxcsjf.com/home')">
+      <div class="one">
+      <!-- <div class="one" @click="other('http://data.zjxcsjf.com/home')"> -->
         <img src="@/assets/icon/icon-zhexianyq.png" alt="">
         <p class="name">十九峰数据中心</p>
       </div>
