@@ -1684,7 +1684,7 @@ export default {
       padding: 2% 3%;
       .zdjq-title-box {
         // margin-bottom: 3%;
-        flex: 1;
+        // flex: 1;
         // background: red;
         display: flex;
         justify-content: space-between;
@@ -1705,6 +1705,11 @@ export default {
       .content-box {
         // flex: 4;
         // background: lightcyan;
+        flex: 1;
+        .chart-wrapper {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
     .yqfx {
