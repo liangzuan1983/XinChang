@@ -155,7 +155,7 @@ export default {
         },
         visualMap: {
           min: 0,
-          max: 150,
+          max: 1000,
           splitNumber: 5,
           inRange: {
             color: ['#d94e5d', '#eac736', '#50a3ba'].reverse()
