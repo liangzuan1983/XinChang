@@ -143,6 +143,9 @@ export default {
       if (minutes >= 0 && minutes <= 9) {
         minutes = '0' + minutes
       }
+      if (second >= 0 && second <= 9) {
+        second = '0' + second
+      }
       const currenttime = hours + mimi + minutes + mimi + second
       return currenttime
     }
