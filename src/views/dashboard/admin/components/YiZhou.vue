@@ -63,10 +63,12 @@ export default {
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
       const data = this.chartData
-      data.forEach(element => {
-        this.time.push(element.subject)
-        this.value.push(element.value)
-      })
+      // data.forEach(element => {
+      //   this.time.push(element.subject)
+      //   this.value.push(element.value)
+      // })
+      this.time = data.map(element => element.subject)
+      this.value = data.map(element => element.value)
       // console.log(this.time, '时间')
       // console.log(this.value, '值')
       this.chart.setOption({

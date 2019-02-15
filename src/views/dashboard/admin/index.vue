@@ -523,6 +523,11 @@ export default {
       all: ''
     }
   },
+  watch: {
+    hotTown() {
+      this.timer()
+    }
+  },
   mounted() {
     this.requestAll()
     this.shengneitop5()
@@ -738,7 +743,16 @@ export default {
         this.qyEvents()
         this.qybs = true
       }
+    },
+    //每隔5秒钟请求一次数据
+    timer() {
+      return setTimeout(() => {
+        this.requestAll()
+      }, 5000)
     }
+  },
+  destroyed() {
+    clearTimeout(this.timer)
   }
 }
 </script>
