@@ -78,12 +78,21 @@ export default {
       navCenterBack: {
         backgroundImage: 'url(' + require('@/assets/title.png') + ')'
       },
-      weatherData: {}
+      weatherData: {},
+      data: new Date()
     }
   },
   mounted() {
+    let _this = this;
+    this.timer = setInterval(() => {
+      _this.data = new Date();
+    }, 1000)
     this.request()
-    // this.storeData()
+  },
+  beforeDestroy() {
+    if(this.time) {
+      clearInterVal(this.timer);
+    }
   },
   computed: {
     ...mapGetters([
@@ -126,17 +135,18 @@ export default {
       return weeks
     },
     time() {
-      const time = new Date()
+      const time = this.data
       const mimi = '：'
       let hours = time.getHours()
       let minutes = time.getMinutes()
+      let second = time.getSeconds()
       if (hours >= 1 && hours <= 9) {
         hours = '0' + hours
       }
       if (minutes >= 0 && minutes <= 9) {
         minutes = '0' + minutes
       }
-      const currenttime = hours + mimi + minutes
+      const currenttime = hours + mimi + minutes + mimi + second
       return currenttime
     }
   },
