@@ -83,11 +83,8 @@ export default {
     }
   },
   mounted() {
-    let _this = this;
-    this.timer = setInterval(() => {
-      _this.data = new Date();
-    }, 1000)
     this.request()
+    this.timers()
   },
   beforeDestroy() {
     if(this.time) {
@@ -174,6 +171,12 @@ export default {
       this.$store.dispatch('getAge')
       this.$store.dispatch('getConsume')
       this.$store.dispatch('getHobby')
+    },
+    timers() {
+      let _this = this;
+      this.timer = setInterval(() => {
+        _this.data = new Date();
+      }, 1000)
     }
   }
 }
