@@ -83,9 +83,12 @@
           <div class="xc-box">
             <p class="num">1</p>
             <p v-if="this.hotTown.length>0" class="name">
-              <span>{{ this.hotTown[0].substring(0,1) }}</span>
-              <span>{{ this.hotTown[0].substring(1,2) }}</span>
-              <span>{{ this.hotTown[0].substring(2,3) }}</span>
+              <span>{{ hotTown[0].substring(0,1) }}</span>
+              <span>{{ hotTown[0].substring(1,2) }}</span>
+              <span>{{ hotTown[0].substring(2,3) }}</span>
+              <span>{{ hotTown[0].substring(3,4) }}</span>
+              <span>{{ hotTown[0].substring(4,5) }}</span>
+              <span>{{ hotTown[0].substring(5,6) }}</span>
             </p>
             <p v-else class="name">
               <span>梅</span>
@@ -96,9 +99,12 @@
           <div class="xc-box2">
             <p class="num">2</p>
             <p v-if="this.hotTown.length>0" class="name">
-              <span>{{ this.hotTown[1].substring(0,1) }}</span>
-              <span>{{ this.hotTown[1].substring(1,2) }}</span>
-              <span>{{ this.hotTown[1].substring(2,3) }}</span>
+              <span>{{ hotTown[1].substring(0,1) }}</span>
+              <span>{{ hotTown[1].substring(1,2) }}</span>
+              <span>{{ hotTown[1].substring(2,3) }}</span>
+              <span>{{ hotTown[1].substring(3,4) }}</span>
+              <span>{{ hotTown[1].substring(4,5) }}</span>
+              <span>{{ hotTown[1].substring(5,6) }}</span>
             </p>
             <p v-else class="name">
               <span>巧</span>
@@ -109,9 +115,12 @@
           <div class="xc-box3">
             <p class="num">3</p>
             <p v-if="this.hotTown.length>0" class="name">
-              <span>{{ this.hotTown[2].substring(0,1) }}</span>
-              <span>{{ this.hotTown[2].substring(1,2) }}</span>
-              <span>{{ this.hotTown[2].substring(2,3) }}</span>
+              <span>{{ hotTown[2].substring(0,1) }}</span>
+              <span>{{ hotTown[2].substring(1,2) }}</span>
+              <span>{{ hotTown[2].substring(2,3) }}</span>
+              <span>{{ hotTown[2].substring(3,4) }}</span>
+              <span>{{ hotTown[2].substring(4,5) }}</span>
+              <span>{{ hotTown[2].substring(5,6) }}</span>
             </p>
             <p v-else class="name">
               <span>东</span>
@@ -122,9 +131,12 @@
           <div class="xc-box4">
             <p class="num">4</p>
             <p v-if="this.hotTown.length>0" class="name">
-              <span>{{ this.hotTown[3].substring(0,1) }}</span>
-              <span>{{ this.hotTown[3].substring(1,2) }}</span>
-              <span>{{ this.hotTown[3].substring(2,3) }}</span>
+              <span>{{ hotTown[3].substring(0,1) }}</span>
+              <span>{{ hotTown[3].substring(1,2) }}</span>
+              <span>{{ hotTown[3].substring(2,3) }}</span>
+              <span>{{ hotTown[3].substring(3,4) }}</span>
+              <span>{{ hotTown[3].substring(4,5) }}</span>
+              <span>{{ hotTown[3].substring(5,6) }}</span>
             </p>
             <p v-else class="name">
               <span>回</span>
@@ -135,9 +147,12 @@
           <div class="xc-box5">
             <p class="num">5</p>
             <p v-if="this.hotTown.length>0" class="name">
-              <span>{{ this.hotTown[4].substring(0,1) }}</span>
-              <span>{{ this.hotTown[4].substring(1,2) }}</span>
-              <span>{{ this.hotTown[4].substring(2,3) }}</span>
+              <span>{{ hotTown[4].substring(0,1) }}</span>
+              <span>{{ hotTown[4].substring(1,2) }}</span>
+              <span>{{ hotTown[4].substring(2,3) }}</span>
+              <span>{{ hotTown[4].substring(3,4) }}</span>
+              <span>{{ hotTown[4].substring(4,5) }}</span>
+              <span>{{ hotTown[4].substring(5,6) }}</span>
             </p>
             <p v-else class="name">
               <span>沙</span>
@@ -693,7 +708,7 @@ export default {
         .then(res => {
           let data = res.data.data;
           if(res.status === 200) {
-            console.log(data, '热点')
+            // console.log(data, '热点')
             this.getRealTimes = data.map(element => {
               return {
                 value: [
@@ -703,7 +718,7 @@ export default {
                 ]
               }
             })
-            console.log(this.getRealTimes, '新格式')
+            // console.log(this.getRealTimes, '新格式')
           }
         })
         .catch(err => {
@@ -976,7 +991,7 @@ export default {
             padding-top: 1%;
             padding-bottom: 1%;
             span {
-              margin: 0 6%;
+              margin: 0 3%;
             }
           }
         }
@@ -1008,7 +1023,7 @@ export default {
             padding-top: 1%;
             padding-bottom: 1%;
             span {
-              margin: 0 6%;
+              margin: 0 3%;
             }
           }
         }
@@ -1040,7 +1055,7 @@ export default {
             padding-top: 1%;
             padding-bottom: 1%;
             span {
-              margin: 0 6%;
+              margin: 0 3%;
             }
           }
         }
@@ -1072,7 +1087,7 @@ export default {
             padding-top: 1%;
             padding-bottom: 1%;
             span {
-              margin: 0 6%;
+              margin: 0 3%;
             }
           }
         }
@@ -1104,7 +1119,7 @@ export default {
             padding-top: 1%;
             padding-bottom: 1%;
             span {
-              margin: 0 6%;
+              margin: 0 3%;
             }
           }
         }
