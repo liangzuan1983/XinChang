@@ -87,7 +87,7 @@ export default {
       this.value = data.map(element => element.value)
       this.chart.setOption({
         legend: {
-          data: ['客流量'],
+          data: ['全域客流量分析'],
           textStyle: {
             color: '#59697d'
           }
@@ -126,7 +126,7 @@ export default {
         ],
         series: [
           {
-            name: '客流量',
+            name: '全域客流量分析',
             type: 'bar',
             data: this.value,
             markPoint: {

@@ -288,6 +288,16 @@
             </div>
           </div>
         </div>
+        <!--月度客流分析-->
+        <div class="content3">
+          <!--标题-->
+          <div class="title">月度客流分析</div>
+          <div class="content">
+            <div class="chart-wrapper">
+              <holiday-kl-zhu-yue height="100%" width="100%"/>
+            </div>
+          </div>
+        </div>
       </div>
       <!--right-->
       <div class="right">
@@ -310,10 +320,10 @@
         </div>
         <!--热门旅游线路-->
         <div class="nlfb-box">
-          <!--title-->
-          <p class="title">热门游览线路TOP10</p>
           <!--内容-->
           <div class="content">
+            <!--title-->
+            <p class="title">热门游览线路TOP10</p>
             <!--每1项-->
             <div class="one-box" v-if="getline[0]">
               <span class="name">{{ getline[0].subject }}</span>
@@ -375,6 +385,15 @@
               <span class="num">{{ getline[9].value }}</span>
             </div>
           </div>
+          <div class="content3">
+            <!--标题-->
+            <div class="title">年度客流分析</div>
+            <div class="content">
+              <div class="chart-wrapper">
+                <holiday-kl-zhu-year height="100%" width="100%"/>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -383,10 +402,11 @@
 
 <script>
 import HolidayKlZhu from '@/components/Charts/holiday-kl-zhu'
+import HolidayKlZhuYue from '@/components/Charts/holiday-kl-zhu-yue'
+import HolidayKlZhuYear from '@/components/Charts/holiday-kl-zhu-year'
 import passengerYklx from '@/views/dashboard/admin/components/passengerYklx'
 import nlfb from '@/components/Charts/passenger-ykgy'
 import { mapGetters } from 'vuex'
-// import { town } from '@/api/home'
 import { 
   getPassageFlow,
   getTouristsType,
@@ -398,7 +418,7 @@ import {
 } from '@/api/flow'
 export default {
   components: {
-    HolidayKlZhu, passengerYklx, nlfb
+    HolidayKlZhu, passengerYklx, nlfb, HolidayKlZhuYue, HolidayKlZhuYear
   },
   computed: {
     ...mapGetters([
@@ -840,7 +860,7 @@ export default {
               .name {
                 font-size: 20px;
                 color: #889db5;
-                width: 25%;
+                width: 34%;
               }
               .line1 {
                 height: 14px;
@@ -921,8 +941,30 @@ export default {
           }
         }
       }
+      .content3 {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        height: 320px;
+        .title {
+          font-size: 22px;
+          color: #bbd5ff;
+          background: #45404d;
+          padding: 1%;
+        }
+        .content {
+          flex: 1;
+          .chart-wrapper {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
     }
     .right {
+      display: flex;
+      flex-direction: column;
       flex: 1;
       background: rgba(255, 255, 255, 0.05);
       // height: 450px;
@@ -945,17 +987,18 @@ export default {
         }
       }
       .nlfb-box {
+        display: flex;
+        justify-content: space-between;
         flex: 1;
-        // background: rgba(255, 255, 255, 0.05);
         flex-direction: column;
-        .title {
-          font-size: 22px;
-          color: #bbd5ff;
-          background: #45404d;
-          padding: 1.5%;
-          margin-bottom: 3%;
-        }
         .content {
+          .title {
+            font-size: 22px;
+            color: #bbd5ff;
+            background: #45404d;
+            padding: 1.5%;
+            margin-bottom: 3%;
+          }
           // background: rgba(255, 255, 255, 0.05);
           .one-box {
             display: flex;
@@ -1041,6 +1084,25 @@ export default {
               font-size: 16px;
               color: #bbd5ff;
               flex: 1;
+            }
+          }
+        }
+        .content3 {
+          display: flex;
+          flex-direction: column;
+          background: rgba(255, 255, 255, 0.05);
+          height: 320px;
+          .title {
+            font-size: 22px;
+            color: #bbd5ff;
+            background: #45404d;
+            padding: 1%;
+          }
+          .content {
+            flex: 1;
+            .chart-wrapper {
+              width: 100%;
+              height: 100%;
             }
           }
         }
