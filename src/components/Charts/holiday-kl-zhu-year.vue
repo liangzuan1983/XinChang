@@ -87,7 +87,7 @@
         // this.value = data.map(element => element.value)
         this.chart.setOption({
           legend: {
-            data: ['年度客流量'],
+            data: ['年度客流量预测'],
             textStyle: {
               color: '#59697d'
             }
@@ -126,7 +126,7 @@
           ],
           series: [
             {
-              name: '年度客流量',
+              name: '年度客流量预测',
               type: 'bar',
               data: [4673456, 4977623, 5234223],
               markPoint: {

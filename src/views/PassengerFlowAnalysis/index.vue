@@ -291,7 +291,7 @@
         <!--月度客流分析-->
         <div class="content3">
           <!--标题-->
-          <div class="title">月度客流分析</div>
+          <div class="title">月度客流预测</div>
           <div class="content">
             <div class="chart-wrapper">
               <holiday-kl-zhu-yue height="100%" width="100%"/>
@@ -387,7 +387,7 @@
           </div>
           <div class="content3">
             <!--标题-->
-            <div class="title">年度客流分析</div>
+            <div class="title">年度客流预测</div>
             <div class="content">
               <div class="chart-wrapper">
                 <holiday-kl-zhu-year height="100%" width="100%"/>
