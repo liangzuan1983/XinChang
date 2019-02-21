@@ -141,3 +141,10 @@ export function getRealTime() {
     method: 'get'
   })
 }
+//14.实时客流
+export function getTourNumber() {
+  return request({
+    url: 'tour/xinchang/tourNumber',
+    method: 'get'
+  })
+}

@@ -270,7 +270,7 @@
       <!--sskl-->
       <div class="sskl">
         <div class="title">实时客流</div>
-        <div class="num">67577</div>
+        <div class="num">{{ getTourNumbers }}</div>
       </div>
       <!--cyjc-->
       <div class="cyjc">
@@ -501,8 +501,19 @@ import ZiFuYun from '@/views/dashboard/admin/components/ZiFuYun'
 import jdt from '@/views/dashboard/admin/components/jdt'
 import dtView from './components/dt.vue'
 import lvView from './components/lv.vue'
-import { mapGetters } from 'vuex'
-import { hotTown, weekly, base, limit, type, resource, importDfs, importSjf, countWithDate, getKeyword, getRealTime } from '@/api/home'
+import {
+  hotTown,
+  weekly,
+  base,
+  limit,
+  type,
+  resource,
+  importDfs,
+  importSjf,
+  countWithDate,
+  getKeyword,
+  getRealTime,
+  getTourNumber } from '@/api/home'
 import { getTourNumberInPro, getTown } from '@/api/traffic'
 export default {
   name: 'DashboardAdmin',
@@ -535,7 +546,8 @@ export default {
       shengqu: [],
       zifuYun: [],
       getRealTimes: [],
-      all: ''
+      all: '',
+      getTourNumbers: ''
     }
   },
   watch: {
@@ -724,6 +736,18 @@ export default {
         .catch(err => {
 
         })
+      //实时客流
+      getTourNumber()
+        .then(res => {
+        // console.log(res, '实时客流')
+          let data = res.data.data.value;
+          if(res.status === 200) {
+            this.getTourNumbers = data
+          }
+      })
+        .catch(err => {
+        console.log(err)
+      })
     },
     shengneitop5() {
       // 省内top
@@ -1401,13 +1425,14 @@ export default {
     flex-direction: column;
     .sskl {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
       padding: 1%;
       .title {
         color: #ffffff;
         font-size: 25px;
         font-weight: bold;
+        margin-right: 5%;
       }
       .num {
         color: #f69704;
