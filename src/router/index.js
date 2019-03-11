@@ -171,19 +171,19 @@ export const constantRouterMap = [
       }
     ]
   },
-  {
-    path: '/specialHoliday', // 特殊假日
-    component: Layout,
-    redirect: '/specialHoliday/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/specialHoliday/index'),
-        name: 'specialHoliday',
-        meta: { title: 'specialHoliday', icon: 'star', noCache: true }
-      }
-    ]
-  },
+  // {
+  //   path: '/specialHoliday', // 特殊假日
+  //   component: Layout,
+  //   redirect: '/specialHoliday/index',
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/specialHoliday/index'),
+  //       name: 'specialHoliday',
+  //       meta: { title: 'specialHoliday', icon: 'star', noCache: true }
+  //     }
+  //   ]
+  // },
   {
     path: '/forecast', // 重点景区
     component: Layout,
@@ -206,6 +206,12 @@ export const constantRouterMap = [
             path: 'sjf',
             component: () => import('@/views/forecast/components/sjf'),
             name: 'sjf',
+            hidden: true
+          },
+          {
+            path: 'specialHoliday',
+            component: () => import('@/views/specialHoliday/index'),
+            name: 'specialHoliday',
             hidden: true
           }
         ]

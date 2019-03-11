@@ -5,6 +5,7 @@
       <div class="tab-box">
         <p :class="{ss: ssback}" class="left" @click="ssEvent">大佛寺景区</p>
         <p :class="{sj: sjback}" class="right" @click="sjEvent">十九峰景区</p>
+        <p :class="{ts: tsback}" class="right" @click="tsEvent">特殊假日</p>
       </div>
     </div>
     <div class="content">
@@ -18,7 +19,8 @@ export default {
   data() {
     return {
       ssback: false,
-      sjback: false
+      sjback: false,
+      tsback: false
     }
   },
   mounted() {
@@ -26,9 +28,15 @@ export default {
     if (path === '/forecast/index/dfs') {
       this.ssback = true
       this.sjback = false
+      this.tsback = false
     } else if (path === '/forecast/index/sjf') {
       this.ssback = false
       this.sjback = true
+      this.tsback = false
+    } else if (path === '/forecast/index/specialHoliday') {
+      this.ssback = false
+      this.sjback = false
+      this.tsback = true
     }
   },
   methods: {
@@ -40,6 +48,11 @@ export default {
     sjEvent() {
       this.$router.push({
         path: '/forecast/index/sjf'
+      })
+    },
+    tsEvent() {
+      this.$router.push({
+        path: '/forecast/index/specialHoliday'
       })
     }
   }
@@ -54,6 +67,7 @@ export default {
     flex-direction: column;
     position: relative;
     z-index: 999;
+    overflow: hidden;
     // padding: 1%;
     margin: 1.5%;
     overflow-y: overlay;
@@ -70,6 +84,9 @@ export default {
           background: #666d77;
         }
         .sj {
+          background: #666d77;
+        }
+        .ts {
           background: #666d77;
         }
         .left {
@@ -102,7 +119,7 @@ export default {
     .content {
       flex: 1;
       background: rgba(255, 255, 255, 0.05);
-      padding: 1%;
+      // padding: 1%;
     }
   }
 </style>

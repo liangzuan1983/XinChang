@@ -769,10 +769,11 @@ export default {
   width: 100%;
   height: 100%;
   // padding: 1%;
-  margin: 1.5%;
+  // margin: 1.5%;
   // display: flex;
   // flex-direction: column;
   overflow-y: overlay;
+  overflow-x: overlay;
   .ss {
     background: rgba(255, 255, 255, 0.05);
     margin-bottom: 1%;
