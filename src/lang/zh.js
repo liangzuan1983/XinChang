@@ -40,7 +40,7 @@ export default {
     manage: '预警管理',
     statistics: '事件统计',
     doc: '首页',
-    InteractivePlatform: '互动平台',
+    InteractivePlatform: '游新意',
     allArea: '全域旅游',
     ss: '实时交通'
   },

@@ -3,7 +3,7 @@
   .main-container {
     min-height: 100%;
     transition: margin-left .28s;
-    margin-left: 150px;
+    margin-left: 180px;
     position: relative;
     height: 100%;
     display: flex;
@@ -12,7 +12,7 @@
   // 侧边栏
   .sidebar-container {
     transition: width 0.28s;
-    width: 150px !important;
+    width: 180px !important;
     height: 100%;
     position: absolute;
     font-size: 0px;
@@ -114,7 +114,7 @@
     }
     .sidebar-container {
       transition: transform .28s;
-      width: 150px !important;
+      width: 180px !important;
       height: 100%;
     }
     &.hideSidebar {
