@@ -41,7 +41,8 @@ export default {
     statistics: '事件统计',
     doc: '首页',
     InteractivePlatform: '互动平台',
-    allArea: '全域旅游'
+    allArea: '全域旅游',
+    ss: '实时交通'
   },
   navbar: {
     logOut: '退出登录',

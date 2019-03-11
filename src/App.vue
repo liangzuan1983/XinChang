@@ -4,7 +4,7 @@
       <router-view/>
     </scale-view> -->
     <router-view/>
-    <img v-if="$route.path!=='/traffic/index/ss'&&$route.path!=='/traffic/index/sj'" class="ysj" src="@/assets/10.png" alt="">
+    <img v-if="$route.path!=='/allArea/ss'&&$route.path!=='/traffic/index/sj'" class="ysj" src="@/assets/10.png" alt="">
   </div>
 </template>
 
