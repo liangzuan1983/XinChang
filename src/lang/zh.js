@@ -29,7 +29,7 @@ export default {
     PassengerFlowAnalysis: '客流分析',
     traffic: '交通',
     forecast: '重点景区',
-    consumption: '消费',
+    consumption: '消费分析',
     publicSentiment: '舆情',
     complaint: '投诉',
     specialHoliday: '特殊假日',
@@ -40,7 +40,8 @@ export default {
     manage: '预警管理',
     statistics: '事件统计',
     doc: '首页',
-    InteractivePlatform: '互动平台'
+    InteractivePlatform: '互动平台',
+    allArea: '全域旅游'
   },
   navbar: {
     logOut: '退出登录',

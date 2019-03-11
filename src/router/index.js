@@ -78,15 +78,27 @@ export const constantRouterMap = [
     ]
   },
   {
-    path: '/PassengerFlowAnalysis', // 客流分析
+    path: '/allArea',
     component: Layout,
-    redirect: '/PassengerFlowAnalysis/index',
+    meta: { title: 'allArea', icon: 'peoples', noCache: true },
     children: [
       {
-        path: 'index',
-        component: () => import('@/views/PassengerFlowAnalysis'),
+        path: 'PassengerFlowAnalysis', // 客流
+        component: () => import("@/views/PassengerFlowAnalysis"),
         name: 'PassengerFlowAnalysis',
-        meta: { title: 'PassengerFlowAnalysis', icon: 'peoples', noCache: true }
+        meta: { title: 'PassengerFlowAnalysis', noCache: true }
+      },
+      {
+        path: 'consumption', // 消费
+        component: () => import('@/views/consumption/index'),
+        name: 'consumption',
+        meta: { title: 'consumption', noCache: true }
+      },
+      {
+        path: 'portraitTourist', // 游客画像
+        component: () => import('@/views/portraitTourist/index'),
+        name: 'portraitTourist',
+        meta: { title: 'portraitTourist', noCache: true }
       }
     ]
   },
@@ -115,19 +127,6 @@ export const constantRouterMap = [
             hidden: true
           }
         ]
-      }
-    ]
-  },
-  {
-    path: '/consumption', // 消费
-    component: Layout,
-    redirect: '/consumption/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/consumption/index'),
-        name: 'consumption',
-        meta: { title: 'consumption', icon: 'money', noCache: true }
       }
     ]
   },
@@ -226,19 +225,19 @@ export const constantRouterMap = [
       }
     ]
   },
-  {
-    path: '/economicalOperation', // 经济运行
-    component: Layout,
-    redirect: '/economicalOperation/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/economicalOperation/index'),
-        name: 'economicalOperation',
-        meta: { title: 'economicalOperation', icon: 'chart', noCache: true }
-      }
-    ]
-  },
+  // {
+  //   path: '/economicalOperation',
+  //   component: Layout,
+  //   redirect: '/economicalOperation/index',
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/economicalOperation/index'),
+  //       name: 'economicalOperation',
+  //       meta: { title: 'economicalOperation', icon: 'chart', noCache: true }
+  //     }
+  //   ]
+  // },
   {
     path: '/weatherEnvironment', // 资源分布
     component: Layout,
