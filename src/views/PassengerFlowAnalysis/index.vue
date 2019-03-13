@@ -33,11 +33,71 @@
         <!--游客类型分析-->
         <div class="right">
           <!--标题-->
-          <div class="title">游客类型分析</div>
+          <div class="title">游客来源地TOP10（区县）</div>
           <div class="content">
-            <div class="chart-wrapper">
+            <!-- <div class="chart-wrapper">
               <passenger-yklx :fatherData="yktype" height="100%" width="100%"/>
-            </div>
+            </div> -->
+            <!--每1项-->
+              <div class="one-box" v-if="town[0]">
+                <span class="name">{{ town[0].subject }}</span>
+                <p class="line1"/>
+                <span class="num">{{ town[0].value }}</span>
+              </div>
+              <!--每2项-->
+              <div class="one-box" v-if="town[1]">
+                <span class="name">{{ town[1].subject }}</span>
+                <p class="line2"/>
+                <span class="num">{{ town[1].value }}</span>
+              </div>
+              <!--每3项-->
+              <div class="one-box" v-if="town[2]">
+                <span class="name">{{ town[2].subject }}</span>
+                <p class="line3"/>
+                <span class="num">{{ town[2].value }}</span>
+              </div>
+              <!--每4项-->
+              <div class="one-box" v-if="town[3]">
+                <span class="name">{{ town[3].subject }}</span>
+                <p class="line4"/>
+                <span class="num">{{ town[3].value }}</span>
+              </div>
+              <!--每5项-->
+              <div class="one-box" v-if="town[4]">
+                <span class="name">{{ town[4].subject }}</span>
+                <p class="line5"/>
+                <span class="num">{{ town[4].value }}</span>
+              </div>
+              <!--每6项-->
+              <div class="one-box" v-if="town[5]">
+                <span class="name">{{ town[5].subject }}</span>
+                <p class="line6"/>
+                <span class="num">{{ town[5].value }}</span>
+              </div>
+              <!--每7项-->
+              <div class="one-box" v-if="town[6]">
+                <span class="name">{{ town[6].subject }}</span>
+                <p class="line7"/>
+                <span class="num">{{ town[6].value }}</span>
+              </div>
+              <!--每8项-->
+              <div class="one-box" v-if="town[7]">
+                <span class="name">{{ town[7].subject }}</span>
+                <p class="line8"/>
+                <span class="num">{{ town[7].value }}</span>
+              </div>
+              <!--每9项-->
+              <div class="one-box" v-if="town[8]">
+                <span class="name">{{ town[8].subject }}</span>
+                <p class="line9"/>
+                <span class="num">{{ town[8].value }}</span>
+              </div>
+              <!--每10项-->
+              <div class="one-box" v-if="town[9]">
+                <span class="name">{{ town[9].subject }}</span>
+                <p class="line10"/>
+                <span class="num">{{ town[9].value }}</span>
+              </div>
           </div>
         </div>
       </div>
@@ -142,11 +202,18 @@
           </div>
           <div class="two">
             <!--title-->
-            <p class="title">游客过夜比例</p>
+            <p class="title">景区关联度</p>
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
-                <nlfb :chartData='getTouristStays' height="100%" width="100%"/>
+                <!-- <nlfb :chartData='getTouristStays' height="100%" width="100%"/> -->
+                <el-tabs v-model="activeName" aria-setsize="mini" @tab-click="handleClick">
+                  <el-tab-pane label="用户管理" name="first"></el-tab-pane>
+                  <el-tab-pane label="配置管理" name="second"></el-tab-pane>
+                  <el-tab-pane label="角色管理" name="third"></el-tab-pane>
+                  <el-tab-pane label="定时任务补偿" name="fourth"></el-tab-pane>
+                </el-tabs>
+                <nlfbx :chartData='getTouristStays' height="100%" width="100%"/>
               </div>
             </div>
           </div>
@@ -155,74 +222,17 @@
         <div class="content">
           <div class="one">
             <!--title-->
-            <p class="title">游客来源地TOP10（城市）</p>
+            <p class="title">车辆高速占比</p>
             <!--内容-->
             <div class="content">
-              <!--每1项-->
-              <div class="one-box" v-if="this.getcity10[0]">
-                <span class="name">{{ getcity10[0].subject }}</span>
-                <p class="line1"/>
-                <span class="num">{{ getcity10[0].value }}</span>
-              </div>
-              <!--每2项-->
-              <div class="one-box" v-if="this.getcity10[1]">
-                <span class="name">{{ getcity10[1].subject }}</span>
-                <p class="line2"/>
-                <span class="num">{{ getcity10[1].value }}</span>
-              </div>
-              <!--每3项-->
-              <div class="one-box" v-if="this.getcity10[2]">
-                <span class="name">{{ getcity10[2].subject }}</span>
-                <p class="line3"/>
-                <span class="num">{{ getcity10[2].value }}</span>
-              </div>
-              <!--每4项-->
-              <div class="one-box" v-if="this.getcity10[3]">
-                <span class="name">{{ getcity10[3].subject }}</span>
-                <p class="line4"/>
-                <span class="num">{{ getcity10[3].value }}</span>
-              </div>
-              <!--每5项-->
-              <div class="one-box" v-if="this.getcity10[4]">
-                <span class="name">{{ getcity10[4].subject }}</span>
-                <p class="line5"/>
-                <span class="num">{{ getcity10[4].value }}</span>
-              </div>
-              <!--每6项-->
-              <div class="one-box" v-if="this.getcity10[5]">
-                <span class="name">{{ getcity10[5].subject }}</span>
-                <p class="line6"/>
-                <span class="num">{{ getcity10[5].value }}</span>
-              </div>
-              <!--每7项-->
-              <div class="one-box" v-if="this.getcity10[6]">
-                <span class="name">{{ getcity10[6].subject }}</span>
-                <p class="line7"/>
-                <span class="num">{{ getcity10[6].value }}</span>
-              </div>
-              <!--每8项-->
-              <div class="one-box" v-if="this.getcity10[7]">
-                <span class="name">{{ getcity10[7].subject }}</span>
-                <p class="line8"/>
-                <span class="num">{{ getcity10[7].value }}</span>
-              </div>
-              <!--每9项-->
-              <div class="one-box" v-if="this.getcity10[8]">
-                <span class="name">{{ getcity10[8].subject }}</span>
-                <p class="line9"/>
-                <span class="num">{{ getcity10[8].value }}</span>
-              </div>
-              <!--每10项-->
-              <div class="one-box" v-if="this.getcity10[9]">
-                <span class="name">{{ getcity10[9].subject }}</span>
-                <p class="line10"/>
-                <span class="num">{{ getcity10[9].value }}</span>
+              <div class="chart-wrapper">
+                <nlfbs v-if="nlfb" :chartData='getCarCounts' style="margin-top:20px;" height="200px" width="100%"/>
               </div>
             </div>
           </div>
           <div class="two">
             <!--title-->
-            <p class="title">游客来源地TOP10（区县）</p>
+            <p class="title">车辆来源地</p>
             <!--内容-->
             <div class="content">
               <!--每1项-->
@@ -289,96 +299,101 @@
           </div>
         </div>
         <!--月度客流分析-->
-        <div class="content3">
-          <!--标题-->
-          <div class="title">月度客流预测</div>
-          <div class="content">
-            <div class="chart-wrapper">
-              <holiday-kl-zhu-yue height="100%" width="100%"/>
+        <div class="content">
+          <div class="one">
+            <!--title-->
+            <p class="title">游客过夜比例</p>
+            <!--内容-->
+            <div class="content">
+              <nlfb :chartData='getTouristStays' height="200px" width="100%"/>
+            </div>
+          </div>
+          <div class="two">
+            <!--title-->
+            <p class="title">月度客流预测</p>
+            <!--内容-->
+            <div class="content">
+              <holiday-kl-zhu-yue height="200px" width="100%"/>
             </div>
           </div>
         </div>
+        <!-- <div class="content3">
+          <div class="title">游客过夜比例</div>
+          <div class="content">
+            <div class="chart-wrapper">
+              <nlfb :chartData='getTouristStays' height="100%" width="100%"/>
+            </div>
+          </div>
+        </div> -->
       </div>
       <!--right-->
-      <div class="right">
+      <!-- <div class="right"> -->
         <!--时间-->
-        <div class="time-box">
-          <span>时间选择： </span>
-          <el-date-picker
+        <!-- <div class="time-box"> -->
+          <!-- <span>时间选择： </span> -->
+          <!-- <el-date-picker
             v-model="value6"
             type="daterange"
             range-separator="至"
             start-placeholder="开始日期"
             end-placeholder="结束日期">
-          </el-date-picker>
+          </el-date-picker> -->
           <!--查询-->
-          <el-button size="mini" type="primary" @click="rightSearch">查询</el-button>
+          <!-- <el-button size="mini" type="primary" @click="rightSearch">查询</el-button> -->
           <!--查询-->
-          <img class="search" src="@/assets/icon/search.png" alt="">
+          <!-- <img class="search" src="@/assets/icon/search.png" alt=""> -->
           <!--下载-->
           <!-- <img class="down" src="@/assets/icon/down.png" alt=""> -->
-        </div>
+        <!-- </div> -->
         <!--热门旅游线路-->
-        <div class="nlfb-box">
-          <!--内容-->
+        <!-- <div class="nlfb-box">
           <div class="content">
-            <!--title-->
             <p class="title">热门游览线路TOP10</p>
-            <!--每1项-->
             <div class="one-box" v-if="getline[0]">
               <span class="name">{{ getline[0].subject }}</span>
               <p class="line1"/>
               <span class="num">{{ getline[0].value }}</span>
             </div>
-            <!--每2项-->
             <div class="one-box" v-if="getline[1]">
               <span class="name">{{ getline[1].subject }}</span>
               <p class="line2"/>
               <span class="num">{{ getline[1].value }}</span>
             </div>
-            <!--每3项-->
             <div class="one-box" v-if="getline[2]">
               <span class="name">{{ getline[2].subject }}</span>
               <p class="line3"/>
               <span class="num">{{ getline[2].value }}</span>
             </div>
-            <!--每4项-->
             <div class="one-box" v-if="getline[3]">
               <span class="name">{{ getline[3].subject }}</span>
               <p class="line4"/>
               <span class="num">{{ getline[3].value }}</span>
             </div>
-            <!--每5项-->
             <div class="one-box" v-if="getline[4]">
               <span class="name">{{ getline[4].subject }}</span>
               <p class="line5"/>
               <span class="num">{{ getline[4].value }}</span>
             </div>
-            <!--每6项-->
             <div class="one-box" v-if="getline[5]">
               <span class="name">{{ getline[5].subject }}</span>
               <p class="line6"/>
               <span class="num">{{ getline[5].value }}</span>
             </div>
-            <!--每7项-->
             <div class="one-box" v-if="getline[6]">
               <span class="name">{{ getline[6].subject }}</span>
               <p class="line7"/>
               <span class="num">{{ getline[6].value }}</span>
             </div>
-            <!--每8项-->
             <div class="one-box" v-if="getline[7]">
               <span class="name">{{ getline[7].subject }}</span>
               <p class="line8"/>
               <span class="num">{{ getline[7].value }}</span>
             </div>
-            <!--每9项-->
             <div class="one-box" v-if="getline[8]">
               <span class="name">{{ getline[8].subject }}</span>
               <p class="line9"/>
               <span class="num">{{ getline[8].value }}</span>
             </div>
-            <!--每10项-->
             <div class="one-box" v-if="getline[9]">
               <span class="name">{{ getline[9].subject }}</span>
               <p class="line10"/>
@@ -386,16 +401,15 @@
             </div>
           </div>
           <div class="content3">
-            <!--标题-->
-            <div class="title">年度客流预测</div>
+            <div class="title">月度客流预测</div>
             <div class="content">
               <div class="chart-wrapper">
-                <holiday-kl-zhu-year height="100%" width="100%"/>
+                <holiday-kl-zhu-yue height="100%" width="100%"/>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </div> -->
+      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -406,6 +420,8 @@ import HolidayKlZhuYue from '@/components/Charts/holiday-kl-zhu-yue'
 import HolidayKlZhuYear from '@/components/Charts/holiday-kl-zhu-year'
 import passengerYklx from '@/views/dashboard/admin/components/passengerYklx'
 import nlfb from '@/components/Charts/passenger-ykgy'
+import nlfbx from '@/components/Charts/passenger-ykgyx'
+import nlfbs from '@/components/Charts/traffic-nlfb'
 import { mapGetters } from 'vuex'
 import { 
   getPassageFlow,
@@ -416,9 +432,10 @@ import {
   getTouristCounty,
   getTourRoute
 } from '@/api/flow'
+import { getCarCount } from '@/api/traffic'
 export default {
   components: {
-    HolidayKlZhu, passengerYklx, nlfb, HolidayKlZhuYue, HolidayKlZhuYear
+    HolidayKlZhu, passengerYklx, nlfb, HolidayKlZhuYue, HolidayKlZhuYear, nlfbs, nlfbx
   },
   computed: {
     ...mapGetters([
@@ -427,6 +444,7 @@ export default {
   },
   data() {
     return {
+      nlfbs: false,
       value6: [new Date() - 3600 * 1000 * 24 * 7, new Date()],
       yktype: [],
       dataObj: {
@@ -438,7 +456,9 @@ export default {
       getScenicVillages: [],
       getTouristStays: [],
       getcity10: [],
-      getline: []
+      getline: [],
+      getCarCounts: [],
+      activeName: 'second'
     }
   },
   mounted() {
@@ -540,6 +560,19 @@ export default {
     },
     //左边两个请求
     left() {
+      //高速卡口
+      getCarCount(this.dataObj)
+        .then(res => {
+          let data = res.data.data;
+          if (res.status === 200) {
+            console.log(data, '高速卡口');
+            this.getCarCounts = data
+            this.nlfb = true
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
       // 景区及A级村庄客流TOP10
       getScenicVillage(this.dataObj)
         .then(res => {
@@ -602,6 +635,10 @@ export default {
         .catch(err => {
           console.log(err)
         })
+    },
+    // 切换
+    handleClick(tab, event) {
+      console.log(tab, event);
     }
   }
 }
@@ -689,6 +726,92 @@ export default {
           .chart-wrapper {
             width: 100%;
             height: 100%;
+          }
+          .one-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: .3% 2%;
+            .name {
+              font-size: 20px;
+              color: #889db5;
+              width: 34%;
+            }
+            .line1 {
+              height: 14px;
+              width: 50%;
+              background: #47b2d3;
+              // border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line2 {
+              height: 14px;
+              width: 46%;
+              background: #40add4;
+              // border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line3 {
+              height: 14px;
+              width: 42%;
+              background: #39a7d5;
+              // border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line4 {
+              height: 14px;
+              width: 38%;
+              background: #32a2d7;
+              // border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line5 {
+              height: 14px;
+              width: 34%;
+              background: #2b9dd8;
+              // border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line6 {
+              height: 14px;
+              width: 30%;
+              background: #2597d9;
+              // border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line7 {
+              height: 14px;
+              width: 26%;
+              background: #1e92da;
+              // border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line8 {
+              height: 14px;
+              width: 22%;
+              background: #178ddc;
+              // border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line9 {
+              height: 14px;
+              width: 18%;
+              background: #1087dd;
+              // border-radius: 10px;
+              margin-right: 2%;
+            }
+            .line10 {
+              height: 14px;
+              width: 14%;
+              background: #0982de;
+              // border-radius: 10px;
+              margin-right: 2%;
+            }
+            .num {
+              font-size: 16px;
+              color: #bbd5ff;
+              flex: 1;
+            }
           }
         }
       }
@@ -849,7 +972,7 @@ export default {
             flex-direction: column;
             // background: rgba(255, 255, 255, 0.05);
             .chart-wrapper {
-              height: 320px;
+              height: 350px;
               width: 100%;
             }
             .one-box {

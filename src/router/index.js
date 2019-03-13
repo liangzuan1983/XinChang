@@ -108,34 +108,34 @@ export const constantRouterMap = [
       }
     ]
   },
-  // {
-  //   path: '/traffic', // 交通
-  //   component: Layout,
-  //   redirect: '/traffic/index/ss',
-  //   meta: { title: 'traffic', icon: 'guide', noCache: true },
-  //   children: [
-  //     {
-  //       path: 'index',
-  //       component: () => import('@/views/traffic/index'),
-  //       name: 'traffic',
-  //       hidden: true,
-  //       children: [
-  //         {
-  //           path: 'ss',
-  //           component: () => import('@/views/traffic/components/ss'),
-  //           name: 'ss',
-  //           hidden: true
-  //         },
-  //         {
-  //           path: 'sj',
-  //           component: () => import('@/views/traffic/components/sj'),
-  //           name: 'sj',
-  //           hidden: true
-  //         }
-  //       ]
-  //     }
-  //   ]
-  // },
+  {
+    path: '/traffic', // 交通
+    component: Layout,
+    redirect: '/traffic/index/ss',
+    meta: { title: 'traffic', icon: 'guide', noCache: true },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/traffic/index'),
+        name: 'traffic',
+        hidden: true,
+        children: [
+          {
+            path: 'ss',
+            component: () => import('@/views/traffic/components/ss'),
+            name: 'ss',
+            hidden: true
+          },
+          {
+            path: 'sj',
+            component: () => import('@/views/traffic/components/sj'),
+            name: 'sj',
+            hidden: true
+          }
+        ]
+      }
+    ]
+  },
   {
     path: '/publicSentiment', // 舆情
     component: Layout,

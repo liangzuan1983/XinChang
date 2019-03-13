@@ -21,7 +21,7 @@
             <div class="dfs-content">
               <img class="dfs-icon" src="@/assets/icon/ppl.png" alt="">
               <div class="dfs-content-right">
-                <p class="dfs-text">游客接待数</p>
+                <p class="dfs-text">今日累积游客接待数</p>
                 <p class="dfs-num-box" v-if="importDfs && importDfs.length > 0">
                   <span class="dfs-num">{{ importDfs[0].value}}</span>
                   <span class="dfs-unit">个</span>
@@ -32,7 +32,7 @@
             <div class="dfs-content">
               <img class="dfs-icon dfs-icons" src="@/assets/icon/incom.png" alt="">
               <div class="dfs-content-right">
-                <p class="dfs-text">旅游收入</p>
+                <p class="dfs-text">今日累积收入</p>
                 <p class="dfs-num-box" v-if="importDfs && importDfs.length > 0">
                   <span class="dfs-num">{{ importDfs[1].value}}</span>
                   <span class="dfs-unit">元</span>
@@ -45,9 +45,9 @@
             <p class="dfs-title">十九峰</p>
             <!--游客接待数-->
             <div class="dfs-content">
-              <img class="dfs-icon dfs-icons" src="@/assets/icon/ppl.png" alt="">
+              <img class="dfs-icon dfs-icons" style="margin-right: 3%;" src="@/assets/icon/ppl.png" alt="">
               <div class="dfs-content-right">
-                <p class="dfs-text">游客接待数</p>
+                <p class="dfs-text">今日累积游客接待数</p>
                 <p class="dfs-num-box" v-if="importSjf && importDfs.length > 0">
                   <span class="dfs-num">{{ importSjf[0].value}}</span>
                   <span class="dfs-unit">个</span>
@@ -58,7 +58,7 @@
             <div class="dfs-content">
               <img class="dfs-icon" src="@/assets/icon/incom.png" alt="">
               <div class="dfs-content-right">
-                <p class="dfs-text">旅游收入</p>
+                <p class="dfs-text">今日累积收入</p>
                 <p class="dfs-num-box" v-if="importSjf && importDfs.length > 0">
                   <span class="dfs-num">{{ importSjf[1].value}}</span>
                   <span class="dfs-unit">元</span>
@@ -269,7 +269,7 @@
     <div class="right">
       <!--sskl-->
       <div class="sskl">
-        <div class="title">实时客流</div>
+        <div class="title">全域实时客流</div>
         <div class="num">{{ getTourNumbers }}</div>
       </div>
       <!--cyjc-->
@@ -870,7 +870,7 @@ export default {
           .dfs-content {
             flex: 1;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             .dfs-icon {
               width: 36px;
@@ -879,7 +879,8 @@ export default {
             }
             .dfs-icons {
               position: relative;
-              right: 5%;
+              // right: 5%;
+              // margin-right: 10%;
             }
             .dfs-content-right {
               .dfs-text {
@@ -919,7 +920,7 @@ export default {
           .dfs-content {
             flex: 1;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             .dfs-icon {
               width: 36px;
@@ -928,7 +929,7 @@ export default {
             }
             .dfs-icons {
               position: relative;
-              left: 5%;
+              // left: 5%;
             }
             .dfs-content-right {
               .dfs-text {

@@ -67,54 +67,23 @@ export default {
         }
       })
       this.chart.setOption({
-        visualMap: {
-          show: false,
-          min: 10,
-          max: 300,
-          inRange: {
-            colorLightness: [0, 1]
-          }
-        },
-        tooltip : {
+        tooltip: {
           trigger: 'item',
-          formatter: "{a} <br/>{b} : {c} ({d}%)"
+          formatter: '{a} <br/>{b} : {c} ({d}%)'
         },
         series: [
           {
-            name: '游客类型分析',
+            name: '客源地top5',
             type: 'pie',
-            radius: '75%',
+            radius: '70%',
             center: ['50%', '60%'],
-            data: this.newData.sort(function(a, b) { return a.value - b.value }),
-            roseType: 'radius',
-            label: {
-              normal: {
-                textStyle: {
-                  // color: 'rgba(255, 255, 255, 0.3)'
-                }
-              }
-            },
-            labelLine: {
-              normal: {
-                lineStyle: {
-                  // color: 'rgba(255, 255, 255, 0.3)'
-                },
-                smooth: 0.2,
-                length: 1,
-                length2: 3,
-                show: false
-              }
-            },
+            data: this.newData.slice(0, 5),
             itemStyle: {
-              normal: {
-                color: '#e090ca',
-                shadowBlur: 15
+              emphasis: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
               }
-            },
-            animationType: 'scale',
-            animationEasing: 'elasticOut',
-            animationDelay: function(idx) {
-              return Math.random() * 200
             }
           }
         ]

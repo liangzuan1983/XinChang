@@ -1,18 +1,17 @@
 <template>
   <div class="weatherEnvironment">
     <!-- <div @click="fuck">产业监测</div> -->
-    <iframe src="http://61.174.54.82:18007/three"
+    <iframe src="http://open.tourdev.cn/tourism/three"
       class="iframe"
       frameborder="0" 
       scrolling="auto"/>
   </div>
 </template>
-
 <script>
 export default {
   methods: {
     fuck() {
-      window.location.href = 'http://61.174.54.82:18007/login'
+      window.location.href = 'http://open.tourdev.cn/tourism/three'
     }
   }
 }

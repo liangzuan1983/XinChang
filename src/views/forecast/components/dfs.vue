@@ -141,70 +141,20 @@
             </div>
           </div>
         </div>
-        <!--年龄-->
-        <div class="xsph-box">
-          <!--title-->
-          <p class="title">游客客源地排行</p>
-          <!--内容-->
-          <div class="content1">
-            <!--每1项-->
-            <div class="one-box" v-if="dfsTouristSource[0]">
-              <span class="name">{{ dfsTouristSource[0].subject }}</span>
-              <p class="line1"/>
-              <span class="num">{{ dfsTouristSource[0].value }}</span>
-            </div>
-            <div class="one-box" v-else>
-            </div>
-            <!--每2项-->
-            <div class="one-box" v-if="dfsTouristSource[1]">
-              <span class="name">{{ dfsTouristSource[1].subject }}</span>
-              <p class="line2"/>
-              <span class="num">{{ dfsTouristSource[1].value }}</span>
-            </div>
-            <div class="one-box" v-else>
-            </div>
-            <!--每3项-->
-            <div class="one-box" v-if="dfsTouristSource[2]">
-              <span class="name">{{ dfsTouristSource[2].subject }}</span>
-              <p class="line3"/>
-              <span class="num">{{ dfsTouristSource[2].value }}</span>
-            </div>
-            <div class="one-box" v-else>
-            </div>
-            <!--每4项-->
-            <div class="one-box" v-if="dfsTouristSource[3]">
-              <span class="name">{{ dfsTouristSource[3].subject }}</span>
-              <p class="line4"/>
-              <span class="num">{{ dfsTouristSource[3].value }}</span>
-            </div>
-            <div class="one-box" v-else>
-            </div>
-            <!--每5项-->
-            <div class="one-box" v-if="dfsTouristSource[4]">
-              <span class="name">{{ dfsTouristSource[4].subject }}</span>
-              <p class="line5"/>
-              <span class="num">{{ dfsTouristSource[4].value }}</span>
-            </div>
-            <div class="one-box" v-else>
-            </div>
-          </div>
-        </div>
       </div>
       <!--游客线上偏好-->
       <div class="nlfb">
         <!--年龄分布-->
-        <div class="nlfb-box">
-          <!--title-->
+        <!-- <div class="nlfb-box">
           <p class="title">散客团队分析</p>
-          <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
               <tdkl v-if="groupIndividualRateDfss" :chartData='groupIndividualRateDfs' id="tdkl" height="100%" width="100%"/>
             </div>
           </div>
-        </div>
+        </div> -->
         <!--游客消费能力占比-->
-        <div class="xfnl-box">
+        <div class="xfnl-box" style="margin-left:0;">
           <!--title-->
           <p class="title">车辆来源地排行</p>
           <!--内容-->
@@ -291,49 +241,90 @@
             </div>
           </div>
         </div>
-        <!--游客线上偏好-->
-        <div class="xsph-box1">
+        <!--年龄-->
+        <div class="xsph-box">
           <!--title-->
-          <p class="title">旅行社销量排名</p>
+          <p class="title">游客客源地排行</p>
           <!--内容-->
-          <div class="content">
+          <div class="content1">
             <!--每1项-->
+            <div class="one-box" v-if="dfsTouristSource[0]">
+              <span class="name">{{ dfsTouristSource[0].subject }}</span>
+              <p class="line1"/>
+              <span class="num">{{ dfsTouristSource[0].value }}</span>
+            </div>
+            <div class="one-box" v-else>
+            </div>
+            <!--每2项-->
+            <div class="one-box" v-if="dfsTouristSource[1]">
+              <span class="name">{{ dfsTouristSource[1].subject }}</span>
+              <p class="line2"/>
+              <span class="num">{{ dfsTouristSource[1].value }}</span>
+            </div>
+            <div class="one-box" v-else>
+            </div>
+            <!--每3项-->
+            <div class="one-box" v-if="dfsTouristSource[2]">
+              <span class="name">{{ dfsTouristSource[2].subject }}</span>
+              <p class="line3"/>
+              <span class="num">{{ dfsTouristSource[2].value }}</span>
+            </div>
+            <div class="one-box" v-else>
+            </div>
+            <!--每4项-->
+            <div class="one-box" v-if="dfsTouristSource[3]">
+              <span class="name">{{ dfsTouristSource[3].subject }}</span>
+              <p class="line4"/>
+              <span class="num">{{ dfsTouristSource[3].value }}</span>
+            </div>
+            <div class="one-box" v-else>
+            </div>
+            <!--每5项-->
+            <div class="one-box" v-if="dfsTouristSource[4]">
+              <span class="name">{{ dfsTouristSource[4].subject }}</span>
+              <p class="line5"/>
+              <span class="num">{{ dfsTouristSource[4].value }}</span>
+            </div>
+            <div class="one-box" v-else>
+            </div>
+          </div>
+        </div>
+        <!--游客线上偏好-->
+        <!-- <div class="xsph-box1">
+          <p class="title">旅行社销量排名</p>
+          <div class="content">
             <div class="one-box">
               <span class="name">新昌旅行社</span>
               <p class="line1"/>
               <span class="num">7262</span>
             </div>
-            <!--每2项-->
             <div class="one-box">
               <span class="name">绍兴旅行社</span>
               <p class="line2"/>
               <span class="num">6862</span>
             </div>
-            <!--每3项-->
             <div class="one-box">
               <span class="name">中国青社</span>
               <p class="line3"/>
               <span class="num">6242</span>
             </div>
-            <!--每4项-->
             <div class="one-box">
               <span class="name">完美旅行社</span>
               <p class="line4"/>
               <span class="num">5322</span>
             </div>
-            <!--每5项-->
             <div class="one-box">
               <span class="name">星空旅行社</span>
               <p class="line5"/>
               <span class="num">4222</span>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <!--游客消费-->
       <div class="nlfb">
         <!--年龄分布-->
-        <div class="nlfb-box">
+        <div class="nlfb-box" style="margin-right: 1%;">
           <!--title-->
           <p class="title">售票量</p>
           <!--内容-->
@@ -345,16 +336,14 @@
           </div>
         </div>
         <!--游客消费能力占比-->
-        <div class="xfnl-box">
-          <!--title-->
+        <!-- <div class="xfnl-box">
           <p class="title">订单来源</p>
-          <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
               <nlfb-ddly v-if="bingIf4" :id="ids[4]" height="100%" width="100%"/>
             </div>
           </div>
-        </div>
+        </div> -->
         <!--游客线上偏好-->
         <div class="xsph-box">
           <!--title-->
@@ -407,38 +396,32 @@
       <!--游客消费2-->
       <div class="nlfb2">
         <!--年龄分布-->
-        <div class="nlfb-box">
-          <!--title-->
+        <!-- <div class="nlfb-box">
           <p class="title">微信公众号点击率</p>
-          <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
               <yi-zhou v-if="kydxqs" :chartData="kydxq" id="kydxq" height="100%" width="100%"/>
             </div>
           </div>
-        </div>
+        </div> -->
         <!--游客消费能力占比-->
-        <div class="xfnl-box">
-          <!--title-->
+        <!-- <div class="xfnl-box">
           <p class="title">销售渠道</p>
-          <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
               <ykxb-xsqd :chartData='saleChannelDfs' height="100%" width="100%"/>
             </div>
           </div>
-        </div>
+        </div> -->
         <!--游客线上偏好-->
-        <div class="xsph-box">
-          <!--title-->
+        <!-- <div class="xsph-box">
           <p class="title">渠道广告投入</p>
-          <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
               <nlfb-qdgg id="ids3" height="100%" width="100%"/>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -615,18 +598,17 @@ export default {
     },
     initRequest() {
       // 投诉
-      wechatDf(this.dataObj)
-        .then(res => {
-          // console.log(res)
-          const data = res.data.data;
-          if (res.status === 200) {
-            this.kydxq = data;
-            this.kydxqs = true;
-          }
-        })
-        .catch(err => {
-          console.log(err);
-        });
+      // wechatDf(this.dataObj)
+      //   .then(res => {
+      //     const data = res.data.data;
+      //     if (res.status === 200) {
+      //       this.kydxq = data;
+      //       this.kydxqs = true;
+      //     }
+      //   })
+      //   .catch(err => {
+      //     console.log(err);
+      //   });
       // 大佛寺散客
       dfsSanke()
         .then(res => {

@@ -31,3 +31,10 @@ export function getType(params) {
     params
   })
 }
+// 交易数http://open.tourdev.cn/api/tour/xinchang/consume/transaction/number
+export function weekly() {
+  return request({
+    url: 'tour/xinchang/consume/transaction/number',
+    method: 'get'
+  })
+}

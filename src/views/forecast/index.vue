@@ -79,7 +79,7 @@ export default {
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
         padding: .5% .5% 0 .5%;
-        width: 25%;
+        width: 27%;
         .ss {
           background: #666d77;
         }
