@@ -11,7 +11,7 @@
           <div class="rowContent">
             <div class="areaName">
               <span class="areaNameSpan">
-                {{ item.name }}<i class="areaNameI"/>
+                {{ item.name }}<i class="areaNameI" />
               </span>
             </div>
             <div
@@ -29,18 +29,18 @@
         <div class="searchBox">
           <span>时间选择：</span>
           <el-date-picker
-            v-model="value4"
+            v-model="value"
             type="daterange"
             range-separator="至"
             start-placeholder="开始日期"
             end-placeholder="结束日期"
           />
-          <el-button type="primary">查询</el-button>
+          <el-button type="primary" @click="getData">查询</el-button>
         </div>
-        <div v-for="(item, index) in realTimeRank" :key="index" class="listTr">
+        <div v-for="(item, index) in allFlowRank" :key="index" class="listTr">
           <div class="listTd1">
             <span class="areaNameSpan">
-              {{ item.name }}<i class="areaNameI"/>
+              {{ item.name }}<i class="areaNameI" />
             </span>
           </div>
           <div class="listTd2">{{ item.count }}</div>
@@ -51,54 +51,82 @@
 </template>
 
 <script>
-import { getVillagePassenger } from '../../api/rural'
+import moment from "moment";
+import { getVillagePassenger, getScenicVillage } from "../../api/rural";
 export default {
-  name: 'RuralTourism',
+  name: "RuralTourism",
   data() {
     return {
-      value4: [new Date() - 3600 * 1000 * 24 * 7, new Date()],
+      value: [
+        moment()
+          .subtract("days", 6)
+          .format("YYYY-MM-DD"),
+        moment().format("YYYY-MM-DD")
+      ],
       realTimeRank: [],
+      allFlowRank: [],
       timer: null
-    }
+    };
   },
   mounted() {
-    const self = this
-    self.getRealTimeFlow()
+    const self = this;
+    self.getRealTimeFlow();
+    self.getData();
   },
   created() {
-    const self = this
+    const self = this;
     // 实时客流每10分钟刷新一次
     self.timer = setInterval(function() {
-      self.getRealTimeFlow()
-    }, 1000 * 60 * 10)
+      self.getRealTimeFlow();
+    }, 1000 * 60 * 10);
   },
   beforeDestroy() {
     // 如果定时器还在运行 或者直接关闭，不用判断
-    if (this.timer) clearInterval(this.timer) // 关闭
+    if (this.timer) clearInterval(this.timer); // 关闭
   },
   methods: {
+    getData() {
+      const self = this;
+      const param = {
+        start: moment(self.value[0]).format("YYYY-MM-DD"),
+        end: moment(self.value[1]).format("YYYY-MM-DD")
+      };
+      getScenicVillage(param).then(res => {
+        if (res.status === 200) {
+          const data = res.data.data || [];
+          let allFlowRank = [];
+          data.map(item => {
+            allFlowRank.push({
+              name: item.subject,
+              count: item.value
+            });
+          });
+          self.allFlowRank = allFlowRank.splice(0, 5);
+        }
+      });
+    },
     getRealTimeFlow() {
-      const self = this
-      const color = ['#fe6c78', '#ffa210', '#ffe249', '#72ff7d', '#35ffeb']
+      const self = this;
+      const color = ["#fe6c78", "#ffa210", "#ffe249", "#72ff7d", "#35ffeb"];
       getVillagePassenger().then(res => {
         if (res.status === 200) {
-          const data = res.data.data || []
+          const data = res.data.data || [];
           let realTimeRank = [],
-            max = data[0].value
+            max = data[0].value;
           data.map((item, index) => {
             realTimeRank.push({
               name: item.subject,
               count: item.value,
               percent: `${((item.value / max) * 100).toFixed(2)}%`,
               color: color[index]
-            })
-          })
-          self.realTimeRank = [...realTimeRank]
+            });
+          });
+          self.realTimeRank = [...realTimeRank];
         }
-      })
+      });
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">

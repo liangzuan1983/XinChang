@@ -93,7 +93,7 @@ export default {
       //取时间
       this.time = data.map(element => element.date)
       let nameArr = this.name
-      console.log(this.name.length,'length')
+      console.log(nameArr,'length')
       //出现新格式
       this.newData = nameArr.map((item, i) => {
         return {
@@ -101,7 +101,7 @@ export default {
           type: 'line',
           stack: '总量',
           areaStyle: {},
-          data: data.map(element => element.data[i].value)
+          data: data.map((element,index) => element.data[index].value)
         }
       })
       console.log(this.newData, '123');

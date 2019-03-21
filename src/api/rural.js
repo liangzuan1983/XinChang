@@ -8,3 +8,12 @@ export function getVillagePassenger(params) {
     params
   })
 }
+
+//乡村累计客流
+export function getScenicVillage(params) {
+  return request({
+    url: 'tour/xinchang/scenicVillage',
+    method: 'get',
+    params
+  })
+}

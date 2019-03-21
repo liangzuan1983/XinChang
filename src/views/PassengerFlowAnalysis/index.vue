@@ -33,71 +33,10 @@
         <!--游客类型分析-->
         <div class="right">
           <!--标题-->
-          <div class="title">游客来源地TOP10（区县）</div>
+          <p class="title">月度客流预测</p>
+          <!--内容-->
           <div class="content">
-            <!-- <div class="chart-wrapper">
-              <passenger-yklx :fatherData="yktype" height="100%" width="100%"/>
-            </div> -->
-            <!--每1项-->
-              <div class="one-box" v-if="town[0]">
-                <span class="name">{{ town[0].subject }}</span>
-                <p class="line1"/>
-                <span class="num">{{ town[0].value }}</span>
-              </div>
-              <!--每2项-->
-              <div class="one-box" v-if="town[1]">
-                <span class="name">{{ town[1].subject }}</span>
-                <p class="line2"/>
-                <span class="num">{{ town[1].value }}</span>
-              </div>
-              <!--每3项-->
-              <div class="one-box" v-if="town[2]">
-                <span class="name">{{ town[2].subject }}</span>
-                <p class="line3"/>
-                <span class="num">{{ town[2].value }}</span>
-              </div>
-              <!--每4项-->
-              <div class="one-box" v-if="town[3]">
-                <span class="name">{{ town[3].subject }}</span>
-                <p class="line4"/>
-                <span class="num">{{ town[3].value }}</span>
-              </div>
-              <!--每5项-->
-              <div class="one-box" v-if="town[4]">
-                <span class="name">{{ town[4].subject }}</span>
-                <p class="line5"/>
-                <span class="num">{{ town[4].value }}</span>
-              </div>
-              <!--每6项-->
-              <div class="one-box" v-if="town[5]">
-                <span class="name">{{ town[5].subject }}</span>
-                <p class="line6"/>
-                <span class="num">{{ town[5].value }}</span>
-              </div>
-              <!--每7项-->
-              <div class="one-box" v-if="town[6]">
-                <span class="name">{{ town[6].subject }}</span>
-                <p class="line7"/>
-                <span class="num">{{ town[6].value }}</span>
-              </div>
-              <!--每8项-->
-              <div class="one-box" v-if="town[7]">
-                <span class="name">{{ town[7].subject }}</span>
-                <p class="line8"/>
-                <span class="num">{{ town[7].value }}</span>
-              </div>
-              <!--每9项-->
-              <div class="one-box" v-if="town[8]">
-                <span class="name">{{ town[8].subject }}</span>
-                <p class="line9"/>
-                <span class="num">{{ town[8].value }}</span>
-              </div>
-              <!--每10项-->
-              <div class="one-box" v-if="town[9]">
-                <span class="name">{{ town[9].subject }}</span>
-                <p class="line10"/>
-                <span class="num">{{ town[9].value }}</span>
-              </div>
+            <holiday-kl-zhu-yue height="200px" width="100%"/>
           </div>
         </div>
       </div>
@@ -202,39 +141,11 @@
           </div>
           <div class="two">
             <!--title-->
-            <p class="title">景区关联度</p>
-            <!--内容-->
+            <div class="title">游客来源地TOP10（区县）</div>
             <div class="content">
-              <div class="chart-wrapper">
-                <!-- <nlfb :chartData='getTouristStays' height="100%" width="100%"/> -->
-                <el-tabs v-model="activeName" aria-setsize="mini" @tab-click="handleClick">
-                  <el-tab-pane label="用户管理" name="first"></el-tab-pane>
-                  <el-tab-pane label="配置管理" name="second"></el-tab-pane>
-                  <el-tab-pane label="角色管理" name="third"></el-tab-pane>
-                  <el-tab-pane label="定时任务补偿" name="fourth"></el-tab-pane>
-                </el-tabs>
-                <nlfbx :chartData='getTouristStays' height="100%" width="100%"/>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--2块内容-->
-        <div class="content">
-          <div class="one">
-            <!--title-->
-            <p class="title">车辆高速占比</p>
-            <!--内容-->
-            <div class="content">
-              <div class="chart-wrapper">
-                <nlfbs v-if="nlfb" :chartData='getCarCounts' style="margin-top:20px;" height="200px" width="100%"/>
-              </div>
-            </div>
-          </div>
-          <div class="two">
-            <!--title-->
-            <p class="title">车辆来源地</p>
-            <!--内容-->
-            <div class="content">
+              <!-- <div class="chart-wrapper">
+                <passenger-yklx :fatherData="yktype" height="100%" width="100%"/>
+              </div> -->
               <!--每1项-->
               <div class="one-box" v-if="town[0]">
                 <span class="name">{{ town[0].subject }}</span>
@@ -298,7 +209,7 @@
             </div>
           </div>
         </div>
-        <!--月度客流分析-->
+        <!--2块内容-->
         <div class="content">
           <div class="one">
             <!--title-->
@@ -310,10 +221,60 @@
           </div>
           <div class="two">
             <!--title-->
-            <p class="title">月度客流预测</p>
+            <p class="title">散客VS团队</p>
             <!--内容-->
             <div class="content">
-              <holiday-kl-zhu-yue height="200px" width="100%"/>
+              <nlfb :chartData='groupIndividualRate' height="200px" width="100%"/>
+            </div>
+          </div>
+        </div>
+        <!--月度客流分析-->
+        <div class="content">
+          <div class="one">
+            <!--title-->
+            <p class="title">高速卡口车辆占比</p>
+            <!--内容-->
+            <div class="content">
+              <div class="chart-wrapper">
+                <nlfbs v-if="nlfb" :chartData='getCarCounts' style="margin-top:20px;" height="200px" width="100%"/>
+              </div>
+            </div>
+          </div>
+          <div class="two">
+            <!--title-->
+            <p class="title">车辆来源地</p>
+            <!--内容-->
+            <div class="content">
+              <!--每1项-->
+              <div class="one-box" v-if="town[0]">
+                <span class="name">{{ town[0].subject }}</span>
+                <p class="line1"/>
+                <span class="num">{{ town[0].value }}</span>
+              </div>
+              <!--每2项-->
+              <div class="one-box" v-if="town[1]">
+                <span class="name">{{ town[1].subject }}</span>
+                <p class="line2"/>
+                <span class="num">{{ town[1].value }}</span>
+              </div>
+              <!--每3项-->
+              <div class="one-box" v-if="town[2]">
+                <span class="name">{{ town[2].subject }}</span>
+                <p class="line3"/>
+                <span class="num">{{ town[2].value }}</span>
+              </div>
+              <!--每4项-->
+              <div class="one-box" v-if="town[3]">
+                <span class="name">{{ town[3].subject }}</span>
+                <p class="line4"/>
+                <span class="num">{{ town[3].value }}</span>
+              </div>
+              <!--每5项-->
+              <div class="one-box" v-if="town[4]">
+                <span class="name">{{ town[4].subject }}</span>
+                <p class="line5"/>
+                <span class="num">{{ town[4].value }}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -430,7 +391,8 @@ import {
   getTouristStay,
   getTouristCity,
   getTouristCounty,
-  getTourRoute
+  getTourRoute,
+  getGroupIndividualRate
 } from '@/api/flow'
 import { getCarCount } from '@/api/traffic'
 export default {
@@ -455,6 +417,7 @@ export default {
       getPassageFlow: [],
       getScenicVillages: [],
       getTouristStays: [],
+      groupIndividualRate:[],
       getcity10: [],
       getline: [],
       getCarCounts: [],
@@ -597,6 +560,14 @@ export default {
         .catch(err => {
           console.log(err)
         })
+      //散客VS团队
+      getGroupIndividualRate(this.dataObj).then(res =>{
+        let data = res.data.data;
+        if (res.status === 200) {
+          this.groupIndividualRate = data
+          // console.log(this.getTouristStays, '123321')
+        }
+      })
       // 游客来源地top10城市
       getTouristCity(this.dataObj)
         .then(res => {

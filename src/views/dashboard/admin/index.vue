@@ -1442,7 +1442,7 @@ export default {
       }
     }
     .cyjc {
-      flex: 1;
+      /*flex: 1;*/
       background: rgba(255, 255, 255, 0.05);
       margin-bottom: 1.5%;
       display: flex;
@@ -1772,7 +1772,7 @@ export default {
       }
     }
     .yqfx {
-      // flex: 1;
+      /*flex: 1;*/
       background: rgba(255, 255, 255, 0.05);
       // display: flex;
       // flex-direction: column;

@@ -55,3 +55,12 @@ export function getTourRoute(params) {
     params
   })
 }
+
+//游客VS团队（使用大佛寺数据）
+export function getGroupIndividualRate(params) {
+  return request({
+    url: 'tour/xinchang/dafosi/groupIndividualRate',
+    method: 'get',
+    params
+  })
+}
