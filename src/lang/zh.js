@@ -30,8 +30,8 @@ export default {
     traffic: '交通',
     forecast: '重点景区',
     consumption: '消费分析',
-    publicSentiment: '舆情',
-    complaint: '投诉',
+    publicSentiment: '舆情分析',
+    complaint: '投诉分析',
     specialHoliday: '特殊假日',
     portraitTourist: '游客画像',
     weatherEnvironment: '产业监测',
@@ -42,7 +42,11 @@ export default {
     doc: '首页',
     InteractivePlatform: '游新意',
     allArea: '全域旅游',
-    ss: '实时交通'
+    ss: '交通监测',
+    dfs: '大佛寺',
+    sjf: '十九峰',
+    ruralTourism: '乡村旅游',
+    relation: '关联度分析'
   },
   navbar: {
     logOut: '退出登录',

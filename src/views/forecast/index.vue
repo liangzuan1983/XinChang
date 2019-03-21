@@ -1,16 +1,6 @@
 <template>
-  <div class="forecast">
-    <!--切换-->
-    <div class="qh-box">
-      <div class="tab-box">
-        <p :class="{ss: ssback}" class="left" @click="ssEvent">大佛寺景区</p>
-        <p :class="{sj: sjback}" class="right" @click="sjEvent">十九峰景区</p>
-        <p :class="{ts: tsback}" class="right" @click="tsEvent">特殊假日</p>
-      </div>
-    </div>
-    <div class="content">
-      <router-view/>
-    </div>
+  <div>
+    <router-view/>
   </div>
 </template>
 

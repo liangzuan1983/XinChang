@@ -118,7 +118,7 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
-      let option = {
+      const option = {
         geo: {
           label: {
             emphasis: {
@@ -162,6 +162,9 @@ export default {
           },
           textStyle: {
             color: '#fff'
+          },
+          formatter: function(a, b) {
+            return a + '-' + b + '人'
           }
         },
         series: [
@@ -181,5 +184,5 @@ export default {
       this.setOptions(this.chartData)
     }
   }
-};
+}
 </script>

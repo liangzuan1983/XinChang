@@ -49,6 +49,7 @@
     "jszip": "3.1.5",
     "lib-flexible": "^0.3.2",
     "mockjs": "1.0.1-beta3",
+    "moment": "^2.24.0",
     "normalize.css": "7.0.0",
     "nprogress": "0.2.0",
     "px2rem-loader": "^0.1.9",

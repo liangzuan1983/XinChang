@@ -83,10 +83,10 @@ export default {
     },
     setOptions({ expectedData, actualData } = {}) {
       // console.log(this.chartData, '组件内')
-      let data = this.chartData;
-      this.time = data.map(element => element.date);
-      this.good = data.map(element => element.pos);
-      this.bad = data.map(element => element.neg);
+      const data = this.chartData
+      this.time = data.map(element => element.date)
+      this.good = data.map(element => element.pos)
+      this.bad = data.map(element => element.neg)
       this.chart.setOption({
         tooltip: {
           trigger: 'axis',
@@ -98,10 +98,11 @@ export default {
           }
         },
         grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '0%',
-          top: '30%',
+          x: 'center',
+          y: 'center',
+          width: '80%',
+          height: '80%',
+          top: '15%',
           containLabel: true
         },
         legend: {

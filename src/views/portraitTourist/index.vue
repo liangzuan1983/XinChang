@@ -22,7 +22,7 @@
         <!--左-->
         <div class="left">
           <!--标题-->
-          <p class="title">游客性别比例</p>
+          <p class="title">性别比例</p>
           <!--内容-->
           <div class="content">
             <!-- <ykxb :chartData='getsex' id="por" height="100%" width="100%"/> -->
@@ -63,22 +63,23 @@
         <!--右-->
         <div class="center">
           <!--标题-->
-          <p class="title">游客年龄分析</p>
+          <p class="title">年龄分析</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb :chartData='getAges' id="ykhx-nl" height="100%" width="100%"/>
+              <ykxb-xlyk v-if="yknl" :chart-data="getAges" height="100%" width="100%"/>
+              <!--<nlfb :chartData='getAges' id="ykhx-nl" height="100%" width="100%"/>-->
             </div>
           </div>
         </div>
         <!--右-->
         <div class="right">
           <!--标题-->
-          <p class="title">游客消费水平</p>
+          <p class="title">消费水平</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb-xfnl :chartData="getConsumes" id="nlfb-xfnl" height="100%" width="100%"/>
+              <nlfb-xfnl id="nlfb-xfnl" :chart-data="getConsumes" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -88,10 +89,10 @@
         <!--左-->
         <div class="left">
           <!--标题-->
-          <p class="title">游客线上偏好</p>
+          <p class="title">线上偏好</p>
           <!--内容-->
           <div class="content">
-            <nlfb-xsph v-if="aaa" :chartData='getHobbys' id="por-xsph" height="100%" width="100%"/>
+            <nlfb-xsph v-if="aaa" id="por-xsph" :chart-data="getHobbys" height="100%" width="100%"/>
           </div>
         </div>
         <!--右-->
@@ -101,18 +102,18 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <nlfb-sjzd v-if="bingIf4" :chartData='getMobilePhones' :id="ids[3]" height="100%" width="100%"/>
+              <nlfb-sjzd v-if="bingIf4" :chart-data="getMobilePhones" :id="ids[3]" height="100%" width="100%"/>
             </div>
           </div>
         </div>
         <!--右-->
         <div class="right">
           <!--标题-->
-          <p class="title">新老游客比例</p>
+          <p class="title">新老比例</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <ykxb-xlyk v-if="xxll" :chartData='getTouristsProportions' height="100%" width="100%"/>
+              <ykxb-xlyk v-if="xxll" :chart-data="getTouristsProportions" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -141,10 +142,6 @@ export default {
   components: {
     nlfb, ykxb, nlfbXfnl, nlfbXsph, nlfbSjzd, ykxbXlyk
   },
-  mounted() {
-    this.searchTime();
-    this.requestAll();
-  },
   data() {
     return {
       value6: [new Date() - 3600 * 1000 * 24 * 7, new Date()],
@@ -159,6 +156,7 @@ export default {
         start: '',
         end: ''
       },
+      yknl: false,
       getAges: [],
       getConsumes: [],
       aaa: false,
@@ -167,60 +165,64 @@ export default {
       getGenders: []
     }
   },
+  mounted() {
+    this.searchTime()
+    this.requestAll()
+  },
   methods: {
-    //计算时间
+    // 计算时间
     searchTime() {
       let start = this.dataObj.start
       let end = this.dataObj.end
-      let s_start;
-      let s_end;
-      let s_y;
-      let s_r;
-      let e_y;
-      let e_r;
+      let s_start
+      let s_end
+      let s_y
+      let s_r
+      let e_y
+      let e_r
       start = this.value6[0]
       end = this.value6[1]
-      if (typeof(start) === 'number') {
+      if (typeof (start) === 'number') {
         start = new Date(start)
       }
       if (start.getMonth() >= 0 && start.getMonth() < 10) {
-        s_y = '0' + (start.getMonth() + 1);
+        s_y = '0' + (start.getMonth() + 1)
       } else {
-        s_y = start.getMonth() + 1;
+        s_y = start.getMonth() + 1
       }
       if (end.getMonth() >= 0 && end.getMonth() < 10) {
-        e_y = '0' + (end.getMonth() + 1);
+        e_y = '0' + (end.getMonth() + 1)
       } else {
-        e_y = end.getMonth() + 1;
+        e_y = end.getMonth() + 1
       }
-      if(start.getDate() >= 0 && start.getDate() < 10) {
-        s_r = '0' + start.getDate();
+      if (start.getDate() >= 0 && start.getDate() < 10) {
+        s_r = '0' + start.getDate()
       } else {
-        s_r = start.getDate();
+        s_r = start.getDate()
       }
-      if(end.getDate() >= 0 && end.getDate() < 10) {
-        e_r = '0' + end.getDate();
+      if (end.getDate() >= 0 && end.getDate() < 10) {
+        e_r = '0' + end.getDate()
       } else {
-        e_r = end.getDate();
+        e_r = end.getDate()
       }
-      s_start = start.getFullYear() + '-' + s_y + '-' + s_r;
-      s_end = end.getFullYear() + '-' +  e_y + '-' + e_r;
+      s_start = start.getFullYear() + '-' + s_y + '-' + s_r
+      s_end = end.getFullYear() + '-' + e_y + '-' + e_r
       console.log(s_start, '开始时间2')
       console.log(s_end, '结束时间2')
-      this.dataObj.start = s_start;
+      this.dataObj.start = s_start
       this.dataObj.end = s_end
     },
     topSearch() {
-      //先把时间计算出来
-      this.searchTime();
-      //上面两个请求
-     this.requestAll()
+      // 先把时间计算出来
+      this.searchTime()
+      // 上面两个请求
+      this.requestAll()
     },
     requestAll() {
-      //1.游客性别比例
+      // 1.游客性别比例
       getGender(this.dataObj)
         .then(res => {
-          let data = res.data.data
+          const data = res.data.data
           if (res.status === 200) {
             console.log(data, '游客性别比例')
             this.getGenders = data
@@ -229,22 +231,23 @@ export default {
         .catch(err => {
           console.log(err)
         })
-      //2.游客年龄分析
+      // 2.游客年龄分析
       getAge(this.dataObj)
         .then(res => {
-          let data = res.data.data
+          const data = res.data.data
           if (res.status === 200) {
             // console.log(data, '游客年龄分析')
             this.getAges = data
+            this.yknl = true
           }
         })
         .catch(err => {
           console.log(err)
         })
-      //3.游客消费水平
+      // 3.游客消费水平
       getConsume(this.dataObj)
         .then(res => {
-          let data = res.data.data
+          const data = res.data.data
           if (res.status === 200) {
             // console.log(data, '游客消费水平')
             this.getConsumes = data
@@ -253,10 +256,10 @@ export default {
         .catch(err => {
           console.log(err)
         })
-      //4.游客线上偏好
+      // 4.游客线上偏好
       getHobby(this.dataObj)
         .then(res => {
-          let data = res.data.data
+          const data = res.data.data
           if (res.status === 200) {
             // console.log(data, '游客线上偏好')
             this.getHobbys = data
@@ -266,10 +269,10 @@ export default {
         .catch(err => {
           console.log(err)
         })
-      //5.手机终端
+      // 5.手机终端
       getMobilePhone(this.dataObj)
         .then(res => {
-          let data = res.data.data;
+          const data = res.data.data
           if (res.status === 200) {
             // console.log(data, '手机终端')
             this.getMobilePhones = data
@@ -279,10 +282,10 @@ export default {
         .catch(err => {
           console.log(err)
         })
-      //6.新老游客比例
+      // 6.新老游客比例
       getTouristsProportion(this.dataObj)
         .then(res => {
-          let data = res.data.data;
+          const data = res.data.data
           if (res.status === 200) {
             this.getTouristsProportions = data
             this.xxll = true

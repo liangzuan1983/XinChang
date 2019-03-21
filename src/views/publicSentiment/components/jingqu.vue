@@ -2,94 +2,94 @@
   <div class="jingqu">
     <!--时间选择-->
     <!-- <div class="time-box"> -->
-      <!-- <span>时间选择： </span>
+    <!-- <span>时间选择： </span>
       <el-date-picker
         v-model="value4"
         type="daterange"
         range-separator="至"
         start-placeholder="开始日期"
         end-placeholder="结束日期"/> -->
-      <!--查询-->
-      <!-- <el-button size="mini" type="primary">查询</el-button> -->
-      <!--查询-->
-      <!-- <img class="search" src="@/assets/icon/search.png" alt=""> -->
-      <!--下载-->
-      <!-- <img class="down" src="@/assets/icon/down.png" alt=""> -->
+    <!--查询-->
+    <!-- <el-button size="mini" type="primary">查询</el-button> -->
+    <!--查询-->
+    <!-- <img class="search" src="@/assets/icon/search.png" alt=""> -->
+    <!--下载-->
+    <!-- <img class="down" src="@/assets/icon/down.png" alt=""> -->
     <!-- </div> -->
     <!--内容-->
     <div class="content0">
       <!--左-->
-      <div class="left">
-        <!--内容-->
-        <div class="content">
-          <div class="amap-wrapper">
-            <el-amap vid="amapDemo" :center="mapCenter" :zoom="12" class="amap-demo">
-              <el-amap-marker v-for="(marker, index) in tourControllers" :key="index" :position="marker" ></el-amap-marker>
-            </el-amap>
-          </div>
-        </div>
-      </div>
+      <!--<div class="left">-->
+      <!--&lt;!&ndash;内容&ndash;&gt;-->
+      <!--<div class="content">-->
+      <!--<div class="amap-wrapper">-->
+      <!--<el-amap vid="amapDemo" :center="mapCenter" :zoom="12" class="amap-demo">-->
+      <!--<el-amap-marker v-for="(marker, index) in tourControllers" :key="index" :position="marker" ></el-amap-marker>-->
+      <!--</el-amap>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
       <!--右-->
       <div class="center">
         <!--标题-->
-        <div class="center-top">
-          <p class="title">近7日评论数</p>
-          <!--内容-->
-          <div class="content">
-            <!--左-->
-            <div class="left">
-              <!--上-->
-              <div class="top">
-                <p class="titles">评论总数</p>
-                <p class="num" v-if="countWeeklys">{{ countWeeklys.weeklyTotal }}条</p>
-                <p class="num" v-else>0条</p>
-              </div>
-              <!--下-->
-              <div class="bottom">
-                <div class="leftz">
-                  <p class="titles">好评数</p>
-                  <p class="num" v-if="countWeeklys">{{ countWeeklys.weeklyPos }}条</p>
-                  <p class="num" v-else>0条</p>
-                </div>
-                <div class="rightz">
-                  <p class="titles">差评数</p>
-                  <p class="num" v-if="countWeeklys.weeklyTotal-countWeeklys.weeklyPos">
-                    {{ countWeeklys.weeklyTotal-countWeeklys.weeklyPos }}条
-                  </p>
-                  <p class="num" v-else>0条</p>
-                </div>
-              </div>
-            </div>
-            <!--右-->
-            <div class="right-seven">
-              <div class="lefts">
-                <p class="titles">整体好评率</p>
-                <el-progress 
-                  v-if="countWeeklys"
-                  :stroke-width="hou" :width="cWidth" 
-                  :percentage="Number((countWeeklys.totalRate*100).toFixed(2))" 
-                  type="circle"/>
-              </div>
-              <div class="rights">
-                <p class="titles">近一周好评</p>
-                <el-progress 
-                  v-if="countWeeklys" 
-                  :stroke-width="hou" 
-                  :width="cWidth" 
-                  :percentage="Number((countWeeklys.weeklyPos/countWeeklys.weeklyTotal*100).toFixed(2))" 
-                  type="circle" 
-                  color="#8e71c7"/>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!--<div class="center-top">-->
+        <!--<p class="title">近7日评论数</p>-->
+        <!--&lt;!&ndash;内容&ndash;&gt;-->
+        <!--<div class="content">-->
+        <!--&lt;!&ndash;左&ndash;&gt;-->
+        <!--<div class="left">-->
+        <!--&lt;!&ndash;上&ndash;&gt;-->
+        <!--<div class="top">-->
+        <!--<p class="titles">评论总数</p>-->
+        <!--<p class="num" v-if="countWeeklys">{{ countWeeklys.weeklyTotal }}条</p>-->
+        <!--<p class="num" v-else>0条</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;下&ndash;&gt;-->
+        <!--<div class="bottom">-->
+        <!--<div class="leftz">-->
+        <!--<p class="titles">好评数</p>-->
+        <!--<p class="num" v-if="countWeeklys">{{ countWeeklys.weeklyPos }}条</p>-->
+        <!--<p class="num" v-else>0条</p>-->
+        <!--</div>-->
+        <!--<div class="rightz">-->
+        <!--<p class="titles">差评数</p>-->
+        <!--<p class="num" v-if="countWeeklys.weeklyTotal-countWeeklys.weeklyPos">-->
+        <!--{{ countWeeklys.weeklyTotal-countWeeklys.weeklyPos }}条-->
+        <!--</p>-->
+        <!--<p class="num" v-else>0条</p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;右&ndash;&gt;-->
+        <!--<div class="right-seven">-->
+        <!--<div class="lefts">-->
+        <!--<p class="titles">整体好评率</p>-->
+        <!--<el-progress-->
+        <!--v-if="countWeeklys"-->
+        <!--:stroke-width="hou" :width="cWidth"-->
+        <!--:percentage="Number((countWeeklys.totalRate*100).toFixed(2))"-->
+        <!--type="circle"/>-->
+        <!--</div>-->
+        <!--<div class="rights">-->
+        <!--<p class="titles">近一周好评</p>-->
+        <!--<el-progress-->
+        <!--v-if="countWeeklys"-->
+        <!--:stroke-width="hou"-->
+        <!--:width="cWidth"-->
+        <!--:percentage="Number((countWeeklys.weeklyPos/countWeeklys.weeklyTotal*100).toFixed(2))"-->
+        <!--type="circle"-->
+        <!--color="#8e71c7"/>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
         <div class="center-bottom">
           <!--标题-->
           <p class="title">近30日评论数</p>
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <haoping v-if="countMonthlysif" :chartData='countMonthlys' width="100%" height="100%"/>
+              <haoping v-if="countMonthlysif" :chart-data="countMonthlys" width="100%" height="100%"/>
             </div>
           </div>
         </div>
@@ -97,19 +97,19 @@
       <!--右-->
       <div class="right">
         <!--标题-->
-        <p class="title">评论分布</p>
-        <!--内容-->
-        <div class="content">
-          <div class="chart-wrapper">
-            <zhengfu v-if="countDistributionsif" :chartData='countDistributions' width="100%" height="100%"/>
-          </div>
-        </div>
+        <!--<p class="title">评论分布</p>-->
+        <!--&lt;!&ndash;内容&ndash;&gt;-->
+        <!--<div class="content">-->
+        <!--<div class="chart-wrapper">-->
+        <!--<zhengfu v-if="countDistributionsif" :chartData='countDistributions' width="100%" height="100%"/>-->
+        <!--</div>-->
+        <!--</div>-->
         <!--标题-->
         <p class="title">近12个月评论数</p>
         <!--内容-->
         <div class="content">
           <div class="chart-wrapper">
-            <hcdd v-if="countAnnuallysif" :chartData='countAnnuallys' width="100%" height="100%"/>
+            <hcdd v-if="countAnnuallysif" :chart-data="countAnnuallys" width="100%" height="100%"/>
           </div>
         </div>
       </div>
@@ -122,7 +122,7 @@
         <p class="title">实时新增评论</p>
         <!--内容-->
         <div class="contente">
-          <vue-seamless-scroll v-if="listData"  :data="listData" class="seamless-warp">
+          <vue-seamless-scroll v-if="listData" :data="listData" class="seamless-warp">
             <ul class="item">
               <li v-for="(item, index) in listData" :key="index" class="woshili">
                 <p class="pppp">{{ index + 1 }}</p>
@@ -131,7 +131,7 @@
                     <span class="title" v-text="item.createdate"/>
                     <span class="date">[ {{ item.tour }} {{ item.ota }} ]</span>
                   </p>
-                  <p class="neirong" v-html="item.content"></p>
+                  <p class="neirong" v-html="item.content"/>
                 </div>
               </li>
             </ul>
@@ -145,31 +145,31 @@
         <!--内容-->
         <div class="content">
           <!--每1项-->
-          <div class="one-box" v-if="getRanks[0]">
+          <div v-if="getRanks[0]" class="one-box">
             <span class="name">{{ getRanks[0].name }}</span>
             <p class="line1"/>
             <span class="num">{{ getRanks[0].good }}</span>
           </div>
           <!--每2项-->
-          <div class="one-box" v-if="getRanks[1]">
+          <div v-if="getRanks[1]" class="one-box">
             <span class="name">{{ getRanks[1].name }}</span>
             <p class="line2"/>
             <span class="num">{{ getRanks[1].good }}</span>
           </div>
           <!--每3项-->
-          <div class="one-box" v-if="getRanks[2]">
+          <div v-if="getRanks[2]" class="one-box">
             <span class="name">{{ getRanks[2].name }}</span>
             <p class="line3"/>
             <span class="num">{{ getRanks[2].good }}</span>
           </div>
           <!--每4项-->
-          <div class="one-box" v-if="getRanks[3]">
+          <div v-if="getRanks[3]" class="one-box">
             <span class="name">{{ getRanks[3].name }}</span>
             <p class="line4"/>
             <span class="num">{{ getRanks[3].good }}</span>
           </div>
           <!--每5项-->
-          <div class="one-box" v-if="getRanks[4]">
+          <div v-if="getRanks[4]" class="one-box">
             <span class="name">{{ getRanks[4].name }}</span>
             <p class="line5"/>
             <span class="num">{{ getRanks[4].good }}</span>
@@ -177,15 +177,47 @@
         </div>
       </div>
       <!--右-->
-      <div class="right">
+      <div class="center">
         <!--标题-->
-        <p class="title">评论维度分析</p>
+        <p class="title">差评率排行</p>
         <!--内容-->
         <div class="content">
-          <div class="chart-wrapper">
-            <weidu v-if="getAreaDimensionsif" :chartData='getAreaDimensions' height="100%" width="100%"/>
+          <!--每1项-->
+          <div v-if="negRanks[0]" class="one-box">
+            <span class="name">{{ negRanks[0].name }}</span>
+            <p class="line1"/>
+            <span class="num">{{ negRanks[0].negRate }}%</span>
+          </div>
+          <!--每2项-->
+          <div v-if="negRanks[1]" class="one-box">
+            <span class="name">{{ negRanks[1].name }}</span>
+            <p class="line2"/>
+            <span class="num">{{ negRanks[1].negRate }}%</span>
+          </div>
+          <!--每3项-->
+          <div v-if="negRanks[2]" class="one-box">
+            <span class="name">{{ negRanks[2].name }}</span>
+            <p class="line3"/>
+            <span class="num">{{ negRanks[2].negRate }}%</span>
+          </div>
+          <!--每4项-->
+          <div v-if="negRanks[3]" class="one-box">
+            <span class="name">{{ negRanks[3].name }}</span>
+            <p class="line4"/>
+            <span class="num">{{ negRanks[3].negRate }}%</span>
+          </div>
+          <!--每5项-->
+          <div v-if="negRanks[4]" class="one-box">
+            <span class="name">{{ negRanks[4].name }}</span>
+            <p class="line5"/>
+            <span class="num">{{ negRanks[4].negRate }}%</span>
           </div>
         </div>
+        <!--<div class="content">-->
+        <!--<div class="chart-wrapper">-->
+        <!--<weidu v-if="getAreaDimensionsif" :chartData='getAreaDimensions' height="100%" width="100%"/>-->
+        <!--</div>-->
+        <!--</div>-->
       </div>
       <!--最右-->
       <div class="rightZ">
@@ -194,7 +226,7 @@
         <!--内容-->
         <div class="content">
           <div class="chart-wrapper">
-            <meigui v-if="getAreaDimensionsif" :chartData='getAreaDimensions' height="100%" width="100%"/>
+            <meigui v-if="getAreaDimensionsif" :chart-data="getAreaDimensions" height="100%" width="100%"/>
           </div>
         </div>
       </div>
@@ -245,6 +277,7 @@ export default {
       countAnnuallys: [],
       lists: [],
       getRanks: [],
+      negRanks: [],
       getAreaDimensions: [],
       countDistributionsif: false,
       countMonthlysif: false,
@@ -253,14 +286,14 @@ export default {
     }
   },
   mounted() {
-    this.requestAll();
+    this.requestAll()
   },
   methods: {
     requestAll() {
-      //地图
+      // 地图
       tourController({ category: this.category })
         .then(res => {
-          let data = res.data.data;
+          const data = res.data.data
           if (res.status === 200) {
             console.log(data, '地图')
             this.tourControllers = data.map(element => {
@@ -274,33 +307,33 @@ export default {
         .catch(err => {
           console.log(err)
         })
-      //近7日评论数
+      // 近7日评论数
       countWeekly({ category: this.category })
         .then(res => {
-          let data = res.data.data;
-          this.countWeeklys = data;
+          const data = res.data.data
+          this.countWeeklys = data
           // console.log(data, '近7日评论数')
         })
         .catch(err => {
           console.log(err)
         })
-      //评论分析
+      // 评论分析
       countDistribution({ category: this.category })
         .then(res => {
-          let data = res.data.data;
-          this.countDistributions = data;
+          const data = res.data.data
+          this.countDistributions = data
           this.countDistributionsif = true
           // console.log(data, '评论分析')
         })
         .catch(err => {
           console.log(err)
         })
-      //近30日评论
+      // 近30日评论
       countMonthly({ category: this.category })
         .then(res => {
-          let data = res.data.data;
+          const data = res.data.data
           if (res.status === 200) {
-            this.countMonthlys = data;
+            this.countMonthlys = data
             this.countMonthlysif = true
             // console.log(data, '近30日评论')
           }
@@ -308,12 +341,12 @@ export default {
         .catch(err => {
           console.log(err)
         })
-      //近12个月评论数
+      // 近12个月评论数
       countAnnually({ category: this.category })
         .then(res => {
-          let data = res.data.data;
-          if(res.status === 200) {
-            this.countAnnuallys = data;
+          const data = res.data.data
+          if (res.status === 200) {
+            this.countAnnuallys = data
             this.countAnnuallysif = true
             // console.log(data, '近12个月评论数')
           }
@@ -321,51 +354,53 @@ export default {
         .catch(err => {
           console.log(err)
         })
-      //实时新增评论
-      list({ category: this.category})
+      // 实时新增评论
+      list({ category: this.category })
         .then(res => {
-          let data = res.data.data;
+          const data = res.data.data
           if (res.status === 200) {
-            this.listData = data;
+            this.listData = data
             // console.log(data, '实时新增评论');
           }
         })
         .catch(err => {
           console.log(err)
         })
-      //好评率排行
+      // 好评率排行
       getRank({ category: this.category })
         .then(res => {
-          let data = res.data.data;
-          let newArr =[];
-          if(res.status === 200) {
+          const data = res.data.data
+          let newArr = []
+          if (res.status === 200) {
             newArr = data.map(element => {
               return {
-                good: element.total-element.neg,
-                name: element.name
+                good: element.total - element.neg,
+                name: element.name,
+                negRate: (element.neg / element.total * 100).toFixed(2)
               }
             })
             function compare(property) {
               return function(a, b) {
-                var value1 = a[property];
-                var value2 = b[property];
-                return value2 - value1;
+                var value1 = a[property]
+                var value2 = b[property]
+                return value2 - value1
               }
             }
-            
-            this.getRanks = newArr.sort(compare('good'));
+
+            this.getRanks = newArr.sort(compare('good'))
+            this.negRanks = newArr.sort(compare('negRate'))
             // console.log(this.getRanks, '好评率排行')
           }
         })
         .catch(err => {
           console.log(err)
         })
-      //8.评论维度分析 9.差评分析
+      // 8.评论维度分析 9.差评分析
       getAreaDimension({ category: this.category })
         .then(res => {
-          let data = res.data.data;
+          const data = res.data.data
           if (res.status === 200) {
-            this.getAreaDimensions = data;
+            this.getAreaDimensions = data
             this.getAreaDimensionsif = true
             // console.log(data, '评论维度分析+差评分析')
           }

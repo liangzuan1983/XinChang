@@ -26,29 +26,29 @@
             <!--标题-->
             <p class="title-box">
               <span class="title">游客消费</span>
-              <el-radio-group v-model="tabPosition" size="mini">
-                <el-radio-button label="top">消费金额</el-radio-button>
-                <el-radio-button label="right">交易笔数</el-radio-button>
-                <el-radio-button label="bottom">单笔消费金额</el-radio-button>
-                <el-radio-button label="left">人均消费金额</el-radio-button>
-              </el-radio-group>
+              <!--<el-radio-group v-model="tabPosition" size="mini">-->
+              <!--<el-radio-button label="top">消费金额</el-radio-button>-->
+              <!--<el-radio-button label="right">交易笔数</el-radio-button>-->
+              <!--<el-radio-button label="bottom">单笔消费金额</el-radio-button>-->
+              <!--<el-radio-button label="left">人均消费金额</el-radio-button>-->
+              <!--</el-radio-group>-->
             </p>
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
-                <holiday-kl-zhus :chartData='getConsumeTourisms' height="100%" width="100%"/>
+                <holiday-kl-zhus :chart-data="getConsumeTourisms" height="100%" width="100%"/>
               </div>
             </div>
           </div>
           <!--右-->
           <div class="right">
             <!--标题-->
-            <p class="title">游客消费占比</p>
+            <p class="title">行业消费</p>
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
                 <!-- <nlfb :chartData='getConsumeSources' height="100%" width="100%"/> -->
-                <xfzhe :chartData='getTrades' height="100%" width="100%"/>
+                <xfzhe :chart-data="getTrades" height="100%" width="100%"/>
               </div>
             </div>
           </div>
@@ -63,73 +63,73 @@
             <div class="content">
               <div class="chart-wrapper">
                 <!-- <xfzhe :chartData='getTrades' height="100%" width="100%"/> -->
-                <yi-zhou v-if="weekly" :chartData="kydxq" id="kydxq" height="100%" width="100%"/>
+                <yi-zhou v-if="weekly" id="kydxq" :chart-data="kydxq" height="100%" width="100%"/>
               </div>
             </div>
           </div>
           <!--右-->
           <div class="right">
             <!--标题-->
-            <p class="title">行业消费占比</p>
+            <p class="title">消费者来源地</p>
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
                 <!-- <ykxb :chartData='getTypes' height="100%" width="100%"/> -->
-                <div class="one-box" v-if="town[0]">
+                <div v-if="town[0]" class="one-box">
                   <span class="name">{{ town[0].subject }}</span>
                   <p class="line1"/>
                   <span class="num">{{ town[0].value }}</span>
                 </div>
                 <!--每2项-->
-                <div class="one-box" v-if="town[1]">
+                <div v-if="town[1]" class="one-box">
                   <span class="name">{{ town[1].subject }}</span>
                   <p class="line2"/>
                   <span class="num">{{ town[1].value }}</span>
                 </div>
                 <!--每3项-->
-                <div class="one-box" v-if="town[2]">
+                <div v-if="town[2]" class="one-box">
                   <span class="name">{{ town[2].subject }}</span>
                   <p class="line3"/>
                   <span class="num">{{ town[2].value }}</span>
                 </div>
                 <!--每4项-->
-                <div class="one-box" v-if="town[3]">
+                <div v-if="town[3]" class="one-box">
                   <span class="name">{{ town[3].subject }}</span>
                   <p class="line4"/>
                   <span class="num">{{ town[3].value }}</span>
                 </div>
                 <!--每5项-->
-                <div class="one-box" v-if="town[4]">
+                <div v-if="town[4]" class="one-box">
                   <span class="name">{{ town[4].subject }}</span>
                   <p class="line5"/>
                   <span class="num">{{ town[4].value }}</span>
                 </div>
                 <!--每6项-->
-                <div class="one-box" v-if="town[5]">
+                <div v-if="town[5]" class="one-box">
                   <span class="name">{{ town[5].subject }}</span>
                   <p class="line6"/>
                   <span class="num">{{ town[5].value }}</span>
                 </div>
                 <!--每7项-->
-                <div class="one-box" v-if="town[6]">
+                <div v-if="town[6]" class="one-box">
                   <span class="name">{{ town[6].subject }}</span>
                   <p class="line7"/>
                   <span class="num">{{ town[6].value }}</span>
                 </div>
                 <!--每8项-->
-                <div class="one-box" v-if="town[7]">
+                <div v-if="town[7]" class="one-box">
                   <span class="name">{{ town[7].subject }}</span>
                   <p class="line8"/>
                   <span class="num">{{ town[7].value }}</span>
                 </div>
                 <!--每9项-->
-                <div class="one-box" v-if="town[8]">
+                <div v-if="town[8]" class="one-box">
                   <span class="name">{{ town[8].subject }}</span>
                   <p class="line9"/>
                   <span class="num">{{ town[8].value }}</span>
                 </div>
                 <!--每10项-->
-                <div class="one-box" v-if="town[9]">
+                <div v-if="town[9]" class="one-box">
                   <span class="name">{{ town[9].subject }}</span>
                   <p class="line10"/>
                   <span class="num">{{ town[9].value }}</span>
@@ -147,39 +147,40 @@
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
+                <ykxb :chart-data="getGenders" height="100%" width="100%"/>
                 <!-- <xfzhe :chartData='getTrades' height="100%" width="100%"/> -->
-                <div class="sex-box" style="margin-top:50px;">
-                  <div class="left-box">
-                    <div class="top">
-                      <img src="@/assets/fmcstm.png" alt="">
-                      <div class="right-box">
-                        <p class="title">女性游客</p>
-                        <p class="text-box"><span class="num">{{ getGenders[0].value }}</span><span class="unit">个</span></p>
-                      </div>
-                    </div>
-                    <div class="bottom">
-                      <p class="title">占比</p>
-                      <p class="num">
-                        {{ ((getGenders[0].value / (getGenders[0].value + getGenders[1].value))*100).toFixed(2) }}%
-                      </p>
-                    </div>
-                  </div>
-                  <div class="right-box">
-                    <div class="top">
-                      <img src="@/assets/mcstm.png" alt="">
-                      <div class="right-box">
-                        <p class="title">男性游客</p>
-                        <p class="text-box"><span class="num">{{ getGenders[1].value }}</span><span class="unit">个</span></p>
-                      </div>
-                    </div>
-                    <div class="bottom">
-                      <p class="title">占比</p>
-                      <p class="num">
-                        {{ ((getGenders[1].value / (getGenders[0].value + getGenders[1].value))*100).toFixed(2) }}%
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <!--<div class="sex-box" style="margin-top:50px;">-->
+                <!--<div class="left-box">-->
+                <!--<div class="top">-->
+                <!--<img src="@/assets/fmcstm.png" alt="">-->
+                <!--<div class="right-box">-->
+                <!--<p class="title">女性游客</p>-->
+                <!--<p class="text-box"><span class="num">{{ getGenders[0].value }}</span><span class="unit">个</span></p>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="bottom">-->
+                <!--<p class="title">占比</p>-->
+                <!--<p class="num">-->
+                <!--{{ ((getGenders[0].value / (getGenders[0].value + getGenders[1].value))*100).toFixed(2) }}%-->
+                <!--</p>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="right-box">-->
+                <!--<div class="top">-->
+                <!--<img src="@/assets/mcstm.png" alt="">-->
+                <!--<div class="right-box">-->
+                <!--<p class="title">男性游客</p>-->
+                <!--<p class="text-box"><span class="num">{{ getGenders[1].value }}</span><span class="unit">个</span></p>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="bottom">-->
+                <!--<p class="title">占比</p>-->
+                <!--<p class="num">-->
+                <!--{{ ((getGenders[1].value / (getGenders[0].value + getGenders[1].value))*100).toFixed(2) }}%-->
+                <!--</p>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
               </div>
             </div>
           </div>
@@ -190,8 +191,8 @@
             <!--内容-->
             <div class="content">
               <div class="chart-wrapper">
-                <!-- <ykxb :chartData='getTypes' height="100%" width="100%"/> -->
-                <nlfbs :chartData='getAges' id="ykhx-nl" height="100%" width="100%"/>
+                <ykxb :chart-data="getAges" height="100%" width="100%"/>
+                <!--<nlfbs :chartData='getAges' id="ykhx-nl" height="100%" width="100%"/>-->
               </div>
             </div>
           </div>
@@ -203,17 +204,19 @@
 
 <script>
 import {
-  getAge,
+  getAge
 } from '@/api/port'
 import nlfbs from '@/components/Charts/holiday-nlfb'
 import nlfb from '@/components/Charts/consumption-nlfb'
 import HolidayKlZhus from '@/components/Charts/holiday-kl-zhus'
 import xfzhe from '@/components/Charts/holiday-xf-zhe'
-import ykxb from '@/components/Charts/consumption-xiaofei'
+// import ykxb from '@/components/Charts/consumption-xiaofei'
+import ykxb from '@/components/Charts/holiday-xlyk'
+
 import YiZhou from '@/views/dashboard/admin/components/YiZhou'
 import { getConsumeTourism, getConsumeSource, getTrade, getType, weekly } from '@/api/consumption'
-import { 
-  getTouristCounty,
+import {
+  getTouristCounty
 } from '@/api/flow'
 import {
   getGender
@@ -245,64 +248,64 @@ export default {
     }
   },
   mounted() {
-    //先算时间
+    // 先算时间
     this.searchTime()
     this.requestAll()
   },
   methods: {
-    //计算时间
+    // 计算时间
     searchTime() {
       let start = this.dataObj.start
       let end = this.dataObj.end
-      let s_start;
-      let s_end;
-      let s_y;
-      let s_r;
-      let e_y;
-      let e_r;
+      let s_start
+      let s_end
+      let s_y
+      let s_r
+      let e_y
+      let e_r
       start = this.value6[0]
       end = this.value6[1]
-      if (typeof(start) === 'number') {
+      if (typeof (start) === 'number') {
         start = new Date(start)
       }
       if (start.getMonth() >= 0 && start.getMonth() < 10) {
-        s_y = '0' + (start.getMonth() + 1);
+        s_y = '0' + (start.getMonth() + 1)
       } else {
-        s_y = start.getMonth() + 1;
+        s_y = start.getMonth() + 1
       }
       if (end.getMonth() >= 0 && end.getMonth() < 10) {
-        e_y = '0' + (end.getMonth() + 1);
+        e_y = '0' + (end.getMonth() + 1)
       } else {
-        e_y = end.getMonth() + 1;
+        e_y = end.getMonth() + 1
       }
-      if(start.getDate() >= 0 && start.getDate() < 10) {
-        s_r = '0' + start.getDate();
+      if (start.getDate() >= 0 && start.getDate() < 10) {
+        s_r = '0' + start.getDate()
       } else {
-        s_r = start.getDate();
+        s_r = start.getDate()
       }
-      if(end.getDate() >= 0 && end.getDate() < 10) {
-        e_r = '0' + end.getDate();
+      if (end.getDate() >= 0 && end.getDate() < 10) {
+        e_r = '0' + end.getDate()
       } else {
-        e_r = end.getDate();
+        e_r = end.getDate()
       }
-      s_start = start.getFullYear() + '-' + s_y + '-' + s_r;
-      s_end = end.getFullYear() + '-' +  e_y + '-' + e_r;
+      s_start = start.getFullYear() + '-' + s_y + '-' + s_r
+      s_end = end.getFullYear() + '-' + e_y + '-' + e_r
       console.log(s_start, '开始时间2')
       console.log(s_end, '结束时间2')
-      this.dataObj.start = s_start;
+      this.dataObj.start = s_start
       this.dataObj.end = s_end
     },
-    //点击日期事件
+    // 点击日期事件
     dataSearch() {
       this.searchTime()
       this.requestAll()
     },
-    //全部四个请求
+    // 全部四个请求
     requestAll() {
-      //1.游客性别比例
+      // 1.游客性别比例
       getGender(this.dataObj)
         .then(res => {
-          let data = res.data.data
+          const data = res.data.data
           if (res.status === 200) {
             console.log(data, '游客性别比例')
             this.getGenders = data
@@ -311,10 +314,10 @@ export default {
         .catch(err => {
           console.log(err)
         })
-        //2.游客年龄分析
+        // 2.游客年龄分析
       getAge(this.dataObj)
         .then(res => {
-          let data = res.data.data
+          const data = res.data.data
           if (res.status === 200) {
             // console.log(data, '游客年龄分析')
             this.getAges = data
@@ -326,7 +329,7 @@ export default {
       // 游客来源地top10县城
       getTouristCounty(this.dataObj)
         .then(res => {
-          let data = res.data.data
+          const data = res.data.data
           if (res.status === 200) {
             // console.log(data, 'xxx')
             this.town = data
@@ -339,7 +342,7 @@ export default {
       weekly()
         .then(res => {
           const data = res.data.data
-          if(res.status === 200) {
+          if (res.status === 200) {
             this.kydxq = data
             this.weekly = true
           }
@@ -347,23 +350,23 @@ export default {
         .catch(err => {
           console.log(err)
         })
-      //游客消费
+      // 游客消费
       getConsumeTourism(this.dataObj)
         .then(res => {
-          let data = res.data.data
+          const data = res.data.data
           if (res.status === 200) {
             // console.log(data, '游客消费')
             this.getConsumeTourisms = data
-          } 
+          }
         })
         .catch(err => {
           console.log(err)
         })
-      //游客消费占比
+      // 游客消费占比
       getConsumeSource(this.dataObj)
         .then(res => {
-          let data = res.data.data
-          if(res.status === 200) {
+          const data = res.data.data
+          if (res.status === 200) {
             // console.log(data, '游客消费占比')
             this.getConsumeSources = data
           }
@@ -371,11 +374,11 @@ export default {
         .catch(err => {
           console.log(err)
         })
-      //行业消费
+      // 行业消费
       getTrade(this.dataObj)
         .then(res => {
-          let data = res.data.data
-          if(res.status === 200) {
+          const data = res.data.data
+          if (res.status === 200) {
             console.log(data, '行业消费')
             this.getTrades = data
           }
@@ -383,11 +386,11 @@ export default {
         .catch(err => {
           console.log(err)
         })
-      //行业消费占比
+      // 行业消费占比
       getType(this.dataObj)
         .then(res => {
-          let data = res.data.data
-          if(res.status === 200) {
+          const data = res.data.data
+          if (res.status === 200) {
             // console.log(data, '行业消费占比')
             this.getTypes = data
           }
@@ -904,5 +907,4 @@ export default {
   }
 }
 </style>
-
 

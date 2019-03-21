@@ -30,7 +30,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <skkl v-if="dfsScenicFlowsDfs" :chartData='dfsScenicFlowDfs' id="skkl" height="100%" width="100%"/>
+              <skkl v-if="dfsScenicFlowsDfs" id="skkl" :chart-data="dfsScenicFlowDfs" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -160,85 +160,75 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="vehicleSource[0]">
+            <div v-if="vehicleSource[0]" class="one-box">
               <span class="name">{{ vehicleSource[0].subject }}</span>
               <p class="line1"/>
               <span class="num">{{ vehicleSource[0].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每2项-->
-            <div class="one-box" v-if="vehicleSource[1]">
+            <div v-if="vehicleSource[1]" class="one-box">
               <span class="name">{{ vehicleSource[1].subject }}</span>
               <p class="line2"/>
               <span class="num">{{ vehicleSource[1].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每3项-->
-            <div class="one-box" v-if="vehicleSource[2]">
+            <div v-if="vehicleSource[2]" class="one-box">
               <span class="name">{{ vehicleSource[2].subject }}</span>
               <p class="line3"/>
               <span class="num">{{ vehicleSource[2].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每4项-->
-            <div class="one-box" v-if="vehicleSource[3]">
+            <div v-if="vehicleSource[3]" class="one-box">
               <span class="name">{{ vehicleSource[3].subject }}</span>
               <p class="line4"/>
               <span class="num">{{ vehicleSource[3].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每5项-->
-            <div class="one-box" v-if="vehicleSource[4]">
+            <div v-if="vehicleSource[4]" class="one-box">
               <span class="name">{{ vehicleSource[4].subject }}</span>
               <p class="line5"/>
               <span class="num">{{ vehicleSource[4].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每6项-->
-            <div class="one-box" v-if="vehicleSource[5]">
+            <div v-if="vehicleSource[5]" class="one-box">
               <span class="name">{{ vehicleSource[5].subject }}</span>
               <p class="line6"/>
               <span class="num">{{ vehicleSource[5].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每7项-->
-            <div class="one-box" v-if="vehicleSource[6]">
+            <div v-if="vehicleSource[6]" class="one-box">
               <span class="name">{{ vehicleSource[6].subject }}</span>
               <p class="line7"/>
               <span class="num">{{ vehicleSource[6].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每8项-->
-            <div class="one-box" v-if="vehicleSource[7]">
+            <div v-if="vehicleSource[7]" class="one-box">
               <span class="name">{{ vehicleSource[7].subject }}</span>
               <p class="line8"/>
               <span class="num">{{ vehicleSource[7].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每9项-->
-            <div class="one-box" v-if="vehicleSource[8]">
+            <div v-if="vehicleSource[8]" class="one-box">
               <span class="name">{{ vehicleSource[8].subject }}</span>
               <p class="line9"/>
               <span class="num">{{ vehicleSource[8].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每10项-->
-            <div class="one-box" v-if="vehicleSource[9]">
+            <div v-if="vehicleSource[9]" class="one-box">
               <span class="name">{{ vehicleSource[9].subject }}</span>
               <p class="line10"/>
               <span class="num">{{ vehicleSource[9].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
           </div>
         </div>
         <!--年龄-->
@@ -248,45 +238,40 @@
           <!--内容-->
           <div class="content1">
             <!--每1项-->
-            <div class="one-box" v-if="dfsTouristSource[0]">
+            <div v-if="dfsTouristSource[0]" class="one-box">
               <span class="name">{{ dfsTouristSource[0].subject }}</span>
               <p class="line1"/>
               <span class="num">{{ dfsTouristSource[0].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每2项-->
-            <div class="one-box" v-if="dfsTouristSource[1]">
+            <div v-if="dfsTouristSource[1]" class="one-box">
               <span class="name">{{ dfsTouristSource[1].subject }}</span>
               <p class="line2"/>
               <span class="num">{{ dfsTouristSource[1].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每3项-->
-            <div class="one-box" v-if="dfsTouristSource[2]">
+            <div v-if="dfsTouristSource[2]" class="one-box">
               <span class="name">{{ dfsTouristSource[2].subject }}</span>
               <p class="line3"/>
               <span class="num">{{ dfsTouristSource[2].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每4项-->
-            <div class="one-box" v-if="dfsTouristSource[3]">
+            <div v-if="dfsTouristSource[3]" class="one-box">
               <span class="name">{{ dfsTouristSource[3].subject }}</span>
               <p class="line4"/>
               <span class="num">{{ dfsTouristSource[3].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每5项-->
-            <div class="one-box" v-if="dfsTouristSource[4]">
+            <div v-if="dfsTouristSource[4]" class="one-box">
               <span class="name">{{ dfsTouristSource[4].subject }}</span>
               <p class="line5"/>
               <span class="num">{{ dfsTouristSource[4].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
           </div>
         </div>
         <!--游客线上偏好-->
@@ -330,7 +315,7 @@
           <!--内容-->
           <div class="content">
             <div class="chart-wrapper">
-              <dsdd id="dsdd" v-if="onlionOrderDfss" :chartData='onlionOrderDfs' height="100%" width="100%"/>
+              <dsdd v-if="onlionOrderDfss" id="dsdd" :chart-data="onlionOrderDfs" height="100%" width="100%"/>
               <!-- <skkl v-if="dfsScenicFlows" :chartData='dfsScenicFlow' id="skkl2" height="100%" width="100%"/> -->
             </div>
           </div>
@@ -351,45 +336,40 @@
           <!--内容-->
           <div class="content">
             <!--每1项-->
-            <div class="one-box" v-if="clientSourceDfs[0]">
+            <div v-if="clientSourceDfs[0]" class="one-box">
               <span class="name">{{ clientSourceDfs[0].subject }}</span>
               <p class="line1"/>
               <span class="num">{{ clientSourceDfs[0].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每2项-->
-            <div class="one-box" v-if="clientSourceDfs[1]">
+            <div v-if="clientSourceDfs[1]" class="one-box">
               <span class="name">{{ clientSourceDfs[1].subject }}</span>
               <p class="line2"/>
               <span class="num">{{ clientSourceDfs[1].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每3项-->
-            <div class="one-box" v-if="clientSourceDfs[2]">
+            <div v-if="clientSourceDfs[2]" class="one-box">
               <span class="name">{{ clientSourceDfs[2].subject }}</span>
               <p class="line3"/>
               <span class="num">{{ clientSourceDfs[2].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每4项-->
-            <div class="one-box" v-if="clientSourceDfs[3]">
+            <div v-if="clientSourceDfs[3]" class="one-box">
               <span class="name">{{ clientSourceDfs[3].subject }}</span>
               <p class="line4"/>
               <span class="num">{{ clientSourceDfs[3].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
             <!--每5项-->
-            <div class="one-box" v-if="clientSourceDfs[4]">
+            <div v-if="clientSourceDfs[4]" class="one-box">
               <span class="name">{{ clientSourceDfs[4].subject }}</span>
               <p class="line5"/>
               <span class="num">{{ clientSourceDfs[4].value }}</span>
             </div>
-            <div class="one-box" v-else>
-            </div>
+            <div v-else class="one-box"/>
           </div>
         </div>
       </div>
@@ -428,17 +408,17 @@
 </template>
 
 <script>
-import skkl from "@/components/Charts/holiday-kl-skkl";
-import tdkl from "@/components/Charts/holiday-kl-tdkl";
-import dsdd from "@/components/Charts/holiday-kl-dsdd";
-import ykxbXsqd from "@/components/Charts/holiday-xsqd";
-import nlfb from "@/components/Charts/holiday-nlfb";
-import nlfbQdgg from "@/components/Charts/holiday-qdgg";
-import nlfbDdly from "@/components/Charts/dfs-ddly";
-import xfzhe from "@/components/Charts/holiday-xf-zhe";
-import YiZhou from "@/views/dashboard/admin/components/YiZhou";
-import PieChartFull from "@/views/dashboard/admin/components/dfs";
-import { mapGetters } from "vuex";
+import skkl from '@/components/Charts/holiday-kl-skkl'
+import tdkl from '@/components/Charts/holiday-kl-tdkl'
+import dsdd from '@/components/Charts/holiday-kl-dsdd'
+import ykxbXsqd from '@/components/Charts/holiday-xsqd'
+import nlfb from '@/components/Charts/holiday-nlfb'
+import nlfbQdgg from '@/components/Charts/holiday-qdgg'
+import nlfbDdly from '@/components/Charts/dfs-ddly'
+import xfzhe from '@/components/Charts/holiday-xf-zhe'
+import YiZhou from '@/views/dashboard/admin/components/YiZhou'
+import PieChartFull from '@/views/dashboard/admin/components/dfs'
+import { mapGetters } from 'vuex'
 import {
   wechatSj,
   sjfSanke,
@@ -452,7 +432,7 @@ import {
   saleChannelSjf,
   onlionOrderSjf,
   clientSourceSjf
-} from "@/api/forecast-sjf";
+} from '@/api/forecast-sjf'
 export default {
   components: {
     skkl,
@@ -470,51 +450,51 @@ export default {
     return {
       years: [
         {
-          value: "选项1",
-          label: "2014"
+          value: '选项1',
+          label: '2014'
         },
         {
-          value: "选项2",
-          label: "2015"
+          value: '选项2',
+          label: '2015'
         },
         {
-          value: "选项3",
-          label: "2016"
+          value: '选项3',
+          label: '2016'
         },
         {
-          value: "选项4",
-          label: "2017"
+          value: '选项4',
+          label: '2017'
         },
         {
-          value: "选项5",
-          label: "2018"
+          value: '选项5',
+          label: '2018'
         }
       ],
-      yearsDefault: "2018",
+      yearsDefault: '2018',
       holiday: [
         {
-          value: "选项1",
-          label: "新年"
+          value: '选项1',
+          label: '新年'
         },
         {
-          value: "选项2",
-          label: "圣诞节"
+          value: '选项2',
+          label: '圣诞节'
         },
         {
-          value: "选项3",
-          label: "元旦"
+          value: '选项3',
+          label: '元旦'
         },
         {
-          value: "选项4",
-          label: "端午节"
+          value: '选项4',
+          label: '端午节'
         },
         {
-          value: "选项5",
-          label: "国庆节"
+          value: '选项5',
+          label: '国庆节'
         }
       ],
-      holidayDefault: "国庆节",
-      ids: ["bing1", "bing2", "bing3", "bing4", "bing5", "bing6"],
+      holidayDefault: '国庆节',
+      ids: ['bing1', 'bing2', 'bing3', 'bing4', 'bing5', 'bing6'],
       bingIf1: true,
       bingIf2: true,
       bingIf3: true,
@@ -525,8 +505,8 @@ export default {
       value4: [new Date() - 3600 * 1000 * 24 * 7, new Date()],
       kydxqs: false,
       dataObj: {
-        start: "",
-        end: ""
+        start: '',
+        end: ''
       },
       dfsSanke: [],
       dfsTeam: [],
@@ -543,177 +523,177 @@ export default {
       onlionOrderDfs: [],
       onlionOrderDfss: false,
       clientSourceDfs: []
-    };
+    }
   },
   mounted() {
-    this.$store.dispatch("getCity");
-    this.defaultDate();
-    this.initRequest();
+    this.$store.dispatch('getCity')
+    this.defaultDate()
+    this.initRequest()
   },
   computed: {
-    ...mapGetters(["getcity10"])
+    ...mapGetters(['getcity10'])
   },
   methods: {
     defaultDate() {
-      let start;
-      let end;
-      let _start = new Date(this.value4[0]);
-      let _end = this.value4[1];
+      let start
+      let end
+      const _start = new Date(this.value4[0])
+      const _end = this.value4[1]
       // console.log(_start, '111')
       // console.log(_end, '222')
-      let s_y = _start.getMonth() + 1;
-      let s_r = _start.getDate();
-      let e_y = _end.getMonth() + 1;
-      let e_r = _end.getDate();
+      let s_y = _start.getMonth() + 1
+      let s_r = _start.getDate()
+      let e_y = _end.getMonth() + 1
+      let e_r = _end.getDate()
       // 开始月
       if (s_y > 0 && s_y < 10) {
-        s_y = "0" + s_y;
+        s_y = '0' + s_y
       } else {
-        s_y = s_y;
+        s_y = s_y
       }
       // 开始日
       if (s_r > 0 && s_r < 10) {
-        s_r = "0" + s_r;
+        s_r = '0' + s_r
       } else {
-        s_r = s_r;
+        s_r = s_r
       }
       // 结束月
       if (e_y > 0 && e_y < 10) {
-        e_y = "0" + e_y;
+        e_y = '0' + e_y
       } else {
-        e_y = e_y;
+        e_y = e_y
       }
       // 结束日
       if (e_r > 0 && e_r < 10) {
-        e_r = "0" + e_r;
+        e_r = '0' + e_r
       } else {
-        e_r = e_r;
+        e_r = e_r
       }
-      start = _start.getFullYear() + "-" + s_y + "-" + s_r;
-      end = _end.getFullYear() + "-" + e_y + "-" + e_r;
+      start = _start.getFullYear() + '-' + s_y + '-' + s_r
+      end = _end.getFullYear() + '-' + e_y + '-' + e_r
       // console.log(start, '开始时间')
       // console.log(end, '结束时间')
-      this.dataObj.start = start;
-      this.dataObj.end = end;
+      this.dataObj.start = start
+      this.dataObj.end = end
     },
     initRequest() {
       // 投诉
       wechatSj(this.dataObj)
         .then(res => {
           // console.log(res)
-          const data = res.data.data;
+          const data = res.data.data
           if (res.status === 200) {
-            this.kydxq = data;
-            this.kydxqs = true;
+            this.kydxq = data
+            this.kydxqs = true
           }
         })
         .catch(err => {
-          console.log(err);
-        });
+          console.log(err)
+        })
       // 大佛寺散客
       sjfSanke()
         .then(res => {
-          const data = res.data.data;
+          const data = res.data.data
           if (res.status === 200) {
-            this.dfsSanke = data;
+            this.dfsSanke = data
           }
         })
         .catch(err => {
-          console.log(err);
-        });
-      //大佛寺团队
+          console.log(err)
+        })
+      // 大佛寺团队
       sjfTeam()
         .then(res => {
-          const data = res.data.data;
+          const data = res.data.data
           if (res.status === 200) {
-            this.dfsTeam = data;
+            this.dfsTeam = data
           }
         })
         .catch(err => {
-          console.log(err);
-        });
-      //大佛寺来源地
+          console.log(err)
+        })
+      // 大佛寺来源地
       sjfSource()
         .then(res => {
-          const data = res.data.data;
+          const data = res.data.data
           if (res.status === 200) {
-            this.dfsSource = data;
+            this.dfsSource = data
           }
         })
         .catch(err => {
-          console.log(err);
-        });
+          console.log(err)
+        })
       // 大佛寺散客票型分析
       sankeTypeSjf(this.dataObj)
         .then(res => {
-          const data = res.data.data;
+          const data = res.data.data
           if (res.status === 200) {
-            this.sankeDfs = data;
+            this.sankeDfs = data
             // this.sankeDfss = true
             // console.log(data)
           }
         })
         .catch(err => {
-          console.log(err);
-        });
+          console.log(err)
+        })
       // 大佛寺游客客源地
       SjfTouristSource(this.dataObj)
         .then(res => {
-          const data = res.data.data;
+          const data = res.data.data
           if (res.status === 200) {
             // console.log(data, '111111')
-            this.dfsTouristSource = data;
+            this.dfsTouristSource = data
           }
         })
         .catch(err => {
-          console.log(err);
-        });
+          console.log(err)
+        })
       // 大佛寺景区客流
       dfsScenicFlowSjf(this.dataObj)
         .then(res => {
-          const data = res.data.data;
+          const data = res.data.data
           if (res.status === 200) {
             // console.log(data, '1111112')
             // this.dfsScenicFlow = []
-            this.dfsScenicFlowDfs = data;
-            this.dfsScenicFlowsDfs = true;
+            this.dfsScenicFlowDfs = data
+            this.dfsScenicFlowsDfs = true
           }
         })
         .catch(err => {
-          console.log(err);
-        });
+          console.log(err)
+        })
       // 大佛寺散客团队分析
       groupIndividualRateSjf(this.dataObj)
         .then(res => {
-          const data = res.data.data;
+          const data = res.data.data
           if (res.status === 200) {
             // console.log(data)
-            this.groupIndividualRateDfs = data;
-            this.groupIndividualRateDfss = true;
+            this.groupIndividualRateDfs = data
+            this.groupIndividualRateDfss = true
           }
         })
         .catch(err => {
-          console.log(res);
-        });
+          console.log(res)
+        })
       // 大佛寺车辆来源地排行
       vehicleSourceSjf(this.dataObj)
         .then(res => {
-          const data = res.data.data;
+          const data = res.data.data
           if (res.status === 200) {
-            this.vehicleSource = data;
+            this.vehicleSource = data
           }
         })
         .catch(err => {
-          console.log(err);
-        });
+          console.log(err)
+        })
       // 大佛寺销售渠道
       saleChannelSjf(this.dataObj)
         .then(res => {
-        const data = res.data.data
-        if (res.status === 200) {
+          const data = res.data.data
+          if (res.status === 200) {
           // console.log(data, '11111111111')
-          this.saleChannelDfs = data
-        }
+            this.saleChannelDfs = data
+          }
         }).catch(err => {
           console.log(res)
         })
@@ -721,7 +701,7 @@ export default {
       onlionOrderSjf(this.dataObj)
         .then(res => {
           const data = res.data.data
-          if(res.status === 200) {
+          if (res.status === 200) {
             // console.log(data, '11111111112')
             this.onlionOrderDfs = data
             this.onlionOrderDfss = true
@@ -744,24 +724,25 @@ export default {
         })
     },
     query() {
-      this.defaultDate();
+      this.defaultDate()
       // console.log(this.dataObj, '日期是多少')
-      this.initRequest();
+      this.initRequest()
     }
   }
-};
+}
 </script>
 
 <style lang="scss">
 .sjf {
-  position: relative;
-  z-index: 999;
   width: 100%;
   height: 100%;
-  // padding: 1%;
-  // margin: 1.5%;
   // display: flex;
   // flex-direction: column;
+  position: relative;
+  z-index: 999;
+  margin: 1.5%;
+  padding: 1%;
+  background: rgba(255, 255, 255, 0.05);
   overflow-y: overlay;
   .el-date-editor .el-range-separator {
     padding: 0 !important;

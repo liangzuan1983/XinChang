@@ -82,8 +82,8 @@ export default {
     },
     setOptions({ expectedData, actualData } = {}) {
       // console.log(this.chartData, '新老游客比例');
-      let data = this.chartData;
-      this.name = data.map(element => element.subject);
+      const data = this.chartData
+      this.name = data.map(element => element.subject)
       this.newData = data.map(element => {
         return {
           value: element.value,
@@ -93,7 +93,7 @@ export default {
       this.chart.setOption({
         tooltip: {
           trigger: 'item',
-          formatter: '{a} <br/>{b} : {c} ({d}%)'
+          formatter: '{b} : {c} ({d}%)'
         },
         legend: {
           orient: 'vertical',
@@ -105,7 +105,6 @@ export default {
         },
         series: [
           {
-            name: '新老游客比例',
             type: 'pie',
             radius: '55%',
             center: ['50%', '60%'],

@@ -84,7 +84,7 @@ export const constantRouterMap = [
     children: [
       {
         path: 'PassengerFlowAnalysis', // 客流
-        component: () => import("@/views/PassengerFlowAnalysis"),
+        component: () => import('@/views/PassengerFlowAnalysis'),
         name: 'PassengerFlowAnalysis',
         meta: { title: 'PassengerFlowAnalysis', noCache: true }
       },
@@ -101,6 +101,12 @@ export const constantRouterMap = [
         meta: { title: 'portraitTourist', noCache: true }
       },
       {
+        path: 'relation', // 关联度分析
+        component: () => import('@/views/relation/index'),
+        name: 'relation',
+        meta: { title: 'relation', noCache: true }
+      },
+      {
         path: 'ss', // 实时交通
         component: () => import('@/views/traffic/components/ss'),
         name: 'ss',
@@ -109,30 +115,43 @@ export const constantRouterMap = [
     ]
   },
   {
-    path: '/traffic', // 交通
+    path: '/forecast', // 重点景区
     component: Layout,
-    redirect: '/traffic/index/ss',
-    meta: { title: 'traffic', icon: 'guide', noCache: true },
+    meta: { title: 'forecast', icon: 'example', noCache: true },
+    children: [
+      {
+        path: 'dfs', // 大佛寺
+        // component: () => import('@/views/forecast/components/dfs'), //修改前
+        component: () => import('@/views/forecast/dfs'), // 修改后
+        name: 'dfs',
+        meta: { title: 'dfs', noCache: true }
+      },
+      {
+        path: 'sjf', // 十九峰
+        // component: () => import('@/views/forecast/components/sjf'), //修改前
+        component: () => import('@/views/forecast/sjf'), // 修改后
+        name: 'sjf',
+        meta: { title: 'sjf', noCache: true }
+      },
+      {
+        path: 'specialHoliday', // 特殊假日
+        // component: () => import('@/views/specialHoliday/index'), // 修改前
+        component: () => import('@/views/forecast/specialHoliday'), // 修改后
+        name: 'specialHoliday',
+        meta: { title: 'specialHoliday', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/ruralTourism', // 乡村旅游
+    component: Layout,
+    redirect: '/ruralTourism/index',
     children: [
       {
         path: 'index',
-        component: () => import('@/views/traffic/index'),
-        name: 'traffic',
-        hidden: true,
-        children: [
-          {
-            path: 'ss',
-            component: () => import('@/views/traffic/components/ss'),
-            name: 'ss',
-            hidden: true
-          },
-          {
-            path: 'sj',
-            component: () => import('@/views/traffic/components/sj'),
-            name: 'sj',
-            hidden: true
-          }
-        ]
+        component: () => import('@/views/ruralTourism/index'),
+        name: 'ruralTourism',
+        meta: { title: 'ruralTourism', icon: 'chart', noCache: true }
       }
     ]
   },
@@ -177,79 +196,19 @@ export const constantRouterMap = [
       }
     ]
   },
-  // {
-  //   path: '/specialHoliday', // 特殊假日
-  //   component: Layout,
-  //   redirect: '/specialHoliday/index',
-  //   children: [
-  //     {
-  //       path: 'index',
-  //       component: () => import('@/views/specialHoliday/index'),
-  //       name: 'specialHoliday',
-  //       meta: { title: 'specialHoliday', icon: 'star', noCache: true }
-  //     }
-  //   ]
-  // },
   {
-    path: '/forecast', // 重点景区
+    path: '/InteractivePlatform', // 互动平台
     component: Layout,
-    redirect: '/forecast/index/dfs',
-    meta: { title: 'forecast', icon: 'example', noCache: true },
+    redirect: '/InteractivePlatform/index',
     children: [
       {
         path: 'index',
-        component: () => import('@/views/forecast/index'),
-        name: 'forecast',
-        hidden: true,
-        children: [
-          {
-            path: 'dfs',
-            component: () => import('@/views/forecast/components/dfs'),
-            name: 'dfs',
-            hidden: true
-          },
-          {
-            path: 'sjf',
-            component: () => import('@/views/forecast/components/sjf'),
-            name: 'sjf',
-            hidden: true
-          },
-          {
-            path: 'specialHoliday',
-            component: () => import('@/views/specialHoliday/index'),
-            name: 'specialHoliday',
-            hidden: true
-          }
-        ]
+        component: () => import('@/views/InteractivePlatform/index'),
+        name: 'InteractivePlatform',
+        meta: { title: 'InteractivePlatform', icon: 'drag', noCache: true }
       }
     ]
   },
-  {
-    path: '/portraitTourist', // 游客画像
-    component: Layout,
-    redirect: '/portraitTourist/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/portraitTourist/index'),
-        name: 'portraitTourist',
-        meta: { title: 'portraitTourist', icon: 'people', noCache: true }
-      }
-    ]
-  },
-  // {
-  //   path: '/economicalOperation',
-  //   component: Layout,
-  //   redirect: '/economicalOperation/index',
-  //   children: [
-  //     {
-  //       path: 'index',
-  //       component: () => import('@/views/economicalOperation/index'),
-  //       name: 'economicalOperation',
-  //       meta: { title: 'economicalOperation', icon: 'chart', noCache: true }
-  //     }
-  //   ]
-  // },
   {
     path: '/weatherEnvironment', // 资源分布
     component: Layout,
@@ -308,25 +267,13 @@ export const constantRouterMap = [
         hidden: true
       }
     ]
-  },
-  {
-    path: '/InteractivePlatform', // 互动平台
-    component: Layout,
-    redirect: '/InteractivePlatform/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/InteractivePlatform/index'),
-        name: 'InteractivePlatform',
-        meta: { title: 'InteractivePlatform', icon: 'drag', noCache: true }
-      }
-    ]
   }
 ]
 
 export default new Router({
-  // mode: 'history', // require service support
+  // mode: 'hash', // require service support
   scrollBehavior: () => ({ y: 0 }),
+  // base: '/xinchang/',
   routes: constantRouterMap
 })
 

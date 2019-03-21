@@ -22,9 +22,9 @@
               <img class="dfs-icon" src="@/assets/icon/ppl.png" alt="">
               <div class="dfs-content-right">
                 <p class="dfs-text">今日累积游客接待数</p>
-                <p class="dfs-num-box" v-if="importDfs && importDfs.length > 0">
-                  <span class="dfs-num">{{ importDfs[0].value}}</span>
-                  <span class="dfs-unit">个</span>
+                <p v-if="importDfs && importDfs.length > 0" class="dfs-num-box">
+                  <span class="dfs-num">{{ importDfs[0].value }}</span>
+                  <span class="dfs-unit">人</span>
                 </p>
               </div>
             </div>
@@ -33,8 +33,8 @@
               <img class="dfs-icon dfs-icons" src="@/assets/icon/incom.png" alt="">
               <div class="dfs-content-right">
                 <p class="dfs-text">今日累积收入</p>
-                <p class="dfs-num-box" v-if="importDfs && importDfs.length > 0">
-                  <span class="dfs-num">{{ importDfs[1].value}}</span>
+                <p v-if="importDfs && importDfs.length > 0" class="dfs-num-box">
+                  <span class="dfs-num">{{ importDfs[1].value }}</span>
                   <span class="dfs-unit">元</span>
                 </p>
               </div>
@@ -48,9 +48,9 @@
               <img class="dfs-icon dfs-icons" style="margin-right: 3%;" src="@/assets/icon/ppl.png" alt="">
               <div class="dfs-content-right">
                 <p class="dfs-text">今日累积游客接待数</p>
-                <p class="dfs-num-box" v-if="importSjf && importDfs.length > 0">
-                  <span class="dfs-num">{{ importSjf[0].value}}</span>
-                  <span class="dfs-unit">个</span>
+                <p v-if="importSjf && importDfs.length > 0" class="dfs-num-box">
+                  <span class="dfs-num">{{ importSjf[0].value }}</span>
+                  <span class="dfs-unit">人</span>
                 </p>
               </div>
             </div>
@@ -59,8 +59,8 @@
               <img class="dfs-icon" src="@/assets/icon/incom.png" alt="">
               <div class="dfs-content-right">
                 <p class="dfs-text">今日累积收入</p>
-                <p class="dfs-num-box" v-if="importSjf && importDfs.length > 0">
-                  <span class="dfs-num">{{ importSjf[1].value}}</span>
+                <p v-if="importSjf && importDfs.length > 0" class="dfs-num-box">
+                  <span class="dfs-num">{{ importSjf[1].value }}</span>
                   <span class="dfs-unit">元</span>
                 </p>
               </div>
@@ -72,7 +72,7 @@
       <div class="xcly">
         <!--标题行-->
         <div class="zdjq-title-box">
-          <p class="title">乡村旅游热度排行top5</p>
+          <p class="title">乡村旅游周热度排行</p>
           <p class="title-right" @click="TwoLevelPages('/PassengerFlowAnalysis/index')">
             <span>更多</span>
             <span class="el-icon-d-arrow-right"/>
@@ -177,7 +177,7 @@
           <!--内容区-->
           <div class="content-box">
             <div class="chart-container">
-              <lvxf v-if="limits" :chartData='limit' height="100%" width="100%"/>
+              <lvxf v-if="limits" :chart-data="limit" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -186,15 +186,15 @@
           <!--标题行-->
           <div class="zdjq-title-box">
             <p class="title">旅游消费类型分析(万元)</p>
-            <p class="title-right" @click="TwoLevelPages('/consumption/index')">
-              <span>更多</span>
-              <span class="el-icon-d-arrow-right"/>
-            </p>
+            <!--<p class="title-right" @click="TwoLevelPages('/consumption/index')">-->
+            <!--<span>更多</span>-->
+            <!--<span class="el-icon-d-arrow-right"/>-->
+            <!--</p>-->
           </div>
           <!--内容区-->
           <div class="content-box">
             <div class="chart-wrapper">
-              <bar-chart v-if="types" :chartData='type' height="100%" width="100%"/>
+              <bar-chart v-if="types" :chart-data="type" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -204,14 +204,14 @@
     <div class="middle">
       <!--main-->
       <div class="main">
-        <!--全域客流-->
-        <dt-view v-if="qykl" :chartData='getRealTimes' width="100%" height="100%"/>
+        <!--热力图-->
+        <dt-view v-if="qykl" :chart-data="getRealTimes" width="100%" height="100%"/>
         <!--旅游资源-->
-        <lv-view v-if="lvzy"  width="100%" height="100%"/>
+        <lv-view v-if="lvzy" width="100%" height="100%"/>
         <!--按钮-->
         <div class="btn">
           <div class="btn-box">
-            <p :class="{qyb: qyb}" class="qy" @click="qyEvent">全域客流</p>
+            <p :class="{qyb: qyb}" class="qy" @click="qyEvent">热力图</p>
             <p :class="{zyb: zyb}" class="zy" @click="lyEvent">旅游资源</p>
           </div>
         </div>
@@ -232,17 +232,17 @@
           <div class="content-box">
             <div class="chart-wrapper" @click="ckHidden">
               <pie-chart-full
-                :chartData='shengqu'
                 id="home-top5"
+                :chart-data="shengqu"
                 height="100%"
                 width="100%"/>
-                <!--按钮-->
-                <div class="btn">
-                  <div class="btn-box">
-                    <p :class="{qyb: qybs}" class="qy" @click="qyEvents"></p>
-                    <p :class="{zyb: zybs}" class="zy" @click="lyEvents"></p>
-                  </div>
+              <!--按钮-->
+              <div class="btn">
+                <div class="btn-box">
+                  <p :class="{qyb: qybs}" class="qy" @click="qyEvents"/>
+                  <p :class="{zyb: zybs}" class="zy" @click="lyEvents"/>
                 </div>
+              </div>
             </div>
           </div>
         </div>
@@ -259,7 +259,7 @@
           <!--内容区-->
           <div class="content-box">
             <div class="chart-wrapper">
-              <yi-zhou v-if="weekly" :chartData="kydxq" id="kydxq" height="100%" width="100%"/>
+              <yi-zhou v-if="weekly" id="kydxq" :chart-data="kydxq" height="100%" width="100%"/>
             </div>
           </div>
         </div>
@@ -291,25 +291,25 @@
               <img src="@/assets/icon/pplb.png" alt="">
               <div class="text-box">
                 <p class="title">游客接待数</p>
-                <p class="content-box" v-if="base && base.length > 0">
+                <p v-if="base && base.length > 0" class="content-box">
                   <span class="num">{{ base[1].income.in + base[1].income.out }}</span>
-                  <span class="unit">个</span>
+                  <span class="unit">人</span>
                 </p>
               </div>
             </div>
             <!--下-->
             <div class="bottom-box">
               <!--境外-->
-              <p class="l-box" v-if="base && base.length > 0">
-                <span class="name">境外游客</span>
+              <p v-if="base && base.length > 0" class="l-box">
+                <span class="name">境外</span>
                 <span class="num">{{ base[0].tourNumber.out }}</span>
-                <span class="unit">个</span>
+                <span class="unit">人</span>
               </p>
               <!--境内-->
-              <p class="l-box" v-if="base && base.length > 0">
-                <span class="name">境内游客</span>
+              <p v-if="base && base.length > 0" class="l-box">
+                <span class="name">境内</span>
                 <span class="num">{{ base[0].tourNumber.in }}</span>
-                <span class="unit">个</span>
+                <span class="unit">人</span>
               </p>
             </div>
           </div>
@@ -320,7 +320,7 @@
               <img src="@/assets/icon/incomor.png" alt="">
               <div class="text-box">
                 <p class="title">旅游收入</p>
-                <p class="content-box" v-if="base && base.length > 0">
+                <p v-if="base && base.length > 0" class="content-box">
                   <span class="num">{{ base[0].tourNumber.in + base[0].tourNumber.out }}</span>
                   <span class="unit">万元</span>
                 </p>
@@ -329,14 +329,14 @@
             <!--下-->
             <div class="bottom-box">
               <!--境外-->
-              <p class="l-box" v-if="base && base.length > 0">
-                <span class="name">境外收入</span>
+              <p v-if="base && base.length > 0" class="l-box">
+                <span class="name">境外</span>
                 <span class="num">{{ base[1].income.out }}</span>
                 <span class="unit">万元</span>
               </p>
               <!--境内-->
-              <p class="l-box" v-if="base && base.length > 0">
-                <span class="name">境内收入</span>
+              <p v-if="base && base.length > 0" class="l-box">
+                <span class="name">境内</span>
                 <span class="num">{{ base[1].income.in }}</span>
                 <span class="unit">万元</span>
               </p>
@@ -360,21 +360,21 @@
           <div class="top">
             <div class="one">
               <img src="@/assets/icon/pk.png" alt="">
-              <div class="text-box" v-if="resource && resource.length > 0">
+              <div v-if="resource && resource.length > 0" class="text-box">
                 <p class="name">景区</p>
                 <p class="num">{{ resource[0].value }}</p>
               </div>
             </div>
             <div class="one">
               <img src="@/assets/icon/cafe.png" alt="">
-              <div class="text-box" v-if="resource && resource.length > 0">
+              <div v-if="resource && resource.length > 0" class="text-box">
                 <p class="name">餐饮</p>
                 <p class="num">{{ resource[1].value }}</p>
               </div>
             </div>
             <div class="one">
               <img src="@/assets/icon/hotel.png" alt="">
-              <div class="text-box" v-if="resource && resource.length > 0">
+              <div v-if="resource && resource.length > 0" class="text-box">
                 <p class="name">酒店</p>
                 <p class="num">{{ resource[2].value }}</p>
               </div>
@@ -384,21 +384,21 @@
           <div class="middles">
             <div class="one">
               <img src="@/assets/icon/town.png" alt="">
-              <div class="text-box text-box1" v-if="resource && resource.length > 0">
+              <div v-if="resource && resource.length > 0" class="text-box text-box1">
                 <p class="name">A级村庄</p>
                 <p class="num">{{ resource[3].value }}</p>
               </div>
             </div>
             <div class="one">
               <img src="@/assets/icon/tvlag.png" class="qg" alt="">
-              <div class="text-box" v-if="resource && resource.length > 0">
+              <div v-if="resource && resource.length > 0" class="text-box">
                 <p class="name">旅行社</p>
                 <p class="num">{{ resource[4].value }}</p>
               </div>
             </div>
             <div class="one">
               <img src="@/assets/icon/minsu.png" class="ms" alt="">
-              <div class="text-box" v-if="resource && resource.length > 0">
+              <div v-if="resource && resource.length > 0" class="text-box">
                 <p class="name">民宿</p>
                 <p class="num">{{ resource[5].value }}</p>
               </div>
@@ -408,21 +408,21 @@
           <div class="bottom">
             <div class="one">
               <img src="@/assets/icon/shop.png" alt="">
-              <div class="text-box" v-if="resource && resource.length > 0">
+              <div v-if="resource && resource.length > 0" class="text-box">
                 <p class="name">购物处</p>
                 <p class="num">{{ resource[6].value }}</p>
               </div>
             </div>
             <div class="one one1">
               <img src="@/assets/icon/toilet.png" alt="">
-              <div class="text-box" v-if="resource && resource.length > 0">
+              <div v-if="resource && resource.length > 0" class="text-box">
                 <p class="name">景区公厕</p>
                 <p class="num">{{ resource[7].value }}</p>
               </div>
             </div>
             <div class="one">
               <img src="@/assets/icon/daoyou.png" class="dy" alt="">
-              <div class="text-box" v-if="resource && resource.length > 0">
+              <div v-if="resource && resource.length > 0" class="text-box">
                 <p class="name">导游</p>
                 <p class="num">{{ resource[8].value }}</p>
               </div>
@@ -443,7 +443,7 @@
         <!--内容区-->
         <div class="content-box">
           <div class="chart-wrapper">
-            <zi-fu-yun :chartData='zifuYun' height="100%" width="100%"/>
+            <zi-fu-yun :chart-data="zifuYun" height="100%" width="100%"/>
           </div>
         </div>
       </div>
@@ -462,12 +462,12 @@
           <!--zheng-->
           <div class="zzzz">
             <p class="title">正面</p>
-            <el-progress type="circle" :stroke-width='h' :width='w' :percentage="zhengz" color="#32cf35"/>
+            <el-progress :stroke-width="h" :width="w" :percentage="zhengz" type="circle" color="#32cf35"/>
           </div>
           <!--fu-->
           <div class="ffff">
             <p class="title">负面</p>
-            <el-progress type="circle" :stroke-width='h' :width='w' :percentage="fuz" color="#ea8ebc"/>
+            <el-progress :stroke-width="h" :width="w" :percentage="fuz" type="circle" color="#ea8ebc"/>
           </div>
         </div>
         <!--内容区-->
@@ -559,6 +559,9 @@ export default {
     this.requestAll()
     this.shengneitop5()
   },
+  destroyed() {
+    clearTimeout(this.timer)
+  },
   methods: {
     qyEvent() {
       this.qykl = true
@@ -596,7 +599,7 @@ export default {
       hotTown()
         .then(res => {
           const data = res.data.data
-          if(res.status === 200) {
+          if (res.status === 200) {
             this.hotTown = data
           }
         })
@@ -607,7 +610,7 @@ export default {
       weekly()
         .then(res => {
           const data = res.data.data
-          if(res.status === 200) {
+          if (res.status === 200) {
             this.kydxq = data
             this.weekly = true
           }
@@ -631,7 +634,7 @@ export default {
       limit()
         .then(res => {
           const data = res.data.data
-          if(res.status === 200) {
+          if (res.status === 200) {
             // console.log(data, '111')
             this.limit = data
             this.limits = true
@@ -644,7 +647,7 @@ export default {
       type()
         .then(res => {
           const data = res.data.data
-          if(res.status === 200) {
+          if (res.status === 200) {
             // console.log(data, '222')
             this.type = data
             this.types = true
@@ -657,7 +660,7 @@ export default {
       resource()
         .then(res => {
           const data = res.data.data
-          if(res.status === 200) {
+          if (res.status === 200) {
             this.resource = data
             // console.log(data, '111')
           }
@@ -694,11 +697,11 @@ export default {
         .then(res => {
           const data = res.data.data
           if (res.status === 200) {
-            let bad = data.neg;
-            let good = data.pos;
-            this.all = bad + good;
-            this.fuz = Number((bad / (bad + good) * 100).toFixed(2));
-            this.zhengz = Number((good / (bad + good) * 100).toFixed(2));
+            const bad = data.neg
+            const good = data.pos
+            this.all = bad + good
+            this.fuz = Number((bad / (bad + good) * 100).toFixed(2))
+            this.zhengz = Number((good / (bad + good) * 100).toFixed(2))
           }
         })
         .catch(err => {
@@ -706,8 +709,8 @@ export default {
         })
       getKeyword()
         .then(res => {
-          let data = res.data.data
-          if(res.status === 200) {
+          const data = res.data.data
+          if (res.status === 200) {
             this.zifuYun = data
             // console.log(data, '111')
           }
@@ -715,11 +718,11 @@ export default {
         .catch(err => {
           console.log(err)
         })
-      //中间大图
+      // 中间大图
       getRealTime()
         .then(res => {
-          let data = res.data.data;
-          if(res.status === 200) {
+          const data = res.data.data
+          if (res.status === 200) {
             // console.log(data, '热点')
             this.getRealTimes = data.map(element => {
               return {
@@ -736,18 +739,18 @@ export default {
         .catch(err => {
 
         })
-      //实时客流
+      // 实时客流
       getTourNumber()
         .then(res => {
         // console.log(res, '实时客流')
-          let data = res.data.data.value;
-          if(res.status === 200) {
+          const data = res.data.data.value
+          if (res.status === 200) {
             this.getTourNumbers = data
           }
-      })
+        })
         .catch(err => {
-        console.log(err)
-      })
+          console.log(err)
+        })
     },
     shengneitop5() {
       // 省内top
@@ -773,25 +776,22 @@ export default {
         console.log(err)
       })
     },
-    //点击切换隐藏事件
+    // 点击切换隐藏事件
     ckHidden() {
       if (this.qybs === true) {
         this.lyEvents()
         this.qybs = false
-      } else if(this.qybs === false) {
+      } else if (this.qybs === false) {
         this.qyEvents()
         this.qybs = true
       }
     },
-    //每隔5秒钟请求一次数据
+    // 每隔5秒钟请求一次数据
     timer() {
       return setTimeout(() => {
         this.requestAll()
       }, 5000)
     }
-  },
-  destroyed() {
-    clearTimeout(this.timer)
   }
 }
 </script>
@@ -1353,7 +1353,7 @@ export default {
                   border-radius: 30px;
                   cursor: pointer;
                 }
-                .qyb { 
+                .qyb {
                   // background: rgba(255, 255, 255, 0.2);
                   background: transparent;
                 }
@@ -1368,7 +1368,7 @@ export default {
                   border-radius: 30px;
                   cursor: pointer;
                 }
-                .zyb { 
+                .zyb {
                   // background: rgba(255, 255, 255, 0.2);
                   background: transparent;
                 }
@@ -1498,6 +1498,7 @@ export default {
               .content-box {
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 .num {
                   font-size: 23px;
                   color: #f69704;
@@ -1515,6 +1516,7 @@ export default {
               display: flex;
               justify-content: space-between;
               margin-bottom: 8%;
+              align-items: center;
               .name {
                 font-size: 20px;
                 color: #ffffff;
@@ -1555,6 +1557,7 @@ export default {
               .content-box {
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 .num {
                   font-size: 23px;
                   color: #f69704;
@@ -1572,6 +1575,7 @@ export default {
               display: flex;
               justify-content: space-between;
               margin-bottom: 8%;
+              align-items: center;
               .name {
                 font-size: 20px;
                 color: #ffffff;
