@@ -253,11 +253,14 @@ export default {
         type: "warning"
       })
         .then(() => {
-          getDeleteEvent(row.id);
-          this.getEvents();
-          this.$message({
-            type: "success",
-            message: "删除成功!"
+          getDeleteEvent(row.id).then(res =>{
+            if(res.status === 204){
+              this.getEvents();
+              this.$message({
+                type: "success",
+                message: "删除成功!"
+              });
+            }
           });
         })
         .catch(() => {

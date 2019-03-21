@@ -106,11 +106,14 @@ export default {
         type: "warning"
       })
         .then(() => {
-          deleteScenicSpots(row.id);
-          this.getData();
-          this.$message({
-            type: "success",
-            message: "删除成功!"
+          deleteScenicSpots(row.id).then(res => {
+            if(res.status === 204){
+              this.getData();
+              this.$message({
+                type: "success",
+                message: "删除成功!"
+              });
+            }
           });
         })
         .catch(() => {
