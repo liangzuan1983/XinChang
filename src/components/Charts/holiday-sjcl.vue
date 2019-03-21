@@ -79,6 +79,7 @@ export default {
       }
     },
     setOptions({ expectedData, actualData } = {}) {
+      const data = this.chartData;
       this.chart.setOption({
         legend: {
           data: ['待处理', '已处理', '处理中'],
@@ -93,7 +94,7 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: ['2018-10-02', '2018-10-02', '2018-10-03', '2018-10-04', '2018-10-05', '2018-10-06', '2018-10-07'],
+            data: data.xAxisData || [],
             axisLabel: {
               textStyle: {
                 color: '#889db5'
@@ -122,35 +123,17 @@ export default {
           {
             name: '待处理',
             type: 'bar',
-            data: [2.0, 4.9, 7.0, 23.2, 32.6, 20.0, 6.4],
-            markPoint: {
-              data: [
-                { type: 'max', name: '最大值' },
-                { type: 'min', name: '最小值' }
-              ]
-            }
+            data: data.seriesData1 || [],
           },
           {
             name: '已处理',
             type: 'bar',
-            data: [2.6, 5.9, 9.0, 26.4, 48.7, 18.8, 6.0],
-            markPoint: {
-              data: [
-                { name: '年最高', value: 182.2, xAxis: 7, yAxis: 183 },
-                { name: '年最低', value: 2.3, xAxis: 11, yAxis: 3 }
-              ]
-            }
+            data: data.seriesData3 || [],
           },
           {
             name: '处理中',
             type: 'bar',
-            data: [2.6, 5.9, 9.0, 26.4, 48.7, 18.8, 6.0],
-            markPoint: {
-              data: [
-                { name: '年最高', value: 182.2, xAxis: 7, yAxis: 183 },
-                { name: '年最低', value: 2.3, xAxis: 11, yAxis: 3 }
-              ]
-            }
+            data: data.seriesData2 || [],
           }
         ]
       })

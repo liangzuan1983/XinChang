@@ -23,9 +23,9 @@ export default {
     },
     chartData: {
       default: () => {
-        return []
+        return {}
       },
-      type: Array
+      type: Object
     }
   },
   data() {
@@ -33,6 +33,14 @@ export default {
       chart: null,
       time: [],
       value: []
+    }
+  },
+  watch: {
+    chartData: {
+      deep: true,
+      handler(val) {
+        this.setOptions()
+      }
     }
   },
   mounted() {
@@ -53,20 +61,13 @@ export default {
     this.chart = null
   },
   methods: {
-    initChart() {
-      this.chart = echarts.init(this.$el, 'macarons')
+    setOptions(){
       const data = this.chartData
-      data.forEach(element => {
-        this.time.push(element.subject)
-        this.value.push(element.value)
-      })
-      // console.log(this.time, '时间')
-      // console.log(this.value, '值')
       this.chart.setOption({
         xAxis: {
           type: 'category',
           boundaryGap: false,
-          data: ['2019-01-01', '2019-01-02', '2019-01-03', '2019-01-04', '2019-01-05', '2019-01-06', '2019-01-07'],
+          data: data.xAxisData || [],
           axisTick: {
             show: false
           },
@@ -119,7 +120,7 @@ export default {
           containLabel: true
         },
         series: [{
-          data: [820, 932, 901, 934, 1290, 1330, 1320],
+          data: data.seriesData || [],
           type: 'line',
           areaStyle: {
             normal: {
@@ -143,6 +144,10 @@ export default {
           }
         }]
       })
+    },
+    initChart() {
+      this.chart = echarts.init(this.$el, 'macarons')
+      this.setOptions()
     }
   }
 }

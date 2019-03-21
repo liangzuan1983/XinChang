@@ -53,6 +53,7 @@
     "normalize.css": "7.0.0",
     "nprogress": "0.2.0",
     "px2rem-loader": "^0.1.9",
+    "qs": "^6.6.0",
     "screenfull": "3.3.3",
     "showdown": "1.8.6",
     "smeditor": "^0.1.19",
