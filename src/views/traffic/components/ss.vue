@@ -8,7 +8,7 @@
     </div>
     <!-- <div id="mapContainer"/> -->
     <div class="amap-page-container">
-      <el-amap-search-box class="search-box" :search-option="searchOption" :on-search-result="onSearchResult"></el-amap-search-box>
+      <!--<el-amap-search-box class="search-box" :search-option="searchOption" :on-search-result="onSearchResult"></el-amap-search-box>-->
       <el-amap vid="amapDemo" :plugin="plugin" :center='mapCenter' :zoom='12' class="amap-demo">
         <el-amap-marker v-for="(marker, index) in markers" :key="index" :position="marker" ></el-amap-marker>
       </el-amap>
