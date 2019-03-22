@@ -50,8 +50,22 @@
       <el-table-column prop="stateStr" label="事件状态描述" width="120">
       </el-table-column>
       <el-table-column prop="gmtCreate" label="事件发生时间"> </el-table-column>
-      <el-table-column fixed="right" label="操作" width="200">
+      <el-table-column fixed="right" label="操作" width="300">
         <template slot-scope="scope">
+          <el-select
+            v-model="scope.row.state"
+            placeholder="请选择"
+            value-key="key"
+            @change="changeRowState(scope.row)"
+          >
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            >
+            </el-option>
+          </el-select>
           <el-button
             size="mini"
             type="danger"
@@ -131,7 +145,8 @@ import {
   getWarningEvents,
   getEventsStatistics,
   getRate,
-  getDeleteEvent
+  getDeleteEvent,
+  editEventState
 } from "../../api/documentation";
 export default {
   data() {
@@ -243,6 +258,21 @@ export default {
     changeStatus(option) {
       console.log(option);
     },
+    changeRowState(option) {
+      const self = this;
+      editEventState({
+        id: option.id,
+        state: option.state
+      }).then(res =>{
+        if(res.data.success){
+          self.getEvents();
+          self.$message({
+            type: "success",
+            message: "修改成功!"
+          });
+        }
+      });
+    },
     handleEdit(index, row) {
       console.log(index, row);
     },
@@ -253,8 +283,8 @@ export default {
         type: "warning"
       })
         .then(() => {
-          getDeleteEvent(row.id).then(res =>{
-            if(res.status === 204){
+          getDeleteEvent(row.id).then(res => {
+            if (res.status === 204) {
               this.getEvents();
               this.$message({
                 type: "success",

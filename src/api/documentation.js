@@ -16,6 +16,14 @@ export function getDeleteEvent(id, params) {
     params
   });
 }
+//更新事件状态
+export function editEventState(params) {
+    return request({
+        url: "emergency/xinchang/events",
+        method: "PATCH",
+        params,
+    });
+}
 //事件处理情况统计
 export function getEventsStatistics(params) {
   return request({

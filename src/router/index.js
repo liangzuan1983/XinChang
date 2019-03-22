@@ -203,7 +203,7 @@ export const constantRouterMap = [
     children: [
       {
         path: 'index',
-        component: () => import('@/views/InteractivePlatform/index'),
+        component: () => import('@/views/InteractivePlatform/newIndex'),
         name: 'InteractivePlatform',
         meta: { title: 'InteractivePlatform', icon: 'drag', noCache: true }
       }
