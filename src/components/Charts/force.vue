@@ -65,7 +65,20 @@ export default {
             draggable: true,
             itemStyle: {
               normal: {
-                color: '#4093F2'
+                color: function (a) {
+                  const str = a.name || "";
+                  if(!str[5]){
+                    return "#c23531"
+                  }else{
+                    console.log(str)
+                    if(str[7]){
+                      return "#61a0a8"
+                    }else{
+                      return "#2f4554"
+                    }
+                  }
+                  return "#4093F2"
+                }
               }
             },
             lineStyle: {

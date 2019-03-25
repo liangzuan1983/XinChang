@@ -101,7 +101,7 @@ export default {
           type: 'line',
           stack: '总量',
           areaStyle: {},
-          data: data.map((element,index) => element.data[index].value)
+          data: data.map((element,index) => element.data[i].value)
         }
       })
       console.log(this.newData, '123');

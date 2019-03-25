@@ -277,7 +277,7 @@
         <!--标题行-->
         <div class="zdjq-title-box">
           <p class="title">产业监测数据</p>
-          <p class="title-right" @click="TwoLevelPages('/economicalOperation/index')">
+          <p class="title-right" @click="TwoLevelPages('/weatherEnvironment/index')">
             <span>更多</span>
             <span class="el-icon-d-arrow-right"/>
           </p>
@@ -302,14 +302,18 @@
               <!--境外-->
               <p v-if="base && base.length > 0" class="l-box">
                 <span class="name">境外</span>
-                <span class="num">{{ base[0].tourNumber.out }}</span>
+                <span>
+                  <span class="num">{{ base[0].tourNumber.out }}</span>
                 <span class="unit">人</span>
+                </span>
               </p>
               <!--境内-->
               <p v-if="base && base.length > 0" class="l-box">
                 <span class="name">境内</span>
-                <span class="num">{{ base[0].tourNumber.in }}</span>
+                <span>
+                  <span class="num">{{ base[0].tourNumber.in }}</span>
                 <span class="unit">人</span>
+                </span>
               </p>
             </div>
           </div>
@@ -331,101 +335,84 @@
               <!--境外-->
               <p v-if="base && base.length > 0" class="l-box">
                 <span class="name">境外</span>
-                <span class="num">{{ base[1].income.out }}</span>
+                <span>
+                  <span class="num">{{ base[1].income.out }}</span>
                 <span class="unit">万元</span>
+                </span>
               </p>
               <!--境内-->
               <p v-if="base && base.length > 0" class="l-box">
                 <span class="name">境内</span>
-                <span class="num">{{ base[1].income.in }}</span>
+                <span>
+                  <span class="num">{{ base[1].income.in }}</span>
                 <span class="unit">万元</span>
+                </span>
               </p>
             </div>
           </div>
         </div>
-      </div>
-      <!--zyfb-->
-      <div class="zyfb">
-        <!--标题行-->
-        <div class="zdjq-title-box">
-          <p class="title">资源分布</p>
-          <p class="title-right" @click="TwoLevelPages('/weatherEnvironment/index')">
-            <span>更多</span>
-            <span class="el-icon-d-arrow-right"/>
-          </p>
-        </div>
-        <!--内容区-->
-        <div class="content-box">
-          <!--上-->
-          <div class="top">
-            <div class="one">
-              <img src="@/assets/icon/pk.png" alt="">
-              <div v-if="resource && resource.length > 0" class="text-box">
-                <p class="name">景区</p>
-                <p class="num">{{ resource[0].value }}</p>
-              </div>
-            </div>
-            <div class="one">
-              <img src="@/assets/icon/cafe.png" alt="">
-              <div v-if="resource && resource.length > 0" class="text-box">
-                <p class="name">餐饮</p>
-                <p class="num">{{ resource[1].value }}</p>
-              </div>
-            </div>
-            <div class="one">
-              <img src="@/assets/icon/hotel.png" alt="">
-              <div v-if="resource && resource.length > 0" class="text-box">
-                <p class="name">酒店</p>
-                <p class="num">{{ resource[2].value }}</p>
-              </div>
+        <div class="sourceBox">
+          <div class="sourceItem">
+            <img src="@/assets/icon/pk.png">
+            <div class="sourceItemDetail">
+              <div class="sourceItemName">景区</div>
+              <div class="sourceItemNum">{{resource && resource[0].value || 0}}</div>
             </div>
           </div>
-          <!--中-->
-          <div class="middles">
-            <div class="one">
-              <img src="@/assets/icon/town.png" alt="">
-              <div v-if="resource && resource.length > 0" class="text-box text-box1">
-                <p class="name">A级村庄</p>
-                <p class="num">{{ resource[3].value }}</p>
-              </div>
-            </div>
-            <div class="one">
-              <img src="@/assets/icon/tvlag.png" class="qg" alt="">
-              <div v-if="resource && resource.length > 0" class="text-box">
-                <p class="name">旅行社</p>
-                <p class="num">{{ resource[4].value }}</p>
-              </div>
-            </div>
-            <div class="one">
-              <img src="@/assets/icon/minsu.png" class="ms" alt="">
-              <div v-if="resource && resource.length > 0" class="text-box">
-                <p class="name">民宿</p>
-                <p class="num">{{ resource[5].value }}</p>
-              </div>
+          <div class="sourceItem">
+            <img src="@/assets/icon/cafe.png">
+            <div class="sourceItemDetail">
+              <div class="sourceItemName">餐饮</div>
+              <div class="sourceItemNum">{{resource && resource[1].value || 0}}</div>
             </div>
           </div>
-          <!--下-->
-          <div class="bottom">
-            <div class="one">
-              <img src="@/assets/icon/shop.png" alt="">
-              <div v-if="resource && resource.length > 0" class="text-box">
-                <p class="name">购物处</p>
-                <p class="num">{{ resource[6].value }}</p>
-              </div>
+          <div class="sourceItem">
+            <img src="@/assets/icon/hotel.png">
+            <div class="sourceItemDetail">
+              <div class="sourceItemName">酒店</div>
+              <div class="sourceItemNum">{{resource && resource[2].value || 0}}</div>
             </div>
-            <div class="one one1">
-              <img src="@/assets/icon/toilet.png" alt="">
-              <div v-if="resource && resource.length > 0" class="text-box">
-                <p class="name">景区公厕</p>
-                <p class="num">{{ resource[7].value }}</p>
-              </div>
+          </div>
+          <div class="sourceItem">
+            <img src="@/assets/icon/town.png">
+            <div class="sourceItemDetail">
+              <div class="sourceItemName">A级村庄</div>
+              <div class="sourceItemNum">{{resource && resource[3].value || 0}}</div>
             </div>
-            <div class="one">
-              <img src="@/assets/icon/daoyou.png" class="dy" alt="">
-              <div v-if="resource && resource.length > 0" class="text-box">
-                <p class="name">导游</p>
-                <p class="num">{{ resource[8].value }}</p>
-              </div>
+          </div>
+          <div class="sourceItem">
+            <img src="@/assets/icon/tvlag.png">
+            <div class="sourceItemDetail">
+              <div class="sourceItemName">旅行社</div>
+              <div class="sourceItemNum">{{resource && resource[4].value || 0}}</div>
+            </div>
+          </div>
+          <div class="sourceItem">
+            <img src="@/assets/icon/minsu.png">
+            <div class="sourceItemDetail">
+              <div class="sourceItemName">民宿</div>
+              <div class="sourceItemNum">{{resource && resource[5].value || 0}}</div>
+            </div>
+          </div>
+          <div class="sourceItem">
+            <img src="@/assets/icon/shop.png">
+            <div class="sourceItemDetail">
+              <div class="sourceItemName">购物处</div>
+              <div class="sourceItemNum">{{resource && resource[6].value || 0}}</div>
+            </div>
+          </div>
+          <div class="sourceItem">
+            <img src="@/assets/icon/toilet.png">
+            <div class="sourceItemDetail">
+              <div class="sourceItemName">景区公厕</div>
+              <div class="sourceItemNum">{{resource && resource[7].value || 0}}</div>
+            </div>
+          </div>
+          <div class="sourceItem">
+            <img src="@/assets/icon/daoyou.png">
+            <div class="sourceItemDetail">
+              <div class="sourceItemName">导游</div>
+              <div class="sourceItemNum">{{resource && resource[8].value || 0}}</div>
             </div>
           </div>
         </div>
@@ -457,32 +444,34 @@
             <span class="el-icon-d-arrow-right"/>
           </p>
         </div>
-        <!--正负-->
-        <div class="zfzf">
-          <!--zheng-->
-          <div class="zzzz">
-            <p class="title">正面</p>
-            <el-progress :stroke-width="h" :width="w" :percentage="zhengz" type="circle" color="#32cf35"/>
+        <div class="lastBox">
+          <!--正负-->
+          <div class="zfzf">
+            <!--zheng-->
+            <div class="zzzz">
+              <p class="title">正面</p>
+              <el-progress :stroke-width="h" :width="w" :percentage="zhengz" type="circle" color="#32cf35"/>
+            </div>
+            <!--fu-->
+            <div class="ffff">
+              <p class="title">负面</p>
+              <el-progress :stroke-width="h" :width="w" :percentage="fuz" type="circle" color="#ea8ebc"/>
+            </div>
           </div>
-          <!--fu-->
-          <div class="ffff">
-            <p class="title">负面</p>
-            <el-progress :stroke-width="h" :width="w" :percentage="fuz" type="circle" color="#ea8ebc"/>
-          </div>
-        </div>
-        <!--内容区-->
-        <div class="content-box">
-          <!--舆情 热门-->
-          <div class="yr-box">
-            <!--舆情信息-->
-            <div class="yq-box">
-              <img src="@/assets/icon/yuqing.png" alt="">
-              <div class="text-box">
-                <p class="title">舆情信息</p>
-                <p class="num-box">
-                  <span class="num">{{ all }}</span>
-                  <span class="unit">条</span>
-                </p>
+          <!--内容区-->
+          <div class="content-box">
+            <!--舆情 热门-->
+            <div class="yr-box">
+              <!--舆情信息-->
+              <div class="yq-box">
+                <img src="@/assets/icon/yuqing.png" alt="">
+                <div class="text-box">
+                  <p class="title">舆情信息</p>
+                  <p class="num-box">
+                    <span class="num">{{ all }}</span>
+                    <span class="unit">条</span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -547,7 +536,10 @@ export default {
       zifuYun: [],
       getRealTimes: [],
       all: '',
-      getTourNumbers: ''
+      getTourNumbers: '',
+      sourceList:[
+        {name:"景区",icon:require("@/assets/icon/pk.png"),num:""}
+      ]
     }
   },
   watch: {
@@ -1500,6 +1492,7 @@ export default {
                 justify-content: space-between;
                 align-items: center;
                 .num {
+                  text-align: right;
                   font-size: 23px;
                   color: #f69704;
                   font-weight: bold;
@@ -1588,6 +1581,35 @@ export default {
                 font-size: 18px;
                 color: #ffffff;
               }
+            }
+          }
+        }
+      }
+      .sourceBox{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        .sourceItem{
+          width: calc(100% / 3);
+          padding: 10px;
+          display: flex;
+          img{
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+          }
+          .sourceItemDetail{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .sourceItemName{
+              color: #fff;
+              font-size: 22px;
+              margin-bottom: 5px;
+            }
+            .sourceItemNum{
+              color: #f69704;
+              font-size: 24px;
             }
           }
         }
@@ -1772,7 +1794,7 @@ export default {
       }
     }
     .yqfx {
-      /*flex: 1;*/
+      flex: 1;
       background: rgba(255, 255, 255, 0.05);
       // display: flex;
       // flex-direction: column;
@@ -1796,6 +1818,13 @@ export default {
             color: #bbd5ff;
           }
         }
+      }
+      .lastBox{
+        width: 100%;
+        height: calc(100% - 30px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
       .zfzf {
         display: flex;
@@ -1822,7 +1851,7 @@ export default {
         }
       }
       .content-box {
-        flex: 1;
+        /*flex: 1;*/
         // background: #0982de;
         display: flex;
         flex-direction: column;
